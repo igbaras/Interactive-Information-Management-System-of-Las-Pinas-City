@@ -4,7 +4,7 @@ const context = canvas.getContext("2d");
 
 const frameCount = 77;
 const currentFrame = index => (
-  `https://www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/${index.toString().padStart(4, '0')}.jpg`
+  `https://raw.githubusercontent.com/Tiansing/Interactive-Information-Management-System-of-Las-Pinas-City/main/Assets/images/pngseq/seq${index.toString().padStart(2, '0')}.png`
 )
 
 const preloadImages = () => {
@@ -16,8 +16,8 @@ const preloadImages = () => {
 
 const img = new Image()
 img.src = currentFrame(1);
-canvas.width=1158;
-canvas.height=770;
+canvas.width=1980;
+canvas.height=1080;
 img.onload=function(){
   context.drawImage(img, 0, 0);
 }
