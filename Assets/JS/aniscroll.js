@@ -4,11 +4,11 @@ const context = canvas.getContext("2d");
 
 const frameCount = 77;
 const currentFrame = index => (
-  `https://raw.githubusercontent.com/Tiansing/Interactive-Information-Management-System-of-Las-Pinas-City/main/Assets/images/pngseq/seq${index.toString().padStart(2, '0')}.png`
+  `https://res.cloudinary.com/djxbln5ac/image/upload/v1649598252/Sequence/seq${index.toString().padStart(2, '0')}.png`
 )
 
 const preloadImages = () => {
-  for (let i = 1; i < frameCount; i++) {
+  for (let i = 30; i < frameCount; i++) {
     const img = new Image();
     img.src = currentFrame(i);
   }
