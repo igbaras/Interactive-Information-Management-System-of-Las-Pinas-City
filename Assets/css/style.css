@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&display=swap');
-
+@font-face{
+  font-family: "basement";
+  src: url("./BasementGrotesque-Black_v1.202.otf");
+}
+@font-face{
+  font-family: "aileron";
+  src: url("./Aileron-Regular.otf");
+}
 * {
   scroll-behavior: smooth;
 }
@@ -255,8 +262,8 @@ textarea {
 }
 .intro-text {
   color: rgb(233, 233, 233);
-  font-family: "Heebo", sans-serif;
-  font-size: 3rem;
+  font-family: 'basement';
+  font-size: 2rem;
 }
 
 .hide {
@@ -275,6 +282,7 @@ textarea {
 /* nav  */
 
 nav {
+  font-family: 'aileron';
   width: 80%;
   height: 100px;
   margin: 0 auto;
@@ -332,27 +340,29 @@ img {
   bottom: 0;
   right: 0;
   left: 0;
-  z-index: 2;
+  z-index: 10;
 }
 
 /* header  */
 
 .header {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'aileron';
   position: absolute;
-  top: 60%;
+  top: 50%;
   left: 28%;
   transform: translate(-50%, -50%);
 }
 
 .header h1 {
-  font-size: 90px;
+  font-family: 'basement';
+  font-size: 70px;
   text-transform: uppercase;
   margin: 0;
   mix-blend-mode: overlay;
 }
 
 .header-1 .letter {
+
   color: #0e2d27;
   display: inline-block;
   line-height: 1em;
@@ -366,6 +376,7 @@ img {
 /* hero-container */
 
 .sidebar-text {
+  font-family: 'aileron';
   position: absolute;
   top: 20%;
   right: 7%;
@@ -376,6 +387,7 @@ img {
 }
 
 .projects {
+  font-family: 'aileron';
   position: absolute;
   bottom: 10%;
   left: 15%;

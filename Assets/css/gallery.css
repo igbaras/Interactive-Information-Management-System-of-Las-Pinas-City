@@ -1,3 +1,7 @@
+@font-face{
+  font-family: "basement";
+  src: url("./BasementGrotesque-Black_v1.202.otf");
+}
 * {
     scroll-behavior: smooth;
   }
@@ -132,7 +136,7 @@
   }
   .intro-text {
     color: rgb(233, 233, 233);
-    font-family: "Heebo", sans-serif;
+    font-family: 'basement';
     font-size: 3rem;
   }
   
