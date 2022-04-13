@@ -5,9 +5,9 @@
 body {
   margin: 0;
   padding: 0;
-  height: 500vh;
+  height: 100vh;
   overflow-x: hidden;
-  background-color: black;
+  background-color: #f2f2f2;
   scroll-behavior: smooth;
 }
 canvas {
@@ -214,4 +214,47 @@ textarea {
 .contact-text a:hover {
   color: #fff;
   text-decoration: none;
+}
+.intro {
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: #0e2d27;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+.slider {
+  background: #f1b24a;
+  position: fixed;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  transform: translateY(100%);
+  z-index: 99999;
+}
+.intro h1{
+  font-size: 5rem;
+}
+.intro-text {
+  color: rgb(233, 233, 233);
+  font-family: "Heebo", sans-serif;
+  font-size: 3rem;
+}
+
+.hide {
+  background: #0e2d27;
+  overflow: hidden;
+}
+
+.hide span {
+  transform: translateY(100%);
+  display: inline-block;
 }
