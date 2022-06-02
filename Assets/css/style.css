@@ -451,3 +451,24 @@ img {
     display: none;
   }
 }
+.container2{
+max-width: 960px;
+margin: 0 auto;
+background: #F2F2F2;
+font-size: 24px;
+padding: 25px;
+}
+.parallax {
+  min-height: 400px;
+  background: transparent;
+}
+.sidebar-text2 {
+  font-family: 'aileron';
+  position: absolute;
+  top: 100%;
+  right: 7%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: transparent;
+  -webkit-text-stroke: 2px black;
+}
