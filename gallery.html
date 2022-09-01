@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <title>Contacts | The City of Las Piñas</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
     <link rel="shortcut icon" type="image icon" href="./Assets/images/lplogo.png">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Assets/css/gallery.css">
-    <title>Gallery | The City of Las Piñas</title>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Assets/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Assets/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Assets/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Assets/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Assets/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Assets/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Assets/css/util.css">
+    <link rel="stylesheet" type="text/css" href="Assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="Assets/css/gallery.css">
+    <!--===============================================================================================-->
 </head>
+
 <body>
 
     <div class="intro">
@@ -15,40 +37,80 @@
           <h1 class="hide">
             <span class="text">Welcome to Gallery</span>
           </h1>
-          <h5 class="hide">
-            <span class="text">Pictures everywhere.</span>
-          </h5>
+          <h2 class="hide">
+            <span class="text">Photos and Videos Everywhere.</span>
+          </h2>
         </div>
       </div>
    <div class="slider"></div>
 
-    <div class="navigation">
-        <div class="ham-btn" onclick="showNav()">
-            <span></span>
-            <span></span>
-            <span></span>
+
+   <div class="navigation">
+    <div class="ham-btn" onclick="showNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="links">
+        <div class="link1">
+            <a href="./index.html">About Las Piñas</a>
         </div>
-        <div class="links">
-            <div class="link1">
-                <a href="./index.html">About Las Piñas</a>
-            </div>
-            <div class="link2">
-                <a href="./programservice.html">Programs and Services</a>
-            </div>
-            <div class="link3">
-                <a href="./gallery.html">Gallery</a>
-            </div>
-            <div class="link4">
-                <a href="contact_us.html">Contact</a>
-            </div>
+        <div class="link2">
+            <a href="./programservice.html">Programs and Services</a>
+        </div>
+        <div class="link3">
+            <a href="./gallery.html">Gallery</a>
+        </div>
+        <div class="link4">
+            <a href="contact_us.html">Contact</a>
         </div>
     </div>
-    <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"
-    integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ=="
-    crossorigin="anonymous"
-  ></script>
+</div>
+
+
+
+    <div id="dropDownSelect1"></div>
     <script src="Assets/JS/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <script>
+        $(".selection-2").select2({
+            minimumResultsForSearch: 20,
+            dropdownParent: $('#dropDownSelect1')
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script src="Assets/vendor/daterangepicker/moment.min.js"></script>
+    <script src="Assets/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="Assets/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="Assets/JS/main.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+      <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"
+      integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ=="
+      crossorigin="anonymous"
+    ></script>
     <script src="./transition.js"></script>
 </body>
+
 </html>
