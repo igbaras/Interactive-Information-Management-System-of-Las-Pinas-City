@@ -12,20 +12,9 @@
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
   overflow-x: hidden;
   background-color: #F2F2F2;
   scroll-behavior: smooth;
-}
-canvas {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 100vw;
-  max-height: 100vh;
 }
 .navigation {
   position: fixed;
@@ -119,6 +108,8 @@ canvas {
 .navigation .links a:hover:after {
   width: 100%;
 }
+
+
 /* ---------------Start of Contact Us--------------- */
 
 #contact {
@@ -280,195 +271,3 @@ textarea {
 /* --------------------------------------------- Landing Page --------------------------------------------*/
 /* --------------------------------------------- Landing Page --------------------------------------------*/
 /* nav  */
-
-nav {
-  font-family: 'aileron';
-  width: 80%;
-  height: 100px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: center;
-  text-transform: uppercase;
-}
-
-.menu-item {
-  flex: 1;
-}
-
-.menu-left {
-  text-align: left;
-}
-
-.menu-center {
-  text-align: center;
-}
-
-.menu-right {
-  text-align: right;
-}
-
-.menu-link {
-  padding: 0 30px;
-}
-
-/* hero img  */
-
-.wrapper-img {
-  overflow: hidden;
-  position: relative;
-  top: 50% !important;
-  left: 50%;
-  transform: translate(-50%, 0%);
-  width: 30%;
-  height: 90vh;
-}
-
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.box {
-  background: #F1B24A;
-  opacity: 1;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: 10;
-}
-
-/* header  */
-
-.header {
-  font-family: 'aileron';
-  position: absolute;
-  top: 50%;
-  left: 28%;
-  transform: translate(-50%, -50%);
-}
-
-.header h1 {
-  font-family: 'basement';
-  font-size: 70px;
-  text-transform: uppercase;
-  margin: 0;
-  mix-blend-mode: overlay;
-}
-
-.header-1 .letter {
-
-  color: #0e2d27;
-  display: inline-block;
-  line-height: 1em;
-}
-.header-2 .letter {
-  color: #F1B24A;
-  display: inline-block;
-  line-height: 1em;
-}
-
-/* hero-container */
-
-.sidebar-text {
-  font-family: 'aileron';
-  position: absolute;
-  top: 20%;
-  right: 7%;
-  transform: translate(-50%, -50%);
-  font-size: 40px;
-  color: transparent;
-  -webkit-text-stroke: 2px black;
-}
-
-.projects {
-  font-family: 'aileron';
-  position: absolute;
-  bottom: 10%;
-  left: 15%;
-  transform: translate(-50%, -50%);
-  text-transform: uppercase;
-
-}
-
-.img-nav {
-  position: absolute;
-  right: 13%;
-  bottom: 13%;
-  transform: translate(-50%, -50%);
-  text-transform: uppercase;
-}
-
-.next {
-  position: relative;
-  top: 40px;
-  left: 80px;
-}
-
-/* loader  */
-
-.wrapper {
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  background: #0e2d27;
-  z-index: 2;
-}
-
-.loader {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 8%;
-  height: 20vh;
-  background: #F1B24A;
-  z-index: 2;
-}
-
-/* media queries  */
-
-@media (max-width: 900px) {
-  .wrapper-img {
-    width: 90%;
-  }
-  .header {
-    top: 50%;
-    left: 50%;
-    text-align: center;
-  }
-  .header h1 {
-    font-size: 40px;
-  }
-
-  .projects,
-  .img-nav {
-    display: none;
-  }
-}
-.container2{
-max-width: 960px;
-margin: 0 auto;
-background: #F2F2F2;
-font-size: 24px;
-padding: 25px;
-}
-.parallax {
-  min-height: 400px;
-  background: transparent;
-}
-.sidebar-text2 {
-  font-family: 'aileron';
-  position: absolute;
-  top: 100%;
-  right: 7%;
-  transform: translate(-50%, -50%);
-  font-size: 40px;
-  color: transparent;
-  -webkit-text-stroke: 2px black;
-}
