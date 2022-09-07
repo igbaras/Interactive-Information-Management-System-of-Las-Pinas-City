@@ -1,4 +1,4 @@
-<?php include "db.php"; ?>
+<?php include "../../includes/db.php"; ?>
 
 <?php
 if (isset($_POST["submit"])) {
@@ -18,9 +18,9 @@ if (isset($_POST["submit"])) {
     }
 
     if ($username === $db_username && $password === $db_password) {
-        header("Location:../login/dashboard.php");
+        header("Location:../portal.php");
     } else {
-        header("Location:../login/");
+        header("Location:../index.php");
     }
 }
 

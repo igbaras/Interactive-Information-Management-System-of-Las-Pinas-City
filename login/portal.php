@@ -208,163 +208,7 @@
         </div>
 
         <!-- Sidebar Menu -->
-        <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-            <li class="nav-item menu-open">
-              <a href="#" class="nav-link active">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
-                <p>
-                  Dashboard
-                </p>
-              </a>
-
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-sitemap"></i>
-                <p>
-                  Site
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="pages/layout/top-nav.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Messages</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Website Home</p>
-                  </a>
-                </li>
-
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-pagelines"></i>
-                <p>
-                  Post
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="pages/charts/chartjs.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Add Post</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/charts/flot.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>View All Posts</p>
-                  </a>
-                </li>
-
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-tree"></i>
-                <p>
-                  Gallery
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="pages/UI/general.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Add picture</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/UI/icons.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>View all pictures</p>
-                  </a>
-                </li>
-
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-edit"></i>
-                <p>
-                  Marketing
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="pages/forms/general.html" class="nav-link">
-
-                    <p>Virtual Tour</p>
-                    <i class="fas fa-angle-left right"></i>
-                  </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item"><a href="" class="nav-link"><i class="far fa-circle nav-icon"></i>Add Virtual
-                        tour </a></li>
-                    <li class="nav-item"><a href="" class="nav-link"><i class="far fa-circle nav-icon"></i>View all
-                        virtual tour </a></li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/forms/general.html" class="nav-link">
-
-                    <p>Advertisements</p>
-                    <i class="fas fa-angle-left right"></i>
-                  </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item"><a href="" class="nav-link"><i class="far fa-circle nav-icon"></i>Add
-                        advertisement</a></li>
-                    <li class="nav-item"><a href="" class="nav-link"><i class="far fa-circle nav-icon"></i>View all
-                        advertisements </a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-
-            <li class="nav-header">CONFIGURATIONS</li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <p>Dev Tools</p>
-                <i class="fas fa-angle-left right"></i>
-              </a>
-
-              <ul class="nav nav-treeview">
-                <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>Item1</a></li>
-                <li class="nav-item"><a href="" class="nav-link"><i class="far fa-circle nav-icon"></i>Item2</a></li>
-              </ul>
-
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <p>Settings</p>
-                <i class="fas fa-angle-left right"></i>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>Users</a></li>
-                <li class="nav-item"><a href="" class="nav-link"><i class="far fa-circle nav-icon"></i>My Profile</a>
-                </li>
-              </ul>
-
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class=" nav-icon fa fa-power-off"></i>
-                <p>Logout</p>
-              </a>
-            </li>
-
-        </nav>
+        <?php include "includes/sidebar_menu.php"; ?>
         <!-- /.sidebar-menu -->
       </div>
       <!-- /.sidebar -->
@@ -401,10 +245,40 @@
                 <div class="inner">
                   <h3>150</h3>
 
-                  <p>New Orders</p>
+                  <p>Pending Reviews</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-bag"></i>
+                  <i class="ion ion-android-clipboard"></i>
+                </div>
+                <a href=" #" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+              <!-- small box -->
+              <div class="small-box bg-primary">
+                <div class="inner">
+                  <h3>53</h3>
+
+                  <p>Total Articles</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-filing"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+              <!-- small box -->
+              <div class="small-box bg-primary">
+                <div class="inner">
+                  <h3>44</h3>
+
+                  <p>Total Categories</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-ios-list"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
@@ -414,42 +288,12 @@
               <!-- small box -->
               <div class="small-box bg-success">
                 <div class="inner">
-                  <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                  <p>Bounce Rate</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-stats-bars"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-              <!-- small box -->
-              <div class="small-box bg-warning">
-                <div class="inner">
-                  <h3>44</h3>
-
-                  <p>User Registrations</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-person-add"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-              <!-- small box -->
-              <div class="small-box bg-danger">
-                <div class="inner">
                   <h3>65</h3>
 
-                  <p>Unique Visitors</p>
+                  <p>Daily Visits</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
+                  <i class="ion ion-ios-people"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
@@ -466,7 +310,7 @@
                 <div class="card-header">
                   <h3 class="card-title">
                     <i class="fas fa-chart-pie mr-1"></i>
-                    Sales
+                    Daily Visits
                   </h3>
                   <div class="card-tools">
                     <ul class="nav nav-pills ml-auto">
@@ -881,7 +725,7 @@
                 <div class="card-header border-0">
                   <h3 class="card-title">
                     <i class="fas fa-th mr-1"></i>
-                    Sales Graph
+                    Published Articles Graph
                   </h3>
 
                   <div class="card-tools">
