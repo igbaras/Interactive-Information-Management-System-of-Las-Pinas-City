@@ -1,3 +1,20 @@
+<?php session_start(); ?>
+<?php ob_start(); ?>
+
+<?php
+
+if (isset($_SESSION['user_role'])) {
+
+  if ($_SESSION['user_role'] == 'admin') {
+    header("Location: admin/portal.php");
+  } else if ($_SESSION['user_role'] == 'writer') {
+    header("Location: writer_editor/writer_portal.php");
+  } else if ($_SESSION['user_role'] == 'customer service') {
+    header("Location: customer_service/cs_portal.php");
+  }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +27,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
   <!-- icheck bootstrap -->
   <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
@@ -25,15 +43,27 @@
       <img class="animation__shake" src="https://res.cloudinary.com/sarabgi/image/upload/v1662100389/lpc_mbzrbe.png" alt="AdminLTELogo" width="200">
     </div>
 
+
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
       <div class="card-header text-center">
         <a href="index.html" class="h1"><b>Login</b></a>
       </div>
+
       <div class="card-body">
         <p class="login-box-msg">Sign in to start your session</p>
+        <!-- 
+        <form action="imageupload.php" method="post" runat="server" enctype="multipart/form-data">
+          <div class="input-group">
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <input class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04" name="submit" value="submit">
 
-        <form action="../includes/user_login.php" method="post">
+        </form>
+
+
+ -->
+
+        <form action="user_login.php" method="post">
           <div class="input-group mb-3">
             <input type="text" class="form-control" name="username" placeholder="Username">
             <div class="input-group-append">
@@ -53,7 +83,7 @@
           <div class="row">
             <div class="col-8">
               <div class="icheck-primary">
-                <input type="checkbox" id="remember">
+                <input type="checkbox" name="remember" id="remember">
                 <label for="remember">
                   Remember Me
                 </label>
