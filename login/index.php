@@ -1,3 +1,20 @@
+<?php session_start(); ?>
+<?php ob_start(); ?>
+
+<?php
+
+if (isset($_SESSION['user_role'])) {
+
+  if ($_SESSION['user_role'] == 'admin') {
+    header("Location: admin/portal.php");
+  } else if ($_SESSION['user_role'] == 'writer') {
+    header("Location: writer_editor/writer_portal.php");
+  } else if ($_SESSION['user_role'] == 'customer service') {
+    header("Location: customer_service/cs_portal.php");
+  }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,7 +52,7 @@
 
       <div class="card-body">
         <p class="login-box-msg">Sign in to start your session</p>
-
+        <!-- 
         <form action="imageupload.php" method="post" runat="server" enctype="multipart/form-data">
           <div class="input-group">
             <input type="file" name="fileToUpload" id="fileToUpload">
@@ -44,9 +61,9 @@
         </form>
 
 
+ -->
 
-
-        <form action="includes/user_login.php" method="post">
+        <form action="user_login.php" method="post">
           <div class="input-group mb-3">
             <input type="text" class="form-control" name="username" placeholder="Username">
             <div class="input-group-append">
@@ -66,7 +83,7 @@
           <div class="row">
             <div class="col-8">
               <div class="icheck-primary">
-                <input type="checkbox" id="remember">
+                <input type="checkbox" name="remember" id="remember">
                 <label for="remember">
                   Remember Me
                 </label>
