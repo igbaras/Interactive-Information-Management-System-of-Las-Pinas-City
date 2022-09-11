@@ -3,9 +3,9 @@
 
 
 <!-- Preloader -->
-<div class="preloader flex-column justify-content-center align-items-center">
+<!-- <div class="preloader flex-column justify-content-center align-items-center">
   <img class="animation__shake" src="../dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-</div>
+</div> -->
 
 <!-- Navbar -->
 <?php include "includes/admin_navbar.php"; ?>
@@ -27,16 +27,17 @@
             <h3 class="card-title">Manage Category</h3>
           </div>
           <!-- /.card-header -->
-          <!-- form start -->
-          <form>
+          <!-- category form start -->
+
+          <form action="" method="post">
             <div class="card-body">
+              <?php insert_category(); ?>
               <div class="form-group">
                 <label for="exampleInputEmail1">Category</label>
                 <div class="input-group">
-
-                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Category">
+                  <input type="text" class="form-control" name="cat_title">
                   <div class="input-group-apprend">
-                    <button type="submit" class="btn btn-primary">Add Category</button>
+                    <input type="submit" name="submit" class="btn btn-primary" value="Add Category">
                   </div>
                 </div>
               </div>
@@ -73,62 +74,8 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>183</td>
-                    <td>John Doe</td>
-                    <td>11-7-2014</td>
-                    <td><span class="tag tag-success">Approved</span></td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                  </tr>
-                  <tr>
-                    <td>219</td>
-                    <td>Alexander Pierce</td>
-                    <td>11-7-2014</td>
-                    <td><span class="tag tag-warning">Pending</span></td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                  </tr>
-                  <tr>
-                    <td>657</td>
-                    <td>Bob Doe</td>
-                    <td>11-7-2014</td>
-                    <td><span class="tag tag-primary">Approved</span></td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                  </tr>
-                  <tr>
-                    <td>175</td>
-                    <td>Mike Doe</td>
-                    <td>11-7-2014</td>
-                    <td><span class="tag tag-danger">Denied</span></td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                  </tr>
-                  <tr>
-                    <td>134</td>
-                    <td>Jim Doe</td>
-                    <td>11-7-2014</td>
-                    <td><span class="tag tag-success">Approved</span></td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                  </tr>
-                  <tr>
-                    <td>494</td>
-                    <td>Victoria Doe</td>
-                    <td>11-7-2014</td>
-                    <td><span class="tag tag-warning">Pending</span></td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                  </tr>
-                  <tr>
-                    <td>832</td>
-                    <td>Michael Doe</td>
-                    <td>11-7-2014</td>
-                    <td><span class="tag tag-primary">Approved</span></td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                  </tr>
-                  <tr>
-                    <td>982</td>
-                    <td>Rocky Doe</td>
-                    <td>11-7-2014</td>
-                    <td><span class="tag tag-danger">Denied</span></td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                  </tr>
+
+                  <?php findAllCategories(); ?>
                 </tbody>
               </table>
             </div>

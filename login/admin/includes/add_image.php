@@ -4,7 +4,7 @@
 
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Add News</h3>
+                    <h3 class="card-title">Add Image</h3>
 
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -14,11 +14,11 @@
                 </div>
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="NewsTitle">News Title</label>
+                        <label for="imageTitle">Image Title</label>
                         <input type="text" id="inputName" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="NewsCategory">News Category</label>
+                        <label for="imageCategory">Image Category</label>
                         <select class="custom-select">
                             <option>option 1</option>
                             <option>option 2</option>
@@ -28,23 +28,19 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="inputStatus">News Author</label>
+                        <label for="imageAuthor">Image Author</label>
                         <input type="text" id="inputName" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="inputClientCompany">News Image</label>
+                        <label for="UploadImage">Upload Image</label>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="exampleInputFile">
                             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="articleTags">News Tags</label>
+                        <label for="imageTags">Image Tags</label>
                         <input type="text" id="inputName" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputProjectLeader">News Content</label>
-                        <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
                     </div>
                 </div>
                 <!-- /.card-body -->

@@ -39,7 +39,11 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputProjectLeader">Article Content</label>
+                        <label for="articleTags">Article Tags</label>
+                        <input type="text" id="inputName" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="ArticleCOntent">Article Content</label>
                         <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
                     </div>
                 </div>

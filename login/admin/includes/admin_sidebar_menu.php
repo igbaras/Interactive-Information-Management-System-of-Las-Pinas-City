@@ -79,7 +79,7 @@
                     </a>
 
                 </li>
-                <li class="nav-item <?= ($activePage == 'articles.php') ? 'menu-open' : ''; ?>">
+                <li class="nav-item <?= ($activePage == 'articles.php') ? 'menu-open' : ''; ?><?= ($activePage == 'news.php') ? 'menu-open' : ''; ?>">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-book"></i>
                         <p>
@@ -97,7 +97,7 @@
                             </a>
                         </li>
                         <li class="nav-item active">
-                            <a href="./articles.php" class="nav-link <?= ($activePage == 'view_all_articles') ? 'active' : ''; ?>">
+                            <a href="./articles.php" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>View All Articles</p>
                             </a>
@@ -107,13 +107,13 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-header">NEWS</li>
                         <li class="nav-item">
-                            <a href="./news.php?source=add_news" class="nav-link">
+                            <a href="./news.php?source=add_news" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add News</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./news.php" class="nav-link">
+                            <a href="./news.php" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>View All News</p>
                             </a>
@@ -122,7 +122,7 @@
                     </ul>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item <?= ($activePage == 'gallery.php') ? 'menu-open' : ''; ?>">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-image"></i>
                         <p>
@@ -132,13 +132,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/UI/general.html" class="nav-link">
+                            <a href="gallery.php?source=add_image" class="nav-link <?= ($activePage == 'gallery.php?source=add_image') ? 'active' : ''; ?>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add picture</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/UI/icons.html" class="nav-link">
+                            <a href="gallery.php" class="nav-link <?= ($activePage == 'gallery.php?source=view_all_images') ? 'active' : ''; ?>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>View all pictures</p>
                             </a>
