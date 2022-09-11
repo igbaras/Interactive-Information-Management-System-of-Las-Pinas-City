@@ -16,7 +16,27 @@
 
 
 <!-- CONTENT WRAPPER. CONTAINS PAGE CONTENT -->
-<?php include "includes/admin_dashboard.php" ?>
+<?php
+if (isset($_GET['source'])) {
+  $source = $_GET['source'];
+} else {
+  $source = '';
+}
+
+switch ($source) {
+
+  case 'add_news':
+    include 'includes/add_news.php';
+    break;
+  case 'edit_news':
+    include 'includes/edit_news.php';
+    break;
+  default:
+    include 'includes/view_all_news.php';
+}
+
+
+?>
 <!-- /.content-wrapper -->
 
 
