@@ -1,3 +1,4 @@
+<?php include "includes/db.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +14,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">   
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
@@ -83,8 +84,7 @@
                 <div class="input-group ml-auto" style="width: 100%; max-width: 300px;">
                     <input type="text" class="form-control" placeholder="Keyword">
                     <div class="input-group-append">
-                        <button class="input-group-text text-secondary"><i
-                                class="fa fa-search"></i></button>
+                        <button class="input-group-text text-secondary"><i class="fa fa-search"></i></button>
                     </div>
                 </div>
             </div>
@@ -121,7 +121,7 @@
                         <a class="text-secondary font-weight-semi-bold" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -163,30 +163,25 @@
                         <h3 class="m-0">Categories</h3>
                         <a class="text-secondary font-weight-medium text-decoration-none" href="">View All</a>
                     </div>
-                    <div class="position-relative overflow-hidden mb-3" style="height: 80px;">
-                        <img class="img-fluid w-100 h-100" src="./Assets/newsassets/img/cat-500x80-1.jpg" style="object-fit: cover;">
-                        <a href="" class="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">
-                            Business
-                        </a>
-                    </div>
-                    <div class="position-relative overflow-hidden mb-3" style="height: 80px;">
-                        <img class="img-fluid w-100 h-100" src="./Assets/newsassets/img/cat-500x80-2.jpg" style="object-fit: cover;">
-                        <a href="" class="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">
-                            Technology
-                        </a>
-                    </div>
-                    <div class="position-relative overflow-hidden mb-3" style="height: 80px;">
-                        <img class="img-fluid w-100 h-100" src="./Assets/newsassets/img/cat-500x80-3.jpg" style="object-fit: cover;">
-                        <a href="" class="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">
-                            Entertainment
-                        </a>
-                    </div>
-                    <div class="position-relative overflow-hidden" style="height: 80px;">
-                        <img class="img-fluid w-100 h-100" src="./Assets/newsassets/img/cat-500x80-4.jpg" style="object-fit: cover;">
-                        <a href="" class="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">
-                            Sports
-                        </a>
-                    </div>
+                    <?php
+                    $query = "SELECT * FROM categories";
+                    $select_all_cat = mysqli_query($connection, $query);
+                    if (!$connection) {
+                        die("CONNECTION FAILED" . " " . mysqli_error($connection));
+                    }
+                    while ($row = mysqli_fetch_assoc($select_all_cat)) {
+                        $cat_title = $row['cat_title'];
+
+
+
+                    ?>
+                        <div class="position-relative overflow-hidden mb-3" style="height: 80px;">
+                            <img class="img-fluid w-100 h-100" src="./Assets/newsassets/img/cat-500x80-1.jpg" style="object-fit: cover;">
+                            <a href="" class="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">
+                                <?php echo $cat_title; ?>
+                            </a>
+                        </div>
+                    <?php   } ?>
                 </div>
             </div>
         </div>
@@ -531,11 +526,11 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="mb-3 pb-3">
                         <a href=""><img class="img-fluid w-100" src="./Assets/newsassets/img/ads-700x70.jpg" alt=""></a>
                     </div>
-                    
+
                     <div class="row">
                         <div class="col-12">
                             <div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
@@ -617,7 +612,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-4 pt-3 pt-lg-0">
                     <!-- Social Follow Start -->
                     <div class="pb-3">
@@ -831,10 +826,10 @@
     </div>
     <div class="container-fluid py-4 px-sm-3 px-md-5">
         <p class="m-0 text-center">
-            &copy; <a class="font-weight-bold" href="#">Your Site Name</a>. All Rights Reserved. 
-			
-			
-			Designed by <a class="font-weight-bold" href="https://freewebsitecode.com">Free Website Code</a>
+            &copy; <a class="font-weight-bold" href="#">Your Site Name</a>. All Rights Reserved.
+
+
+            Designed by <a class="font-weight-bold" href="https://freewebsitecode.com">Free Website Code</a>
         </p>
     </div>
     <!-- Footer End -->

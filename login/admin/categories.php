@@ -45,6 +45,78 @@
           </form>
         </div>
 
+        <?php updateCategory(); ?>
+
+        <!-- Edit Category Modal -->
+        <form action="" method="post">
+
+          <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header  bg-info">
+                  <h5 class="modal-title" id="editCatedory">Edit Category</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="form-group">
+                    <label for="editCategory">Category:</label>
+                    <div class="input-group">
+                      <input type="hidden" name="cat_id" id="cat_id">
+                      <input type="text" class="form-control mb-3" name="cat_title" id="cat_title">
+
+                    </div>
+                    <label for="editCategory">Created:</label>
+                    <div class="input-group">
+                      <input type="text" id="cat_date" class="col-4 form-control" readonly>
+                    </div>
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary" name="update-categories" value="Update Category">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <!-- DELETE POP UP FORM (Bootstrap MODAL) -->
+        <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"> Delete Category Data </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+
+              <?php deleteCategory(); ?>
+
+              <form method="POST">
+
+                <div class="modal-body">
+
+                  <input type="hidden" name="cat_id" id="delete_id">
+
+                  <h4> Do you want to Delete this Data ??</h4>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal"> NO </button>
+                  <button type="submit" name="delete_data" class="btn btn-primary"> Yes </butron>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- List  of Category Table -->
+
 
         <div class="col">
           <div class="card">
@@ -64,6 +136,7 @@
               </div>
             </div>
             <!-- /.card-header -->
+
             <div class="card-body table-responsive p-0" style="height: 330px;">
               <table class="table table-head-fixed text-nowrap">
                 <thead>
@@ -75,14 +148,36 @@
                 </thead>
                 <tbody>
 
-                  <?php findAllCategories(); ?>
+                  <?php
+
+                  $query = "SELECT * FROM categories";
+                  $all_categories_query = mysqli_query($connection, $query);
+                  if (!$all_categories_query) {
+                    die("CONNECTION FAILED" . " " . mysqli_error($connection));
+                  }
+                  while ($row = mysqli_fetch_assoc($all_categories_query)) {
+                    $cat_id = $row['cat_id'];
+                    $cat_title = $row['cat_title'];
+                    $cat_date = $row['cat_date'];
+
+                  ?>
+                    <tr>
+                      <td> <?php echo $cat_id; ?> </td>
+                      <td><?php echo $cat_title; ?> </td>
+                      <td><?php echo $cat_date; ?> </td>
+                      <td> <button class='btn btn-primary edit_btn' data-toggle='modal'><i class='fas fa-edit'></i></button> <button class='btn btn-danger deletebtn' data-toggle='modal'><i class='fas fa-trash'></i></button></td>
+                    </tr>
+
+                  <?php } ?>
                 </tbody>
               </table>
             </div>
+
             <!-- /.card-body -->
           </div>
           <!-- /.card -->
         </div>
+
       </div>
     </div>
 
@@ -97,3 +192,41 @@
 
 <!-- Admin Footer -->
 <?php include "includes/admin_footer.php" ?>
+<script>
+  $(document).ready(function() {
+    $('.edit_btn').on('click', function() {
+
+      $('#editModal').modal('show');
+      $tr = $(this).closest('tr');
+
+      var data = $tr.children("td").map(function() {
+        return $(this).text();
+      }).get();
+
+      console.log(data);
+
+      $('#cat_id').val(data[0]);
+      $('#cat_title').val(data[1]);
+      $('#cat_date').val(data[2]);
+
+    });
+
+    // DELETE FUNCTION
+    $('.deletebtn').on('click', function() {
+
+      $('#deletemodal').modal('show');
+
+      $tr = $(this).closest('tr');
+
+      var data = $tr.children("td").map(function() {
+        return $(this).text();
+      }).get();
+
+      console.log(data);
+
+      $('#delete_id').val(data[0]);
+
+    });
+
+  });
+</script>

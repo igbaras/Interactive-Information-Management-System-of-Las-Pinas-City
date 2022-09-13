@@ -39,6 +39,10 @@
 
     <!-- Ekko Lightbox -->
     <link rel="stylesheet" href="../plugins/ekko-lightbox/ekko-lightbox.css">
+
+    <!-- Summer Note -->
+    <link href="../../summernote/summernote.min.css" rel="stylesheet">
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
