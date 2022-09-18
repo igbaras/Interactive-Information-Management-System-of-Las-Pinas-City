@@ -1,3 +1,29 @@
+<?php
+if (isset($_POST['submit'])) {
+
+
+
+    $art_category_id = $_POST['art_category_id'];
+    $art_title = $_POST['art_title'];
+    $art_author = $_POST['art_author'];
+
+    $art_image = $_POST['art_image'];
+    $art_content = $_POST['art_content'];
+    $art_tags = $_POST['art_tags'];
+
+
+    $query = "INSERT INTO articles (art_category_id, art_title, art_author, art_date, art_content, art_tags) ";
+    $query .= "VALUES ({$art_category_id} ,'{$art_title}','{$art_author}',now(),'{$art_content}','{$art_tags}')";
+    $insert_articles_query = mysqli_query($connection, $query);
+    if (!$insert_articles_query) {
+
+        die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+    }
+}
+
+?>
+
+
 <div class="content-wrapper">
     <section class="content">
         <div class="container-fluid">
@@ -13,22 +39,10 @@
                     </div>
                 </div>
 
-                <?php
-                if (isset($_POST['submit']))
-                    $art_content = filter_var(htmlentities($_POST['editordata']), FILTER_SANITIZE_STRING);
-
-                $query = "INSERT INTO articles (art_contetnt) VALUE('{$art_content}')";
-                $insert_articles_query = mysqli_query($connection, $query);
-
-                if (!$insert_articles_query) {
-
-                    die("QUERY CONNECTION FAILED " . mysqli_error($connection));
-                }
-
-                ?>
 
 
-                <form method="post" id="postForm">
+
+                <form method="post">
                     <div class="card-body">
                         <div class="form-group">
                             <label for="articleTitle">Article Title</label>
@@ -67,12 +81,14 @@
                         </div>
                         <div class="form-group">
                             <label for="ArticleCOntent">Article Content</label>
-                            <textarea name="editordata" id="summernote" cols="30" rows="10" class="form-control"></textarea>
+                            <textarea name="art_content" id="summernote" class="form-control"></textarea>
                         </div>
                     </div>
+                    <input type="submit" class="btn btn-outline-primary btn-lg" name="submit" value="SUBMIT">
                 </form>
                 <!-- /.card-body -->
-                <button class="btn btn-outline-primary btn-lg" id="submit-post" name="submit">SUBMIT</button>
+
+
             </div>
         </div>
     </section>
