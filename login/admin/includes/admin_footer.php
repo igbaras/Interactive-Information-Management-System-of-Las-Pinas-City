@@ -73,8 +73,8 @@
 <script src="../plugins/filterizr/jquery.filterizr.min.js"></script>
 
 <!-- Summer Note -->
-<script src="../../summernote/summernote.min.js"></script>
-<script src="../../dist/js/main.js"></script>
+<script src="../summernote/summernote.min.js"></script>
+<script src="../dist/js/main.js"></script>
 
 
 
@@ -119,6 +119,25 @@
             $(this).addClass('active');
         });
     })
+</script>
+
+<script>
+    $(document).ready(function() {
+        $("#summernote").summernote();
+
+        $("#submit-post").click(function(e) {
+            e.preventDefault();
+            var form = $("#postForm");
+
+            $.ajax({
+                url: "add_article.php",
+                data: $(form).serialize(),
+                method: "POST",
+            }).done(function(response) {
+                var data = JSON.parse(response);
+            });
+        });
+    });
 </script>
 </body>
 

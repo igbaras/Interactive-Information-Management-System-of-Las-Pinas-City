@@ -41,7 +41,7 @@
     <link rel="stylesheet" href="../plugins/ekko-lightbox/ekko-lightbox.css">
 
     <!-- Summer Note -->
-    <link href="../../summernote/summernote.min.css" rel="stylesheet">
+    <link href="../summernote/summernote.min.css" rel="stylesheet">
 
 </head>
 
