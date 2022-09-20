@@ -7,13 +7,15 @@ if (isset($_POST['submit'])) {
     $art_title = $_POST['art_title'];
     $art_author = $_POST['art_author'];
 
-    $art_image = $_POST['art_image'];
+    $art_image = $_FILES['art_image']['name'];
+    $art_image_temp = $_FILES['art_image']['tmp_name'];
     $art_content = $_POST['art_content'];
     $art_tags = $_POST['art_tags'];
 
+    move_uploaded_file($art_image_temp, "../images/articles/$art_image/");
 
-    $query = "INSERT INTO articles (art_category_id, art_title, art_author, art_date, art_content, art_tags) ";
-    $query .= "VALUES ({$art_category_id} ,'{$art_title}','{$art_author}',now(),'{$art_content}','{$art_tags}')";
+    $query = "INSERT INTO articles (art_category_id, art_title, art_author, art_date, art_image, art_content, art_tags) ";
+    $query .= "VALUES ({$art_category_id} ,'{$art_title}','{$art_author}',now(), '{$art_image}','{$art_content}','{$art_tags}')";
     $insert_articles_query = mysqli_query($connection, $query);
     if (!$insert_articles_query) {
 
@@ -42,7 +44,7 @@ if (isset($_POST['submit'])) {
 
 
 
-                <form method="post">
+                <form method="post" enctype="multipart/form-data">
                     <div class="card-body">
                         <div class="form-group">
                             <label for="articleTitle">Article Title</label>
@@ -69,11 +71,21 @@ if (isset($_POST['submit'])) {
                             <input type="text" id="inputName" class="form-control" name="art_author">
                         </div>
                         <div class="form-group">
+                            <label for="articleCategory">Article Status</label>
+                            <select class="custom-select" name="art_status">
+                                <option value="draft" active>Select Status</option>
+                                <option value="published">Publish</option>
+                                <option value="draft">Draft</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="inputClientCompany">Article Image</label>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="exampleInputFile" name="art_image">
-                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                            </div>
+                            <div id="selectedBanner"></div>
+
+                            <input type="file" class="form-control" id="img" name="art_image">
+
+
+
                         </div>
                         <div class="form-group">
                             <label for="articleTags">Article Tags</label>
