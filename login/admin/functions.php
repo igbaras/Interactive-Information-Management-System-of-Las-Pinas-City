@@ -7,6 +7,7 @@ function insert_category()
     $cat_title = $_POST['cat_title'];
 
 
+
     if ($cat_title = "" || empty($cat_title)) {
       echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
           <strong>Fields should not be empty!</strong>
@@ -16,8 +17,12 @@ function insert_category()
         </div>";
     } else {
       $cat_title = $_POST['cat_title'];
-      $query = "INSERT INTO  categories (cat_title , cat_date)";
-      $query .= " VALUE ('{$cat_title}', now())";
+      $cat_image = $_FILES['cat_image']['name'];
+      $cat_image_temp = $_FILES['cat_image']['tmp_name'];
+      $cat_date = date('d-m-y');
+      move_uploaded_file($cat_image_temp, "../images/categories/$cat_image/");
+      $query = "INSERT INTO  categories (cat_title , cat_image, cat_date)";
+      $query .= " VALUE ('{$cat_title}', '{$cat_image}', now())";
       $insert_category_query = mysqli_query($connection, $query);
 
       if (!$connection) {

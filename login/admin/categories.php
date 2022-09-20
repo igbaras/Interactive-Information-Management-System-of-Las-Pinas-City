@@ -29,7 +29,7 @@
           <!-- /.card-header -->
           <!-- category form start -->
 
-          <form action="" method="post">
+          <form action="" method="post" enctype="multipart/form-data">
             <div class="card-body">
               <?php insert_category(); ?>
               <div class="form-group">
@@ -39,6 +39,15 @@
                   <div class="input-group-apprend">
                     <input type="submit" name="submit" class="btn btn-primary" value="Add Category">
                   </div>
+                </div>
+
+                <div class="form-group mt-3">
+                  <label for="inputClientCompany">Category Image</label>
+                  <div id="selectedBanner"></div>
+
+                  <input type="file" class="form-control" name="cat_image" id="img">
+
+
                 </div>
               </div>
               <!-- /.card-body -->
@@ -193,6 +202,8 @@
 <!-- Admin Footer -->
 <?php include "includes/admin_footer.php" ?>
 <script>
+  var selDiv = "";
+  var storedFiles = [];
   $(document).ready(function() {
     $('.edit_btn').on('click', function() {
 
@@ -229,4 +240,37 @@
     });
 
   });
+</script>
+
+<!-- DISPLAY SELECTED IMAGE -->
+<script>
+  var selDiv = "";
+  var storedFiles = [];
+  $(document).ready(function() {
+    $("#img").on("change", handleFileSelect);
+    selDiv = $("#selectedBanner");
+  });
+
+  function handleFileSelect(e) {
+    var files = e.target.files;
+    var filesArr = Array.prototype.slice.call(files);
+    filesArr.forEach(function(f) {
+      if (!f.type.match("image.*")) {
+        return;
+      }
+      storedFiles.push(f);
+
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var html =
+          '<img src="' +
+          e.target.result +
+          "\" data-file='" +
+          f.name +
+          "alt='Category Image' height='200px' width='200px'>";
+        selDiv.html(html);
+      };
+      reader.readAsDataURL(f);
+    });
+  }
 </script>
