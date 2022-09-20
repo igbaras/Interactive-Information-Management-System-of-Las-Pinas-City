@@ -62,7 +62,7 @@ body {
   line-height: 1.5;
   color: #ffffff;
   text-align: left;
-  background-color: #00180A;
+  background-color: #F2F2F2;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -2588,7 +2588,7 @@ fieldset:disabled a.btn {
 
 .btn-light {
   color: #212529;
-  background-color: #00180A;
+  background-color: #F2F2F2;
   border-color: #ffffff;
 }
 
@@ -2607,7 +2607,7 @@ fieldset:disabled a.btn {
 
 .btn-light.disabled, .btn-light:disabled {
   color: #212529;
-  background-color: #00180A;
+  background-color: #F2F2F2;
   border-color: #ffffff;
 }
 
@@ -2859,7 +2859,7 @@ fieldset:disabled a.btn {
 
 .btn-outline-light:hover {
   color: #212529;
-  background-color: #00180A;
+  background-color: #F2F2F2;
   border-color: #ffffff;
 }
 
@@ -4761,7 +4761,7 @@ a.badge-danger:focus, a.badge-danger.focus {
 
 .badge-light {
   color: #212529;
-  background-color: #00180A;
+  background-color: #F2F2F2;
 }
 
 a.badge-light:hover, a.badge-light:focus {
@@ -9491,7 +9491,7 @@ h6,
 
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link.active {
-  color: #00180A;
+  color: #F2F2F2;
   background: #F1B24A;
 }
 
