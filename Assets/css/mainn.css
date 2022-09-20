@@ -288,7 +288,7 @@ input, select, textarea {
 		}
 
 		99% {
-			color: #EFF4ED;
+			color: #DADFD9;
 			z-index: 100001;
 			-moz-transform: scale(0.5) rotate(360deg);
 			-webkit-transform: scale(0.5) rotate(360deg);
@@ -297,7 +297,7 @@ input, select, textarea {
 		}
 
 		100% {
-			color: #EFF4ED;
+			color: #DADFD9;
 			z-index: -1;
 			-moz-transform: scale(0.5) rotate(360deg);
 			-webkit-transform: scale(0.5) rotate(360deg);
@@ -593,7 +593,7 @@ input, select, textarea {
 			-webkit-animation: overlay-hide 1.5s ease-in forwards !important;
 			-ms-animation: overlay-hide 1.5s ease-in forwards !important;
 			animation: overlay-hide 1.5s ease-in forwards !important;
-			background: #EFF4ED;
+			background: #DADFD9;
 			content: '';
 			display: block;
 			height: 100%;
@@ -3083,7 +3083,7 @@ input, select, textarea {
 			-webkit-transition: -webkit-transform 1s ease, opacity 1s ease;
 			-ms-transition: -ms-transform 1s ease, opacity 1s ease;
 			transition: transform 1s ease, opacity 1s ease;
-			background: #EFF4ED;
+			background: #DADFD9;
 			border-style: solid;
 			opacity: 0.80;
 			position: absolute;
@@ -3313,7 +3313,7 @@ input, select, textarea {
 /* Dropotron */
 
 	.dropotron {
-		background: #EFF4ED;
+		background: #DADFD9;
 		border-radius: 4px;
 		box-shadow: 0 0.075em 0.35em 0 rgba(0, 0, 0, 0.125);
 		list-style: none;
@@ -3329,7 +3329,7 @@ input, select, textarea {
 
 			.dropotron > li a, .dropotron > li span {
 				border: 0;
-				color: rgba(255, 255, 255, 0.75);
+				color: #00180A;
 				display: block;
 				padding: 0.1em 1em;
 				text-decoration: none;
@@ -3670,7 +3670,7 @@ input, select, textarea {
 				}
 
 				.spotlight .content {
-					background-color: #EFF4ED;
+					background-color: #DADFD9;
 					border-width: 0 !important;
 					border-top-width: 0.35em !important;
 					bottom: auto !important;

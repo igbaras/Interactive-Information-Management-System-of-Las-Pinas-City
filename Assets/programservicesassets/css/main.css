@@ -99,7 +99,7 @@ input, select, textarea {
 	}
 
 	body {
-		background: #EFF4ED;
+		background: #DADFD9;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -116,7 +116,7 @@ input, select, textarea {
 /* Type */
 
 	body, input, select, textarea {
-		color: #ffffff;
+		color: #00180A;
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
 		font-size: 16pt;
 		font-weight: 300;
@@ -2185,7 +2185,7 @@ input, select, textarea {
 	}
 
 		select option {
-			background: #ffffff;
+			background: #00180A;
 		}
 
 		select:focus::-ms-value {
@@ -2269,7 +2269,7 @@ input, select, textarea {
 		input[type="radio"]:checked + label:before {
 			background: #585858;
 			border-color: #585858;
-			color: #ffffff;
+			color: #fff;
 			content: '\f00c';
 		}
 
@@ -2529,7 +2529,7 @@ input, select, textarea {
 		.button.primary {
 			box-shadow: none;
 			background-color: #585858;
-			color: #ffffff !important;
+			color: #fff !important;
 		}
 
 			input[type="submit"].primary:hover,
@@ -2634,7 +2634,7 @@ input, select, textarea {
 					left: 0;
 					width: 100%;
 					height: 100%;
-					background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cstyle%3Eline %7B stroke-width: 0.25px%3B stroke: %23ffffff%3B %7D%3C/style%3E%3Cline x1='0' y1='0' x2='100' y2='100' /%3E%3Cline x1='100' y1='0' x2='0' y2='100' /%3E%3C/svg%3E");
+					background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cstyle%3Eline %7B stroke-width: 0.25px%3B stroke: %fff%3B %7D%3C/style%3E%3Cline x1='0' y1='0' x2='100' y2='100' /%3E%3Cline x1='100' y1='0' x2='0' y2='100' /%3E%3C/svg%3E");
 					background-position: center;
 					background-repeat: no-repeat;
 					background-size: 100% 100%;
@@ -2671,7 +2671,7 @@ input, select, textarea {
 				padding: 1em;
 				border-radius: 4px;
 				border-bottom: 0;
-				color: #ffffff;
+				color: #fff;
 				text-align: center;
 				text-decoration: none;
 				z-index: 3;
@@ -2682,7 +2682,7 @@ input, select, textarea {
 				}
 
 				.tiles article > a:hover {
-					color: #ffffff !important;
+					color: #fff !important;
 				}
 
 				.tiles article > a h2 {
@@ -2989,7 +2989,7 @@ input, select, textarea {
 		height: 100%;
 		-webkit-overflow-scrolling: touch;
 		background: #164A41;
-		color: #ffffff;
+		color: #fff;
 		cursor: default;
 		visibility: hidden;
 		z-index: 10002;
