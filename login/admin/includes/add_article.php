@@ -9,13 +9,14 @@ if (isset($_POST['submit'])) {
 
     $art_image = $_FILES['art_image']['name'];
     $art_image_temp = $_FILES['art_image']['tmp_name'];
-    $art_content = $_POST['art_content'];
+    $art_content = htmlentities($_POST['art_content']);
     $art_tags = $_POST['art_tags'];
+    $art_status = $_POST['art_status'];
 
     move_uploaded_file($art_image_temp, "../images/articles/$art_image/");
 
-    $query = "INSERT INTO articles (art_category_id, art_title, art_author, art_date, art_image, art_content, art_tags) ";
-    $query .= "VALUES ({$art_category_id} ,'{$art_title}','{$art_author}',now(), '{$art_image}','{$art_content}','{$art_tags}')";
+    $query = "INSERT INTO articles (art_category_id, art_title, art_author, art_date, art_image, art_content, art_tags ,art_comment_count, art_status) ";
+    $query .= "VALUES ({$art_category_id} ,'{$art_title}','{$art_author}',now(), '{$art_image}','{$art_content}','{$art_tags}',2, '{$art_status}')";
     $insert_articles_query = mysqli_query($connection, $query);
     if (!$insert_articles_query) {
 
@@ -48,14 +49,13 @@ if (isset($_POST['submit'])) {
                     <div class="card-body">
                         <div class="form-group">
                             <label for="articleTitle">Article Title</label>
-                            <input type="text" id="inputName" class="form-control" name="art_title">
+                            <input type="text" id="inputName" class="form-control" name="art_title" required>
                         </div>
 
                         <div class="form-group">
                             <label for="articleCategory">Article Category</label>
-                            <select class="custom-select" name="art_category_id">
+                            <select class="custom-select" name="art_category_id" required>
                                 <?php
-
                                 $query = "SELECT * FROM categories";
                                 $select_all_cat = mysqli_query($connection, $query);
                                 while ($row = mysqli_fetch_assoc($select_all_cat)) {
@@ -68,11 +68,11 @@ if (isset($_POST['submit'])) {
                         </div>
                         <div class="form-group">
                             <label for="inputStatus">Article Author</label>
-                            <input type="text" id="inputName" class="form-control" name="art_author">
+                            <input type="text" id="inputName" class="form-control" name="art_author" required>
                         </div>
                         <div class="form-group">
                             <label for="articleCategory">Article Status</label>
-                            <select class="custom-select" name="art_status">
+                            <select class="custom-select" name="art_status" required>
                                 <option value="draft" active>Select Status</option>
                                 <option value="published">Publish</option>
                                 <option value="draft">Draft</option>
@@ -82,21 +82,21 @@ if (isset($_POST['submit'])) {
                             <label for="inputClientCompany">Article Image</label>
                             <div id="selectedBanner"></div>
 
-                            <input type="file" class="form-control" id="img" name="art_image">
+                            <input type="file" class="form-control" id="img" name="art_image" required>
 
 
 
                         </div>
                         <div class="form-group">
                             <label for="articleTags">Article Tags</label>
-                            <input type="text" id="inputName" class="form-control" name="art_tags">
+                            <input type="text" id="inputName" class="form-control" name="art_tags" required>
                         </div>
                         <div class="form-group">
                             <label for="ArticleCOntent">Article Content</label>
-                            <textarea name="art_content" id="summernote" class="form-control"></textarea>
+                            <textarea name="art_content" id="summernote" class="form-control" required></textarea>
                         </div>
                     </div>
-                    <input type="submit" class="btn btn-outline-primary btn-lg" name="submit" value="SUBMIT">
+                    <input type="submit" class="btn btn-outline-primary btn-lg btn-block " name="submit" value="SUBMIT">
                 </form>
                 <!-- /.card-body -->
 

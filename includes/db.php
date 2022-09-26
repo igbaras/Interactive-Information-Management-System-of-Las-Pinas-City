@@ -7,9 +7,9 @@ $db["db_name"] = "iims";
 
 // =============FOR REMOTE CONNECTION===========
 // $db["db_host"] = "remotemysql.com";
-// $db["db_user"] = "Q63wyQBpQs";
-// $db["db_pass"] = "MbF3NOcHdX";
-// $db["db_name"] = "Q63wyQBpQs";
+// $db["db_user"] = "2Lgs8zHXtJ";
+// $db["db_pass"] = "Pco9ew292b";
+// $db["db_name"] = "2Lgs8zHXtJ";
 
 foreach ($db as $key => $value) {
     define(strtoupper($key), $value);

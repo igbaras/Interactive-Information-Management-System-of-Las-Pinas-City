@@ -133,22 +133,30 @@
                         $art_content = html_entity_decode($row["art_content"]);
                         $art_tags = $row["art_tags"];
                         $art_status = $row["art_status"];
+
+                        $query = "SELECT * FROM categories WHERE cat_id = $art_category_id";
+                        $select_cat_query = mysqli_query($connection, $query);
+                        while ($row =  mysqli_fetch_assoc($select_cat_query)) {
+                            $art_category_id = $row['cat_title'];
                     ?>
-                        <!-- News Detail Start -->
-                        <div class="position-relative mb-3">
-                            <img class="img-fluid w-100" src="login/images/articles/<?php echo $art_image; ?>" style="object-fit: cover;">
-                            <div class="overlay posbg-liition-relative ght">
-                                <div class="mb-3">
-                                    <a href=""><?php echo $art_category_id; ?></a>
-                                    <span class="px-1">/</span>
-                                    <span><?php echo $art_date; ?></span>
-                                </div>
-                                <div class="d-flex flex-wrap">
-                                    <?php echo $art_content; ?>
+                            <!-- News Detail Start -->
+                            <div class="position-relative mb-3">
+                                <img class="img-fluid w-100" src="login/images/articles/<?php echo $art_image; ?>" style="object-fit: cover;">
+                                <div class="overlay position-relative bg-light">
+                                    <div class="mb-3">
+                                        <a href=""><?php echo $art_category_id; ?></a>
+                                        <span class="px-1">/</span>
+                                        <span><?php echo $art_date; ?></span>
+                                    </div>
+                                    <div>
+                                        <h3 class="mb-3"><?php echo $art_title; ?></h3>
+                                        <?php echo $art_content; ?>
+
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    <?php } ?>
+                    <?php }
+                    } ?>
                     <!-- News Detail End -->
 
                     <!-- Comment List Start -->
