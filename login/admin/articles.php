@@ -29,7 +29,7 @@ switch ($source) {
     include 'includes/add_article.php';
     break;
   case 'edit_article':
-    include 'includes/edit_article';
+    include 'includes/edit_article.php';
     break;
   default:
     include 'includes/view_all_articles.php';
@@ -71,10 +71,60 @@ switch ($source) {
           e.target.result +
           "\" data-file='" +
           f.name +
-          "alt='Category Image' height='200px' width='200px'>";
+          "alt='Category Image'  width='20%'>";
         selDiv.html(html);
       };
       reader.readAsDataURL(f);
     });
   }
+</script>
+
+<!-- VIEW Page specific script -->
+<script>
+  $(function() {
+    $("#example1").DataTable({
+      "responsive": true,
+      "lengthChange": false,
+      "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
+
+
+<!-- =====MODAL SCRIPT========= -->
+<script>
+  var selDiv = "";
+  var storedFiles = [];
+  $(document).ready(function() {
+
+
+    // DELETE FUNCTION
+    $('.deletebtn').on('click', function() {
+
+      $('#deletemodal').modal('show');
+
+      $tr = $(this).closest('tr');
+
+      var data = $tr.children("td").map(function() {
+        return $(this).text();
+      }).get();
+
+      console.log(data);
+
+      $('#delete_id').val(data[0]);
+      $('#del_artTitle').val(data[1]);
+
+    });
+
+  });
 </script>
