@@ -73,33 +73,14 @@
 <script src="../plugins/filterizr/jquery.filterizr.min.js"></script>
 
 <!-- Summer Note -->
-<script src="../../summernote/summernote.min.js"></script>
-<script src="../../dist/js/main.js"></script>
+<script src="../summernote/summernote.min.js"></script>
+<script src="../dist/js/main.js"></script>
 
 
 
 
 
-<!-- VIEW Page specific script -->
-<script>
-    $(function() {
-        $("#example1").DataTable({
-            "responsive": true,
-            "lengthChange": false,
-            "autoWidth": false,
-            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-        $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-        });
-    });
-</script>
+
 
 <!-- Gallery Page specific script -->
 <script>
@@ -120,6 +101,26 @@
         });
     })
 </script>
+
+<script>
+    $(document).ready(function() {
+        $("#summernote").summernote();
+
+        $("#submit-post").click(function(e) {
+            e.preventDefault();
+            var form = $("#postForm");
+
+            $.ajax({
+                url: "add_article.php",
+                data: $(form).serialize(),
+                method: "POST",
+            }).done(function(response) {
+                var data = JSON.parse(response);
+            });
+        });
+    });
+</script>
+
 </body>
 
 </html>

@@ -1,10 +1,11 @@
 <?php
-
+// ===========CATEGORY FUNCTIONS=========
 function insert_category()
 {
   global $connection;
   if (isset($_POST['submit'])) {
     $cat_title = $_POST['cat_title'];
+
 
 
     if ($cat_title = "" || empty($cat_title)) {
@@ -16,11 +17,15 @@ function insert_category()
         </div>";
     } else {
       $cat_title = $_POST['cat_title'];
-      $query = "INSERT INTO  categories (cat_title , cat_date)";
-      $query .= " VALUE ('{$cat_title}', now())";
+      $cat_image = $_FILES['cat_image']['name'];
+      $cat_image_temp = $_FILES['cat_image']['tmp_name'];
+
+      move_uploaded_file($cat_image_temp, "../images/categories/$cat_image/");
+      $query = "INSERT INTO  categories (cat_title , cat_image, cat_date)";
+      $query .= " VALUE ('{$cat_title}', '{$cat_image}', now())";
       $insert_category_query = mysqli_query($connection, $query);
 
-      if (!$connection) {
+      if (!$insert_category_query) {
         die("CONNECTION FAILED" . " " . mysqli_error($connection));
       }
       echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
@@ -64,8 +69,11 @@ function updateCategory()
   if (isset($_POST['update-categories'])) {
     $cat_title = $_POST['cat_title'];
     $cat_id = $_POST['cat_id'];
+    $cat_image = $_FILES['cat_image']['name'];
+    $cat_image_temp = $_FILES['cat_image']['tmp_name'];
 
-    $query = "UPDATE categories SET cat_title = '{$cat_title}' WHERE cat_id={$cat_id}; ";
+    move_uploaded_file($cat_image_temp, "../images/categories/$cat_image/");
+    $query = "UPDATE categories SET cat_title = '{$cat_title}', cat_image='{$cat_image}' WHERE cat_id={$cat_id}; ";
     $update_category_query = mysqli_query($connection, $query);
 
     if (!$update_category_query) {
@@ -92,6 +100,34 @@ function deleteCategory()
     $delete_category_query = mysqli_query($connection, $query);
     header("Location: categories.php");
     if (!$delete_category_query) {
+      die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+    }
+  }
+}
+
+
+function verifyQry($result)
+{
+  global $connection;
+  if (!$result) {
+    die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+  }
+}
+
+
+// ===========ARTICLE FUNCTIONS=========
+
+
+function deleteArticle()
+{
+  global $connection;
+  if (isset($_POST['delete_data'])) {
+    $art_id = $_POST['art_id'];
+
+    $query = "DELETE FROM articles WHERE art_id = {$art_id}";
+    $delete_article_query = mysqli_query($connection, $query);
+    header("Location: articles.php");
+    if (!$delete_article_query) {
       die("QUERY CONNECTION FAILED " . mysqli_error($connection));
     }
   }

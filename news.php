@@ -133,30 +133,52 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
+
                     <div class="owl-carousel owl-carousel-2 carousel-item-1 position-relative mb-3 mb-lg-0">
-                        <div class="position-relative overflow-hidden" style="height: 435px;">
-                            <img class="img-fluid h-100" src="./Assets/newsassets/img/news-700x435-1.jpg" style="object-fit: cover;">
-                            <div class="overlay">
-                                <div class="mb-1">
-                                    <a class="text-white" href="">Technology</a>
-                                    <span class="px-2 text-white">/</span>
-                                    <a class="text-white" href="">January 01, 2045</a>
+
+                        <?php
+
+                        $query = "SELECT * FROM articles ORDER BY art_id DESC";
+                        $select_all_art_query = mysqli_query($connection, $query);
+                        if (!$select_all_art_query) {
+                            die("CONNECTION FAILED" . " " . mysqli_error($connection));
+                        }
+                        while ($row = mysqli_fetch_assoc($select_all_art_query)) {
+                            $art_id = $row['art_id'];
+                            $art_category_id = $row['art_category_id'];
+                            $art_title = $row['art_title'];
+                            $art_author = $row['art_author'];
+                            $art_date = $row['art_date'];
+                            $art_image = $row['art_image'];
+                            $art_content = $row['art_content'];
+                            $art_tags = $row['art_tags'];
+                            $art_status = $row['art_status'];
+
+
+                            $query = "SELECT * FROM categories WHERE cat_id = $art_category_id";
+                            $select_all_cat_query = mysqli_query($connection, $query);
+                            while ($row = mysqli_fetch_assoc($select_all_cat_query)) {
+                                $art_category_id = $row['cat_title'];
+                        ?>
+
+                                <div class="position-relative overflow-hidden" style="height: 435px;">
+
+                                    <img class=" img-fluid h-100" src="login/images/articles/<?php echo $art_image; ?>" style="object-fit: cover;">
+
+                                    <div class="overlay">
+                                        <div class="mb-1">
+                                            <a class="text-white" href=""><?php echo $art_category_id; ?></a>
+                                            <span class="px-2 text-white">/</span>
+                                            <a class="text-white" href=""><?php echo $art_date; ?></a>
+                                        </div>
+                                        <a class="h2 m-0 text-white font-weight-bold" href="singleNews.php?an_id=<?php echo $art_id ?>"><?php echo $art_title; ?></a>
+                                    </div>
                                 </div>
-                                <a class="h2 m-0 text-white font-weight-bold" href="">Sanctus amet sed amet ipsum lorem. Dolores et erat et elitr sea sed</a>
-                            </div>
-                        </div>
-                        <div class="position-relative overflow-hidden" style="height: 435px;">
-                            <img class="img-fluid h-100" src="./Assets/newsassets/img/news-700x435-2.jpg" style="object-fit: cover;">
-                            <div class="overlay">
-                                <div class="mb-1">
-                                    <a class="text-white" href="">Technology</a>
-                                    <span class="px-2 text-white">/</span>
-                                    <a class="text-white" href="">January 01, 2045</a>
-                                </div>
-                                <a class="h2 m-0 text-white font-weight-bold" href="">Sanctus amet sed amet ipsum lorem. Dolores et erat et elitr sea sed</a>
-                            </div>
-                        </div>
+
+                        <?php }
+                        } ?>
                     </div>
+
                 </div>
                 <div class="col-lg-4">
                     <div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
@@ -164,19 +186,19 @@
                         <a class="text-secondary font-weight-medium text-decoration-none" href="">View All</a>
                     </div>
                     <?php
-                    $query = "SELECT * FROM categories";
+                    $query = "SELECT * FROM categories ORDER BY cat_id DESC LIMIT 4 ";
                     $select_all_cat = mysqli_query($connection, $query);
                     if (!$connection) {
                         die("CONNECTION FAILED" . " " . mysqli_error($connection));
                     }
                     while ($row = mysqli_fetch_assoc($select_all_cat)) {
                         $cat_title = $row['cat_title'];
-
+                        $cat_image = $row['cat_image'];
 
 
                     ?>
                         <div class="position-relative overflow-hidden mb-3" style="height: 80px;">
-                            <img class="img-fluid w-100 h-100" src="./Assets/newsassets/img/cat-500x80-1.jpg" style="object-fit: cover;">
+                            <img class="img-fluid w-100 h-100" src="login/images/categories/<?php echo $cat_image; ?>" style="object-fit: cover;">
                             <a href="" class="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">
                                 <?php echo $cat_title; ?>
                             </a>
@@ -383,6 +405,46 @@
                         </div>
                         <div class="position-relative">
                             <img class="img-fluid w-100" src="./Assets/newsassets/img/news-500x280-4.jpg" style="object-fit: cover;">
+                            <div class="overlay position-relative bg-light">
+                                <div class="mb-2" style="font-size: 13px;">
+                                    <a href="">Technology</a>
+                                    <span class="px-1">/</span>
+                                    <span>January 01, 2045</span>
+                                </div>
+                                <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 py-3">
+                    <div class="bg-light py-2 px-4 mb-3">
+                        <h3 class="m-0">Sports</h3>
+                    </div>
+                    <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
+                        <div class="position-relative">
+                            <img class="img-fluid w-100" src="./Assets/newsassets/img/news-500x280-3.jpg" style="object-fit: cover;">
+                            <div class="overlay position-relative bg-light">
+                                <div class="mb-2" style="font-size: 13px;">
+                                    <a href="">Technology</a>
+                                    <span class="px-1">/</span>
+                                    <span>January 01, 2045</span>
+                                </div>
+                                <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
+                            </div>
+                        </div>
+                        <div class="position-relative">
+                            <img class="img-fluid w-100" src="./Assets/newsassets/img/news-500x280-2.jpg" style="object-fit: cover;">
+                            <div class="overlay position-relative bg-light">
+                                <div class="mb-2" style="font-size: 13px;">
+                                    <a href="">Technology</a>
+                                    <span class="px-1">/</span>
+                                    <span>January 01, 2045</span>
+                                </div>
+                                <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
+                            </div>
+                        </div>
+                        <div class="position-relative">
+                            <img class="img-fluid w-100" src="./Assets/newsassets/img/news-500x280-1.jpg" style="object-fit: cover;">
                             <div class="overlay position-relative bg-light">
                                 <div class="mb-2" style="font-size: 13px;">
                                     <a href="">Technology</a>

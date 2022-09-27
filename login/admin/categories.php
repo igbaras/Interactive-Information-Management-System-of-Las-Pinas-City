@@ -29,26 +29,38 @@
           <!-- /.card-header -->
           <!-- category form start -->
 
-          <form action="" method="post">
+          <form action="" method="post" enctype="multipart/form-data">
             <div class="card-body">
               <?php insert_category(); ?>
               <div class="form-group">
-                <label for="exampleInputEmail1">Category</label>
+                <label for="exampleInputEmail1">Category Title</label>
                 <div class="input-group">
                   <input type="text" class="form-control" name="cat_title">
-                  <div class="input-group-apprend">
-                    <input type="submit" name="submit" class="btn btn-primary" value="Add Category">
-                  </div>
+
+                </div>
+
+                <div class="form-group mt-3">
+                  <label for="inputClientCompany">Category Image</label>
+                  <div id="selectedBanner"></div>
+
+                  <input type="file" class="form-control" name="cat_image" id="cat_image">
+
+
+                </div>
+                <div class="input-group">
+                  <input type="submit" name="submit" class="btn btn-lg btn-block btn-outline-primary" value="Add Category">
                 </div>
               </div>
               <!-- /.card-body -->
           </form>
         </div>
 
-        <?php updateCategory(); ?>
+        <?php
+
+        updateCategory(); ?>
 
         <!-- Edit Category Modal -->
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
 
           <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -67,10 +79,18 @@
                       <input type="text" class="form-control mb-3" name="cat_title" id="cat_title">
 
                     </div>
-                    <label for="editCategory">Created:</label>
+
+                    <label for="editCategory">Image:</label>
                     <div class="input-group">
-                      <input type="text" id="cat_date" class="col-4 form-control" readonly>
+                      <div id="selectedBanner"></div>
+                      <input type="file" class="form-control" id="cat_image" name="cat_image">
                     </div>
+
+
+                    <!-- <label for="editCategory">Created:</label>
+                    <div class="input-group">
+                      <input type="text" id="cat_date" class=" form-control" readonly>
+                    </div> -->
 
                   </div>
                   <div class="modal-footer">
@@ -143,6 +163,9 @@
                   <tr>
                     <th>ID</th>
                     <th>Category Title</th>
+                    <th>Image</th>
+                    <th>Date Created</th>
+
 
                   </tr>
                 </thead>
@@ -150,7 +173,7 @@
 
                   <?php
 
-                  $query = "SELECT * FROM categories";
+                  $query = "SELECT * FROM categories ORDER BY cat_id  DESC ";
                   $all_categories_query = mysqli_query($connection, $query);
                   if (!$all_categories_query) {
                     die("CONNECTION FAILED" . " " . mysqli_error($connection));
@@ -158,17 +181,24 @@
                   while ($row = mysqli_fetch_assoc($all_categories_query)) {
                     $cat_id = $row['cat_id'];
                     $cat_title = $row['cat_title'];
-                    $cat_date = $row['cat_date'];
+                    $cat_image = $row['cat_image'];
+                    $cat_date = date("F j, Y, g:i a", strtotime($row["cat_date"]));
+
+
+
 
                   ?>
                     <tr>
                       <td> <?php echo $cat_id; ?> </td>
                       <td><?php echo $cat_title; ?> </td>
-                      <td><?php echo $cat_date; ?> </td>
+                      <td><?php echo "<img src='../images/categories/$cat_image' alt='' width='20%'>"; ?> </td>
+                      <td><?php echo  $cat_date; ?> </td>
+
                       <td> <button class='btn btn-primary edit_btn' data-toggle='modal'><i class='fas fa-edit'></i></button> <button class='btn btn-danger deletebtn' data-toggle='modal'><i class='fas fa-trash'></i></button></td>
                     </tr>
 
-                  <?php } ?>
+                  <?php
+                  } ?>
                 </tbody>
               </table>
             </div>
@@ -193,6 +223,8 @@
 <!-- Admin Footer -->
 <?php include "includes/admin_footer.php" ?>
 <script>
+  var selDiv = "";
+  var storedFiles = [];
   $(document).ready(function() {
     $('.edit_btn').on('click', function() {
 
@@ -207,7 +239,9 @@
 
       $('#cat_id').val(data[0]);
       $('#cat_title').val(data[1]);
-      $('#cat_date').val(data[2]);
+      $('#cat_image').val(data[2]);
+      // $('#cat_date').val(data[3]);
+
 
     });
 
@@ -229,4 +263,37 @@
     });
 
   });
+</script>
+
+<!-- DISPLAY SELECTED IMAGE -->
+<script>
+  var selDiv = "";
+  var storedFiles = [];
+  $(document).ready(function() {
+    $("#cat_image").on("change", handleFileSelect);
+    selDiv = $("#selectedBanner");
+  });
+
+  function handleFileSelect(e) {
+    var files = e.target.files;
+    var filesArr = Array.prototype.slice.call(files);
+    filesArr.forEach(function(f) {
+      if (!f.type.match("image.*")) {
+        return;
+      }
+      storedFiles.push(f);
+
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var html =
+          '<img src="' +
+          e.target.result +
+          "\" data-file='" +
+          f.name +
+          "alt='Category Image' width='20%'>";
+        selDiv.html(html);
+      };
+      reader.readAsDataURL(f);
+    });
+  }
 </script>

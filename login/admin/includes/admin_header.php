@@ -41,7 +41,10 @@
     <link rel="stylesheet" href="../plugins/ekko-lightbox/ekko-lightbox.css">
 
     <!-- Summer Note -->
-    <link href="../../summernote/summernote.min.css" rel="stylesheet">
+    <link href="../summernote/summernote.min.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
 
 </head>
 
