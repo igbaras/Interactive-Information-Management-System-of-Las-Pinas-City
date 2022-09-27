@@ -191,7 +191,7 @@
                     <tr>
                       <td> <?php echo $cat_id; ?> </td>
                       <td><?php echo $cat_title; ?> </td>
-                      <td><?php echo "<img src='../images/categories/$cat_image' alt='' width='20%'>"; ?> </td>
+                      <td><?php echo "<img src='../images/categories/$cat_image' alt='' width='100px'>"; ?> </td>
                       <td><?php echo  $cat_date; ?> </td>
 
                       <td> <button class='btn btn-primary edit_btn' data-toggle='modal'><i class='fas fa-edit'></i></button> <button class='btn btn-danger deletebtn' data-toggle='modal'><i class='fas fa-trash'></i></button></td>

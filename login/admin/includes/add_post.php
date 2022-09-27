@@ -3,22 +3,22 @@ if (isset($_POST['submit'])) {
 
 
 
-    $art_category_id = $_POST['art_category_id'];
-    $art_title = $_POST['art_title'];
-    $art_author = $_POST['art_author'];
+    $post_category_id = $_POST['post_category_id'];
+    $post_title = $_POST['post_title'];
+    $post_author = $_POST['post_author'];
 
-    $art_image = $_FILES['art_image']['name'];
-    $art_image_temp = $_FILES['art_image']['tmp_name'];
-    $art_content = htmlentities($_POST['art_content']);
-    $art_tags = $_POST['art_tags'];
-    $art_status = $_POST['art_status'];
+    $post_image = $_FILES['post_image']['name'];
+    $post_image_temp = $_FILES['post_image']['tmp_name'];
+    $post_content = htmlentities($_POST['post_content']);
+    $post_tags = $_POST['post_tags'];
+    $post_status = $_POST['post_status'];
 
-    move_uploaded_file($art_image_temp, "../images/articles/$art_image/");
+    move_uploaded_file($post_image_temp, "../images/posts/$post_image/");
 
-    $query = "INSERT INTO articles (art_category_id, art_title, art_author, art_date, art_image, art_content, art_tags ,art_comment_count, art_status) ";
-    $query .= "VALUES ({$art_category_id} ,'{$art_title}','{$art_author}',now(), '{$art_image}','{$art_content}','{$art_tags}',2, '{$art_status}')";
-    $insert_articles_query = mysqli_query($connection, $query);
-    if (!$insert_articles_query) {
+    $query = "INSERT INTO posts (post_category_id, post_title, post_author, post_date, post_image, post_content, post_tags ,post_comment_count, post_status) ";
+    $query .= "VALUES ({$post_category_id} ,'{$post_title}','{$post_author}',now(), '{$post_image}','{$post_content}','{$post_tags}',2, '{$post_status}')";
+    $insert_Posts_query = mysqli_query($connection, $query);
+    if (!$insert_Posts_query) {
 
         die("QUERY CONNECTION FAILED " . mysqli_error($connection));
     }
@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
 
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Add Article</h3>
+                    <h3 class="card-title">Add Post</h3>
 
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -48,13 +48,13 @@ if (isset($_POST['submit'])) {
                 <form method="post" enctype="multipart/form-data">
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="articleTitle">Article Title</label>
-                            <input type="text" id="inputName" class="form-control" name="art_title" required>
+                            <label for="PostTitle">Post Title</label>
+                            <input type="text" id="inputName" class="form-control" name="post_title" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="articleCategory">Article Category</label>
-                            <select class="custom-select" name="art_category_id" required>
+                            <label for="PostCategory">Post Category</label>
+                            <select class="custom-select" name="post_category_id" required>
                                 <?php
                                 $query = "SELECT * FROM categories";
                                 $select_all_cat = mysqli_query($connection, $query);
@@ -67,33 +67,33 @@ if (isset($_POST['submit'])) {
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="inputStatus">Article Author</label>
-                            <input type="text" id="inputName" class="form-control" name="art_author" required>
+                            <label for="inputStatus">Post Author</label>
+                            <input type="text" id="inputName" class="form-control" name="post_author" required>
                         </div>
                         <div class="form-group">
-                            <label for="articleCategory">Article Status</label>
-                            <select class="custom-select" name="art_status" required>
+                            <label for="PostCategory">Post Status</label>
+                            <select class="custom-select" name="post_status" required>
                                 <option value="draft" active>Select Status</option>
                                 <option value="published">Publish</option>
                                 <option value="draft">Draft</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="inputClientCompany">Article Image</label>
+                            <label for="inputClientCompany">Post Image</label>
                             <div id="selectedBanner"></div>
 
-                            <input type="file" class="form-control" id="img" name="art_image" required>
+                            <input type="file" class="form-control" id="img" name="post_image" required>
 
 
 
                         </div>
                         <div class="form-group">
-                            <label for="articleTags">Article Tags</label>
-                            <input type="text" id="inputName" class="form-control" name="art_tags" required>
+                            <label for="PostTags">Post Tags</label>
+                            <input type="text" id="inputName" class="form-control" name="post_tags" required>
                         </div>
                         <div class="form-group">
-                            <label for="ArticleCOntent">Article Content</label>
-                            <textarea name="art_content" id="summernote" class="form-control" required></textarea>
+                            <label for="PostCOntent">Post Content</label>
+                            <textarea name="post_content" id="summernote" class="form-control" required></textarea>
                         </div>
                     </div>
                     <input type="submit" class="btn btn-outline-primary btn-lg btn-block " name="submit" value="SUBMIT">

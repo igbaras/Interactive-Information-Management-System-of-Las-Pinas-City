@@ -25,14 +25,14 @@ if (isset($_GET['source'])) {
 
 switch ($source) {
 
-  case 'add_article':
-    include 'includes/add_article.php';
+  case 'add_post':
+    include 'includes/add_post.php';
     break;
-  case 'edit_article':
-    include 'includes/edit_article.php';
+  case 'edit_post':
+    include 'includes/edit_post.php';
     break;
   default:
-    include 'includes/view_all_articles.php';
+    include 'includes/view_all_posts.php';
 }
 
 
@@ -122,7 +122,7 @@ switch ($source) {
       console.log(data);
 
       $('#delete_id').val(data[0]);
-      $('#del_artTitle').val(data[1]);
+      $('#del_postTitle').val(data[1]);
 
     });
 

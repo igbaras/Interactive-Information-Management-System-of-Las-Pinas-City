@@ -115,19 +115,19 @@ function verifyQry($result)
 }
 
 
-// ===========ARTICLE FUNCTIONS=========
+// ===========Post FUNCTIONS=========
 
 
-function deleteArticle()
+function deletePost()
 {
   global $connection;
   if (isset($_POST['delete_data'])) {
     $art_id = $_POST['art_id'];
 
-    $query = "DELETE FROM articles WHERE art_id = {$art_id}";
-    $delete_article_query = mysqli_query($connection, $query);
-    header("Location: articles.php");
-    if (!$delete_article_query) {
+    $query = "DELETE FROM posts WHERE art_id = {$art_id}";
+    $delete_post_query = mysqli_query($connection, $query);
+    header("Location: posts.php");
+    if (!$delete_post_query) {
       die("QUERY CONNECTION FAILED " . mysqli_error($connection));
     }
   }

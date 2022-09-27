@@ -138,40 +138,40 @@
 
                         <?php
 
-                        $query = "SELECT * FROM articles ORDER BY art_id DESC";
-                        $select_all_art_query = mysqli_query($connection, $query);
-                        if (!$select_all_art_query) {
+                        $query = "SELECT * FROM posts ORDER BY post_id DESC";
+                        $select_all_post_query = mysqli_query($connection, $query);
+                        if (!$select_all_post_query) {
                             die("CONNECTION FAILED" . " " . mysqli_error($connection));
                         }
-                        while ($row = mysqli_fetch_assoc($select_all_art_query)) {
-                            $art_id = $row['art_id'];
-                            $art_category_id = $row['art_category_id'];
-                            $art_title = $row['art_title'];
-                            $art_author = $row['art_author'];
-                            $art_date = $row['art_date'];
-                            $art_image = $row['art_image'];
-                            $art_content = $row['art_content'];
-                            $art_tags = $row['art_tags'];
-                            $art_status = $row['art_status'];
+                        while ($row = mysqli_fetch_assoc($select_all_post_query)) {
+                            $post_id = $row['post_id'];
+                            $post_category_id = $row['post_category_id'];
+                            $post_title = $row['post_title'];
+                            $post_author = $row['post_author'];
+                            $post_date = $row['post_date'];
+                            $post_image = $row['post_image'];
+                            $post_content = $row['post_content'];
+                            $post_tags = $row['post_tags'];
+                            $post_status = $row['post_status'];
 
 
-                            $query = "SELECT * FROM categories WHERE cat_id = $art_category_id";
+                            $query = "SELECT * FROM categories WHERE cat_id = $post_category_id";
                             $select_all_cat_query = mysqli_query($connection, $query);
                             while ($row = mysqli_fetch_assoc($select_all_cat_query)) {
-                                $art_category_id = $row['cat_title'];
+                                $post_category_id = $row['cat_title'];
                         ?>
 
                                 <div class="position-relative overflow-hidden" style="height: 435px;">
 
-                                    <img class=" img-fluid h-100" src="login/images/articles/<?php echo $art_image; ?>" style="object-fit: cover;">
+                                    <img class=" img-fluid h-100" src="login/images/posts/<?php echo $post_image; ?>" style="object-fit: cover;">
 
                                     <div class="overlay">
                                         <div class="mb-1">
-                                            <a class="text-white" href=""><?php echo $art_category_id; ?></a>
+                                            <a class="text-white" href=""><?php echo $post_category_id; ?></a>
                                             <span class="px-2 text-white">/</span>
-                                            <a class="text-white" href=""><?php echo $art_date; ?></a>
+                                            <a class="text-white" href=""><?php echo $post_date; ?></a>
                                         </div>
-                                        <a class="h2 m-0 text-white font-weight-bold" href="singleNews.php?an_id=<?php echo $art_id ?>"><?php echo $art_title; ?></a>
+                                        <a class="h2 m-0 text-white font-weight-bold" href="singleNews.php?an_id=<?php echo $post_id ?>"><?php echo $post_title; ?></a>
                                     </div>
                                 </div>
 

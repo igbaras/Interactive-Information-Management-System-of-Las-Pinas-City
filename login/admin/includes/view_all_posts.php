@@ -8,7 +8,7 @@
 
 
                 <div class="card-header bg-info">
-                    <h3 class="card-title">View All Articles</h3>
+                    <h3 class="card-title">View All Posts</h3>
                 </div>
                 <!-- /.card-header -->
 
@@ -40,41 +40,41 @@
 
                             <?php
 
-                            $query = "SELECT * FROM articles";
-                            $all_art_query = mysqli_query($connection, $query);
-                            if (!$all_art_query) {
+                            $query = "SELECT * FROM posts";
+                            $all_post_query = mysqli_query($connection, $query);
+                            if (!$all_post_query) {
                                 die("CONNECTION FAILED" . " " . mysqli_error($connection));
                             }
-                            while ($row = mysqli_fetch_array($all_art_query)) {
-                                $art_id = $row["art_id"];
-                                $art_category_id = $row["art_category_id"];
-                                $art_title = $row["art_title"];
-                                $art_author = $row["art_author"];
-                                $art_date = $row["art_date"];
-                                $art_image = $row["art_image"];
-                                $art_tags = $row["art_tags"];
-                                $art_status = $row["art_status"];
+                            while ($row = mysqli_fetch_array($all_post_query)) {
+                                $post_id = $row["post_id"];
+                                $post_category_id = $row["post_category_id"];
+                                $post_title = $row["post_title"];
+                                $post_author = $row["post_author"];
+                                $post_date = date("F j, Y, g:i a", strtotime($row["post_date"]));
+                                $post_image = $row["post_image"];
+                                $post_tags = $row["post_tags"];
+                                $post_status = $row["post_status"];
 
-                                $query = "SELECT * FROM categories WHERE cat_id =  $art_category_id";
+                                $query = "SELECT * FROM categories WHERE cat_id =  $post_category_id";
                                 $all_cat_query = mysqli_query($connection, $query);
                                 if (!$all_cat_query) {
                                     die("CONNECTION FAILED" . " " . mysqli_error($connection));
                                 }
                                 while ($row = mysqli_fetch_array($all_cat_query)) {
-                                    $art_category = $row["cat_title"];
+                                    $post_category = $row["cat_title"];
 
                             ?>
                                     <tr>
-                                        <td><?php echo $art_id; ?></td>
-                                        <td><?php echo $art_author; ?></td>
-                                        <td> <?php echo $art_title; ?></td>
-                                        <td><?php echo $art_category; ?></td>
-                                        <td><?php echo $art_status; ?></td>
-                                        <td><?php echo "<img src='../images/articles/$art_image' width='90%' alt='article_image'>"; ?></td>
-                                        <td><?php echo $art_tags; ?></td>
+                                        <td><?php echo $post_id; ?></td>
+                                        <td><?php echo $post_author; ?></td>
+                                        <td> <?php echo $post_title; ?></td>
+                                        <td><?php echo $post_category; ?></td>
+                                        <td><?php echo $post_status; ?></td>
+                                        <td><?php echo "<img src='../images/posts/$post_image' width='90%' alt='posts_image'>"; ?></td>
+                                        <td><?php echo $post_tags; ?></td>
                                         <td> 'comments'</td>
-                                        <td><?php echo $art_date; ?></td>
-                                        <td><a href="articles.php?source=edit_article&an_edit=<?php echo $art_id; ?>" class='btn btn-primary edit_btn' type="submit"><i class='fas fa-edit'></i><small class='align-self-end'>Edit</small></a></td>
+                                        <td><?php echo $post_date; ?></td>
+                                        <td><a href="posts.php?source=edit_posts&an_edit=<?php echo $post_id; ?>" class='btn btn-primary edit_btn' type="submit"><i class='fas fa-edit'></i><small class='align-self-end'>Edit</small></a></td>
                                         <td><button class='btn btn-danger deletebtn' data-toggle='modal'><i class='fas fa-trash'></i><small class='align-self-end'>Delete</small></button></td>
                                     </tr>
                             <?php }
@@ -118,12 +118,12 @@
 
 
             <?php ?>
-            <?php deleteArticle(); ?>
+            <?php deletePost(); ?>
             <form method="POST">
 
                 <div class="modal-body">
 
-                    <input type="hidden" name="art_id" id="delete_id">
+                    <input type="hidden" name="post_id" id="delete_id">
 
                     <h4> Do you want to Delete this Data ??</h4>
                 </div>

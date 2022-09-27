@@ -79,7 +79,7 @@
                     </a>
 
                 </li>
-                <li class="nav-item <?= ($activePage == 'articles.php') ? 'menu-open' : ''; ?><?= ($activePage == 'news.php') ? 'menu-open' : ''; ?>">
+                <li class="nav-item <?= ($activePage == 'posts.php') ? 'menu-open' : ''; ?><?= ($activePage == 'news.php') ? 'menu-open' : ''; ?>">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-book"></i>
                         <p>
@@ -89,37 +89,22 @@
                     </a>
 
                     <ul class="nav nav-treeview">
-                        <li class="nav-header ">ARTICLES</li>
+
                         <li class="nav-item ">
-                            <a href="./articles.php?source=add_article" class="nav-link ">
+                            <a href="./posts.php?source=add_post" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Add Article</p>
+                                <p>Add Post</p>
                             </a>
                         </li>
                         <li class="nav-item active">
-                            <a href="./articles.php" class="nav-link ">
+                            <a href="./posts.php" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>View All Articles</p>
+                                <p>View All Posts</p>
                             </a>
                         </li>
 
                     </ul>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-header">NEWS</li>
-                        <li class="nav-item">
-                            <a href="./news.php?source=add_news" class="nav-link ">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Add News</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="./news.php" class="nav-link ">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>View All News</p>
-                            </a>
-                        </li>
 
-                    </ul>
                 </li>
 
                 <li class="nav-item <?= ($activePage == 'gallery.php') ? 'menu-open' : ''; ?>">
