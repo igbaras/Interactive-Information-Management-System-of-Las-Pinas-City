@@ -1,5 +1,5 @@
 <?php include "includes/db.php"; ?>
-
+<?php ob_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -118,44 +118,49 @@
                 <div class="col-lg-14">
                     <?php
                     if (isset($_GET['an_id'])) {
-                        $published_art_id = $_GET['an_id'];
-                    }
-                    $query = "SELECT * FROM articles WHERE art_id = $published_art_id ";
-                    $all_art_query = mysqli_query($connection, $query);
+                        $published_post_id = $_GET['an_id'];
+                        $query = "UPDATE posts SET post_views = post_views + 1 WHERE post_id = $published_post_id";
+                        $views_query = mysqli_query($connection, $query);
 
-                    while ($row =  mysqli_fetch_assoc($all_art_query)) {
+                        $query = "SELECT * FROM posts WHERE post_id = $published_post_id ";
+                        $all_post_query = mysqli_query($connection, $query);
 
-                        $art_category_id = $row["art_category_id"];
-                        $art_title = $row["art_title"];
-                        $art_author = $row["art_author"];
-                        $art_date = $row["art_date"];
-                        $art_image = $row["art_image"];
-                        $art_content = html_entity_decode($row["art_content"]);
-                        $art_tags = $row["art_tags"];
-                        $art_status = $row["art_status"];
+                        while ($row =  mysqli_fetch_assoc($all_post_query)) {
 
-                        $query = "SELECT * FROM categories WHERE cat_id = $art_category_id";
-                        $select_cat_query = mysqli_query($connection, $query);
-                        while ($row =  mysqli_fetch_assoc($select_cat_query)) {
-                            $art_category_id = $row['cat_title'];
+                            $post_category_id = $row["post_category_id"];
+                            $post_title = $row["post_title"];
+                            $post_author = $row["post_author"];
+                            $post_date = $row["post_date"];
+                            $post_image = $row["post_image"];
+                            $post_content = html_entity_decode($row["post_content"]);
+                            $post_tags = $row["post_tags"];
+                            $post_status = $row["post_status"];
+
+                            $query = "SELECT * FROM categories WHERE cat_id = $post_category_id";
+                            $select_cat_query = mysqli_query($connection, $query);
+                            while ($row =  mysqli_fetch_assoc($select_cat_query)) {
+                                $post_category_id = $row['cat_title'];
                     ?>
-                            <!-- News Detail Start -->
-                            <div class="position-relative mb-3">
-                                <img class="img-fluid w-100" src="login/images/articles/<?php echo $art_image; ?>" style="object-fit: cover;">
-                                <div class="overlay position-relative bg-light">
-                                    <div class="mb-3">
-                                        <a href=""><?php echo $art_category_id; ?></a>
-                                        <span class="px-1">/</span>
-                                        <span><?php echo $art_date; ?></span>
-                                    </div>
-                                    <div>
-                                        <h3 class="mb-3"><?php echo $art_title; ?></h3>
-                                        <?php echo $art_content; ?>
+                                <!-- News Detail Start -->
+                                <div class="position-relative mb-3">
+                                    <img class="img-fluid w-100" src="login/images/posts/<?php echo $post_image; ?>" style="object-fit: cover;">
+                                    <div class="overlay position-relative bg-light">
+                                        <div class="mb-3">
+                                            <a href=""><?php echo $post_category_id; ?></a>
+                                            <span class="px-1">/</span>
+                                            <span><?php echo $post_date; ?></span>
+                                        </div>
+                                        <div>
+                                            <h3 class="mb-3"><?php echo $post_title; ?></h3>
+                                            <?php echo $post_content; ?>
 
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                     <?php }
+                        }
+                    } else {
+                        header("Location: news.php");
                     } ?>
                     <!-- News Detail End -->
 

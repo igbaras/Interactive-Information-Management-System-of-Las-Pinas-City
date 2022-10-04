@@ -122,11 +122,28 @@ function deletePost()
 {
   global $connection;
   if (isset($_POST['delete_data'])) {
-    $art_id = $_POST['art_id'];
+    $post_id = $_POST['post_id'];
 
-    $query = "DELETE FROM posts WHERE art_id = {$art_id}";
+    $query = "DELETE FROM posts WHERE post_id = {$post_id}";
     $delete_post_query = mysqli_query($connection, $query);
     header("Location: posts.php");
+    if (!$delete_post_query) {
+      die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+    }
+  }
+}
+
+
+// ===========LIFESTYLE FUNCTIONS=========
+function deleteLifestyle()
+{
+  global $connection;
+  if (isset($_POST['delete_data'])) {
+    $ls_id = $_POST['ls_id'];
+
+    $query = "DELETE FROM lifestyles WHERE ls_id = {$ls_id}";
+    $delete_post_query = mysqli_query($connection, $query);
+    header("Location: lifestyles.php");
     if (!$delete_post_query) {
       die("QUERY CONNECTION FAILED " . mysqli_error($connection));
     }

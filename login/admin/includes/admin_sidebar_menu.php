@@ -106,7 +106,33 @@
                     </ul>
 
                 </li>
+                <li class="nav-item <?= ($activePage == 'lifestyles.php') ? 'menu-open' : ''; ?><?= ($activePage == 'news.php') ? 'menu-open' : ''; ?>">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-heartbeat"></i>
+                        <p>
+                            Manage Lifestyles
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
 
+                    <ul class="nav nav-treeview">
+
+                        <li class="nav-item ">
+                            <a href="./lifestyles.php?source=add_lifestyle" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Lifestyle</p>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="./lifestyles.php" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View All Lifestyles</p>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </li>
                 <li class="nav-item <?= ($activePage == 'gallery.php') ? 'menu-open' : ''; ?>">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-image"></i>
