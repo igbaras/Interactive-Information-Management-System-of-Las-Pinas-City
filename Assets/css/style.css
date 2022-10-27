@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&display=swap');
+@font-face{
+  font-family: "basement";
+  src: url("./BasementGrotesque-Black_v1.202.otf");
+}
+@font-face{
+  font-family: "aileron";
+  src: url("./Aileron-Regular.otf");
+}
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #F2F2F2;
+  scroll-behavior: smooth;
+}
+.navigation {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: #0e2d27;
+  z-index: 200;
+  clip-path: circle(25px at calc(100% - 45px) 45px);
+  transition: all 500ms ease-in-out;
+}
+.navigation.active {
+  clip-path: circle(75%);
+}
+.navigation .ham-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.navigation .ham-btn span {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 2px;
+  background: #f5f5f5;
+  transition: all 200ms ease-in-out;
+}
+.navigation .ham-btn:hover span:nth-child(1) {
+  top: 25%;
+}
+.navigation .ham-btn:hover span:nth-child(2) {
+  top: 50%;
+}
+.navigation .ham-btn:hover span:nth-child(3) {
+  top: 75%;
+}
+.navigation .ham-btn span:nth-child(1) {
+  top: 30%;
+}
+.navigation .ham-btn span:nth-child(2) {
+  top: 50%;
+}
+.navigation .ham-btn span:nth-child(3) {
+  top: 70%;
+}
+.navigation.active .ham-btn span:nth-child(1) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.navigation.active .ham-btn span:nth-child(2) {
+  display: none;
+}
+.navigation.active .ham-btn span:nth-child(3) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.navigation .links {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.navigation .links a {
+  position: relative;
+  display: inline-block;
+  margin: 20px 0px;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #f5f5f5;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+.navigation .links a:after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: -5px;
+  height: 2px;
+  width: 0%;
+  background: #f1b24a;
+  transition: all 300ms ease-in-out;
+}
+.navigation .links a:hover:after {
+  width: 100%;
+}
+
+
+/* ---------------Start of Contact Us--------------- */
+
+#contact {
+  width: 100%;
+  height: 100%;
+}
+
+.section-header {
+  text-align: center;
+  margin: 0 auto;
+  padding: 40px 0;
+  font: 300 60px "Oswald", sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+}
+
+.contact-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  max-width: 840px;
+}
+
+/* Left contact page */
+.form-horizontal {
+  /*float: left;*/
+  max-width: 400px;
+  font-family: "Lato";
+  font-weight: 400;
+}
+
+.form-control,
+textarea {
+  max-width: 400px;
+  background-color: #000;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.send-button {
+  margin-top: 15px;
+  height: 34px;
+  width: 400px;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+}
+
+.alt-send-button {
+  width: 400px;
+  height: 34px;
+  transition: all 0.2s ease-in-out;
+}
+
+.send-text {
+  display: block;
+  margin-top: 10px;
+  font: 700 12px "Lato", sans-serif;
+  letter-spacing: 2px;
+}
+
+.alt-send-button:hover {
+  transform: translate3d(0px, -29px, 0px);
+}
+
+/* Begin Right Contact Page */
+.direct-contact-container {
+  max-width: 400px;
+}
+
+/* Location, Phone, Email Section */
+.contact-list {
+  list-style-type: none;
+  margin-left: -30px;
+  padding-right: 20px;
+}
+
+.list-item {
+  line-height: 4;
+  color: #aaa;
+}
+
+.contact-text {
+  font: 300 18px "Lato", sans-serif;
+  letter-spacing: 1.9px;
+  color: #bbb;
+}
+
+.place {
+  margin-left: 62px;
+}
+
+.phone {
+  margin-left: 56px;
+}
+
+.gmail {
+  margin-left: 53px;
+}
+
+.contact-text a {
+  color: #bbb;
+  text-decoration: none;
+  transition-duration: 0.2s;
+}
+
+.contact-text a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.intro {
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: #0e2d27;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+.slider {
+  background: #f1b24a;
+  position: fixed;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  transform: translateY(100%);
+  z-index: 99999;
+}
+.intro h1{
+  font-size: 5rem;
+}
+.intro-text {
+  color: rgb(233, 233, 233);
+  font-family: 'basement';
+  font-size: 2rem;
+}
+
+.hide {
+  background: #0e2d27;
+  overflow: hidden;
+}
+
+.hide span {
+  transform: translateY(100%);
+  display: inline-block;
+}
+/* --------------------------------------------- Landing Page --------------------------------------------*/
+/* --------------------------------------------- Landing Page --------------------------------------------*/
+/* --------------------------------------------- Landing Page --------------------------------------------*/
+/* --------------------------------------------- Landing Page --------------------------------------------*/
+/* nav  */
+
