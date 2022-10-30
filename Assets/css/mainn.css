@@ -8,10 +8,10 @@
 */
 :root{
 	--primary-color:#DADFD9;
-	--secondary-color:#164A41;
+	--secondary-color:#00180A;
 }
 .darktheme{
-	--primary-color:#164A41;
+	--primary-color:#00180A;
 	--secondary-color:#DADFD9;
 }
 html, body, div, span, applet, object,
