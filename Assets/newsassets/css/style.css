@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&family=Poppins:wght@400;600&display=swap');
 /******* Bootstrap Theming ********/
 /*!
  * Bootstrap v4.5.3 (https://getbootstrap.com/)
@@ -6,7 +5,6 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
- 
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -34,6 +32,8 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
+  --font-family-sans-serif: "Roboto", sans-serif;
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 *,
@@ -44,7 +44,7 @@
 
 html {
   overflow-x: hidden;
-  font-family: 'Poppins', sans-serif;
+  font-family: sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -56,8 +56,9 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1rem;
+  font-weight: 400;
   line-height: 1.5;
   color: #00180A;
   text-align: left;
@@ -176,7 +177,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: 'Poppins', sans-serif;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 1em;
 }
 
@@ -238,7 +239,7 @@ select,
 optgroup,
 textarea {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: inherit;
   font-size: inherit;
   line-height: inherit;
 }
@@ -368,7 +369,6 @@ h1, h2, h3, h4, h5, h6,
 }
 
 h1, .h1 {
-  font-weight: 600;
   font-size: 2.5rem;
 }
 
@@ -5569,7 +5569,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
