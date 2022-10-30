@@ -6,10 +6,10 @@
 // $db["db_name"] = "iims";
 
 // =============FOR REMOTE CONNECTION===========
-$db["db_host"] = "remotemysql.com";
-$db["db_user"] = "2Lgs8zHXtJ";
-$db["db_pass"] = "Pco9ew292b";
-$db["db_name"] = "2Lgs8zHXtJ";
+$db["db_host"] = "azure-iims.mysql.database.azure.com";
+$db["db_user"] = "iims";
+$db["db_pass"] = "i;i;m;s;1234";
+$db["db_name"] = "iims";
 
 foreach ($db as $key => $value) {
     define(strtoupper($key), $value);
