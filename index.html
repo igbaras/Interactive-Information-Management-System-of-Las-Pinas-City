@@ -27,16 +27,19 @@
 			<h1 id="logo"><a href="index.html"> </a></h1>
 			<nav id="nav">
 				<ul>
-
+					
 					<li>
+						
 						<a href="#">Menu</a>
 						<ul>
+							
 							<li><a href="programservice.html">Program and Services</a></li>
 							<li><a href="gallery.html">Gallery</a></li>
 							<li><a href="contact_us.html">Contact</a></li>
 							<li>
 								<a href="#">News and Lifestyle</a>
 								<ul>
+									
 									<li><a href="#">News and Annoncements</a></li>
 									<li><a href="#">Lifestyle</a></li>
 									<li><a href="#">Virtual Tour</a></li>
@@ -49,6 +52,7 @@
 					<li><a href="#" class="button primary">Sign Up</a></li>
 				</ul>
 			</nav>
+			
 		</header>
 
 		<!-- Banner -->
@@ -57,8 +61,10 @@
 				<header>
 					<h2>The City of Las Piñas</h2>
 					<p>Discover what's in the Philippines</p>
+					
 				</header>
 				<span class="image"><img src="./Assets/images/pic01.jpg" alt="" /></span>
+				<img src="./Assets/images/icons/night-mode.png" id="nightm">
 			</div>
 			<a href="#one" class="goto-next scrolly">Next</a>
 		</section>
@@ -227,7 +233,18 @@
 	<script src="./Assets/JS/breakpoints.min.js"></script>
 	<script src="./Assets/JS/util.js"></script>
 	<script src="./Assets/JS/mainn.js"></script>
+<script>
+var nightm = document.getElementById("nightm");
+nightm.onclick = function(){
+	document.body.classList.toggle("darktheme");
+	if (document.body.classList.contains("darktheme")){
+nightm.src = "./Assets/images/icons/sun.png";
+	}else{
+		nightm.src = "./Assets/images/icons/night-mode.png";
+	}
+}
 
+</script>
 
 </body>
 
