@@ -1,6 +1,6 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,100italic,300italic");
-
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&family=Poppins:wght@400;600&display=swap');
 /*
 	Landed by HTML5 UP
 	html5up.net | @ajlkn
@@ -106,7 +106,7 @@ input, select, textarea {
 
 	body, input, select, textarea {
 		color: var(--secondary-color);
-		font-family: "Roboto", Helvetica, sans-serif;
+		font-family: 'Poppins', sans-serif;
 		font-size: 15pt;
 		font-weight: 100;
 		line-height: 1.75em;
@@ -153,6 +153,7 @@ input, select, textarea {
 		}
 
 	h2 {
+font-weight: 600;
 		font-size: 2em;
 		line-height: 1.5em;
 		letter-spacing: -0.025em;
@@ -244,6 +245,7 @@ input, select, textarea {
 #nightm{
 	width: 30px;
 	cursor: pointer;
+	align-items: center;
 }
 
 
