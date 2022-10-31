@@ -2,7 +2,7 @@
 <?php include "includes/functions.php"; ?>
 <?php
 
-$num_per_page = 02;
+$num_per_page = 04;
 
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
@@ -10,7 +10,7 @@ if (isset($_GET['page'])) {
     $page = 1;
 }
 
-$start_from = ($page - 1) * 2;
+$start_from = ($page - 1) * 4;
 
 $query = "SELECT * FROM posts LIMIT $start_from,$num_per_page";
 $allFeat_query = mysqli_query($connection, $query);
@@ -26,24 +26,7 @@ $allFeat_query = mysqli_query($connection, $query);
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
-    <style>
-        /* Style the buttons */
-        .btn {
-            border: none;
-            outline: none;
-            padding: 10px 16px;
-            background-color: #f1f1f1;
-            cursor: pointer;
-            font-size: 18px;
-        }
 
-        /* Style the active class, and buttons on mouse-over */
-        .active,
-        .btn:hover {
-            background-color: #666;
-            color: white;
-        }
-    </style>
     <!-- Favicon -->
     <link rel="shortcut icon" type="image icon" href="./Assets/images/lplogo.png">
 
@@ -181,7 +164,7 @@ $allFeat_query = mysqli_query($connection, $query);
 
                                     $total_page = ceil($total_records / $num_per_page);
 
-                                    echo $total_page;
+
                                     if ($page > 1) {
                                     ?>
                                         <li class="page-item">
@@ -191,21 +174,24 @@ $allFeat_query = mysqli_query($connection, $query);
                                     <?php }
                                     for ($i = 1; $i < $total_page; $i++) {
                                     ?>
-
-
                                         <li class=""><?php echo "<a class='page-link btn ' href='all_featured.php?page=" . $i . "' >$i</a>" ?></li>
 
-                                    <?php } 
-                                    if($i>1){
-echo 
+                                    <?php }
+                                    if ($i > $page) {
+                                    ?>
+
+                                        <li class='page-item'>
+                                            <?php
+                                            echo "<a class='page-link' href='all_featured.php?page=" . ($page + 1) . "' aria-label='Next'>
+                                        <span class='fa fa-angle-double-right' aria-hidden='true'></span>
+                                        <span class='sr-only'>Next</span>
+                                    </a>";
+                                            ?>
+                                        </li>
+                                    <?php
                                     }
                                     ?>
-                                <li class="page-item ">
-                                        <a class="page-link" href="#" aria-label="Next">
-                                            <span class="fa fa-angle-double-right" aria-hidden="true"></span>
-                                            <span class="sr-only">Next</span>
-                                        </a>
-                                    </li>
+
                                 </ul>
                             </nav>
                         </div>
@@ -304,19 +290,6 @@ echo
                 <!-- Template Javascript -->
                 <script src="./Assets/newsassets/js/main.js"></script>
 </body>
-<script>
-    // Add active class to the current button (highlight it)
-    var header = document.getElementById("myDIV");
-    var btns = header.getElementsByClassName("btn");
-    for (var i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function() {
-            var current = document.getElementsByClassName("active");
-            if (current.length > 0) {
-                current[0].className = current[0].className.replace(" active", "");
-            }
-            this.className += " active";
-        });
-    }
-</script>
+
 
 </html>

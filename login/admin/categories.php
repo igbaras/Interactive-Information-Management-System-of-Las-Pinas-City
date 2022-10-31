@@ -35,15 +35,19 @@
               <div class="form-group">
                 <label for="exampleInputEmail1">Category Title</label>
                 <div class="input-group">
-                  <input type="text" class="form-control" name="cat_title">
+                  <input type="text" class="form-control" name="cat_title" required>
 
+                </div>
+                <label for="exampleInputEmail1">Category Description</label>
+                <div class="input-group">
+                  <textarea name="cat_desc" class="form-control" id="" cols="30" rows="3" required></textarea>
                 </div>
 
                 <div class="form-group mt-3">
                   <label for="inputClientCompany">Category Image</label>
                   <div id="selectedBanner"></div>
 
-                  <input type="file" class="form-control" name="cat_image" id="cat_image">
+                  <input type="file" class="form-control" name="cat_image" id="cat_image" required>
 
 
                 </div>
@@ -59,49 +63,6 @@
 
         updateCategory(); ?>
 
-        <!-- Edit Category Modal -->
-        <form action="" method="post" enctype="multipart/form-data">
-
-          <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header  bg-info">
-                  <h5 class="modal-title" id="editCatedory">Edit Category</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <div class="form-group">
-                    <label for="editCategory">Category:</label>
-                    <div class="input-group">
-                      <input type="hidden" name="cat_id" id="cat_id">
-                      <input type="text" class="form-control mb-3" name="cat_title" id="cat_title">
-
-                    </div>
-
-                    <label for="editCategory">Image:</label>
-                    <div class="input-group">
-                      <div id="selectedBanner"></div>
-                      <input type="file" class="form-control" id="cat_image" name="cat_image">
-                    </div>
-
-
-                    <!-- <label for="editCategory">Created:</label>
-                    <div class="input-group">
-                      <input type="text" id="cat_date" class=" form-control" readonly>
-                    </div> -->
-
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-primary" name="update-categories" value="Update Category">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </form>
 
         <!-- DELETE POP UP FORM (Bootstrap MODAL) -->
         <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -164,6 +125,7 @@
                     <th>ID</th>
                     <th>Category Title</th>
                     <th>Image</th>
+
                     <th>Date Created</th>
 
 
@@ -183,7 +145,7 @@
                     $cat_title = $row['cat_title'];
                     $cat_image = $row['cat_image'];
                     $cat_date = date("F j, Y, g:i a", strtotime($row["cat_date"]));
-
+                    $cat_desc = $row['cat_desc'];
 
 
 
@@ -192,9 +154,56 @@
                       <td> <?php echo $cat_id; ?> </td>
                       <td><?php echo $cat_title; ?> </td>
                       <td><?php echo "<img src='../images/categories/$cat_image' alt='' width='100px'>"; ?> </td>
+
                       <td><?php echo  $cat_date; ?> </td>
 
-                      <td> <button class='btn btn-primary edit_btn' data-toggle='modal'><i class='fas fa-edit'></i></button> <button class='btn btn-danger deletebtn' data-toggle='modal'><i class='fas fa-trash'></i></button></td>
+                      <td> <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit<?php echo $cat_id ?>"><i class='fas fa-pen'></i></button><button class='btn btn-danger deletebtn' data-toggle='modal'><i class='fas fa-trash'></i></button></td>
+
+
+                      <!-- ========EDIT MODAL=========== -->
+                      <div class="modal fade" id="edit<?php echo $cat_id ?>" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <form method="POST" enctype="multipart/form-data" action="">
+                              <div class="modal-header bg-info">
+                                <h4 class="modal-title">Edit Category</h4>
+                              </div>
+                              <div class="modal-body">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-12">
+                                  <div class="form-group">
+                                    <h5>Current Photo</h5>
+                                    <img src="<?php echo "../images/categories/$cat_image" ?>" height="120" width="150" />
+                                    <input type="hidden" name="previous" value="<?php echo $cat_image; ?>" />
+                                    <hr>
+                                    <h5>New Photo</h5>
+                                    <input type="file" class="form-control" name="cat_image" value="<?php echo $cat_image; ?>" required="required" />
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="editCategory">Category:</label>
+                                    <div class="input-group">
+                                      <input type="hidden" value="<?php echo $cat_id; ?>" name="cat_id" />
+                                      <input type="text" class="form-control mb-3" name="cat_title" id="cat_title" value="<?php echo $cat_title; ?>">
+                                    </div>
+
+                                    <label for="editCategory">Description:</label>
+                                    <div class="input-group">
+                                      <textarea name="cat_desc" class="form-control" id="" cols="30" rows="3"><?php echo $cat_desc; ?></textarea>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                              <br style="clear:both;" />
+                              <div class="modal-footer">
+                                <button class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Close</button>
+                                <button type="submit" class="btn btn-primary" name="update-categories"><span class="glyphicon glyphicon-save"></span> Update</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
                     </tr>
 
                   <?php
