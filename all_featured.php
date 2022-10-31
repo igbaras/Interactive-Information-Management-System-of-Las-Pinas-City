@@ -1,12 +1,19 @@
 <?php include "includes/db.php"; ?>
-
+<?php include "includes/functions.php"; ?>
 <?php
 
-$num_per_page = 05;
+$num_per_page = 02;
 
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
+} else {
+    $page = 1;
 }
+
+$start_from = ($page - 1) * 2;
+
+$query = "SELECT * FROM posts LIMIT $start_from,$num_per_page";
+$allFeat_query = mysqli_query($connection, $query);
 
 ?>
 
@@ -19,7 +26,24 @@ if (isset($_GET['page'])) {
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
+    <style>
+        /* Style the buttons */
+        .btn {
+            border: none;
+            outline: none;
+            padding: 10px 16px;
+            background-color: #f1f1f1;
+            cursor: pointer;
+            font-size: 18px;
+        }
 
+        /* Style the active class, and buttons on mouse-over */
+        .active,
+        .btn:hover {
+            background-color: #666;
+            color: white;
+        }
+    </style>
     <!-- Favicon -->
     <link rel="shortcut icon" type="image icon" href="./Assets/images/lplogo.png">
 
@@ -106,12 +130,8 @@ if (isset($_GET['page'])) {
 
                         <?php
 
-                        $query = "SELECT * FROM posts ORDER BY post_id DESC";
-                        $select_all_post_query = mysqli_query($connection, $query);
-                        if (!$select_all_post_query) {
-                            die("CONNECTION FAILED" . " " . mysqli_error($connection));
-                        }
-                        while ($row = mysqli_fetch_assoc($select_all_post_query)) {
+
+                        while ($row = mysqli_fetch_assoc($allFeat_query)) {
                             $post_id = $row['post_id'];
                             $post_category_id = $row['post_category_id'];
                             $post_title = $row['post_title'];
@@ -129,40 +149,58 @@ if (isset($_GET['page'])) {
                             $select_all_cat_query = mysqli_query($connection, $query);
                             while ($row = mysqli_fetch_assoc($select_all_cat_query)) {
                                 $post_category_id1 = $row['cat_id'];
-                                $post_category_id = $row['cat_title'];
+                                $cat_title = $row['cat_title'];
                         ?>
                                 <div class="col-lg-6">
                                     <div class="position-relative mb-3">
-                                        <img class="img-fluid w-100" src="img/news-500x280-1.jpg" style="object-fit: cover;">
+                                        <img class="img-fluid w-100" src="login/images/posts/<?php echo $post_image; ?>" style="object-fit: cover;">
                                         <div class="overlay position-relative bg-light">
                                             <div class="mb-2" style="font-size: 14px;">
-                                                <a href="">Technology</a>
+                                                <a href="" class="btn-sm btn-secondary rounded text-white"><?php echo $cat_title; ?></a>
                                                 <span class="px-1">/</span>
-                                                <span>January 01, 2045</span>
+                                                <span><?php echo time_Ago($post_date); ?></span>
                                             </div>
-                                            <a class="h4" href="">Est stet amet ipsum stet clita rebum duo</a>
+                                            <a class="h4" href=""><?php echo $post_title; ?></a>
                                             <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
                                         </div>
                                     </div>
                                 </div>
                         <?php }
-                        } ?>
+                        }
+                        ?>
                     </div>
 
                     <div class="row">
                         <div class="col-12">
-                            <nav aria-label="Page navigation">
+                            <nav aria-label="Page navigation" id="myDIV">
                                 <ul class="pagination justify-content-center">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#" aria-label="Previous">
-                                            <span class="fa fa-angle-double-left" aria-hidden="true"></span>
-                                            <span class="sr-only">Previous</span>
-                                        </a>
-                                    </li>
-                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
+                                    <?php
+                                    $pr_query = "SELECT * FROM posts";
+                                    $pr_feature = mysqli_query($connection, $pr_query);
+                                    $total_records = mysqli_num_rows($pr_feature);
+
+                                    $total_page = ceil($total_records / $num_per_page);
+
+                                    echo $total_page;
+                                    if ($page > 1) {
+                                    ?>
+                                        <li class="page-item">
+                                            <?php echo " <a class='page-link' href='all_featured.php?page=" . ($page - 1) . "' aria-label='Previous'><span class='fa fa-angle-double-left'aria-hidden='true'></span><spanclass='sr-only'>Previous</spanclass=></a>"; ?>
+                                        </li>
+
+                                    <?php }
+                                    for ($i = 1; $i < $total_page; $i++) {
+                                    ?>
+
+
+                                        <li class=""><?php echo "<a class='page-link btn ' href='all_featured.php?page=" . $i . "' >$i</a>" ?></li>
+
+                                    <?php } 
+                                    if($i>1){
+echo 
+                                    }
+                                    ?>
+                                <li class="page-item ">
                                         <a class="page-link" href="#" aria-label="Next">
                                             <span class="fa fa-angle-double-right" aria-hidden="true"></span>
                                             <span class="sr-only">Next</span>
@@ -266,5 +304,19 @@ if (isset($_GET['page'])) {
                 <!-- Template Javascript -->
                 <script src="./Assets/newsassets/js/main.js"></script>
 </body>
+<script>
+    // Add active class to the current button (highlight it)
+    var header = document.getElementById("myDIV");
+    var btns = header.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function() {
+            var current = document.getElementsByClassName("active");
+            if (current.length > 0) {
+                current[0].className = current[0].className.replace(" active", "");
+            }
+            this.className += " active";
+        });
+    }
+</script>
 
 </html>

@@ -72,15 +72,8 @@
                     <a href="index.html" class="nav-item nav-link active">Home</a>
                     <a href="all_news_cat.php" class="nav-item nav-link">Categories</a>
                     <a href="all_featured.php" class="nav-item nav-link">Featured</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-                        <div class="dropdown-menu rounded-0 m-0">
-                            <a href="#" class="dropdown-item">Menu item 1</a>
-                            <a href="#" class="dropdown-item">Menu item 2</a>
-                            <a href="#" class="dropdown-item">Menu item 3</a>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+
+                    <a href="#popular" class="nav-item nav-link">Popular</a>
                 </div>
                 <div class="input-group ml-auto" style="width: 100%; max-width: 300px;">
                     <input type="text" class="form-control" placeholder="Keyword">
@@ -117,7 +110,8 @@
                             $post_title = $row['post_title'];
                             $post_author = $row['post_author'];
                             $post_date = $row['post_date'];
-                            $post_date = strtotime($post_date);
+                            // $post_date = strtotime($post_date);
+
 
                             $post_image = $row['post_image'];
                             $post_content = $row['post_content'];
@@ -140,7 +134,7 @@
                                         <div class="mb-1">
                                             <a class="btn btn-sm btn-secondary rounded text-white" href=""><?php echo $post_category_id; ?></a>
                                             <span class="px-2 text-white">/</span>
-                                            <a class="text-white" href=""><?php time_Ago($post_date); ?></a>
+                                            <a class="text-white" href=""><?php echo $post_date; ?></a>
                                         </div>
                                         <a class="h2 m-0 text-white font-weight-bold" href="singleNews.php?an_id=<?php echo $post_id ?>"><?php echo $post_title; ?></a>
                                     </div>
@@ -247,8 +241,8 @@
 
 
     <!-- News With Sidebar Start -->
-    <div class="container-fluid py-3">
-        <div class="container">
+    <div class="container-fluid py-3" div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+        <div class="container" id="popular">
             <div class="row">
                 <div class="col-lg-8">
                     <div class="row mb-3">
