@@ -1,4 +1,20 @@
+<?php require_once "../../includes/db.php" ?>
+
 <?php
+global $connection;
+if (isset($_REQUEST['mem_id'])) {
+  $post_id = $_REQUEST['mem_id'];
+  echo $post_id;
+
+  $query = "DELETE FROM posts WHERE post_id = {$post_id}";
+  $delete_post_query = mysqli_query($connection, $query);
+  header("Location: posts.php");
+  if (!$delete_post_query) {
+    die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+  }
+}
+
+
 // ===========CATEGORY FUNCTIONS=========
 function insert_category()
 {
@@ -82,12 +98,12 @@ function updateCategory()
       echo "QUERY FAILED " . mysqli_error($connection);
     }
     if ($update_category_query) {
-      echo "<div class='alert border border-success alert-dismissible fade show' role='alert'>
-      <strong class='text-success'>Category successfully Updated!</strong>
-      <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-        <span aria-hidden='true'>&times;</span>
-      </button>
-    </div>";
+      echo "<div class='alert alert-success alert-dismissible fade show text-center' role='alert'>
+    <h5><strong>Category successfully Updated!<i class='fas fa-check'></i></strong></h5>    
+          <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>";
     }
   }
 }
@@ -100,9 +116,18 @@ function deleteCategory()
 
     $query = "DELETE FROM categories WHERE cat_id = {$cat_id}";
     $delete_category_query = mysqli_query($connection, $query);
-    header("Location: categories.php");
+
     if (!$delete_category_query) {
       die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+    }
+    if ($delete_category_query) {
+
+      echo "<div class='alert alert-danger alert-dismissible fade show text-center' role='alert'>
+    <h5><strong>Category Deleted successfully! <i class='fas fa-check'></i></strong></h5>    
+          <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>";
     }
   }
 }
@@ -136,6 +161,8 @@ function deletePost()
 }
 
 
+
+
 // ===========LIFESTYLE FUNCTIONS=========
 function deleteLifestyle()
 {
@@ -148,6 +175,135 @@ function deleteLifestyle()
     header("Location: lifestyles.php");
     if (!$delete_post_query) {
       die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+    }
+  }
+}
+
+function insertLifestyle()
+{
+  global $connection;
+  if (isset($_POST['submit_lifestyle'])) {
+
+    $ls_title = $_POST['ls_title'];
+    $ls_image = $_FILES['ls_image']['name'];
+    $ls_image_temp = $_FILES['ls_image']['tmp_name'];
+    $ls_description = $_POST['ls_description'];
+    $ls_content = htmlentities($_POST['ls_content']);
+    $ls_tags = $_POST['ls_tags'];
+    $ls_status = $_POST['ls_status'];
+
+    move_uploaded_file($ls_image_temp, "../images/lifestyles/$ls_image/");
+
+    $query = "INSERT INTO lifestyles ( ls_title, ls_image, ls_status, ls_date, ls_tags, ls_description, ls_content) ";
+    $query .= "VALUES ('{$ls_title}','{$ls_image}','{$ls_status}',now(), '{$ls_tags}','{$ls_description}','{$ls_content}')";
+    $insert_ls_query = mysqli_query($connection, $query);
+    if (!$insert_ls_query) {
+
+      die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+    }
+    echo "<div class='alert alert-success alert-dismissible fade show text-center' role='alert' >
+    <h5><strong>Lifestyle successfully added!<i class='fas fa-check'></i></strong></h5>
+          
+          <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>";
+  }
+}
+
+function updateLifestyle()
+{
+}
+// ===========LIFESTYLE FUNCTIONS END=========
+
+
+
+
+
+
+
+
+// ===========GALLERY FUNCTIONS=========
+function insert_gallery()
+{
+  global $connection;
+  if (isset($_POST['submit_image'])) {
+    $img_title = $_POST['img_title'];
+    $img_image = $_FILES['img_image']['name'];
+    $img_image_temp = $_FILES['img_image']['tmp_name'];
+    $img_status = $_POST['img_status'];
+    $img_desc = $_POST['img_desc'];
+
+
+    move_uploaded_file($img_image_temp, "../images/gallery/$img_image/");
+    $query = "INSERT INTO  gallery (img_title , img_image, img_status,img_date, img_desc)";
+    $query .= " VALUE ('{$img_title}', '{$img_image}','{$img_status}', now(), '{$img_desc}')";
+    $insert_gallery_query = mysqli_query($connection, $query);
+
+    if (!$insert_gallery_query) {
+      die("CONNECTION FAILED" . " " . mysqli_error($connection));
+    }
+    echo "<div class='alert alert-success alert-dismissible fade show text-center' role='alert' >
+    <h5><strong>Image successfully added to Gallery!<i class='fas fa-check'></i></strong></h5>
+          
+          <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>";
+  }
+}
+
+function updateGallery()
+{
+
+  global $connection;
+  if (isset($_POST['update-gallery'])) {
+    $img_title = $_POST['img_title'];
+    $img_id = $_POST['img_id'];
+    $img_desc = $_POST['img_desc'];
+    $img_status = $_POST['img_status'];
+    $img_image = $_FILES['img_image']['name'];
+    $img_image_temp = $_FILES['img_image']['tmp_name'];
+
+    move_uploaded_file($img_image_temp, "../images/gallery/$img_image/");
+    $query = "UPDATE gallery SET img_title = '{$img_title}', img_image='{$img_image}', img_status='{$img_status}', img_desc='{$img_desc}' WHERE img_id={$img_id}; ";
+    $update_gallery_query = mysqli_query($connection, $query);
+
+    if (!$update_gallery_query) {
+      echo "QUERY FAILED " . mysqli_error($connection);
+    }
+    if ($update_gallery_query) {
+
+      echo "<div class='alert alert-success alert-dismissible fade show text-center' role='alert'>
+    <h5><strong>Image successfully Updated! <i class='fas fa-check'></i></strong></h5>    
+          <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>";
+    }
+  }
+}
+function deleteGallery()
+{
+
+  global $connection;
+  if (isset($_POST['delete_data'])) {
+    $img_id = $_POST['img_id'];
+
+    $query = "DELETE FROM gallery WHERE img_id = {$img_id}";
+    $delete_gallery_query = mysqli_query($connection, $query);
+
+    if (!$delete_gallery_query) {
+      die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+    }
+    if ($delete_gallery_query) {
+
+      echo "<div class='alert alert-danger alert-dismissible fade show text-center' role='alert'>
+    <h5><strong>Image Deleted successfully! <i class='fas fa-check'></i></strong></h5>    
+          <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>";
     }
   }
 }

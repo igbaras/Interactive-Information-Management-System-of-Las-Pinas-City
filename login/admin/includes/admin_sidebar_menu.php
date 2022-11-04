@@ -106,7 +106,7 @@
                     </ul>
 
                 </li>
-                <li class="nav-item <?= ($activePage == 'lifestyles.php') ? 'menu-open' : ''; ?><?= ($activePage == 'news.php') ? 'menu-open' : ''; ?>">
+                <li class="nav-item <?= ($activePage == 'lifestyles.php') ? 'menu-open' : ''; ?>">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-heartbeat"></i>
                         <p>
@@ -134,39 +134,25 @@
 
                 </li>
                 <li class="nav-item <?= ($activePage == 'gallery.php') ? 'menu-open' : ''; ?>">
-                    <a href="#" class="nav-link">
+                    <a href="gallery.php" class="nav-link">
                         <i class="nav-icon fas fa-image"></i>
                         <p>
                             Gallery
-                            <i class="fas fa-angle-left right"></i>
+
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="gallery.php?source=add_image" class="nav-link <?= ($activePage == 'gallery.php?source=add_image') ? 'active' : ''; ?>">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Add picture</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="gallery.php" class="nav-link <?= ($activePage == 'gallery.php?source=view_all_images') ? 'active' : ''; ?>">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>View all pictures</p>
-                            </a>
-                        </li>
 
-                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="pages/forms/general.html" class="nav-link">
+                <li class="nav-item" <?= ($activePage == 'lifestyles.php') ? 'menu-open' : ''; ?>>
+                    <a href="" class="nav-link">
                         <i class="nav-icon fas fa-vr-cardboard"></i>
                         <p>Virtual Tour</p>
                         <i class="fas fa-angle-left right"></i>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item"><a href="" class="nav-link"><i class="far fa-circle nav-icon"></i>Add Virtual
+                        <li class="nav-item"><a href="./virtualTour.php?source=add_vt" class="nav-link"><i class="far fa-circle nav-icon"></i>Add Virtual
                                 tour </a></li>
-                        <li class="nav-item"><a href="" class="nav-link"><i class="far fa-circle nav-icon"></i>View all
+                        <li class="nav-item"><a href="./virtualTour.php" class="nav-link"><i class="far fa-circle nav-icon"></i>View all
                                 virtual tour </a></li>
                     </ul>
                 </li>

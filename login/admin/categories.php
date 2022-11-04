@@ -25,43 +25,60 @@
         <div class="card card-primary col">
           <div class="card-header">
             <h3 class="card-title">Manage Category</h3>
+
+
+
           </div>
-          <!-- /.card-header -->
+          <!-- ADD ITEM BUTTON -->
+          <buttton class="btn btn-lg btn-success" data-toggle="modal" data-target="#form_modal"><span class="fas fa-plus"></span> ADD CATEGORY</buttton>
+          <!-- ADD CATEGORY MODAL -->
+          <div class="modal fade" id="form_modal" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h3 class="modal-title">Add Image to Gallery</h3>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                      ×
+                    </span>
+                  </button>
+                </div>
+                <form action="" method="post" enctype="multipart/form-data">
+                  <div class="card-body">
+
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Category Title</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control" name="cat_title" required>
+
+                      </div>
+                      <label for="exampleInputEmail1">Category Description</label>
+                      <div class="input-group">
+                        <textarea name="cat_desc" class="form-control" id="" cols="30" rows="3" required></textarea>
+                      </div>
+
+                      <div class="form-group mt-3">
+                        <label for="inputClientCompany">Category Image</label>
+                        <div id="selectedBanner"></div>
+
+                        <input type="file" class="form-control" name="cat_image" id="cat_image" required>
+
+
+                      </div>
+                      <div class="input-group">
+                        <input type="submit" name="submit" class="btn btn-lg btn-block btn-outline-primary" value="Add Category">
+                      </div>
+                    </div>
+                    <!-- /.card-body -->
+                </form>
+              </div>
+            </div>
+          </div>
+
           <!-- category form start -->
 
-          <form action="" method="post" enctype="multipart/form-data">
-            <div class="card-body">
-              <?php insert_category(); ?>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Category Title</label>
-                <div class="input-group">
-                  <input type="text" class="form-control" name="cat_title" required>
 
-                </div>
-                <label for="exampleInputEmail1">Category Description</label>
-                <div class="input-group">
-                  <textarea name="cat_desc" class="form-control" id="" cols="30" rows="3" required></textarea>
-                </div>
-
-                <div class="form-group mt-3">
-                  <label for="inputClientCompany">Category Image</label>
-                  <div id="selectedBanner"></div>
-
-                  <input type="file" class="form-control" name="cat_image" id="cat_image" required>
-
-
-                </div>
-                <div class="input-group">
-                  <input type="submit" name="submit" class="btn btn-lg btn-block btn-outline-primary" value="Add Category">
-                </div>
-              </div>
-              <!-- /.card-body -->
-          </form>
         </div>
-
-        <?php
-
-        updateCategory(); ?>
 
 
         <!-- DELETE POP UP FORM (Bootstrap MODAL) -->
@@ -76,7 +93,7 @@
               </div>
 
 
-              <?php deleteCategory(); ?>
+
 
               <form method="POST">
 
@@ -99,27 +116,22 @@
         <!-- List  of Category Table -->
 
 
+        <!-- List  of Category Table -->
+
+
         <div class="col">
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">List of Categories</h3>
 
-              <div class="card-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
-                  <div class="input-group-append">
-                    <button type="submit" class="btn btn-default">
-                      <i class="fas fa-search"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
             </div>
             <!-- /.card-header -->
-
-            <div class="card-body table-responsive p-0" style="height: 330px;">
-              <table class="table table-head-fixed text-nowrap">
+            <?php insert_category(); ?>
+            <?php deleteCategory(); ?>
+            <?php updateCategory(); ?>
+            <div class="card-body">
+              <table id="example1" class="table table-head-fixed text-nowrap">
                 <thead>
                   <tr>
                     <th>ID</th>
@@ -127,6 +139,7 @@
                     <th>Image</th>
 
                     <th>Date Created</th>
+                    <th></th>
 
 
                   </tr>
@@ -134,7 +147,6 @@
                 <tbody>
 
                   <?php
-
                   $query = "SELECT * FROM categories ORDER BY cat_id  DESC ";
                   $all_categories_query = mysqli_query($connection, $query);
                   if (!$all_categories_query) {
@@ -147,8 +159,6 @@
                     $cat_date = date("F j, Y, g:i a", strtotime($row["cat_date"]));
                     $cat_desc = $row['cat_desc'];
 
-
-
                   ?>
                     <tr>
                       <td> <?php echo $cat_id; ?> </td>
@@ -157,7 +167,7 @@
 
                       <td><?php echo  $cat_date; ?> </td>
 
-                      <td> <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit<?php echo $cat_id ?>"><i class='fas fa-pen'></i></button><button class='btn btn-danger deletebtn' data-toggle='modal'><i class='fas fa-trash'></i></button></td>
+                      <td> <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit<?php echo $cat_id ?>"><i class='fas fa-edit'></i></button><button class='btn btn-danger deletebtn' data-toggle='modal'><i class='fas fa-trash'></i></button></td>
 
 
                       <!-- ========EDIT MODAL=========== -->
@@ -177,7 +187,7 @@
                                     <input type="hidden" name="previous" value="<?php echo $cat_image; ?>" />
                                     <hr>
                                     <h5>New Photo</h5>
-                                    <input type="file" class="form-control" name="cat_image" value="<?php echo $cat_image; ?>" required="required" />
+                                    <input type="file" class="form-control" name="cat_image" />
                                   </div>
                                   <div class="form-group">
                                     <label for="editCategory">Category:</label>
@@ -271,6 +281,10 @@
 
     });
 
+    // ALERT FADE EFFECT
+    $(".alert").delay(4000).slideUp(200, function() {
+      $(this).alert('close');
+    });
   });
 </script>
 
@@ -299,10 +313,11 @@
           e.target.result +
           "\" data-file='" +
           f.name +
-          "alt='Category Image' width='20%'>";
+          "alt='Category Image' width='40%'>";
         selDiv.html(html);
       };
       reader.readAsDataURL(f);
     });
   }
 </script>
+<script src="../dist/js/script.js"></script>
