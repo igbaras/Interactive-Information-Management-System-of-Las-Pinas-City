@@ -74,9 +74,32 @@
                                         <td><?php echo $post_tags; ?></td>
                                         <td> 'comments'</td>
                                         <td><?php echo $post_date; ?></td>
-                                        <td><a href="posts.php?source=edit_posts&an_edit=<?php echo $post_id; ?>" class='btn btn-primary edit_btn' type="submit"><i class='fas fa-edit'></i><small class='align-self-end'>Edit</small></a></td>
-                                        <td><button class='btn btn-danger deletebtn' data-toggle='modal'><i class='fas fa-trash'></i><small class='align-self-end'>Delete</small></button></td>
+
+                                        <td><a class='btn btn-primary' href="posts.php?source=edit_post&an_edit=<?php echo $post_id; ?>"><i class='fas fa-pen'></i><small class='align-self-end'>Edit</small></a></td>
+                                        <td><button class="btn btn-danger" data-toggle="modal" data-target="#modal<?php echo $post_id; ?>"><i class='fas fa-trash'></i><small class='align-self-end'>Delete</small></button></td>
+
                                     </tr>
+
+
+                                    <div class="modal fade" id="modal<?php echo $post_id; ?>" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h3 class="modal-title">System Information</h3>
+                                                </div>
+                                                <div class="modal-body">
+
+                                                    <h3 class="text-danger text-center">Are you sure you want to delete this Post?</h3>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <a href="functions.php?mem_id=<?php echo $post_id; ?>" class="btn btn-danger">Yes</a>
+                                                    <button class="btn btn-primary" type="button" data-dismiss="modal">No</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                             <?php }
                             } ?>
                         </tbody>

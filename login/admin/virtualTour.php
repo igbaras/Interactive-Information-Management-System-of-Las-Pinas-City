@@ -24,14 +24,11 @@ if (isset($_GET['source'])) {
 }
 
 switch ($source) {
-  case 'add_lifestyle':
-    include 'includes/add_lifestyle.php';
-    break;
-  case 'edit_lifestyle':
-    include 'includes/edit_lifestyle.php';
+  case 'edit_vt':
+    include 'includes/edit_vt.php';
     break;
   default:
-    include 'includes/view_all_lifestyle.php';
+    include 'includes/view_all_vt.php';
 }
 ?>
 <!-- /.content-wrapper -->
@@ -39,6 +36,14 @@ switch ($source) {
 
 <!-- Admin Footer -->
 <?php include "includes/admin_footer.php" ?>
+
+<script>
+  let summernoteOptions = {
+    height: 300
+  }
+
+  $('#summernote').summernote(summernoteOptions);
+</script>
 <!-- DISPLAY SELECTED IMAGE -->
 <script>
   var selDiv = "";
@@ -120,8 +125,10 @@ switch ($source) {
     });
 
   });
+
+
   // ALERT FADE EFFECT
-  $(".alert").delay(4000).slideUp(200, function() {
+  $("#alerto").delay(4000).slideUp(200, function() {
     $(this).alert('close');
   });
 </script>

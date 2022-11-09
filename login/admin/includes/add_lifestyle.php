@@ -1,28 +1,3 @@
-<?php
-if (isset($_POST['submit'])) {
-
-    $ls_title = $_POST['ls_title'];
-    $ls_image = $_FILES['ls_image']['name'];
-    $ls_image_temp = $_FILES['ls_image']['tmp_name'];
-    $ls_description = $_POST['ls_description'];
-    $ls_content = htmlentities($_POST['ls_content']);
-    $ls_tags = $_POST['ls_tags'];
-    $ls_status = $_POST['ls_status'];
-
-    move_uploaded_file($ls_image_temp, "../images/lifestyles/$ls_image/");
-
-    $query = "INSERT INTO lifestyles ( ls_title, ls_image, ls_status, ls_date, ls_tags, ls_description, ls_content) ";
-    $query .= "VALUES ('{$ls_title}','{$ls_image}','{$ls_status}',now(), '{$ls_tags}','{$ls_description}','{$ls_content}')";
-    $insert_ls_query = mysqli_query($connection, $query);
-    if (!$insert_ls_query) {
-
-        die("QUERY CONNECTION FAILED " . mysqli_error($connection));
-    }
-}
-
-?>
-
-
 <div class="content-wrapper">
     <section class="content">
         <div class="container-fluid">
@@ -39,7 +14,7 @@ if (isset($_POST['submit'])) {
                 </div>
 
 
-
+                <?php insertLifestyle(); ?>
 
                 <form method="post" enctype="multipart/form-data">
                     <div class="card-body">

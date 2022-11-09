@@ -72,7 +72,9 @@
 <!-- Filterizr-->
 <script src="../plugins/filterizr/jquery.filterizr.min.js"></script>
 
+
 <!-- Summer Note -->
+
 <script src="../summernote/summernote.min.js"></script>
 <script src="../dist/js/main.js"></script>
 
