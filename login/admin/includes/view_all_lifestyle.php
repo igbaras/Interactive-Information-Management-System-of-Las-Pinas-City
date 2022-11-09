@@ -3,10 +3,6 @@
         <div class="container-fluid">
             <div class="card">
 
-
-
-
-
                 <div class="card-header bg-info">
                     <h3 class="card-title">View All Lifestyles</h3>
                 </div>
@@ -68,7 +64,7 @@
                                         <textarea name="ls_content" id="summernote" class="form-control" required></textarea>
                                     </div>
                                 </div>
-                                <input type="submit" class="btn btn-outline-primary btn-lg btn-block " name="submit" value="SUBMIT">
+                                <input type="submit" class="btn btn-outline-primary btn-lg btn-block " name="updateLifestyle" value="SUBMIT">
                             </form>
                         </div>
                     </div>
@@ -122,61 +118,6 @@
                                     <td><a class='btn btn-primary ' href="./lifestyles.php?source=edit_lifestyle&an_edit=<?php echo $ls_id ?>" data-target="#edit<?php echo $ls_id ?>"><i class='fas fa-edit'></i></a><button class='btn btn-danger deletebtn' data-toggle='modal'><i class='fas fa-trash'></i></button></td>
 
 
-                                    <!-- ========EDIT MODAL=========== -->
-                                    <div class="modal fade" id="edit<?php echo $ls_id ?>" aria-hidden="true">
-                                        <div class="modal-dialog modal-xl">
-                                            <div class="modal-content">
-                                                <div class="card-header">
-                                                    <h5>Edit Lifestyle</h5>
-                                                </div>
-                                                <form method="post" enctype="multipart/form-data">
-                                                    <div class="card-body">
-
-                                                        <div class="form-group">
-                                                            <label for="lifestyleTitle">lifestyle Title</label>
-                                                            <input type="text" id="inputName" class="form-control" name="ls_title" required>
-                                                        </div>
-
-
-                                                        <div class="form-group">
-                                                            <label for="lifestyleCategory">lifestyle Status</label>
-                                                            <select class="custom-select" name="ls_status" required>
-                                                                <option value="draft" active>Select Status</option>
-                                                                <option value="published">Publish</option>
-                                                                <option value="draft">Draft</option>
-                                                            </select>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label for="inputClientCompany">lifestyle Image</label>
-                                                            <div id="selectedBanner"></div>
-
-                                                            <input type="file" class="form-control" id="img" name="ls_image" required>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="lifestyleTags">lifestyle Tags</label>
-                                                            <input type="text" id="inputName" class="form-control" name="ls_tags" required>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="lifestyleTags">lifestyle Description</label>
-
-                                                            <textarea name="ls_description" class="form-control" style="height: 20%;" required></textarea>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="lifestyleCOntent">lifestyle Content</label>
-                                                            <textarea name="ls_content" id="summernote" class="form-control" required></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <br style="clear:both;" />
-                                                    <div class="modal-footer">
-                                                        <button class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Close</button>
-                                                        <button type="submit" class="btn btn-primary" name="updateLifestyle"><span class="glyphicon glyphicon-save"></span> Update</button>
-                                                    </div>
-                                                </form>
-
-                                            </div>
-                                        </div>
-                                    </div>
                                 </tr>
                             <?php }
                             ?>

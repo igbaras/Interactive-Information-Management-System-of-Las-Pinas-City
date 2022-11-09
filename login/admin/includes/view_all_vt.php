@@ -3,20 +3,16 @@
         <div class="container-fluid">
             <div class="card">
 
-
-
-
-
                 <div class="card-header bg-info">
-                    <h3 class="card-title">View All Lifestyles</h3>
+                    <h3 class="card-title">View All Virtualtour</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- ADD ITEM BUTTON -->
-                <buttton class="btn btn-lg btn-success" data-toggle="modal" data-target="#form_modal"><span class="fas fa-plus"></span> ADD LIFESTYLE</buttton>
+                <buttton class="btn btn-lg btn-success" data-toggle="modal" data-target="#form_modal"><span class="fas fa-plus"></span> ADD virtualtour</buttton>
 
                 <!-- ADD CATEGORY MODAL -->
                 <div class="modal fade" id="form_modal" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-xl">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h3 class="modal-title">Add Image to Gallery</h3>
@@ -27,176 +23,121 @@
                                 </button>
                             </div>
 
-
                             <form method="post" enctype="multipart/form-data">
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="lifestyleTitle">lifestyle Title</label>
-                                        <input type="text" id="inputName" class="form-control" name="ls_title" required>
+                                        <label for="virtualTitle">Title</label>
+                                        <input type="text" id="inputName" class="form-control" name="vt_title" required>
                                     </div>
 
-
                                     <div class="form-group">
-                                        <label for="lifestyleCategory">lifestyle Status</label>
-                                        <select class="custom-select" name="ls_status" required>
+                                        <label for="virtualvirtual">Virtual Tour </label>
+                                        <textarea name="vt_tour" id="summernote" class="form-control" required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputClientCompany">Image</label>
+                                        <div id="selectedBanner"></div>
+                                        <input type="file" class="form-control" id="img" name="vt_image" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="virtualCategory">Status</label>
+                                        <select class="custom-select" name="vt_status" required>
                                             <option value="draft" active>Select Status</option>
                                             <option value="published">Publish</option>
                                             <option value="draft">Draft</option>
                                         </select>
                                     </div>
-
                                     <div class="form-group">
-                                        <label for="inputClientCompany">lifestyle Image</label>
-                                        <div id="selectedBanner"></div>
-
-                                        <input type="file" class="form-control" id="img" name="ls_image" required>
-
-
-
+                                        <label for="virtualTags">Tags</label>
+                                        <input type="text" id="inputName" class="form-control" name="vt_tags" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="lifestyleTags">lifestyle Tags</label>
-                                        <input type="text" id="inputName" class="form-control" name="ls_tags" required>
+                                        <label for="virtualTags">Description</label>
+                                        <textarea name="vt_desc" class="form-control" style="height: 20%;" required></textarea>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="lifestyleTags">lifestyle Description</label>
 
-                                        <textarea name="ls_description" class="form-control" style="height: 20%;" required></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="lifestyleCOntent">lifestyle Content</label>
-                                        <textarea name="ls_content" id="summernote" class="form-control" required></textarea>
-                                    </div>
                                 </div>
-                                <input type="submit" class="btn btn-outline-primary btn-lg btn-block " name="submit" value="SUBMIT">
+                                <input type="submit" class="btn btn-outline-primary btn-lg btn-block " name="submit_virtual" value="SUBMIT">
                             </form>
                         </div>
                     </div>
                 </div>
 
-                <?php insertLifestyle(); ?>
-                <?php deleteLifestyle(); ?>
-                <?php updateCategory(); ?>
-                <div class="card-body">
-                    <table id="example1" class="table table-head-fixed table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th><input type="checkbox">ID</th>
-                                <th>Title</th>
-                                <th>Status</th>
-                                <th>Image</th>
-                                <th>Tags</th>
-                                <th>Date Created</th>
-                                <th></th>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">List of Images</h3>
 
 
-                            </tr>
-                        </thead>
-                        <tbody>
+                    </div>
+                    <?php insert_vt(); ?>
+                    <?php delete_vt(); ?>
+                    <div class="card-body">
 
-                            <?php
-
-                            $query = "SELECT * FROM lifestyles";
-                            $all_ls_query = mysqli_query($connection, $query);
-                            if (!$all_ls_query) {
-                                die("CONNECTION FAILED" . " " . mysqli_error($connection));
-                            }
-                            while ($row = mysqli_fetch_array($all_ls_query)) {
-                                $ls_id = $row["ls_id"];
-
-                                $ls_title = $row["ls_title"];
-
-                                $ls_date = date("F j, Y, g:i a", strtotime($row["ls_date"]));
-                                $ls_image = $row["ls_image"];
-                                $ls_tags = $row["ls_tags"];
-                                $ls_status = $row["ls_status"];
-                            ?>
-
+                        <table id="example1" class="table table-head-fixed table-bordered table-striped">
+                            <thead>
                                 <tr>
-                                    <td><?php echo $ls_id; ?></td>
-                                    <td> <?php echo $ls_title; ?></td>
-                                    <td><?php echo $ls_status; ?></td>
-                                    <td><?php echo "<img src='../images/lifestyles/$ls_image' width='200px' alt='lss_image'>"; ?></td>
-                                    <td><?php echo $ls_tags; ?></td>
-                                    <td><?php echo $ls_date; ?></td>
-                                    <td><a class='btn btn-primary ' href="./lifestyles.php?source=edit_lifestyle&an_edit=<?php echo $ls_id ?>" data-target="#edit<?php echo $ls_id ?>"><i class='fas fa-edit'></i></a><button class='btn btn-danger deletebtn' data-toggle='modal'><i class='fas fa-trash'></i></button></td>
+                                    <th><input type="checkbox">ID</th>
+                                    <th>Title</th>
+                                    <th>Status</th>
+                                    <th>Image</th>
+
+                                    <th>Date Created</th>
+                                    <th></th>
 
 
-                                    <!-- ========EDIT MODAL=========== -->
-                                    <div class="modal fade" id="edit<?php echo $ls_id ?>" aria-hidden="true">
-                                        <div class="modal-dialog modal-xl">
-                                            <div class="modal-content">
-                                                <div class="card-header">
-                                                    <h5>Edit Lifestyle</h5>
-                                                </div>
-                                                <form method="post" enctype="multipart/form-data">
-                                                    <div class="card-body">
-
-                                                        <div class="form-group">
-                                                            <label for="lifestyleTitle">lifestyle Title</label>
-                                                            <input type="text" id="inputName" class="form-control" name="ls_title" required>
-                                                        </div>
-
-
-                                                        <div class="form-group">
-                                                            <label for="lifestyleCategory">lifestyle Status</label>
-                                                            <select class="custom-select" name="ls_status" required>
-                                                                <option value="draft" active>Select Status</option>
-                                                                <option value="published">Publish</option>
-                                                                <option value="draft">Draft</option>
-                                                            </select>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label for="inputClientCompany">lifestyle Image</label>
-                                                            <div id="selectedBanner"></div>
-
-                                                            <input type="file" class="form-control" id="img" name="ls_image" required>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="lifestyleTags">lifestyle Tags</label>
-                                                            <input type="text" id="inputName" class="form-control" name="ls_tags" required>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="lifestyleTags">lifestyle Description</label>
-
-                                                            <textarea name="ls_description" class="form-control" style="height: 20%;" required></textarea>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="lifestyleCOntent">lifestyle Content</label>
-                                                            <textarea name="ls_content" id="summernote" class="form-control" required></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <br style="clear:both;" />
-                                                    <div class="modal-footer">
-                                                        <button class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Close</button>
-                                                        <button type="submit" class="btn btn-primary" name="updateLifestyle"><span class="glyphicon glyphicon-save"></span> Update</button>
-                                                    </div>
-                                                </form>
-
-                                            </div>
-                                        </div>
-                                    </div>
                                 </tr>
-                            <?php }
-                            ?>
-                        </tbody>
-                        <tfoot>
-                            <tr>
+                            </thead>
+                            <tbody>
 
-                                <th>ID</th>
-                                <th>Title</th>
-                                <th>Status</th>
-                                <th>Image</th>
-                                <th>Tags</th>
-                                <th>Date Created</th>
-                                <th></th>
+                                <?php
+
+                                $query = "SELECT * FROM virtualtour";
+                                $all_vt_query = mysqli_query($connection, $query);
+                                if (!$all_vt_query) {
+                                    die("CONNECTION FAILED" . " " . mysqli_error($connection));
+                                }
+                                while ($row = mysqli_fetch_array($all_vt_query)) {
+                                    $vt_id = $row["vt_id"];
+
+                                    $vt_title = $row["vt_title"];
+
+                                    $vt_date = date("F j, Y, g:i a", strtotime($row["vt_date"]));
+                                    $vt_image = $row["vt_image"];
+                                    $vt_tags = $row["vt_tags"];
+                                    $vt_status = $row["vt_status"];
+                                ?>
+
+                                    <tr>
+                                        <td><?php echo $vt_id; ?></td>
+                                        <td> <?php echo $vt_title; ?></td>
+                                        <td><?php echo $vt_status; ?></td>
+                                        <td><?php echo "<img src='../images/virtualtour/$vt_image' width='150px' alt='lss_image'>"; ?></td>
+
+                                        <td><?php echo $vt_date; ?></td>
+                                        <td><a class='btn btn-primary ' href="./virtualtour.php?source=edit_vt&an_edit=<?php echo $vt_id ?>"><i class='fas fa-edit'></i></a><button class='btn btn-danger deletebtn' data-toggle='modal'><i class='fas fa-trash'></i></button></td>
+
+                                    </tr>
+                                <?php }
+                                ?>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Status</th>
+                                    <th>Image</th>
+
+                                    <th>Date Created</th>
+                                    <th></th>
 
 
 
-                            </tr>
-                        </tfoot>
-                    </table>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
                 </div>
                 <!-- /.card-body -->
             </div>
@@ -208,7 +149,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"> Delete Lifestyle Data </h5>
+                <h5 class="modal-title" id="exampleModalLabel"> Delete virtualtour Data </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -221,7 +162,7 @@
 
                 <div class="modal-body">
 
-                    <input type="hidden" name="ls_id" id="delete_id">
+                    <input type="hidden" name="vt_id" id="delete_id">
 
                     <h4> Do you want to Delete this Data ??</h4>
                 </div>

@@ -62,7 +62,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                            <a href="../../index.php" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Website Home</p>
                             </a>
@@ -143,47 +143,34 @@
                     </a>
 
                 </li>
-                <li class="nav-item" <?= ($activePage == 'lifestyles.php') ? 'menu-open' : ''; ?>>
-                    <a href="" class="nav-link">
+                <li class="nav-item <?= ($activePage == 'virtualtour.php') ? 'menu-open' : ''; ?>">
+                    <a href="virtualtour.php" class="nav-link">
                         <i class="nav-icon fas fa-vr-cardboard"></i>
-                        <p>Virtual Tour</p>
-                        <i class="fas fa-angle-left right"></i>
+                        <p>
+                            Virtual Tour </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item"><a href="./virtualTour.php?source=add_vt" class="nav-link"><i class="far fa-circle nav-icon"></i>Add Virtual
-                                tour </a></li>
-                        <li class="nav-item"><a href="./virtualTour.php" class="nav-link"><i class="far fa-circle nav-icon"></i>View all
-                                virtual tour </a></li>
-                    </ul>
+
                 </li>
 
                 <li class="nav-header">OTHER CONFIGURATIONS</li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-cogs"></i>
-                        <p>Dev Tools</p>
-                        <i class="fas fa-angle-left right"></i>
-                    </a>
 
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>Item1</a></li>
-                        <li class="nav-item"><a href="" class="nav-link"><i class="far fa-circle nav-icon"></i>Item2</a></li>
-                    </ul>
-
-                </li>
-                <li class="nav-item">
+                <li class="nav-item  <?= ($activePage == 'settings.php') ? 'menu-open' : ''; ?>">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-cog"></i>
                         <p>Settings</p>
                         <i class="fas fa-angle-left right"></i>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>Manage Users</a></li>
-                        <li class="nav-item"><a href="" class="nav-link"><i class="far fa-circle nav-icon"></i>My Profile</a>
+                        <li class="nav-item">
+                            <a href="./settings.php?source=manage_users" class="nav-link"><i class="far fa-circle nav-icon"></i>Manage Users</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="./settings.php?source=my_profile" class="nav-link"><i class="far fa-circle nav-icon"></i>My Profile</a>
                         </li>
                     </ul>
-
                 </li>
+
                 <li class="nav-item">
                     <a href="../user_logout.php" class="nav-link">
                         <i class=" nav-icon fa fa-power-off"></i>

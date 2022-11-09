@@ -24,10 +24,7 @@ if (isset($_GET['source'])) {
 }
 
 switch ($source) {
-  case 'add_vt':
-    include 'includes/add_vt.php';
-    break;
-  case 'edit_lifestyle':
+  case 'edit_vt':
     include 'includes/edit_vt.php';
     break;
   default:
@@ -39,6 +36,14 @@ switch ($source) {
 
 <!-- Admin Footer -->
 <?php include "includes/admin_footer.php" ?>
+
+<script>
+  let summernoteOptions = {
+    height: 300
+  }
+
+  $('#summernote').summernote(summernoteOptions);
+</script>
 <!-- DISPLAY SELECTED IMAGE -->
 <script>
   var selDiv = "";
@@ -119,5 +124,11 @@ switch ($source) {
 
     });
 
+  });
+
+
+  // ALERT FADE EFFECT
+  $("#alerto").delay(4000).slideUp(200, function() {
+    $(this).alert('close');
   });
 </script>

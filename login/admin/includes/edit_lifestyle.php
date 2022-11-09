@@ -15,6 +15,7 @@ while ($row  = mysqli_fetch_assoc($select_edit_posts)) {
 
     $ls_content = html_entity_decode($row['ls_content']);
     $ls_tags = $row['ls_tags'];
+    $ls_description = $row['ls_description'];
     $ls_comment_count = $row['ls_comment_count'];
     $ls_date = $row['ls_date'];
 }
@@ -26,6 +27,7 @@ if (isset($_POST['update_ls'])) {
     $ls_image = $_FILES['ls_image']['name'];
     $ls_image_temp = $_FILES['ls_image']['tmp_name'];
     $ls_tags = $_POST['ls_tags'];
+    $ls_description = $_POST['ls_description'];
     $ls_content = htmlentities($_POST['ls_content']);
 
     move_uploaded_file($ls_image_temp, "../images/lifestyles/$ls_image/");
@@ -43,6 +45,7 @@ if (isset($_POST['update_ls'])) {
     $query .= "ls_status = '{$ls_status}', ";
     $query .= "ls_image = '{$ls_image}', ";
     $query .= "ls_tags = '{$ls_tags}', ";
+    $query .= "ls_description = '{$ls_description}', ";
     $query .= "ls_content = '{$ls_content}' ";
     $query .= "WHERE ls_id = {$the_lifestyle_id}";
 
@@ -110,8 +113,7 @@ if (isset($_POST['update_ls'])) {
                         </div>
                         <div class="form-group">
                             <label for="lifestyleTags">Description</label>
-
-                            <textarea name="ls_description" class="form-control" style="height: 20%;" value="<?php echo $ls_description; ?>" required></textarea>
+                            <textarea name="ls_description" class="form-control" style="height: 20%;" required><?php echo $ls_description; ?></textarea>
                         </div>
                         <div class="form-group">
                             <label for="lifestyleCOntent">Content</label>

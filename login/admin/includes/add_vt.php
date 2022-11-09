@@ -1,23 +1,28 @@
 <?php
-if (isset($_POST['submit_lifestyle'])) {
+if (isset($_POST['submit_virtual'])) {
 
-    $ls_title = $_POST['ls_title'];
-    $ls_image = $_FILES['ls_image']['name'];
-    $ls_image_temp = $_FILES['ls_image']['tmp_name'];
-    $ls_description = $_POST['ls_description'];
-    $ls_content = htmlentities($_POST['ls_content']);
-    $ls_tags = $_POST['ls_tags'];
-    $ls_status = $_POST['ls_status'];
+    $vt_title = $_POST['vt_title'];
+    $vt_image = $_FILES['vt_image']['name'];
+    $vt_image_temp = $_FILES['vt_image']['tmp_name'];
+    $vt_desc = $_POST['vt_desc'];
+    $vt_virtual = htmlentities($_POST['vt_virtual']);
+    $vt_tags = $_POST['vt_tags'];
+    $vt_status = $_POST['vt_status'];
 
-    move_uploaded_file($ls_image_temp, "../images/lifestyles/$ls_image/");
+    move_uploaded_file($vt_image_temp, "../images/virtualtour/$vt_image/");
 
-    $query = "INSERT INTO lifestyles ( ls_title, ls_image, ls_status, ls_date, ls_tags, ls_description, ls_content) ";
-    $query .= "VALUES ('{$ls_title}','{$ls_image}','{$ls_status}',now(), '{$ls_tags}','{$ls_description}','{$ls_content}')";
-    $insert_ls_query = mysqli_query($connection, $query);
-    if (!$insert_ls_query) {
-
+    $query = "INSERT INTO virtualtour ( vt_title, vt_image, vt_status, vt_date, vt_tags, vt_desc, vt_virtual) ";
+    $query .= "VALUES ('{$vt_title}','{$vt_image}','{$vt_status}',now(), '{$vt_tags}','{$vt_desc}','{$vt_virtual}')";
+    $insert_vt_query = mysqli_query($connection, $query);
+    if (!$insert_vt_query) {
         die("QUERY CONNECTION FAILED " . mysqli_error($connection));
     }
+    echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+    <strong>Virtual tour successfully added!</strong>
+    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+      <span aria-hidden='true'>&times;</span>
+    </button>
+  </div>";
 }
 
 ?>
@@ -29,7 +34,7 @@ if (isset($_POST['submit_lifestyle'])) {
 
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Add lifestyle</h3>
+                    <h3 class="card-title">Add Virtual Tour</h3>
 
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -44,44 +49,38 @@ if (isset($_POST['submit_lifestyle'])) {
                 <form method="post" enctype="multipart/form-data">
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="lifestyleTitle">lifestyle Title</label>
-                            <input type="text" id="inputName" class="form-control" name="ls_title" required>
+                            <label for="virtualTitle">Title</label>
+                            <input type="text" id="inputName" class="form-control" name="vt_title" required>
                         </div>
 
-
                         <div class="form-group">
-                            <label for="lifestyleCategory">lifestyle Status</label>
-                            <select class="custom-select" name="ls_status" required>
+                            <label for="virtualvirtual">Virtual Tour Spot</label>
+                            <textarea name="vt_virtual" id="summernote" class="form-control" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputClientCompany">Image</label>
+                            <div id="selectedBanner"></div>
+                            <input type="file" class="form-control" id="img" name="vt_image" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="virtualCategory">Status</label>
+                            <select class="custom-select" name="vt_status" required>
                                 <option value="draft" active>Select Status</option>
                                 <option value="published">Publish</option>
                                 <option value="draft">Draft</option>
                             </select>
                         </div>
-
                         <div class="form-group">
-                            <label for="inputClientCompany">lifestyle Image</label>
-                            <div id="selectedBanner"></div>
-
-                            <input type="file" class="form-control" id="img" name="ls_image" required>
-
-
-
+                            <label for="virtualTags">Tags</label>
+                            <input type="text" id="inputName" class="form-control" name="vt_tags" required>
                         </div>
                         <div class="form-group">
-                            <label for="lifestyleTags">lifestyle Tags</label>
-                            <input type="text" id="inputName" class="form-control" name="ls_tags" required>
+                            <label for="virtualTags">Description</label>
+                            <textarea name="vt_desc" class="form-control" style="height: 20%;" required></textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="lifestyleTags">lifestyle Description</label>
 
-                            <textarea name="ls_description" class="form-control" style="height: 20%;" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="lifestyleCOntent">lifestyle Content</label>
-                            <textarea name="ls_content" id="summernote" class="form-control" required></textarea>
-                        </div>
                     </div>
-                    <input type="submit" class="btn btn-outline-primary btn-lg btn-block " name="submit" value="SUBMIT">
+                    <input type="submit" class="btn btn-outline-primary btn-lg btn-block " name="submit_virtual" value="SUBMIT">
                 </form>
                 <!-- /.card-body -->
 

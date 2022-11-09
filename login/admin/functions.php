@@ -182,8 +182,7 @@ function deleteLifestyle()
 function insertLifestyle()
 {
   global $connection;
-  if (isset($_POST['submit_lifestyle'])) {
-
+  if (isset($_POST['updateLifestyle'])) {
     $ls_title = $_POST['ls_title'];
     $ls_image = $_FILES['ls_image']['name'];
     $ls_image_temp = $_FILES['ls_image']['tmp_name'];
@@ -307,3 +306,113 @@ function deleteGallery()
     }
   }
 }
+
+
+
+// ===========VIRTUAL TOUR FUNCTIONS=========
+function insert_vt()
+{
+  global $connection;
+  if (isset($_POST['submit_virtual'])) {
+
+    $vt_title = $_POST['vt_title'];
+    $vt_image = $_FILES['vt_image']['name'];
+    $vt_image_temp = $_FILES['vt_image']['tmp_name'];
+    $vt_desc = $_POST['vt_desc'];
+    $vt_tour = htmlentities($_POST['vt_tour']);
+    $vt_tags = $_POST['vt_tags'];
+    $vt_status = $_POST['vt_status'];
+
+    move_uploaded_file($vt_image_temp, "../images/virtualtour/$vt_image/");
+
+    $query = "INSERT INTO virtualtour ( vt_title, vt_image, vt_status, vt_date, vt_tags, vt_desc, vt_tour) ";
+    $query .= "VALUES ('{$vt_title}','{$vt_image}','{$vt_status}',now(), '{$vt_tags}','{$vt_desc}','{$vt_tour}')";
+    $insert_vt_query = mysqli_query($connection, $query);
+    if (!$insert_vt_query) {
+      die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+    }
+
+    echo "<div class='alert alert-success alert-dismissible fade show text-center' role='alert' id='alerto' >
+  <h5><strong>Virtual tour successfully added!<i class='fas fa-check'></i></strong></h5>
+        
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+          <span aria-hidden='true'>&times;</span>
+        </button>
+      </div>";
+  }
+}
+
+function delete_vt()
+{
+
+  global $connection;
+  if (isset($_POST['delete_data'])) {
+    $vt_id = $_POST['vt_id'];
+
+    $query = "DELETE FROM virtualtour WHERE vt_id = {$vt_id}";
+    $delete_vt_query = mysqli_query($connection, $query);
+
+    if (!$delete_vt_query) {
+      die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+    }
+    if ($delete_vt_query) {
+
+      echo "<div class='alert alert-danger alert-dismissible fade show text-center' role='alert' id='alerto'>
+    <h5><strong>Image Deleted successfully! <i class='fas fa-check'></i></strong></h5>    
+          <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>
+        
+        ";
+    }
+  }
+}
+
+// ===========END OF VIRTUAL TOUR FUNCTIONS=========
+
+
+
+// ===========USERS TOUR FUNCTIONS=========
+function insertUsers()
+{
+  global $connection;
+  if (isset($_POST['submit_virtual'])) {
+
+    $vt_title = $_POST['vt_title'];
+    $vt_image = $_FILES['vt_image']['name'];
+    $vt_image_temp = $_FILES['vt_image']['tmp_name'];
+    $vt_desc = $_POST['vt_desc'];
+    $vt_tour = htmlentities($_POST['vt_tour']);
+    $vt_tags = $_POST['vt_tags'];
+    $vt_status = $_POST['vt_status'];
+
+    move_uploaded_file($vt_image_temp, "../images/virtualtour/$vt_image/");
+
+    $query = "INSERT INTO virtualtour ( vt_title, vt_image, vt_status, vt_date, vt_tags, vt_desc, vt_tour) ";
+    $query .= "VALUES ('{$vt_title}','{$vt_image}','{$vt_status}',now(), '{$vt_tags}','{$vt_desc}','{$vt_tour}')";
+    $insert_vt_query = mysqli_query($connection, $query);
+    if (!$insert_vt_query) {
+      die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+    }
+
+    echo "<div class='alert alert-success alert-dismissible fade show text-center' role='alert' id='alerto' >
+  <h5><strong>Virtual tour successfully added!<i class='fas fa-check'></i></strong></h5>
+        
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+          <span aria-hidden='true'>&times;</span>
+        </button>
+      </div>";
+  }
+}
+function updateUsers()
+{
+}
+function deleteUsers()
+{
+}
+
+// ===========END OF USERS TOUR FUNCTIONS=========
+?>
+
+

@@ -112,14 +112,10 @@
         </div>
 
         <!-- List  of Category Table -->
-
-
         <div class="col">
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">List of Images</h3>
-
-
             </div>
             <!-- /.card-header -->
             <?php insert_gallery(); ?>
@@ -357,7 +353,6 @@
       reader.readAsDataURL(f);
     });
   }
-
   // ALERT FADE EFFECT
   $(".alert").delay(4000).slideUp(200, function() {
     $(this).alert('close');

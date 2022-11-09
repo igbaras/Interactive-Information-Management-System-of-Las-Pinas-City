@@ -24,14 +24,12 @@ if (isset($_GET['source'])) {
 }
 
 switch ($source) {
-  case 'add_lifestyle':
-    include 'includes/add_lifestyle.php';
+  case 'my_profile':
+    include 'includes/my_profile.php';
     break;
-  case 'edit_lifestyle':
-    include 'includes/edit_lifestyle.php';
+  case 'manage_users':
+    include 'includes/manage_users.php';
     break;
-  default:
-    include 'includes/view_all_lifestyle.php';
 }
 ?>
 <!-- /.content-wrapper -->
