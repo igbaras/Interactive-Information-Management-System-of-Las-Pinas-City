@@ -64,12 +64,12 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="./Assets/programservicesassets/js/jquery.min.js"></script>
-            <script src="./Assets/programservicesassets/js/browser.min.js"></script>
-            <script src="./Assets/programservicesassets/js/breakpoints.min.js"></script>
-            <script src="./Assets/programservicesassets/js/main.js"></script>
-            <script src="./Assets/programservicesassets/js/util.js"></script>
-
+			<script src="./Assets/singleVirtual/jquery.min.js"></script>
+			<script src="./Assets/singleVirtual/breakpoints.min.js"></script>
+			<script src="./Assets/singleVirtual/browser.min.js"></script>
+			<script src="./Assets/singleVirtual/main.js"></script>
+			<script src="./Assets/singleVirtual/util.js"></script>
+          
           
 
 
