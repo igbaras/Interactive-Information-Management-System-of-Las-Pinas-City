@@ -6,7 +6,7 @@
                 <!-- CATEGORY FORM -->
                 <div class="card card-primary col-12">
                     <div class="card-header">
-                        <h3 class="card-title">Manage </h3>
+                        <h3 class="card-title">Manage Users </h3>
                     </div>
 
                     <!-- ADD ITEM BUTTON -->
@@ -32,35 +32,35 @@
                                             <input type="file" class="form-control" name="user_image" id="user_image" required="required" />
                                         </div>
                                         <div class="form-group text-left">
-                                            <label>First Name</label>
+                                            <label>First Name:</label>
                                             <input type="text" class="form-control" name="user_firstname" required="required" />
                                         </div>
                                         <div class="form-group text-left">
-                                            <label>Last Name</label>
+                                            <label>Last Name:</label>
                                             <input type="text" class="form-control" name="user_lastname" required="required" />
                                         </div>
                                         <div class="form-group text-left">
-                                            <label>Email</label>
+                                            <label>Email:</label>
                                             <input type="email" class="form-control" name="user_email" required="required" />
                                         </div>
                                         <div class="form-group text-left">
-                                            <label>Username</label>
+                                            <label>Username:</label>
                                             <input type="text" class="form-control" name="username" required="required" />
                                         </div>
                                         <div class="form-group text-left">
-                                            <label>Password</label>
+                                            <label>Password:</label>
                                             <input type="password" class="form-control" name="user_password" required="required" />
                                         </div>
 
                                         <div class="form-group text-left">
-                                            <label>Role</label>
+                                            <label>Role:</label>
 
-                                            <select name="user_role" id="">
+                                            <select name="user_role" class="form-control col-4" id="">
                                                 <option value="admin">Admin</option>
                                                 <option value="writer">Writer</option>
                                                 <option value="chat service">Chat Service</option>
                                             </select>
-                                            <input type="text" class="form-control" name="user_status" required="required" />
+
                                         </div>
 
 
@@ -81,7 +81,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel"> Delete Category Data </h5>
+                                <h5 class="modal-title" id="exampleModalLabel"> Delete User Data </h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -96,7 +96,7 @@
 
                                     <input type="hidden" name="user_id" id="delete_id">
 
-                                    <h4> Do you want to Delete this Data ??</h4>
+                                    <h4> Do you want to Delete this Data ?</h4>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal"> NO </button>
@@ -112,7 +112,7 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">List of Images</h3>
+                            <h3 class="card-title">List of Users</h3>
                         </div>
                         <!-- /.card-header -->
                         <?php insertUsers(); ?>
@@ -123,9 +123,10 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Title</th>
                                         <th>Image</th>
-                                        <th>Status</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
                                         <th>Date Created</th>
                                         <th></th>
 
@@ -142,51 +143,26 @@
                                     }
                                     while ($row = mysqli_fetch_assoc($all_user_query)) {
                                         $user_id = $row['user_id'];
-                                        $user_title = $row['user_title'];
+                                        $username = $row['username'];
                                         $user_image = $row['user_image'];
-                                        $user_status = $row['user_status'];
+                                        $user_firstname = $row['user_firstname'];
+                                        $user_lastname = $row['user_lastname'];
+                                        $user_email = $row['user_email'];
+                                        $user_role = $row['user_role'];
                                         $user_date = date("F j, Y, g:i a", strtotime($row["user_date"]));
-                                        $user_desc = $row['user_desc'];
+
 
                                     ?>
                                         <tr>
                                             <td> <?php echo $user_id; ?> </td>
-                                            <td><?php echo $user_title; ?> </td>
                                             <td><?php echo "<user src='../images/users/$user_image' alt='' width='100px'>"; ?> </td>
-                                            <td><?php echo $user_status; ?> </td>
+                                            <td><?php echo $user_firstname . " " . $user_lastname; ?> </td>
+                                            <td><?php echo $user_email; ?> </td>
+                                            <td><?php echo $user_role; ?> </td>
                                             <td><?php echo  $user_date; ?> </td>
-
-                                            <td><button class='btn btn-secondary' data-toggle='modal' data-target="#viewImage<?php echo $user_id ?>"><i class='fas fa-eye'></i></button><button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit<?php echo $user_id ?>"><i class='fas fa-pen'></i></button><button class='btn btn-danger deletebtn' data-toggle='modal'><i class='fas fa-trash'></i></button></td>
-
-                                            <!-- View Image Modal -->
-                                            <div class="modal fade" id="viewImage<?php echo $user_id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog modal-xl" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <!-- w-100 class so that header
-                div covers 100% width of parent div -->
-                                                            <h5 class="modal-title w-100" id="exampleModalLabel"><strong> <?php echo $user_title; ?></strong>
-
-                                                            </h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">
-                                                                    ×
-                                                                </span>
-                                                            </button>
-                                                        </div>
-                                                        <!--Modal body with image-->
-                                                        <div class="modal-body">
-                                                            <user src="../images/users/<?php echo $user_image; ?>" width="50%" />
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-danger" data-dismiss="modal">
-                                                                Close
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
+                                            <td>
+                                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit<?php echo $user_id ?>"><i class='fas fa-pen'></i></button><button class='btn btn-danger deletebtn' data-toggle='modal'><i class='fas fa-trash'></i></button>
+                                            </td>
 
                                             <!-- ========EDIT MODAL=========== -->
                                             <div class="modal fade" id="edit<?php echo $user_id ?>" aria-hidden="true">
@@ -194,7 +170,7 @@
                                                     <div class="modal-content">
                                                         <form method="POST" enctype="multipart/form-data" action="">
                                                             <div class="modal-header bg-info">
-                                                                <h4 class="modal-title">Edit Image</h4>
+                                                                <h4 class="modal-title">Edit User</h4>
                                                             </div>
                                                             <div class="modal-body">
                                                                 <div class="col-md-2"></div>
@@ -208,20 +184,32 @@
                                                                         <input type="file" class="form-control" name="user_image" value="<?php echo $user_image; ?>" required="required" />
                                                                     </div>
                                                                     <div class="form-group text-left">
-                                                                        <label for="editCategory">Title:</label>
+                                                                        <label for="editCategory">First Name:</label>
                                                                         <div class="input-group">
                                                                             <input type="hidden" value="<?php echo $user_id; ?>" name="user_id" />
-                                                                            <input type="text" class="form-control mb-3" name="user_title" id="user_title" value="<?php echo $user_title; ?>">
+                                                                            <input type="text" class="form-control mb-3" name="user_firstname" id="user_firstname" value="<?php echo $user_firstname; ?>">
                                                                         </div>
-                                                                        <label for="editCategory">Status:</label>
+                                                                        <label for="editCategory">Last Name:</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control mb-3" name="user_status" id="user_status" value="<?php echo $user_status; ?>">
+                                                                            <input type="hidden" value="<?php echo $user_lastname; ?>" name="user_id" />
+                                                                            <input type="text" class="form-control mb-3" name="user_lastname" id="user_lastname" value="<?php echo $user_lastname; ?>">
+                                                                        </div>
+                                                                        <label for="editCategory">User Email:</label>
+                                                                        <div class="input-group">
+                                                                            <input type="text" class="form-control mb-3" name="user_email" id="user_email" value="<?php echo $user_email; ?>">
                                                                         </div>
 
-                                                                        <label for="editCategory">Description:</label>
+                                                                        <label for="editCategory">Username:</label>
                                                                         <div class="input-group">
-                                                                            <textarea name="user_desc" class="form-control" id="" cols="30" rows="3"><?php echo $user_desc; ?></textarea>
-
+                                                                            <input type="text" class="form-control mb-3" name="user_email" id="user_email" value="<?php echo $user_email; ?>">
+                                                                        </div>
+                                                                        <label for="editCategory">User Password:</label>
+                                                                        <div class="input-group">
+                                                                            <input type="text" class="form-control mb-3" name="user_password" id="user_password" value="<?php echo $user_password; ?>">
+                                                                        </div>
+                                                                        <label for="editCategory">User Role:</label>
+                                                                        <div class="input-group">
+                                                                            <input type="text" class="form-control mb-3" name="user_role" id="user_role" value="<?php echo $user_role; ?>">
                                                                         </div>
                                                                     </div>
 

@@ -3950,3 +3950,7 @@ input, select, textarea {
 			opacity: 1;
 			visibility: visible;
 		}
+
+		.sls-content{
+			text-align: justify;
+		}
