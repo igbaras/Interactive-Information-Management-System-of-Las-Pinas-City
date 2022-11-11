@@ -1,78 +1,252 @@
+<?php include "../includes/db.php"; ?>
 <!DOCTYPE HTML>
 <!--
-	Phantom by HTML5 UP
+	Forty by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Generic - Phantom by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="./Assets/programservicesassets/css/main.css" />
-		<noscript><link rel="stylesheet" href="./Assets/programservicesassets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
-		<!-- Wrapper -->
-			<div id="wrapper">
 
-				<!-- Header -->
-					<header id="header">
-						<div class="inner">
+<head>
+	<title>Virtual Tour</title>
+	<link rel="shortcut icon" type="image icon" href="../Assets/images/lplogo.png">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
-							<!-- Logo -->
-								<a href="index.html" class="logo">
-									
-								</a>
+	<link rel="stylesheet" href="../Assets/programservicesassets/css/main.css" />
+	<!-- CSS only -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+	<noscript>
+		<link rel="stylesheet" href="../Assets/programservicesassets/css/noscript.css" />
+	</noscript>
 
-							<!-- Nav -->
-								<nav>
-									<ul>
-										<li><a href="#menu">Menu</a></li>
-									</ul>
-								</nav>
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="../login/plugins/fontawesome-free/css/all.min.css">
+	<!-- Theme style -->
+	<link rel="stylesheet" href="../login/dist/css/adminlte.min.css">
+	<style>
+		iframe {
+			width: 100% !important;
 
-						</div>
-					</header>
+		}
 
-				<!-- Menu -->
-					<nav id="menu">
-						<h2>Menu</h2>
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="generic.html">Ipsum veroeros</a></li>
-							<li><a href="generic.html">Tempus etiam</a></li>
-							<li><a href="generic.html">Consequat dolor</a></li>
-							<li><a href="elements.html">Elements</a></li>
-						</ul>
-					</nav>
+		.vt_title {
+			background-color: #557153;
+			border-radius: 10%;
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-							<h1>Virtual Tour</h1>
-							<span class="image main"><img src="./Assets/programservicesassets/images/pic13.jpg" alt="" /></span>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel venenatis mauris vehicula hendrerit.</p>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
-						</div>
-					</div>
+		}
 
-				<!-- Footer -->
-			
+		.prev,
+		.next {
+			margin-top: 200px;
+			margin-bottom: 400px;
+			z-index: 1000;
+		}
+
+		@media screen and(min-width:1024px) {}
+
+		@media screen and(min-width:768px)and(max-width:1023px) {}
+
+
+		@media screen and(max-width:767px) {}
+	</style>
+</head>
+
+<body class="is-preload">
+	<?php
+	if (isset($_GET['vt'])) {
+		$vt_id = $_GET['vt'];
+	}
+	$query = "SELECT * FROM virtualtour WHERE vt_id = $vt_id";
+	$all_vt_query = mysqli_query($connection, $query);
+
+	while ($row = mysqli_fetch_assoc($all_vt_query)) {
+		$vt_id = $row['vt_id'];
+		$vt_title = $row['vt_title'];
+		$vt_desc = $row['vt_desc'];
+		$vt_date = $row['vt_date'];
+		$vt_image = $row['vt_image'];
+		$vt_tags = $row['vt_tags'];
+		$vt_status = $row['vt_status'];
+	}
+
+
+	// $query1 = "SELECT * FROM virtualspots WHERE vs_vt_id = $vt_id";
+
+	// $all_vs_query = mysqli_query($connection, $query1);
+
+	// while ($row = mysqli_fetch_array($all_vs_query)) {
+
+	// 	$vs_id = $row['vs_id'];
+	// 	$vs_spot = html_entity_decode($row['vs_spot']);
+
+	// }
+	$num_per_page = 01;
+
+	if (isset($_GET['page'])) {
+		$page = $_GET['page'];
+	} else {
+		$page = 1;
+	}
+
+	$start_from = ($page - 1) * 1;
+
+	$query = "SELECT * FROM virtualspots WHERE vs_vt_id=$vt_id LIMIT $start_from,$num_per_page";
+	$allFeat_query = mysqli_query($connection, $query);
+
+	?>
+
+
+	<!-- ---------------- -->
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+
+				<!-- Logo -->
+				<a href="index.html" class="logo">
+
+				</a>
+
+				<!-- Nav -->
+				<nav>
+					<ul>
+						<li><a href="#menu">Menu</a></li>
+					</ul>
+				</nav>
 
 			</div>
+		</header>
 
+		<!-- Menu -->
+		<nav id="menu">
+			<h2>Menu</h2>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="generic.html">Ipsum veroeros</a></li>
+				<li><a href="generic.html">Tempus etiam</a></li>
+				<li><a href="generic.html">Consequat dolor</a></li>
+				<li><a href="elements.html">Elements</a></li>
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+
+				<div style="text-align:center;margin:0px;padding:0px;overflow:hidden">
+					<div class="vt_title">
+						<h1><?php echo $vt_title; ?></h1>
+					</div>
+
+					<!-- ./wrapper -->
+
+					<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
+
+						<div class="carousel-inner">
+							<?php
+
+							while ($row = mysqli_fetch_array($allFeat_query)) {
+
+								$vs_id = $row['vs_id'];
+								$vs_spot = html_entity_decode($row['vs_spot']);
+							}
+
+							?>
+							<div class="carousel-item active">
+								<?php echo $vs_spot ?>
+								<div class="carousel-caption d-none d-md-block">
+								</div>
+							</div>
+
+
+							<div class="row">
+								<div class="col-12">
+									<nav aria-label="Page navigation" id="myDIV">
+										<ul class="pagination justify-content-center">
+											<?php
+											$pr_query = "SELECT * FROM virtualspots WHERE vs_vt_id = $vt_id ";
+											$pr_feature = mysqli_query($connection, $pr_query);
+											$total_records = mysqli_num_rows($pr_feature);
+
+											$total_page = ceil($total_records / $num_per_page);
+
+
+											if ($page > 1) {
+											?>
+												<li class="page-item">
+													<?php echo " <a class='page-link' href='singleVirtual.php?vt=$vt_id&page=" . ($page - 1) . "' aria-label='Previous'><span class='fa fa-angle-double-left'aria-hidden='true'></span><spanclass='sr-only'>Previous</spanclass=></a>"; ?>
+												</li>
+
+											<?php }
+											for ($i = 1; $i < $total_page; $i++) {
+											?>
+												<li class=""><?php echo "<a class='page-link btn ' href='singleVirtual.php?vt=$vt_id&page=" . $i . "' >$i</a>" ?></li>
+
+											<?php }
+											if ($i > $page) {
+											?>
+
+												<li class='page-item'>
+													<?php
+													echo "<a class='page-link' href='singleVirtual.php?vt=$vt_id&page=" . ($page + 1) . "' aria-label='Next'>
+                                        <span class='fa fa-angle-double-right' aria-hidden='true'></span>
+                                        <span class='sr-only'>Next</span>
+                                    </a>";
+													?>
+												</li>
+											<?php
+											}
+											?>
+
+										</ul>
+									</nav>
+								</div>
+							</div>
+
+						</div>
+
+						<!-- <div style=" width: 100%; border: 2px solid #ccc;">
+						
+					</div> -->
+						<br>
+						<p style="text-align:justify;"><?php echo $vt_desc; ?></p>
+					</div>
+
+
+
+
+				</div>
+			</div>
+
+			<!-- Footer -->
+
+
+		</div>
+		<script>
+			$('.carousel').carousel({
+				interval: false,
+			});
+		</script>
 		<!-- Scripts -->
-			<script src="./Assets/singleVirtual/jquery.min.js"></script>
-			<script src="./Assets/singleVirtual/breakpoints.min.js"></script>
-			<script src="./Assets/singleVirtual/browser.min.js"></script>
-			<script src="./Assets/singleVirtual/main.js"></script>
-			<script src="./Assets/singleVirtual/util.js"></script>
-          
-          
+		<script src="../Assets/singleVirtual/jquery.min.js"></script>
+		<script src="../Assets/singleVirtual/breakpoints.min.js"></script>
+		<script src="../Assets/singleVirtual/browser.min.js"></script>
+		<script src="../Assets/singleVirtual/main.js"></script>
+		<script src="../Assets/singleVirtual/util.js"></script>
+
+		<!-- jQuery -->
+		<script src="../login/plugins/jquery/jquery.min.js"></script>
+		<!-- Bootstrap 4 -->
+		<script src="../login/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<!-- AdminLTE App -->
+		<script src="../login/dist/js/adminlte.min.js"></script>
+		<!-- AdminLTE for demo purposes -->
+		<script src="../login/dist/js/demo.js"></script>
 
 
-	
-	</body>
+</body>
+
 </html>

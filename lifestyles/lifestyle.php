@@ -36,13 +36,10 @@
 		<nav id="menu">
 			<ul class="links">
 				<li><a href="index.html">Home</a></li>
-				<li><a href="news.php">News and Announcements</a></li>
+				<li><a href="../news.php">News and Announcements</a></li>
 
 			</ul>
-			<ul class="actions stacked">
-				<li><a href="#" class="button primary fit">Get Started</a></li>
-				<li><a href="#" class="button fit">Log In</a></li>
-			</ul>
+
 		</nav>
 
 		<!-- Banner -->
@@ -54,7 +51,7 @@
 				<div class="content">
 					<p>If you want to see the virtual tour just click the button</p>
 					<ul class="actions">
-						<li><a href="virtualtour.html" class="button next scrolly">Go to Virtual Tour</a></li>
+						<li><a href="../virtualtour/virtualtour.php" class="button next scrolly">Go to Virtual Tour</a></li>
 					</ul>
 				</div>
 			</div>
@@ -92,25 +89,25 @@
 							<img src="../login/images/lifestyles/<?php echo $ls_image; ?>" alt="" />
 						</span>
 						<header class="major">
-							<h3><a href="singleLifestyle.php?ls=<?php echo $ls_id;?>" class="link"><?php echo $ls_title; ?></a></h3>
+							<h3><a href="singleLifestyle.php?ls=<?php echo $ls_id; ?>" class="link"><?php echo $ls_title; ?></a></h3>
 							<p><?php echo $ls_description; ?></p>
 						</header>
 					</article>
 				<?php } ?>
 			</section>
 
-	
 
-	</div>
 
-	<!-- Scripts -->
-	<script src="../Assets/lifestyleassets/assets/js/jquery.min.js"></script>
-	<script src="../Assets/lifestyleassets/assets/js/jquery.scrolly.min.js"></script>
-	<script src="../Assets/lifestyleassets/assets/js/jquery.scrollex.min.js"></script>
-	<script src="../Assets/lifestyleassets/assets/js/browser.min.js"></script>
-	<script src="../Assets/lifestyleassets/assets/js/breakpoints.min.js"></script>
-	<script src="../Assets/lifestyleassets/assets/js/util.js"></script>
-	<script src="../Assets/lifestyleassets/assets/js/main.js"></script>
+		</div>
+
+		<!-- Scripts -->
+		<script src="../Assets/lifestyleassets/assets/js/jquery.min.js"></script>
+		<script src="../Assets/lifestyleassets/assets/js/jquery.scrolly.min.js"></script>
+		<script src="../Assets/lifestyleassets/assets/js/jquery.scrollex.min.js"></script>
+		<script src="../Assets/lifestyleassets/assets/js/browser.min.js"></script>
+		<script src="../Assets/lifestyleassets/assets/js/breakpoints.min.js"></script>
+		<script src="../Assets/lifestyleassets/assets/js/util.js"></script>
+		<script src="../Assets/lifestyleassets/assets/js/main.js"></script>
 
 </body>
 

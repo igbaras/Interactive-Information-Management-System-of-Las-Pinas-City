@@ -24,8 +24,12 @@ if (isset($_GET['source'])) {
 }
 
 switch ($source) {
-  case 'edit_vt':
-    include 'includes/edit_vt.php';
+
+  case 'add_vt':
+    include 'includes/add_vt.php';
+    break;
+  case 'edit_vs':
+    include 'includes/edit_vs.php';
     break;
   default:
     include 'includes/view_all_vt.php';

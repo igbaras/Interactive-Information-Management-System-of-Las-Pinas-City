@@ -310,30 +310,22 @@ function deleteGallery()
 
 
 // ===========VIRTUAL TOUR FUNCTIONS=========
-function insert_vt()
+function insert_vs()
 {
   global $connection;
-  if (isset($_POST['submit_virtual'])) {
+  if (isset($_POST['submit_vs'])) {
+    $vs_vt_id = $_POST['vs_vt_id'];
+    $vs_spot = htmlentities($_POST['vs_spot']);
 
-    $vt_title = $_POST['vt_title'];
-    $vt_image = $_FILES['vt_image']['name'];
-    $vt_image_temp = $_FILES['vt_image']['tmp_name'];
-    $vt_desc = $_POST['vt_desc'];
-    $vt_tour = htmlentities($_POST['vt_tour']);
-    $vt_tags = $_POST['vt_tags'];
-    $vt_status = $_POST['vt_status'];
-
-    move_uploaded_file($vt_image_temp, "../images/virtualtour/$vt_image/");
-
-    $query = "INSERT INTO virtualtour ( vt_title, vt_image, vt_status, vt_date, vt_tags, vt_desc, vt_tour) ";
-    $query .= "VALUES ('{$vt_title}','{$vt_image}','{$vt_status}',now(), '{$vt_tags}','{$vt_desc}','{$vt_tour}')";
-    $insert_vt_query = mysqli_query($connection, $query);
-    if (!$insert_vt_query) {
+    $query = "INSERT INTO virtualspots ( vs_vt_id, vs_spot, vs_date) ";
+    $query .= "VALUES ('{$vs_vt_id}','{$vs_spot}',now())";
+    $insert_vs_query = mysqli_query($connection, $query);
+    if (!$insert_vs_query) {
       die("QUERY CONNECTION FAILED " . mysqli_error($connection));
     }
 
     echo "<div class='alert alert-success alert-dismissible fade show text-center' role='alert' id='alerto' >
-  <h5><strong>Virtual tour successfully added!<i class='fas fa-check'></i></strong></h5>
+  <strong>Virtual Spot successfully added!<i class='fas fa-check'></i></strong>
         
         <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
           <span aria-hidden='true'>&times;</span>
@@ -341,8 +333,7 @@ function insert_vt()
       </div>";
   }
 }
-
-function delete_vt()
+function delete_vs()
 {
 
   global $connection;
@@ -369,6 +360,95 @@ function delete_vt()
   }
 }
 
+function insert_vt()
+{
+  global $connection;
+  if (isset($_POST['submit_virtual'])) {
+
+    $vt_title = $_POST['vt_title'];
+    $vt_image = $_FILES['vt_image']['name'];
+    $vt_image_temp = $_FILES['vt_image']['tmp_name'];
+    $vt_desc = $_POST['vt_desc'];
+    $vt_tags = $_POST['vt_tags'];
+    $vt_status = $_POST['vt_status'];
+
+    move_uploaded_file($vt_image_temp, "../images/virtualtour/$vt_image/");
+
+    $query = "INSERT INTO virtualtour ( vt_title, vt_image, vt_status, vt_date, vt_tags, vt_desc) ";
+    $query .= "VALUES ('{$vt_title}','{$vt_image}','{$vt_status}',now(), '{$vt_tags}','{$vt_desc}')";
+    $insert_vt_query = mysqli_query($connection, $query);
+    if (!$insert_vt_query) {
+      die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+    }
+
+    echo "<div class='alert alert-success alert-dismissible fade show text-center' role='alert' id='alerto' >
+  <h5><strong>Virtual tour successfully added!<i class='fas fa-check'></i></strong></h5>
+        
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+          <span aria-hidden='true'>&times;</span>
+        </button>
+      </div>";
+  }
+}
+
+function delete_vt()
+{
+
+  global $connection;
+  if (isset($_POST['delete_data'])) {
+    $vt_id = $_POST['vt_id'];
+
+    $query = "DELETE FROM virtualtour WHERE vt_id = {$vt_id}";
+    $delete_vt_query = mysqli_query($connection, $query);
+    $query = "DELETE FROM virtualspots WHERE vs_vt_id = {$vt_id}";
+    $delete_vs_query = mysqli_query($connection, $query);
+    if (!$delete_vt_query && !$delete_vs_query) {
+      die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+    }
+    if ($delete_vt_query) {
+
+      echo "<div class='alert alert-danger alert-dismissible fade show text-center' role='alert' id='alerto'>
+    <h5><strong>Image Deleted successfully! <i class='fas fa-check'></i></strong></h5>    
+          <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>
+        
+        ";
+    }
+  }
+}
+
+function update_vt()
+{
+  global $connection;
+  if (isset($_POST['update-virtualtour'])) {
+    $vt_id = $_POST['update-virtualtour'];
+    $vt_title = $_POST['vt_title'];
+    $vt_image = $_FILES['vt_image']['name'];
+    $vt_image_temp = $_FILES['vt_image']['tmp_name'];
+    $vt_desc = $_POST['vt_desc'];
+    $vt_tags = $_POST['vt_tags'];
+    $vt_status = $_POST['vt_status'];
+
+    move_uploaded_file($vt_image_temp, "../images/virtualtour/$vt_image/");
+
+    $query = "UPDATE virtualtour SET vt_title = '{$vt_title}', vt_image='{$vt_image}', vt_status='{$vt_status}', vt_tags='{$vt_tags}', vt_desc='{$vt_desc}' WHERE vt_id={$vt_id}; ";
+    $update_vt_query = mysqli_query($connection, $query);
+
+    if (!$update_vt_query) {
+      echo "QUERY FAILED " . mysqli_error($connection);
+    }
+    if ($update_vt_query) {
+      echo "<div class='alert alert-success alert-dismissible fade show text-center' role='alert'>
+    <h5><strong>Virtualtour successfully Updated!<i class='fas fa-check'></i></strong></h5>    
+          <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>";
+    }
+  }
+}
 // ===========END OF VIRTUAL TOUR FUNCTIONS=========
 
 
