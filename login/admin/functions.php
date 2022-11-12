@@ -375,7 +375,7 @@ function insert_vt()
     move_uploaded_file($vt_image_temp, "../images/virtualtour/$vt_image/");
 
     $query = "INSERT INTO virtualtour ( vt_title, vt_image, vt_status, vt_date, vt_tags, vt_desc) ";
-    $query .= "VALUES ('{$vt_title}','{$vt_image}','{$vt_status}',now(), '{$vt_tags}','{$vt_desc}')";
+    $query .= "VALUES ('{$vt_title}','{$vt_image}','{$vt_status}',now(), '{$vt_tags}','{$vt_desc}') ";
     $insert_vt_query = mysqli_query($connection, $query);
     if (!$insert_vt_query) {
       die("QUERY CONNECTION FAILED " . mysqli_error($connection));
@@ -423,7 +423,7 @@ function update_vt()
 {
   global $connection;
   if (isset($_POST['update-virtualtour'])) {
-    $vt_id = $_POST['update-virtualtour'];
+    $vt_id = $_POST['vt_id'];
     $vt_title = $_POST['vt_title'];
     $vt_image = $_FILES['vt_image']['name'];
     $vt_image_temp = $_FILES['vt_image']['tmp_name'];
@@ -440,7 +440,7 @@ function update_vt()
       echo "QUERY FAILED " . mysqli_error($connection);
     }
     if ($update_vt_query) {
-      echo "<div class='alert alert-success alert-dismissible fade show text-center' role='alert'>
+      echo "<div class='alert alert-success alert-dismissible fade show text-center' role='alert' id='alerto'>
     <h5><strong>Virtualtour successfully Updated!<i class='fas fa-check'></i></strong></h5>    
           <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
             <span aria-hidden='true'>&times;</span>
@@ -457,27 +457,27 @@ function update_vt()
 function insertUsers()
 {
   global $connection;
-  if (isset($_POST['submit_virtual'])) {
+  if (isset($_POST['submit_user'])) {
+    $username = $_POST['username'];
+    $user_firstname = $_POST['user_firstname'];
+    $user_lastname = $_POST['user_lastname'];
+    $user_email = $_POST['user_email'];
+    $user_password = $_POST['user_password'];
+    $user_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 12));
+    $user_image = $_FILES['user_image']['name'];
+    $user_image_tmp = $_FILES['user_image']['tmp_name'];
+    $user_role = $_POST['user_role'];
+    move_uploaded_file($user_image_tmp, "../images/users/$user_image/");
 
-    $vt_title = $_POST['vt_title'];
-    $vt_image = $_FILES['vt_image']['name'];
-    $vt_image_temp = $_FILES['vt_image']['tmp_name'];
-    $vt_desc = $_POST['vt_desc'];
-    $vt_tour = htmlentities($_POST['vt_tour']);
-    $vt_tags = $_POST['vt_tags'];
-    $vt_status = $_POST['vt_status'];
-
-    move_uploaded_file($vt_image_temp, "../images/virtualtour/$vt_image/");
-
-    $query = "INSERT INTO virtualtour ( vt_title, vt_image, vt_status, vt_date, vt_tags, vt_desc, vt_tour) ";
-    $query .= "VALUES ('{$vt_title}','{$vt_image}','{$vt_status}',now(), '{$vt_tags}','{$vt_desc}','{$vt_tour}')";
-    $insert_vt_query = mysqli_query($connection, $query);
-    if (!$insert_vt_query) {
+    $query = "INSERT INTO users (username, user_firstname, user_lastname, user_email, user_password, user_image, user_role, user_date) ";
+    $query .= "VALUES ('{$username}','{$user_firstname}','{$user_lastname}','{$user_email}','{$user_password}','{$user_image}','{$user_role}',now())";
+    $insert_user_query = mysqli_query($connection, $query);
+    if (!$insert_user_query) {
       die("QUERY CONNECTION FAILED " . mysqli_error($connection));
     }
 
     echo "<div class='alert alert-success alert-dismissible fade show text-center' role='alert' id='alerto' >
-  <h5><strong>Virtual tour successfully added!<i class='fas fa-check'></i></strong></h5>
+  <h5><strong>User successfully added!<i class='fas fa-check'></i></strong></h5>
         
         <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
           <span aria-hidden='true'>&times;</span>
@@ -487,9 +487,120 @@ function insertUsers()
 }
 function updateUsers()
 {
+  global $connection;
+  if (isset($_POST['update-users'])) {
+    $user_id = $_POST['user_id'];
+    $username = $_POST['username'];
+    $user_firstname = $_POST['user_firstname'];
+    $user_lastname = $_POST['user_lastname'];
+    $user_role = $_POST['user_role'];
+    $user_email = $_POST['user_email'];
+    $user_password = $_POST['user_password'];
+    $user_image = $_FILES['user_image']['name'];
+    $user_image_tmp = $_FILES['user_image']['tmp_name'];
+
+    move_uploaded_file($user_image_tmp, "../images/users/$user_image/");
+    $hashed_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 12));
+
+    $query = "UPDATE users SET username = '{$username}', user_firstname='{$user_firstname}', user_lastname='{$user_lastname}', user_email='{$user_email}', user_password='{$hashed_password}', user_image='{$user_image}', user_role='{$user_role}' WHERE user_id ={$user_id}; ";
+    $update_user_query = mysqli_query($connection, $query);
+    $_SESSION['user_image'] = $user_image;
+    if (!$update_user_query) {
+      echo "QUERY FAILED " . mysqli_error($connection);
+    }
+    if ($update_user_query) {
+      echo "<div class='alert alert-success alert-dismissible fade show text-center' role='alert' id='alerto'>
+    <h5><strong>User successfully Updated!<i class='fas fa-check'></i></strong></h5>    
+          <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>";
+    }
+  }
 }
+
+// ======user profile=====
+function updateUserProfile()
+{
+  global $connection;
+
+  if (isset($_POST['update_image'])) {
+    $user_id = $_POST['user_id'];
+    $user_image = $_FILES['user_image']['name'];
+    $user_image_tmp = $_FILES['user_image']['tmp_name'];
+    move_uploaded_file($user_image_tmp, "../images/users/$user_image/");
+
+    $query = "UPDATE users SET user_image='{$user_image}' WHERE user_id ={$user_id}; ";
+    $update_image_query = mysqli_query($connection, $query);
+
+    if (!$update_image_query) {
+      echo "QUERY FAILED " . mysqli_error($connection);
+    }
+    if ($update_image_query) {
+      echo "<div class='alert alert-success alert-dismissible fade show text-center' role='alert' id='alerto'>
+    <h5><strong>Profile image successfully Updated!<i class='fas fa-check'></i></strong></h5>    
+          <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>";
+    }
+  }
+
+  if (isset($_POST['update_profile'])) {
+    $user_id = $_POST['user_id'];
+    $username = $_POST['username'];
+    $user_firstname = $_POST['user_firstname'];
+    $user_lastname = $_POST['user_lastname'];
+    $user_role = $_POST['user_role'];
+    $user_email = $_POST['user_email'];
+    $user_password = $_POST['user_password'];
+
+
+    $hashed_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 12));
+
+    $query = "UPDATE users SET username = '{$username}', user_firstname='{$user_firstname}', user_lastname='{$user_lastname}', user_email='{$user_email}', user_password='{$hashed_password}', user_role='{$user_role}' WHERE user_id ={$user_id}; ";
+    $update_user_query = mysqli_query($connection, $query);
+
+    if (!$update_user_query) {
+      echo "QUERY FAILED " . mysqli_error($connection);
+    }
+    if ($update_user_query) {
+      header("location:settings.php?source=my_profile&uidd=$user_id");
+      echo "<div class='alert alert-success alert-dismissible fade show text-center' role='alert' id='alerto'>
+    <h5><strong>User successfully Updated!<i class='fas fa-check'></i></strong></h5>    
+          <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>";
+    }
+  }
+}
+
 function deleteUsers()
 {
+  global $connection;
+  if (isset($_POST['delete_data'])) {
+    $user_id  = $_POST['user_id'];
+
+
+    $query = "DELETE FROM users WHERE user_id = {$user_id}";
+    $delete_user_query = mysqli_query($connection, $query);
+
+    if (!$delete_user_query) {
+      die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+    }
+    if ($delete_user_query) {
+
+      echo "<div class='alert alert-danger alert-dismissible fade show text-center' role='alert' id='alerto'>
+    <h5><strong>User Deleted successfully! <i class='fas fa-check'></i></strong></h5>    
+          <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>
+        
+        ";
+    }
+  }
 }
 
 // ===========END OF USERS TOUR FUNCTIONS=========

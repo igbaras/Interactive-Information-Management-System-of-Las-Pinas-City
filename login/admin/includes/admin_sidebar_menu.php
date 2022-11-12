@@ -161,12 +161,13 @@
                         <i class="fas fa-angle-left right"></i>
                     </a>
                     <ul class="nav nav-treeview">
+
                         <li class="nav-item">
-                            <a href="./settings.php?source=manage_users" class="nav-link"><i class="far fa-circle nav-icon"></i>Manage Users</a>
+                            <a href="./settings.php?source=manage_users&uid=<?php echo $_SESSION['user_id']; ?>" class="nav-link"><i class="far fa-circle nav-icon"></i>Manage Users</a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="./settings.php?source=my_profile" class="nav-link"><i class="far fa-circle nav-icon"></i>My Profile</a>
+                            <a href="./settings.php?source=my_profile&uidd=<?php echo $_SESSION['user_id']; ?>" class="nav-link"><i class="far fa-circle nav-icon"></i>My Profile</a>
                         </li>
                     </ul>
                 </li>

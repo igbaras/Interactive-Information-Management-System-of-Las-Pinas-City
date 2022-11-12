@@ -42,7 +42,7 @@
 
                 <!-- ADD CATEGORY MODAL -->
                 <div class="modal fade" id="form_modal" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
+                    <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h3 class="modal-title">Add Virtual Spot</h3>

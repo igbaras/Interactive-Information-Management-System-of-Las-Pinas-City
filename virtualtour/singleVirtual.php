@@ -156,7 +156,12 @@
 
 							?>
 							<div class="carousel-item active">
-								<?php echo $vs_spot ?>
+
+								<?php if (empty($vs_spot)) {
+									echo "<h1>No Virtual Tour available :(</h1>";
+								} else {
+									echo $vs_spot;
+								} ?>
 								<div class="carousel-caption d-none d-md-block">
 								</div>
 							</div>

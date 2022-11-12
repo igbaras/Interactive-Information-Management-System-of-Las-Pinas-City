@@ -94,11 +94,11 @@
 
                                 <div class="modal-body">
 
-                                    <input type="hidden" name="user_id" id="delete_id">
+                                    <input type="hidden" name="user_id" id="delete_id" ">
 
                                     <h4> Do you want to Delete this Data ?</h4>
                                 </div>
-                                <div class="modal-footer">
+                                <div class=" modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal"> NO </button>
                                     <button type="submit" name="delete_data" class="btn btn-primary"> Yes </butron>
                                 </div>
@@ -136,7 +136,9 @@
                                 <tbody>
 
                                     <?php
-                                    $query = "SELECT * FROM users ORDER BY user_id DESC ";
+                                    $user_ses_id = $_SESSION['user_id'];
+
+                                    $query = "SELECT * FROM users WHERE user_ID NOT IN($user_ses_id)";
                                     $all_user_query = mysqli_query($connection, $query);
                                     if (!$all_user_query) {
                                         die("CONNECTION FAILED" . " " . mysqli_error($connection));
@@ -149,13 +151,13 @@
                                         $user_lastname = $row['user_lastname'];
                                         $user_email = $row['user_email'];
                                         $user_role = $row['user_role'];
-                                        $user_date = date("F j, Y, g:i a", strtotime($row["user_date"]));
-
+                                        $user_date  = date("F j, Y, g:i a", strtotime($row["user_date"]));
+                                        $user_password = $row['user_password'];
 
                                     ?>
                                         <tr>
                                             <td> <?php echo $user_id; ?> </td>
-                                            <td><?php echo "<user src='../images/users/$user_image' alt='' width='100px'>"; ?> </td>
+                                            <td><?php echo "<img src='../images/users/$user_image' width='50%' alt='user_image'>"; ?></td>
                                             <td><?php echo $user_firstname . " " . $user_lastname; ?> </td>
                                             <td><?php echo $user_email; ?> </td>
                                             <td><?php echo $user_role; ?> </td>
@@ -176,9 +178,9 @@
                                                                 <div class="col-md-2"></div>
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
-                                                                        <h5 class="text-left">Current Photo</h5>
-                                                                        <user src="<?php echo "../images/users/$user_image" ?>" height="120" width="150" />
-                                                                        <input type="hidden" name="previous" value="<?php echo $user_image; ?>" />
+                                                                        <h5>Current Photo</h5>
+
+                                                                        <img src="<?php echo "../images/users/$user_image" ?>" height="120" width="150" />
                                                                         <hr>
                                                                         <h5 class="text-left">New Photo</h5>
                                                                         <input type="file" class="form-control" name="user_image" value="<?php echo $user_image; ?>" required="required" />
@@ -191,7 +193,7 @@
                                                                         </div>
                                                                         <label for="editCategory">Last Name:</label>
                                                                         <div class="input-group">
-                                                                            <input type="hidden" value="<?php echo $user_lastname; ?>" name="user_id" />
+
                                                                             <input type="text" class="form-control mb-3" name="user_lastname" id="user_lastname" value="<?php echo $user_lastname; ?>">
                                                                         </div>
                                                                         <label for="editCategory">User Email:</label>
@@ -201,11 +203,11 @@
 
                                                                         <label for="editCategory">Username:</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control mb-3" name="user_email" id="user_email" value="<?php echo $user_email; ?>">
+                                                                            <input type="text" class="form-control mb-3" name="username" id="username" value="<?php echo $username; ?>">
                                                                         </div>
                                                                         <label for="editCategory">User Password:</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control mb-3" name="user_password" id="user_password" value="<?php echo $user_password; ?>">
+                                                                            <input type="password" class="form-control mb-3" name="user_password" id="user_password" value="<?php echo $user_password; ?>">
                                                                         </div>
                                                                         <label for="editCategory">User Role:</label>
                                                                         <div class="input-group">

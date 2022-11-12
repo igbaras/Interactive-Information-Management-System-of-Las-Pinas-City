@@ -1,3 +1,15 @@
+ <?php
+
+    if (isset($_GET['uidd'])) {
+        $user_idd = $_GET['uidd'];
+        $query = "SELECT * FROM users WHERE user_id = $user_idd";
+        $all_user_query = mysqli_query($connection, $query);
+        if (!$all_user_query) {
+            die("CONNECTION FAILED" . " " . mysqli_error($connection));
+        }
+    }
+    ?>
+
  <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
      <!-- Content Header (Page header) -->
@@ -7,12 +19,7 @@
                  <div class="col-sm-6">
                      <h1>Profile</h1>
                  </div>
-                 <div class="col-sm-6">
-                     <ol class="breadcrumb float-sm-right">
-                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                         <li class="breadcrumb-item active">User Profile</li>
-                     </ol>
-                 </div>
+                 <?php updateUserProfile(); ?>
              </div>
          </div><!-- /.container-fluid -->
      </section>
@@ -22,17 +29,28 @@
          <div class="container-fluid">
              <div class="row">
                  <div class="col-md-3">
+                     <?php while ($row = mysqli_fetch_assoc($all_user_query)) {
 
+                            $user_id = $row['user_id'];
+                            $username = $row['username'];
+                            $user_image = $row['user_image'];
+                            $user_firstname = $row['user_firstname'];
+                            $user_lastname = $row['user_lastname'];
+                            $user_email = $row['user_email'];
+                            $user_role = $row['user_role'];
+                            $user_password = $row['user_password'];
+                            $user_date = date("F j, Y, g:i a", strtotime($row["user_date"]));
+                        } ?>
                      <!-- Profile Image -->
                      <div class="card card-primary card-outline">
                          <div class="card-body box-profile">
                              <div class="text-center">
-                                 <img class="profile-user-img img-fluid img-circle" src="../../dist/img/user4-128x128.jpg" alt="User profile picture">
+                                 <img class="profile-user-img img-fluid img-circle" src="../images/users/<?php echo $user_image; ?>" alt="User profile picture">
                              </div>
 
-                             <h3 class="profile-username text-center">Nina Mcintire</h3>
+                             <h3 class="profile-username text-center"><?php echo $user_firstname . " " . $user_lastname; ?></h3>
 
-                             <p class="text-muted text-center">Software Engineer</p>
+                             <p class="text-muted text-center"><?php echo $user_role; ?></p>
 
 
 
@@ -55,34 +73,44 @@
                              <div class="tab-content">
 
                                  <div class="active tab-pane" id="settings">
-                                     <form class="form-horizontal">
+                                     <form class="form-horizontal" method="POST">
                                          <div class="form-group row">
-                                             <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                                             <label for="inputFName" class="col-sm-2 col-form-label">First Name</label>
                                              <div class="col-sm-10">
-                                                 <input type="email" class="form-control" id="inputName" placeholder="Name">
+                                                 <input type="hidden" value="<?php echo $user_id; ?>" name="user_id" />
+                                                 <input type="text" class="form-control" id="inputName" placeholder="First Name" name="user_firstname" value="<?php echo $user_firstname; ?>">
+                                             </div>
+                                         </div>
+                                         <div class="form-group row">
+                                             <label for="inputLName" class="col-sm-2 col-form-label">Last Name</label>
+                                             <div class="col-sm-10">
+                                                 <input type="text" class="form-control" id="inputName" placeholder="Last Name" name="user_lastname" value="<?php echo $user_lastname; ?>">
                                              </div>
                                          </div>
                                          <div class="form-group row">
                                              <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                                              <div class="col-sm-10">
-                                                 <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                                 <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="user_email" value="<?php echo $user_email; ?>">
                                              </div>
                                          </div>
+
                                          <div class="form-group row">
-                                             <label for="inputName2" class="col-sm-2 col-form-label">Old Password</label>
+                                             <label for="inputUsername" class="col-sm-2 col-form-label">Username</label>
                                              <div class="col-sm-10">
-                                                 <input type="password" class="form-control" id="inputName2" placeholder="Name">
+                                                 <input type="text" class="form-control" id="inputEmail" placeholder="Username" name="username" value="<?php echo $username; ?>">
                                              </div>
                                          </div>
+
                                          <div class="form-group row">
-                                             <label for="inputName2" class="col-sm-2 col-form-label">New Password</label>
+                                             <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
                                              <div class="col-sm-10">
-                                                 <input type="password" class="form-control" id="inputName2" placeholder="Name">
+                                                 <input type="password" class="form-control" name="user_password" id="inputName2" placeholder="New Password" value="<?php echo $user_password; ?>" onClick="this.setSelectionRange(0, this.value.length)">
+                                                 <input type="hidden" class="form-control" id="inputEmail" placeholder="Username" name="user_role" value="<?php echo $user_role; ?>">
                                              </div>
                                          </div>
-                                         <div class="form-group row">
+                                         <div class=" form-group row">
                                              <div class="offset-sm-2 col-sm-10">
-                                                 <button type="submit" class="btn btn-danger">Submit</button>
+                                                 <button type="submit" name="update_profile" class="btn btn-danger">Submit</button>
                                              </div>
                                          </div>
                                      </form>

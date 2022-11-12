@@ -26,24 +26,47 @@ if (isset($_POST["submit"])) {
         $db_user_user_id = $row['user_id'];
         $db_user_firstname = $row['user_firstname'];
         $db_user_lastname = $row['user_lastname'];
+        $db_user_image = $row['user_image'];
         $db_user_email = $row['user_email'];
         $db_user_role = $row['user_role'];
     }
     // $password = crypt($password, $db_user_password);
 
 
-    if ($username === $db_username && $password === $db_user_password && $rememberMe === "on") {
-        $_SESSION['username'] = $db_username;
+    if (password_verify($password, $db_user_password) && $rememberMe === "on") {
+        $_SESSION['user_id'] = $db_user_user_id;
+        $_SESSION['user_firstname'] = $db_user_firstname;
+        $_SESSION['user_lastname'] = $db_user_lastname;
+        $_SESSION['user_image'] = $db_user_image;
+
         $_SESSION['user_role'] = $db_user_role;
+        $_SESSION['username'] = $db_username;
         $_SESSION['cryptedpass'] = $password;
         header("Location:user_access_level.php");
     } else {
-        if ($username === $db_username && $password === $db_user_password && 'admin' === $db_user_role) {
+        if ($username === $db_username && password_verify($password, $db_user_password) && 'admin' === $db_user_role) {
+            $_SESSION['user_id'] = $db_user_user_id;
+            $_SESSION['user_firstname'] = $db_user_firstname;
+            $_SESSION['user_lastname'] = $db_user_lastname;
+            $_SESSION['user_image'] = $db_user_image;
+            $_SESSION['user_role'] = $db_user_role;
             header("Location:admin/portal.php");
-        } else if ($username === $db_username && $password === $db_user_password && 'writer' === $db_user_role) {
+        } else if ($username === $db_username && password_verify($password, $db_user_password) && 'writer' === $db_user_role) {
+            $_SESSION['user_id'] = $db_user_user_id;
+            $_SESSION['user_firstname'] = $db_user_firstname;
+            $_SESSION['user_lastname'] = $db_user_lastname;
+            $_SESSION['user_image'] = $db_user_image;
+            $_SESSION['user_role'] = $db_user_role;
             header("Location:user_access_level.php");
-        } else if ($username === $db_username && $password === $db_user_password && 'customer service' === $db_user_role) {
+        } else if ($username === $db_username && password_verify($password, $db_user_password) && 'customer service' === $db_user_role) {
+            $_SESSION['user_id'] = $db_user_user_id;
+            $_SESSION['user_firstname'] = $db_user_firstname;
+            $_SESSION['user_lastname'] = $db_user_lastname;
+            $_SESSION['user_image'] = $db_user_image;
+            $_SESSION['user_role'] = $db_user_role;
             header("Location:user_access_level.php");
+        } else {
+            header("Location:index.php");
         }
     }
 }

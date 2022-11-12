@@ -12,7 +12,7 @@
 
                 <!-- ADD virtualtour MODAL -->
                 <div class="modal fade" id="form_modal" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
+                    <div class="modal-dialog modal-md">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h3 class="modal-title">Add VirtualTour Category</h3>
@@ -139,6 +139,7 @@
                                                                 <div class="card-body">
                                                                     <div class="form-group">
                                                                         <label for="virtualTitle">Title</label>
+                                                                        <input type="hidden" value="<?php echo $vt_id; ?>" name="vt_id" />
                                                                         <input type="text" id="inputName" class="form-control" name="vt_title" value="<?php echo $vt_title; ?>" required>
                                                                     </div>
 
