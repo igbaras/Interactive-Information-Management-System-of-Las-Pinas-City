@@ -29,7 +29,7 @@
 			<h1 id="logo"><a href="index.html"> </a></h1>
 			<nav id="nav">
 				<ul>
-
+					<li><a href="gallery.html">Night Mode</a></li>
 					<li>
 
 						<a href="#">Menu</a>
@@ -52,6 +52,8 @@
 					</li>
 					<li><a href="virtualtour/virtualtour.php">Virtual Tour</a></li>
 					<li><a href="#" class="button primary">Sign Up</a></li>
+
+					<img src="./Assets/images/icons/night-mode.png" id="nightm">
 				</ul>
 			</nav>
 
@@ -176,7 +178,7 @@
 				</header>
 				<footer class="major">
 					<ul class="actions special">
-						<li><a href="#" class="button">FAQ</a></li>
+						<li><a href="singleFAQ.html" class="button">FAQ</a></li>
 					</ul>
 				</footer>
 			</div>
@@ -192,7 +194,7 @@
 				</header>
 				<footer class="major">
 					<ul class="actions special">
-						<li><a href="#" class="button">See More</a></li>
+						<li><a href="singleTransparency.html" class="button">See More</a></li>
 					</ul>
 				</footer>
 			</div>
