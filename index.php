@@ -29,9 +29,8 @@
 			<h1 id="logo"><a href="index.html"> </a></h1>
 			<nav id="nav">
 				<ul>
-					<li><a href="gallery.html">Night Mode</a></li>
+					<li><a href="#" id="nightm">Night Mode</a></li>
 					<li>
-
 						<a href="#">Menu</a>
 						<ul>
 
@@ -41,7 +40,6 @@
 							<li>
 								<a href="#">News and Lifestyle</a>
 								<ul>
-
 									<li><a href="news.php">News and Annoncements</a></li>
 									<li><a href="/lifestyles/lifestyle.php">Lifestyle</a></li>
 									<li><a href="virtualtour/virtualtour.php">Virtual Tour</a></li>
@@ -52,25 +50,25 @@
 					</li>
 					<li><a href="virtualtour/virtualtour.php">Virtual Tour</a></li>
 					<li><a href="#" class="button primary">Sign Up</a></li>
-
-					<img src="./Assets/images/icons/night-mode.png" id="nightm">
 				</ul>
 			</nav>
 
 		</header>
 
+
+		<iframe width="1900" height="1080" allowfullscreen src="https://v3d.net/cfn"></iframe>
 		<!-- Banner -->
-		<section id="banner">
+		<!--<section id="banner">
 			<div class="content">
 				<header>
 					<h2>The City of Las Piñas</h2>
 					<p>Discover what's in the Philippines</p>
 				</header>
 				<span class="image"><img src="./Assets/images/pic01.jpg" alt="" /></span>
-				<img src="./Assets/images/icons/night-mode.png" id="nightm">
 			</div>
+
 			<a href="#one" class="goto-next scrolly">Next</a>
-		</section>
+			</section>-->
 
 		<!-- One -->
 		<section id="one" class="spotlight style1 bottom">
@@ -233,11 +231,11 @@
 		var nightm = document.getElementById("nightm");
 		nightm.onclick = function() {
 			document.body.classList.toggle("darktheme");
-			if (document.body.classList.contains("darktheme")) {
-				nightm.src = "./Assets/images/icons/sun.png";
-			} else {
-				nightm.src = "./Assets/images/icons/night-mode.png";
-			}
+			//if (document.body.classList.contains("darktheme")) {
+			//	nightm.src = "./Assets/images/icons/sun.png";
+			//} else {
+			//	nightm.src = "./Assets/images/icons/night-mode.png";
+			//}
 		}
 	</script>
 
