@@ -145,9 +145,11 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 					<p>Discover what's in the Philippines</p>
 				</header>
 				<span class="image"><img src="./Assets/images/pic01.jpg" alt="" /></span>
+
 			</div>
 
 			<a href="#one" class="goto-next scrolly">Next</a>
+			<iframe width="1920" height="500" allowfullscreen src="https://v3d.net/cfn"></iframe>
 		</section>
 		<!-- One -->
 		<section id="one" class="spotlight style1 bottom">
