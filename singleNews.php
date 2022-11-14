@@ -163,17 +163,29 @@
                         header("Location: news.php");
                     } ?>
                     <!-- News Detail End -->
+
+                    <?php
+                    if (isset($_POST['leave_comment'])) {
+                    }
+
+
+                    ?>
+
+
+
+
+
                     <!-- Comment Form Start -->
                     <div class="bg-light mb-3" style="padding: 30px;">
                         <h3 class="mb-4">Leave a comment</h3>
-                        <form>
+                        <form method="post">
 
                             <div class="form-group">
                                 <label for="message">Comment *</label>
-                                <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
+                                <textarea id="message" cols="30" rows="5" name="" class="form-control"></textarea>
                             </div>
                             <div class="form-group mb-0">
-                                <input type="submit" value="Leave a comment" class="btn btn-primary font-weight-semi-bold py-2 px-3">
+                                <input type="submit" value="Leave a comment" name="leave_comment" class="btn btn-primary font-weight-semi-bold py-2 px-3">
                             </div>
                         </form>
                     </div>

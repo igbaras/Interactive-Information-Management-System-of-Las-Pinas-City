@@ -110,7 +110,7 @@
         $user_avatar_temp = $_FILES['user_avatar']['tmp_name'];
 
 
-        move_uploaded_file($user_avatar_temp, "images/$user_avatar/");
+        move_uploaded_file($user_avatar_temp, "images/$user_avatar");
 
         $query = "UPDATE public_users SET user_avatar='{$user_avatar}' WHERE user_id={$user_id}; ";
         $update_image_query = mysqli_query($connection, $query);
@@ -185,8 +185,7 @@
 
                             <input type="hidden" name="user_id" value="<?php echo $user_id ?>">
                             <!-- Profile picture help block-->
-                            <div class="small font-italic text-muted mb-4"><input type="file" id="img" name="user_avatar" class="form-control" value="<?php echo $user_avatar; ?>" required></div>
-                            <!-- Profile picture  upload button-->
+                            <input type="file" id="img" name="user_avatar" class="form-control small font-italic text-muted mb-4" value="<?php echo $user_avatar; ?>" required>
                             <button class="btn btn-primary" type="submit" name="submit_image">Update image</button>
                         </form>
 
