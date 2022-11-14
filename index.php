@@ -60,8 +60,6 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 			<nav id="nav">
 				<ul>
 
-
-
 					<?php
 
 					if ($loggedin) {
@@ -130,9 +128,6 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
             </div>';
 			} ?>
 		</header>
-
-
-		<iframe width="1900" height="1080" allowfullscreen src="https://v3d.net/cfn"></iframe>
 		<!-- Banner -->
 		<section id="banner">
 
