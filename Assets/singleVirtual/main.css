@@ -3313,17 +3313,69 @@ input, select, textarea {
 
 /* Wrapper */
 
-	#wrapper > * > .inner {
-		width: 100%;
-		max-width: 68em;
-		margin: 0 auto;
-		padding: 0 2.5em;
-	}
+/*.colll{
+	display: flex;
+	padding-top: 50px;
+	justify-content: center;
+}
+		.collapsible {
+		max-width: 450px;
+		overflow: hidden;
+		font-weight: 500;
+		  }
+		  .collapsible input{
+			display: none;
+		  }
+.collapsible label{
 
-		@media screen and (max-width: 736px) {
-
-			#wrapper > * > .inner {
-				padding: 0 1.25em;
-			}
-
-		}
+	position: relative;
+	font-weight: 600;
+	background: #fff;
+	box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.1),0 4px 11px 0 rgba(0, 0, 0, 0.08);
+	display: block;
+	margin-bottom: 10px;
+	cursor: pointer;
+	padding: 15px 0;
+	border-radius: 4px;
+	z-index: 1;
+}
+.collapsible input:checked + label:after{
+	transform: rotate(90deg);
+}
+.collapsible label:after{
+content: "";
+position: absolute;
+right: 15px;
+top: 20px;
+width: 18px;
+height: 18px;
+background: url(arrow.svg)no-repeat 0 0;
+transition: all 0.3 ease;
+}
+.collapsible-text{
+	max-height: 1px;
+overflow: hidden;
+border-radius: 4px;
+line-height: 1.4;
+position: relative;
+top: -100%;
+opacity: 0.5;
+transition: all 0.3 ease;
+}
+.collapsible input:checked ~ .collapsible-text{
+	max-height: 300px;
+	padding-bottom: 25px;
+	background:#fff;
+	box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.1),0 4px 11px 0 rgba(0, 0, 0, 0.08);
+opacity: 1;
+top: 0;
+}
+.collapsible-text h2{
+	margin-bottom: 10px;
+	padding: 15px 15px 0;
+	
+}
+.collapsible-text p{
+	padding-left: 15px;
+	padding-right: 15px;
+}*/

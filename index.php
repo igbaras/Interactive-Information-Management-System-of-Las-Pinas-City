@@ -131,6 +131,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 			} ?>
 		</header>
 
+
+		<iframe width="1900" height="1080" allowfullscreen src="https://v3d.net/cfn"></iframe>
 		<!-- Banner -->
 		<section id="banner">
 
@@ -140,10 +142,10 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 					<p>Discover what's in the Philippines</p>
 				</header>
 				<span class="image"><img src="./Assets/images/pic01.jpg" alt="" /></span>
-				<img src="./Assets/images/icons/night-mode.png" id="nightm">
 			</div>
+
 			<a href="#one" class="goto-next scrolly">Next</a>
-		</section>
+		</section>-->
 
 		<!-- One -->
 		<section id="one" class="spotlight style1 bottom">
@@ -265,7 +267,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 				</header>
 				<footer class="major">
 					<ul class="actions special">
-						<li><a href="#" class="button">FAQ</a></li>
+						<li><a href="singleFAQ.html" class="button">FAQ</a></li>
 					</ul>
 				</footer>
 			</div>
@@ -281,7 +283,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 				</header>
 				<footer class="major">
 					<ul class="actions special">
-						<li><a href="#" class="button">See More</a></li>
+						<li><a href="singleTransparency.html" class="button">See More</a></li>
 					</ul>
 				</footer>
 			</div>
@@ -324,11 +326,11 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 		var nightm = document.getElementById("nightm");
 		nightm.onclick = function() {
 			document.body.classList.toggle("darktheme");
-			if (document.body.classList.contains("darktheme")) {
-				nightm.src = "./Assets/images/icons/sun.png";
-			} else {
-				nightm.src = "./Assets/images/icons/night-mode.png";
-			}
+			//if (document.body.classList.contains("darktheme")) {
+			//	nightm.src = "./Assets/images/icons/sun.png";
+			//} else {
+			//	nightm.src = "./Assets/images/icons/night-mode.png";
+			//}
 		}
 	</script>
 

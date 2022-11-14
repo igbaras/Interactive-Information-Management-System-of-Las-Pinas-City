@@ -7245,7 +7245,7 @@ button.bg-dark:focus {
 }
 
 .w-100 {
-  width: 100% !important;
+  width: 50% !important;
 }
 
 .w-auto {
@@ -7273,7 +7273,7 @@ button.bg-dark:focus {
 }
 
 .mw-100 {
-  max-width: 100% !important;
+  max-width: 50% !important;
 }
 
 .mh-100 {
