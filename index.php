@@ -98,7 +98,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 				echo '<nav id="nav">
 				<ul>
 				<a type="submit" class="btn btn-link" data-toggle="modal" data-target="#loginModal">Menu</a>
-						<button class="btn btn-link vt " data-toggle="modal" data-target="#loginModal">Menu</button></li>
+						
 				<a type="submit" class="btn btn-link " data-toggle="modal" data-target="#loginModal">Virtual Tour</a>
 	<button type="button" class="btn btn-success mx-2"  data-toggle="modal" data-target="#loginModal">Login</button>
 	<button type="button" class="btn btn-success mx-2"  data-toggle="modal" data-target="#signupModal">SignUp</button>
