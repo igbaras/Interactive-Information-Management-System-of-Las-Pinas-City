@@ -77,7 +77,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 							<li>
 								<a href="#">News and Lifestyle</a>
 								<ul>
-									<li><a href="news.php">News and Annoncements</a></li>
+									<li><a href="news.php">News</a></li>
 									<li><a href="lifestyles/lifestyle.php">Lifestyle</a></li>
 									<li><a href="virtualtour/virtualtour.php">Virtual Tour</a></li>
 								</ul>

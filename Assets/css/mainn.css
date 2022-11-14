@@ -3983,8 +3983,8 @@ font-weight: 600;
 
 				#navPanel .link {
 					border: 0;
-					border-top: solid 1px rgba(255, 255, 255, 0.05);
-					color: rgba(255, 255, 255, 0.75);
+					border-top: solid 1px #9FA89D;
+					color:#00180A;
 					display: block;
 					height: 3em;
 					line-height: 3em;
