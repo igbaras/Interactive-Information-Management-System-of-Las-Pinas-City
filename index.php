@@ -148,8 +148,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 			</div>
 
 			<a href="#one" class="goto-next scrolly">Next</a>
-		</section>-->
-
+		</section>
 		<!-- One -->
 		<section id="one" class="spotlight style1 bottom">
 			<span class="image fit main"><img src="./Assets/images/pic02.jpg" alt="" /></span>

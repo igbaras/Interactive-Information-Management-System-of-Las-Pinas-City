@@ -212,7 +212,7 @@ font-weight: 600;
 	code {
 		background: #00180A;
 		border-radius: 4px;
-		font-family: "Courier New", monospace;
+		font-family: 'Poppins', sans-serif;
 		font-size: 0.9em;
 		margin: 0 0.25em;
 		padding: 0.25em 0.65em;
@@ -220,7 +220,7 @@ font-weight: 600;
 
 	pre {
 		-webkit-overflow-scrolling: touch;
-		font-family: "Courier New", monospace;
+		font-family: 'Poppins', sans-serif;
 		font-size: 0.9em;
 		margin: 0 0 2em 0;
 	}
@@ -411,8 +411,8 @@ font-weight: 600;
 		0% {
 			-moz-transform: scale(1) rotate(0deg);
 			-webkit-transform: scale(1) rotate(0deg);
-			-ms-transformut, sele: scale(1) rotate(0deg);
-			transform: scale(1) rotate(0deg);
+			-ms-transform: scale(1) rotate(0deg);
+			transform: scale(1) rotate(90deg);
 		}
 
 		100% {
@@ -572,7 +572,7 @@ font-weight: 600;
 			text-rendering: auto;
 			line-height: 1;
 			text-transform: none !important;
-			font-family: 'Font Awesome 5 Free';
+			font-family: 'Poppins', sans-serif;
 			font-weight: 900;
 		}
 
@@ -2343,7 +2343,7 @@ font-weight: 600;
 				text-rendering: auto;
 				line-height: 1;
 				text-transform: none !important;
-				font-family: 'Font Awesome 5 Free';
+				font-family: 'Poppins', sans-serif;
 				font-weight: 900;
 			}
 
@@ -2441,7 +2441,7 @@ font-weight: 600;
 			text-rendering: auto;
 			line-height: 1;
 			text-transform: none !important;
-			font-family: 'Font Awesome 5 Free';
+			font-family: 'Poppins', sans-serif;
 			font-weight: 400;
 		}
 
@@ -2458,7 +2458,7 @@ font-weight: 600;
 		}
 
 		.icon.brands:before {
-			font-family: 'Font Awesome 5 Brands' !important;
+			font-family: 'Poppins', sans-serif' !important;
 		}
 
 		.icon.alt {
@@ -2474,7 +2474,7 @@ font-weight: 600;
 				text-rendering: auto;
 				line-height: 1;
 				text-transform: none !important;
-				font-family: 'Font Awesome 5 Free';
+				font-family:'Poppins', sans-serif;
 				font-weight: 400;
 			}
 
@@ -2512,7 +2512,7 @@ font-weight: 600;
 					text-rendering: auto;
 					line-height: 1;
 					text-transform: none !important;
-					font-family: 'Font Awesome 5 Free';
+					font-family: 'Poppins', sans-serif;
 					font-weight: 400;
 				}
 
@@ -3560,7 +3560,7 @@ font-weight: 600;
 				text-rendering: auto;
 				line-height: 1;
 				text-transform: none !important;
-				font-family: 'Font Awesome 5 Free';
+				font-family: 'Poppins', sans-serif;
 				font-weight: 400;
 			}
 
@@ -3935,7 +3935,7 @@ font-weight: 600;
 						text-rendering: auto;
 						line-height: 1;
 						text-transform: none !important;
-						font-family: 'Font Awesome 5 Free';
+						font-family: 'Poppins', sans-serif;
 						font-weight: 900;
 					}
 
@@ -4153,7 +4153,7 @@ font-weight: 600;
 	  }
 	  .intro-text {
 		color: rgb(233, 233, 233);
-		font-family: 'basement';
+		font-family: 'Poppins', sans-serif;
 		font-size: 3rem;
 	  }
 	  
