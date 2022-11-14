@@ -68,6 +68,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 		
 			<nav id="nav">
 				<ul>
+				<li><a href="#" id="nightm">Night Mode</a></li>
 						<li>
 						<a href="#">Menu</a>
 						<ul>
