@@ -80,8 +80,8 @@ if (isset($_POST['submit_sign'])) {
 <!-- Sign up Modal -->
 <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header" style="background-color: rgb(111 202 203);">
+    <div class="modal-content" style=" background: #DADFD9;  color: #00180A;">
+      <div class="modal-header" style="background-color: #CAD2C9;">
         <h5 class="modal-title" id="signupModal">SignUp Here</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -117,7 +117,7 @@ if (isset($_POST['submit_sign'])) {
             <b><label for="password1">Renter Password:</label></b>
             <input class="form-control border-secondary" id="cpassword" name="cuser_password" placeholder="Renter Password" type="password" required data-toggle="password" minlength="4" maxlength="21">
           </div>
-          <button type="submit" name="submit_sign" class="btn btn-success">Submit</button>
+          <button type="submit" name="submit_sign" class="btn btn-warning">Submit</button>
         </form>
         <p class="mb-0 mt-1">Already have an account? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#loginModal">Login here</a>.</p>
       </div>
