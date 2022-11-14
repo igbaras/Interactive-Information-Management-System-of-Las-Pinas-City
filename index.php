@@ -6,7 +6,7 @@ ob_start();
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 	$loggedin = true;
 	$userId = $_SESSION['userId'];
-	$username = $_SESSION['username'];
+	$pusername = $_SESSION['pusername'];
 } else {
 	$loggedin = false;
 	$userId = 0;
@@ -72,7 +72,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 						<a href="#">Menu</a>
 						<ul>
 							<li><a href="programservice.html">Program and Services</a></li>
-							<li><a href="gallery.html">Gallery</a></li>
+							<li><a href="gallery.php">Gallery</a></li>
 							<li><a href="contact_us.html">Contact</a></li>
 							<li>
 								<a href="#">News and Lifestyle</a>
@@ -86,7 +86,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 					</li>
 						<li><a href="virtualtour/virtualtour.php">Virtual Tour</a></li>
 						<li>
-						<a href="#">Welcome ' . $username . '</a>
+						<a href="#">Welcome ' . $pusername . '</a>
 						<ul>
 							<li><a href="public_users/viewProfile.php?uid=' . $userId . '">View Profile</a></li>
 							<li><a href="public_users/_logout.php">Logout</a></li>

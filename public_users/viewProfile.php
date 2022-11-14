@@ -178,7 +178,7 @@
                     <div class="card-body text-center">
                         <!-- Profile picture image-->
                         <div id="selectedBanner" class="img-account-profile rounded-circle mb-2">
-                            <img class="img-account-profile rounded-circle mb-2" id="selectedBanner" src="images/<?php echo $user_avatar ?>" alt="">
+                            <img class="img-account-profile rounded-circle mb-2" id="selectedBanner" <?php echo "src='images/{$user_avatar}'"; ?> alt="">
                         </div>
                         <form method="post" enctype="multipart/form-data">
 

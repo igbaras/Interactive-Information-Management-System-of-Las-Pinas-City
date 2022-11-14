@@ -1,10 +1,10 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include '../includes/db.php';
-    $username = $_POST["loginusername"];
+    $pusername = $_POST["loginusername"];
     $password = $_POST["loginpassword"];
 
-    $sql = "Select * from public_users where username='$username'";
+    $sql = "Select * from public_users where username='$pusername'";
     $result = mysqli_query($connection, $sql);
     $num = mysqli_num_rows($result);
     if ($num == 1) {
@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $row['user_password'])) {
             session_start();
             $_SESSION['loggedin'] = true;
-            $_SESSION['username'] = $username;
+            $_SESSION['pusername'] = $pusername;
             $_SESSION['userId'] = $userId;
             header("location: ../index.php?loginsuccess=true");
             exit();
