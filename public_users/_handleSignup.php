@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
     $numExistRows = mysqli_num_rows($result);
     if ($numExistRows > 0) {
         $showError = "Username Already Exists";
-        header("Location: /interactive-Information-Management-System-of-Las-Pinas-Cit/index.php?signupsuccess=false&error=$showError");
+        header("Location: ../index.php?signupsuccess=false&error=$showError");
     } else {
         if (($user_password == $cuser_password)) {
             $hash = password_hash($user_password, PASSWORD_DEFAULT);
@@ -28,11 +28,11 @@ if (isset($_POST['submit'])) {
             $result = mysqli_query($connection, $sql);
             if ($result) {
                 $showAlert = true;
-                header("Location: ./index.php?signupsuccess=true");
+                header("Location: ../index.php?signupsuccess=true");
             }
         } else {
             $showError = "Passwords do not match";
-            header("Location: /interactive-Information-Management-System-of-Las-Pinas-City/index.php?signupsuccess=false&error=$showError");
+            header("Location: ../index.php?signupsuccess=false&error=$showError");
         }
     }
 }

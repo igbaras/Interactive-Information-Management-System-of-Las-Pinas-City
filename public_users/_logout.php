@@ -9,4 +9,4 @@ unset($_SESSION["userId"]);
 // session_unset();
 // session_destroy();
 
-header("location: /interactive-Information-Management-System-of-Las-Pinas-City/index.php");
+header("location: ../index.php");

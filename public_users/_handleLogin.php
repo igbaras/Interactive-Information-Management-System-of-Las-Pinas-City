@@ -15,12 +15,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['loggedin'] = true;
             $_SESSION['username'] = $username;
             $_SESSION['userId'] = $userId;
-            header("location: /interactive-Information-Management-System-of-Las-Pinas-City/index.php?loginsuccess=true");
+            header("location: ../index.php?loginsuccess=true");
             exit();
         } else {
-            header("location: /interactive-Information-Management-System-of-Las-Pinas-City/index.php?loginsuccess=false");
+            header("location: ../index.php?loginsuccess=false");
         }
     } else {
-        header("location:/interactive-Information-Management-System-of-Las-Pinas-City/index.php?loginsuccess=false");
+        header("location: ../index.php?loginsuccess=false");
     }
 }

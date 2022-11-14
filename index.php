@@ -57,16 +57,16 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
 			<img src="./Assets/images/lplogo.png" alt="">
 			<h1 id="logo"><a href="index.html"> </a></h1>
+			<?php
+
+			if ($loggedin) {
+
+
+				echo '
+						
+		
 			<nav id="nav">
 				<ul>
-
-					<?php
-
-					if ($loggedin) {
-
-
-						echo '
-						
 						<li>
 						<a href="#">Menu</a>
 						<ul>
@@ -90,18 +90,25 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 							<li><a href="public_users/viewProfile.php">View Profile</a></li>
 							<li><a href="public_users/_logout.php">Logout</a></li>
 						</ul>
-					</li>"';
-					} else {
-						echo '
-						<li><button class="btn btn-link vt " data-toggle="modal" data-target="#loginModal">Menu</button></li>
+					</li>
+					</ul>
+					</nav>
+					';
+			} else {
+				echo '<nav id="nav">
+				<ul>
+						<li>
+						<button class="btn btn-link vt " data-toggle="modal" data-target="#loginModal">Menu</button></li>
 						<li><button class="btn btn-link vt" data-toggle="modal" data-target="#loginModal">Virtual Tour</button></li>
 	<button type="button" class="btn btn-success mx-2"  data-toggle="modal" data-target="#loginModal">Login</button>
-	<button type="button" class="btn btn-success mx-2"  data-toggle="modal" data-target="#signupModal">SignUp</button>';
-					}
-					?>
-				</ul>
+	<button type="button" class="btn btn-success mx-2"  data-toggle="modal" data-target="#signupModal">SignUp</button>
+	</ul>
+	</nav>';
+			}
+			?>
+			</ul>
 
-			</nav>
+
 			<?php
 			if (isset($_GET['signupsuccess']) && $_GET['signupsuccess'] == "true") {
 				echo '<div class="alert alert-success alert-dismissible fade show text-center" role="alert">
