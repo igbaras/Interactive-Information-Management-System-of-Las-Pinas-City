@@ -15,10 +15,17 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&family=Poppins:wght@400;600&display=swap');
+
         body {
+            font-family: 'Poppins', sans-serif;
             margin-top: 20px;
-            background-color: #f2f6fc;
-            color: #69707a;
+            background-color: #DADFD9;
+            color: #00180A;
+        }
+
+        h3 {
+            font-weight: 600;
         }
 
         .img-account-profile {
@@ -31,6 +38,7 @@
 
         .card {
             box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+            background: #CAD2C9;
         }
 
         .card .card-header {
@@ -44,7 +52,7 @@
         .card-header {
             padding: 1rem 1.35rem;
             margin-bottom: 0;
-            background-color: rgba(33, 40, 50, 0.03);
+            background-color: #CAD2C9;
             border-bottom: 1px solid rgba(33, 40, 50, 0.125);
         }
 
@@ -57,7 +65,7 @@
             font-weight: 400;
             line-height: 1;
             color: #69707a;
-            background-color: #fff;
+            background-color: #EFF4ED;
             background-clip: padding-box;
             border: 1px solid #c5ccd6;
             -webkit-appearance: none;
@@ -172,7 +180,9 @@
             <div class="col-xl-4">
                 <!-- Profile picture card-->
                 <div class="card mb-4 mb-xl-0">
-                    <div class="card-header">Profile Picture</div>
+                    <div class="card-header">
+                        <h3>Profile Picture</h3>
+                    </div>
 
 
                     <div class="card-body text-center">
@@ -186,7 +196,7 @@
                             <input type="hidden" name="user_id" value="<?php echo $user_id ?>">
                             <!-- Profile picture help block-->
                             <input type="file" id="img" name="user_avatar" class="form-control small font-italic text-muted mb-4" value="<?php echo $user_avatar; ?>" required>
-                            <button class="btn btn-primary" type="submit" name="submit_image">Update image</button>
+                            <button class="btn btn-warning" type="submit" name="submit_image">Update image</button>
                         </form>
 
                     </div>
@@ -195,7 +205,9 @@
             <div class="col-xl-8">
                 <!-- Account details card-->
                 <div class="card mb-4">
-                    <div class="card-header">Account Details</div>
+                    <div class="card-header">
+                        <h3>Account Details</h3>
+                    </div>
                     <div class="card-body">
                         <form method="post">
                             <!-- Form Group (username)-->
@@ -231,7 +243,7 @@
                             </div>
 
                             <!-- Save changes button-->
-                            <button class="btn btn-primary" type="submit" name="save_change">Save changes</button>
+                            <button class="btn btn-warning" type="submit" name="save_change">Save changes</button>
                         </form>
 
                     </div>
