@@ -1,6 +1,6 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,100italic,300italic");
-@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&family=Poppins:wght@400;600;800&display=swap');
 /*
 	Landed by HTML5 UP
 	html5up.net | @ajlkn
@@ -9,10 +9,12 @@
 :root{
 	--primary-color:#DADFD9;
 	--secondary-color:#00180A;
+	--third-color:#B98A3E;
 }
 .darktheme{
 	--primary-color:#00180A;
 	--secondary-color:#DADFD9;
+	--third-color:#F1B24A;
 }
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -166,6 +168,8 @@ font-weight: 600;
 	}
 
 	h4 {
+		color: var(--third-color);
+		font-weight: 800;
 		font-size: 1.1em;
 		line-height: 1.5em;
 	}
@@ -4173,3 +4177,4 @@ iframe {
 		max-width: 100%;
 		max-height: 100%;
 	}
+	

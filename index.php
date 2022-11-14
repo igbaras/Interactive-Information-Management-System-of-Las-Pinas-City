@@ -87,7 +87,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 					</li>
 						<li><a href="virtualtour/virtualtour.php">Virtual Tour</a></li>
 						<li>
-						<a href="#">Welcome ' . $pusername . '</a>
+						<h4><a href="#">Welcome ' . $pusername . '!</a></h4>
 						<ul>
 							<li><a href="public_users/viewProfile.php?uid=' . $userId . '">View Profile</a></li>
 							<li><a href="public_users/_logout.php">Logout</a></li>
@@ -142,8 +142,12 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
 			<div class="content">
 				<header>
+
 					<h2>The City of Las Piñas</h2>
 					<p>Discover what's in the Philippines</p>
+					<a href="#one">
+						See More
+					</a>
 				</header>
 				<span class="image"><img src="./Assets/images/pic01.jpg" alt="" /></span>
 

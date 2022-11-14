@@ -25,6 +25,13 @@
 	<!-- Theme style -->
 	<link rel="stylesheet" href="../login/dist/css/adminlte.min.css">
 	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&family=Poppins:wght@400;600&display=swap');
+
+		body {
+			background: #DADFD9;
+			font-family: 'Poppins', sans-serif
+		}
+
 		iframe {
 			width: 100% !important;
 
@@ -32,6 +39,7 @@
 
 		.vt_title,
 		.vtpage {
+			font-family: 'Poppins', sans-serif;
 			background-color: #CAD2C9;
 
 
@@ -39,7 +47,8 @@
 
 		.prev,
 		.next {
-			margin-top: 200px;
+
+			margin-top: 50px;
 			margin-bottom: 400px;
 			z-index: 1000;
 		}
