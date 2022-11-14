@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Announcements and News</title>
+    <title>News Room</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -40,7 +40,7 @@
         <div class="row align-items-center py-2 px-lg-5">
             <div class="col-lg-4">
                 <a href="" class="navbar-brand d-none d-lg-block">
-                    <h1 class="m-0 display-5 text-uppercase"><span class="text-primary">Announcements </span>and<span class="text-primary"> News</span></h1>
+                    <h1 class="m-0 display-5 text-uppercase"><span class="text-primary"> </span>News<span class="text-primary">Room</span></h1>
                 </a>
             </div>
             <div class="col-lg-8 text-center text-lg-right">
@@ -55,7 +55,7 @@
     <div class="container-fluid p-0 mb-3">
         <nav class="navbar navbar-expand-lg bg-light navbar-light py-2 py-lg-0 px-lg-5">
             <a href="" class="navbar-brand d-block d-lg-none">
-                <h1 class="m-0 display-5 text-uppercase"><span class="text-primary">Announcements</span>and<span class="text-primary">News</span></h1>
+                <h1 class="m-0 display-5 text-uppercase"><span class="text-primary"></span>News<span class="text-primary"></span></h1>
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
@@ -324,9 +324,9 @@
         <div class="row">
             <div class="col-lg-3 col-md-6 mb-5">
                 <a href="index.html" class="navbar-brand">
-                    <h1 class="mb-2 mt-n2 display-5 text-uppercase"><span class="text-primary">Announcements </span>and<span class="text-primary"> News</span></h1>
+                    <h1 class="mb-2 mt-n2 display-5 text-uppercase"><span class="text-primary"> </span>News<span class="text-primary">Room</span></h1>
                 </a>
-                <p>Volup amet magna clita tempor. Tempor sea eos vero ipsum. Lorem lorem sit sed elitr sed kasd et</p>
+
 
             </div>
 
@@ -335,10 +335,7 @@
     </div>
     <div class="container-fluid py-4 px-sm-3 px-md-5">
         <p class="m-0 text-center">
-            &copy; <a class="font-weight-bold" href="#">Your Site Name</a>. All Rights Reserved.
-
-
-            Designed by <a class="font-weight-bold" href="https://freewebsitecode.com">Free Website Code</a>
+            &copy; <a class="font-weight-bold" href="#">News Room</a>. All Rights Reserved.
         </p>
     </div>
     <!-- Footer End -->

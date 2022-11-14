@@ -33,14 +33,7 @@
         <div class="row align-items-center bg-light px-lg-5">
             <div class="col-12 col-md-8">
                 <div class="d-flex justify-content-between">
-                    <div class="bg-primary text-white text-center py-2" style="width: 100px;">Tranding</div>
-                    <div class="owl-carousel owl-carousel-1 tranding-carousel position-relative d-inline-flex align-items-center ml-3" style="width: calc(100% - 100px); padding-left: 90px;">
-                        <div class="text-truncate"><a class="text-secondary" href="">Labore sit justo amet eos sed, et
-                                sanctus dolor diam eos</a></div>
-                        <div class="text-truncate"><a class="text-secondary" href="">Gubergren elitr amet eirmod et
-                                lorem diam elitr, ut est erat Gubergren elitr amet eirmod et lorem diam elitr, ut est
-                                erat</a></div>
-                    </div>
+                    <div class="bg-primary text-white text-center py-2" style="width: 100px;">Article</div>
                 </div>
             </div>
             <div class="col-md-4 text-right d-none d-md-block">
@@ -72,18 +65,10 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav mr-auto py-0">
-                    <a href="index.html" class="nav-item nav-link">Home</a>
-                    <a href="category.html" class="nav-item nav-link">Categories</a>
-                    <a href="single.html" class="nav-item nav-link active">Single News</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-                        <div class="dropdown-menu rounded-0 m-0">
-                            <a href="#" class="dropdown-item">Menu item 1</a>
-                            <a href="#" class="dropdown-item">Menu item 2</a>
-                            <a href="#" class="dropdown-item">Menu item 3</a>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <a href="news.php" class="nav-item nav-link">News Home</a>
+                    <a href="index.php" class="nav-item nav-link">Home</a>
+
+
                 </div>
                 <div class="input-group ml-auto" style="width: 100%; max-width: 300px;">
                     <input type="text" class="form-control" placeholder="Keyword">
@@ -101,10 +86,7 @@
     <div class="container-fluid">
         <div class="container">
             <nav class="breadcrumb bg-transparent m-0 p-0">
-                <a class="breadcrumb-item" href="#">Home</a>
-                <a class="breadcrumb-item" href="#">Category</a>
-                <a class="breadcrumb-item" href="#">Technology</a>
-                <span class="breadcrumb-item active">News Title</span>
+
             </nav>
         </div>
     </div>

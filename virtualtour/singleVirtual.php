@@ -32,8 +32,8 @@
 
 		.vt_title,
 		.vtpage {
-			background-color: #557153;
-			border-radius: 10%;
+			background-color: #CAD2C9;
+
 
 		}
 
@@ -125,11 +125,12 @@
 		<nav id="menu">
 			<h2>Menu</h2>
 			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="generic.html">Ipsum veroeros</a></li>
-				<li><a href="generic.html">Tempus etiam</a></li>
-				<li><a href="generic.html">Consequat dolor</a></li>
-				<li><a href="elements.html">Elements</a></li>
+				<li><a href="virtualtour.php">Virtual Tour Home</a></li>
+				<li><a href="../index.php">Home</a></li>
+				<li><a href="../lifestyles/lifestyle.php">Lifestyle</a></li>
+
+
+
 			</ul>
 		</nav>
 

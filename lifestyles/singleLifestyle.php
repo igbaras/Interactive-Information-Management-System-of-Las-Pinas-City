@@ -65,7 +65,8 @@ while ($row = mysqli_fetch_assoc($all_ls_query)) {
 		<nav id="menu">
 			<h2>Menu</h2>
 			<ul>
-				<li><a href="index.php">Home</a></li>
+				<li><a href="lifestyle.php">Lifestyle Home</a></li>
+				<li><a href="../index.php">Home</a></li>
 
 			</ul>
 		</nav>
