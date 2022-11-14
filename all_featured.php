@@ -109,18 +109,14 @@ $allFeat_query = mysqli_query($connection, $query);
 
                             </div>
                         </div>
-
-
                         <?php
-
-
                         while ($row = mysqli_fetch_assoc($allFeat_query)) {
                             $post_id = $row['post_id'];
                             $post_category_id = $row['post_category_id'];
                             $post_title = $row['post_title'];
                             $post_author = $row['post_author'];
                             $post_date = $row['post_date'];
-                            $post_date = strtotime($post_date);
+
 
                             $post_image = $row['post_image'];
                             $post_content = $row['post_content'];
@@ -136,14 +132,14 @@ $allFeat_query = mysqli_query($connection, $query);
                         ?>
                                 <div class="col-lg-6">
                                     <div class="position-relative mb-3">
-                                        <img class="img-fluid w-100" src="login/images/posts/<?php echo $post_image; ?>" style="object-fit: cover;">
+                                        <a href="singleNews.php?an_id=<?php echo $post_id ?>"><img class="img-fluid w-100" src="login/images/posts/<?php echo $post_image; ?>" style="object-fit: cover;"></a>
                                         <div class="overlay position-relative bg-light">
                                             <div class="mb-2" style="font-size: 14px;">
                                                 <a href="" class="btn-sm btn-secondary rounded text-white"><?php echo $cat_title; ?></a>
                                                 <span class="px-1">/</span>
-                                                <span><?php echo time_Ago($post_date); ?></span>
+                                                <span><?php echo $post_date; ?></span>
                                             </div>
-                                            <a class="h4" href=""><?php echo $post_title; ?></a>
+                                            <a class="h4" href="singleNews.php?an_id=<?php echo $post_id ?>"><?php echo $post_title; ?></a>
                                             <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
                                         </div>
                                     </div>

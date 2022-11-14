@@ -131,7 +131,7 @@
             <?php deleteCategory(); ?>
             <?php updateCategory(); ?>
             <div class="card-body">
-              <table id="example1" class="table table-head-fixed text-nowrap">
+              <table id="exampleB" class="table table-head-fixed text-nowrap">
                 <thead>
                   <tr>
                     <th>ID</th>
@@ -285,6 +285,19 @@
     $(".alert").delay(4000).slideUp(200, function() {
       $(this).alert('close');
     });
+
+    $("#exampleB")
+      .DataTable({
+        order: false,
+        responsive: true,
+        lengthChange: false,
+        autoWidth: false,
+
+        buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
+      })
+      .buttons()
+      .container()
+      .appendTo("#exampleB_wrapper .col-md-6:eq(0)");
   });
 </script>
 

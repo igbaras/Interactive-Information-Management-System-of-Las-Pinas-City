@@ -72,12 +72,10 @@
 				}
 				while ($row = mysqli_fetch_assoc($select_all_vt_query)) {
 					$vt_id = $row['vt_id'];
-
 					$vt_title = $row['vt_title'];
 					$vt_desc = $row['vt_desc'];
 					$vt_date = $row['vt_date'];
 					$vt_image = $row['vt_image'];
-
 					$vt_tags = $row['vt_tags'];
 					$vt_status = $row['vt_status'];
 

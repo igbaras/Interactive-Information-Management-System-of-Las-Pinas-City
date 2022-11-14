@@ -115,7 +115,7 @@
     <div class="container-fluid py-3">
         <div class="container">
             <div class="row">
-                <div class="col-lg-14">
+                <div class="col-lg-12">
                     <?php
                     if (isset($_GET['an_id'])) {
                         $published_post_id = $_GET['an_id'];
@@ -163,7 +163,21 @@
                         header("Location: news.php");
                     } ?>
                     <!-- News Detail End -->
+                    <!-- Comment Form Start -->
+                    <div class="bg-light mb-3" style="padding: 30px;">
+                        <h3 class="mb-4">Leave a comment</h3>
+                        <form>
 
+                            <div class="form-group">
+                                <label for="message">Comment *</label>
+                                <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group mb-0">
+                                <input type="submit" value="Leave a comment" class="btn btn-primary font-weight-semi-bold py-2 px-3">
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Comment Form End -->
                     <!-- Comment List Start -->
                     <div class="bg-light mb-3" style="padding: 30px;">
                         <h3 class="mb-4">3 Comments</h3>
@@ -175,9 +189,10 @@
                                     accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.
                                     Gubergren clita aliquyam consetetur sadipscing, at tempor amet ipsum diam tempor
                                     consetetur at sit.</p>
-                                <button class="btn btn-sm btn-outline-secondary">Reply</button>
+
                             </div>
                         </div>
+                        <hr>
                         <div class="media">
                             <img src="./Assets/newsassets/img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                             <div class="media-body">
@@ -186,69 +201,37 @@
                                     accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.
                                     Gubergren clita aliquyam consetetur sadipscing, at tempor amet ipsum diam tempor
                                     consetetur at sit.</p>
-                                <button class="btn btn-sm btn-outline-secondary">Reply</button>
-                                <div class="media mt-4">
-                                    <img src="./Assets/newsassets/img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                                    <div class="media-body">
-                                        <h6><a href="">John Doe</a> <small><i>01 Jan 2045 at 12:00pm</i></small></h6>
-                                        <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor
-                                            labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed
-                                            eirmod ipsum. Gubergren clita aliquyam consetetur sadipscing, at tempor amet
-                                            ipsum diam tempor consetetur at sit.</p>
-                                        <button class="btn btn-sm btn-outline-secondary">Reply</button>
-                                    </div>
-                                </div>
+
+
                             </div>
                         </div>
+                        <hr>
                     </div>
                     <!-- Comment List End -->
 
-                    <!-- Comment Form Start -->
-                    <div class="bg-light mb-3" style="padding: 30px;">
-                        <h3 class="mb-4">Leave a comment</h3>
-                        <form>
-                            <div class="form-group">
-                                <label for="name">Name *</label>
-                                <input type="text" class="form-control" id="name">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email *</label>
-                                <input type="email" class="form-control" id="email">
-                            </div>
-                            <div class="form-group">
-                                <label for="website">Website</label>
-                                <input type="url" class="form-control" id="website">
-                            </div>
 
-                            <div class="form-group">
-                                <label for="message">Message *</label>
-                                <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
-                            </div>
-                            <div class="form-group mb-0">
-                                <input type="submit" value="Leave a comment" class="btn btn-primary font-weight-semi-bold py-2 px-3">
-                            </div>
-                        </form>
-                    </div>
-                    <!-- Comment Form End -->
                 </div>
+            </div>
+        </div>
+    </div>
 
 
-                <!-- Back to Top -->
-                <a href="#" class="btn btn-dark back-to-top"><i class="fa fa-angle-up"></i></a>
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-dark back-to-top"><i class="fa fa-angle-up"></i></a>
 
 
-                <!-- JavaScript Libraries -->
-                <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-                <script src="./Assets/newsassets/lib/easing/easing.min.js"></script>
-                <script src="./Assets/newsassets/lib/owlcarousel/owl.carousel.min.js"></script>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="./Assets/newsassets/lib/easing/easing.min.js"></script>
+    <script src="./Assets/newsassets/lib/owlcarousel/owl.carousel.min.js"></script>
 
-                <!-- Contact Javascript File -->
-                <script src="./Assets/newsassets/mail/jqBootstrapValidation.min.js"></script>
-                <script src="./Assets/newsassets/mail/contact.js"></script>
+    <!-- Contact Javascript File -->
+    <script src="./Assets/newsassets/mail/jqBootstrapValidation.min.js"></script>
+    <script src="./Assets/newsassets/mail/contact.js"></script>
 
-                <!-- Template Javascript -->
-                <script src="./Assets/newsassets/js/main.js"></script>
+    <!-- Template Javascript -->
+    <script src="./Assets/newsassets/js/main.js"></script>
 </body>
 
 </html>

@@ -1,3 +1,20 @@
+<?php include "includes/db.php"; ?>
+<?php
+session_start();
+
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+	$loggedin = true;
+	$userId = $_SESSION['userId'];
+	$username = $_SESSION['username'];
+} else {
+	$loggedin = false;
+	$userId = 0;
+}
+
+
+?>
+
+
 <!DOCTYPE HTML>
 <!--
 	Landed by HTML5 UP
@@ -15,11 +32,24 @@
 	<noscript>
 		<link rel="stylesheet" href="./Assets/css/noscript.css" />
 	</noscript>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<!-- CSS only -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+	<style>
+		a,
+		.vt {
+			text-decoration: none;
+			color: #000;
+		}
+	</style>
 </head>
 
 <body class="is-preload landing">
 
 	<div id="page-wrapper">
+		<?php include "public_users/_loginModal.php"; ?>
+		<?php include "public_users/_signupModal.php"; ?>
 
 		<!-- Header -->
 
@@ -30,35 +60,80 @@
 			<nav id="nav">
 				<ul>
 
-					<li>
 
+
+					<?php
+
+					if ($loggedin) {
+
+
+						echo '
+						
+						<li>
 						<a href="#">Menu</a>
 						<ul>
-
 							<li><a href="programservice.html">Program and Services</a></li>
 							<li><a href="gallery.html">Gallery</a></li>
 							<li><a href="contact_us.html">Contact</a></li>
 							<li>
 								<a href="#">News and Lifestyle</a>
 								<ul>
-
 									<li><a href="news.php">News and Annoncements</a></li>
-									<li><a href="/lifestyles/lifestyle.php">Lifestyle</a></li>
+									<li><a href="lifestyles/lifestyle.php">Lifestyle</a></li>
 									<li><a href="virtualtour/virtualtour.php">Virtual Tour</a></li>
-
 								</ul>
 							</li>
 						</ul>
 					</li>
-					<li><a href="virtualtour/virtualtour.php">Virtual Tour</a></li>
-					<li><a href="#" class="button primary">Sign Up</a></li>
+						<li><a href="virtualtour/virtualtour.php">Virtual Tour</a></li>
+						<li>
+						<a href="#">Welcome ' . $username . '</a>
+						<ul>
+							<li><a href="public_users/viewProfile.php">View Profile</a></li>
+							<li><a href="public_users/_logout.php">Logout</a></li>
+						</ul>
+					</li>"';
+					} else {
+						echo '
+						<li><button class="btn btn-link vt " data-toggle="modal" data-target="#loginModal">Menu</button></li>
+						<li><button class="btn btn-link vt" data-toggle="modal" data-target="#loginModal">Virtual Tour</button></li>
+	<button type="button" class="btn btn-success mx-2"  data-toggle="modal" data-target="#loginModal">Login</button>
+	<button type="button" class="btn btn-success mx-2"  data-toggle="modal" data-target="#signupModal">SignUp</button>';
+					}
+					?>
 				</ul>
-			</nav>
 
+			</nav>
+			<?php
+			if (isset($_GET['signupsuccess']) && $_GET['signupsuccess'] == "true") {
+				echo '<div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+              <strong>Success!</strong> You can now login.
+              <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span></button>
+            </div>';
+			}
+			if (isset($_GET['error']) && $_GET['signupsuccess'] == "false") {
+				echo '<div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+              <strong>Warning!</strong> ' . $_GET['error'] . '
+              <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span></button>
+            </div>';
+			}
+			if (isset($_GET['loginsuccess']) && $_GET['loginsuccess'] == "true") {
+				echo '<div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+              <strong>Success!</strong> You are logged in
+              <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span></button>
+            </div>';
+			}
+			if (isset($_GET['loginsuccess']) && $_GET['loginsuccess'] == "false") {
+				echo '<div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+              <strong>Warning!</strong> Invalid Credentials
+              <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span></button>
+            </div>';
+			} ?>
 		</header>
 
 		<!-- Banner -->
 		<section id="banner">
+
 			<div class="content">
 				<header>
 					<h2>The City of Las Piñas</h2>
@@ -113,7 +188,14 @@
 					Integer mi sed nascetur cep aliquet augue varius tempus lobortis porttitor lorem et accumsan
 					consequat adipiscing lorem.</p>
 				<ul class="actions">
-					<li><a href="news.php" class="button">Learn More</a></li>
+					<?php
+					if ($loggedin) {
+						echo '<li><a href="news.php" class="button">Learn More</a></li>';
+					} else {
+						echo '<li><button class="btn btn-outline-warning" data-toggle="modal" data-target="#loginModal">Learn More</button></li>';
+					}
+					?>
+
 				</ul>
 			</div>
 			<a href="#three" class="goto-next scrolly">Next</a>
@@ -131,7 +213,14 @@
 					Integer mi sed nascetur cep aliquet augue varius tempus lobortis porttitor lorem et accumsan
 					consequat adipiscing lorem.</p>
 				<ul class="actions">
-					<li><a href="lifestyles/lifestyle.php" class="button">Learn More</a></li>
+					<?php
+					if ($loggedin) {
+						echo '<li><a href="lifestyles/lifestyle.php" class="button">Learn More</a></li>';
+					} else {
+						echo '<li><button class="btn btn-outline-warning" data-toggle="modal" data-target="#loginModal">Learn More</button></li>';
+					}
+					?>
+
 				</ul>
 			</div>
 			<a href="#four" class="goto-next scrolly">Next</a>
@@ -216,6 +305,10 @@
 
 	</div>
 
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
 	<!-- Scripts -->
 	<script src="Assets/JS/script.js"></script>
 	<script src="transition.js"></script>

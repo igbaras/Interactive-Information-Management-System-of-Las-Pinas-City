@@ -120,6 +120,8 @@
                 var data = JSON.parse(response);
             });
         });
+
+
     });
 
     $("#alerto").delay(4000).slideUp(200, function() {

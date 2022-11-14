@@ -192,7 +192,7 @@
                     $post_title = $row['post_title'];
                     $post_author = $row['post_author'];
                     $post_date = $row['post_date'];
-                    $post_date = strtotime($post_date);
+
 
                     $post_image = $row['post_image'];
                     $post_content = $row['post_content'];
@@ -214,9 +214,9 @@
                                 <div class="mb-1" style="font-size: 13px;">
                                     <a class="text-white" href=""><?php echo $post_category_id; ?></a>
                                     <span class="px-1 text-white">/</span>
-                                    <a class="text-white" href=""><?php time_Ago($post_date); ?></a>
+                                    <a class="text-white" href=""><?php echo $post_date; ?></a>
                                 </div>
-                                <a class="h4 m-0 text-white" href=""><?php echo $post_title; ?></a>
+                                <a class="h4 m-0 text-white" href="singleNews.php?an_id=<?php echo $post_id ?>"><?php echo $post_title; ?></a>
                             </div>
 
 
@@ -280,7 +280,7 @@
                                             <div class="mb-2" style="font-size: 14px;">
                                                 <a href=""><?php echo $post_category_id; ?></a>
                                                 <span class="px-1">/</span>
-                                                <span><?php time_Ago($post_date); ?></span>
+                                                <span><?php echo $post_date; ?></span>
                                             </div>
                                             <a class="h4" href=""><?php echo $post_title; ?></a>
                                             <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
