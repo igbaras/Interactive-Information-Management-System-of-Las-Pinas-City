@@ -30,7 +30,8 @@
 
 		}
 
-		.vt_title {
+		.vt_title,
+		.vtpage {
 			background-color: #557153;
 			border-radius: 10%;
 
@@ -167,87 +168,88 @@
 							</div>
 
 
-							<div class="row">
-								<div class="col-12">
-									<nav aria-label="Page navigation" id="myDIV">
-										<ul class="pagination justify-content-center">
-											<?php
-											$pr_query = "SELECT * FROM virtualspots WHERE vs_vt_id = $vt_id ";
-											$pr_feature = mysqli_query($connection, $pr_query);
-											$total_records = mysqli_num_rows($pr_feature);
 
-											$total_page = ceil($total_records / $num_per_page);
-
-
-											if ($page > 1) {
-											?>
-												<li class="page-item">
-													<?php echo " <a class='page-link' href='singleVirtual.php?vt=$vt_id&page=" . ($page - 1) . "' aria-label='Previous'><span class='fa fa-angle-double-left'aria-hidden='true'></span><spanclass='sr-only'>Previous</spanclass=></a>"; ?>
-												</li>
-
-											<?php }
-											for ($i = 1; $i < $total_page; $i++) {
-											?>
-												<li class=""><?php echo "<a class='page-link btn ' href='singleVirtual.php?vt=$vt_id&page=" . $i . "' >$i</a>" ?></li>
-
-											<?php }
-											if ($i > $page) {
-											?>
-
-												<li class='page-item'>
-													<?php
-													echo "<a class='page-link' href='singleVirtual.php?vt=$vt_id&page=" . ($page + 1) . "' aria-label='Next'>
-                                        <span class='fa fa-angle-double-right' aria-hidden='true'></span>
-                                        <span class='sr-only'>Next</span>
-                                    </a>";
-													?>
-												</li>
-											<?php
-											}
-											?>
-
-										</ul>
-									</nav>
-								</div>
-							</div>
 
 						</div>
+					</div>
+					<div class="row vtpage pt-3">
+						<div class="col-12">
+							<nav aria-label="Page navigation" id="myDIV">
+								<ul class="pagination justify-content-center">
+									<?php
+									$pr_query = "SELECT * FROM virtualspots WHERE vs_vt_id = $vt_id ";
+									$pr_feature = mysqli_query($connection, $pr_query);
+									$total_records = mysqli_num_rows($pr_feature);
 
-						<!-- <div style=" width: 100%; border: 2px solid #ccc;">
+									$total_page = ceil($total_records / $num_per_page);
+
+
+									if ($page > 1) {
+									?>
+										<li class="page-item">
+											<?php echo " <a class='page-link text-dark' href='singleVirtual.php?vt=$vt_id&page=" . ($page - 1) . "' aria-label='Previous'><span class='fa fa-angle-double-left'aria-hidden='true'></span><spanclass='sr-only'><strong>Previous</strong></spanclass=></a>"; ?>
+										</li>
+
+									<?php }
+									for ($i = 1; $i < $total_page; $i++) {
+									?>
+										<li class=""><?php echo "<a class='page-link btn text-dark' href='singleVirtual.php?vt=$vt_id&page=" . $i . "' ><strong>$i</strong></a>" ?></li>
+
+									<?php }
+									if ($i > $page) {
+									?>
+
+										<li class='page-item'>
+											<?php
+											echo "<a class='page-link text-dark' href='singleVirtual.php?vt=$vt_id&page=" . ($page + 1) . "' aria-label='Next'>
+                                        <span class='fa fa-angle-double-right' aria-hidden='true'></span>
+                                        <span class='sr-only'><strong>Next</strong></span>
+                                    </a>";
+											?>
+										</li>
+									<?php
+									}
+									?>
+
+								</ul>
+							</nav>
+						</div>
+					</div>
+					<!-- <div style=" width: 100%; border: 2px solid #ccc;">
 						
 					</div> -->
-						<br>
-						<p style="text-align:justify;"><?php echo $vt_desc; ?></p>
-					</div>
-
-
+					<br>
+					<p style="text-align:justify;"><?php echo $vt_desc; ?></p>
 				</div>
+
+
 			</div>
-
-			<!-- Footer -->
-
-
 		</div>
-		<script>
-			$('.carousel').carousel({
-				interval: false,
-			});
-		</script>
-		<!-- Scripts -->
-		<script src="../Assets/singleVirtual/jquery.min.js"></script>
-		<script src="../Assets/singleVirtual/breakpoints.min.js"></script>
-		<script src="../Assets/singleVirtual/browser.min.js"></script>
-		<script src="../Assets/singleVirtual/main.js"></script>
-		<script src="../Assets/singleVirtual/util.js"></script>
 
-		<!-- jQuery -->
-		<script src="../login/plugins/jquery/jquery.min.js"></script>
-		<!-- Bootstrap 4 -->
-		<script src="../login/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-		<!-- AdminLTE App -->
-		<script src="../login/dist/js/adminlte.min.js"></script>
-		<!-- AdminLTE for demo purposes -->
-		<script src="../login/dist/js/demo.js"></script>
+		<!-- Footer -->
+
+
+	</div>
+	<script>
+		$('.carousel').carousel({
+			interval: false,
+		});
+	</script>
+	<!-- Scripts -->
+	<script src="../Assets/singleVirtual/jquery.min.js"></script>
+	<script src="../Assets/singleVirtual/breakpoints.min.js"></script>
+	<script src="../Assets/singleVirtual/browser.min.js"></script>
+	<script src="../Assets/singleVirtual/main.js"></script>
+	<script src="../Assets/singleVirtual/util.js"></script>
+
+	<!-- jQuery -->
+	<script src="../login/plugins/jquery/jquery.min.js"></script>
+	<!-- Bootstrap 4 -->
+	<script src="../login/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="../login/dist/js/adminlte.min.js"></script>
+	<!-- AdminLTE for demo purposes -->
+	<script src="../login/dist/js/demo.js"></script>
 
 
 </body>

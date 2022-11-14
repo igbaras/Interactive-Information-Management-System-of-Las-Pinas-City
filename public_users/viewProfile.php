@@ -1,257 +1,287 @@
-<!DOCTYPE HTML>
+<?php include "../includes/db.php"; ?>
+
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="keywords" content="htmlcss bootstrap menu, navbar, mega menu examples" />
-    <meta name="description" content="Bootstrap navbar examples for any type of project, Bootstrap 4" />
+    <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
+    <!--  All snippets are MIT license http://bootdey.com/license -->
+    <title>bs5 edit profile account details - Bootdey.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <title>Profile </title>
-    <link rel="icon" href="img/logo.jpg" type="image/x-icon">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-    <style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style type="text/css">
         body {
-            background-color: #221b1b;
+            margin-top: 20px;
+            background-color: #f2f6fc;
+            color: #69707a;
         }
 
-        .row {
-            margin-right: 150px;
-            margin-top: 73px;
+        .img-account-profile {
+            height: 10rem;
         }
 
-        .footer {
-            position: fixed;
-            bottom: 0;
+        .rounded-circle {
+            border-radius: 50% !important;
         }
 
-        #notfound {
-            position: relative;
-            height: 89vh;
-            background-color: aliceblue;
+        .card {
+            box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
         }
 
-        #notfound .notfound {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
+        .card .card-header {
+            font-weight: 500;
         }
 
-        .notfound {
-            max-width: 410px;
+        .card-header:first-child {
+            border-radius: 0.35rem 0.35rem 0 0;
+        }
+
+        .card-header {
+            padding: 1rem 1.35rem;
+            margin-bottom: 0;
+            background-color: rgba(33, 40, 50, 0.03);
+            border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+        }
+
+        .form-control,
+        .dataTable-input {
+            display: block;
             width: 100%;
-            text-align: center;
+            padding: 0.875rem 1.125rem;
+            font-size: 0.875rem;
+            font-weight: 400;
+            line-height: 1;
+            color: #69707a;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #c5ccd6;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border-radius: 0.35rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
         }
 
-        .notfound .notfound-404 {
-            height: 280px;
-            position: relative;
-            z-index: -1;
+        .nav-borders .nav-link.active {
+            color: #0061f2;
+            border-bottom-color: #0061f2;
         }
 
-        .notfound .notfound-404 h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 230px;
-            margin: 0px;
-            font-weight: 900;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            background: url('img/bg.jpg') no-repeat;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: cover;
-            background-position: center;
-        }
-
-
-        .notfound h2 {
-            font-family: 'Montserrat', sans-serif;
-            color: #000;
-            font-size: 24px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-top: 0;
-        }
-
-
-        .notfound a {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 14px;
-            text-decoration: none;
-            text-transform: uppercase;
-            background: #0046d5;
-            display: inline-block;
-            padding: 15px 30px;
-            border-radius: 40px;
-            color: #fff;
-            font-weight: 700;
-            box-shadow: 0px 4px 15px -5px #0046d5;
-        }
-
-
-        @media only screen and (max-width: 767px) {
-            .notfound .notfound-404 {
-                height: 142px;
-            }
-
-            .notfound .notfound-404 h1 {
-                font-size: 112px;
-            }
-        }
-
-        .upload-btn-wrapper {
-            position: relative;
-            overflow: hidden;
-            display: inline-block;
-        }
-
-        button.btn.upload {
-            border: 2px solid gray;
-            background-color: #bababa;
-            border-radius: 8px;
-            font-size: 10px;
-            font-weight: bold;
-        }
-
-        .upload-btn-wrapper input[type=file] {
-            font-size: 100px;
-            position: absolute;
-            left: 0;
-            top: 0;
-            opacity: 0;
+        .nav-borders .nav-link {
+            color: #69707a;
+            border-bottom-width: 0.125rem;
+            border-bottom-style: solid;
+            border-bottom-color: transparent;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            padding-left: 0;
+            padding-right: 0;
+            margin-left: 1rem;
+            margin-right: 1rem;
         }
     </style>
-
 </head>
 
 <body>
-    <?php include 'partials/_dbconnect.php'; ?>
-    <?php require 'partials/_nav.php' ?>
     <?php
-    if ($loggedin) {
-    ?>
+    if (isset($_GET['uid'])) {
+        $user_id = $_GET['uid'];
+    }
+    $sql = "SELECT * FROM public_users WHERE user_id = $user_id";
+    $result = mysqli_query($connection, $sql);
 
-        <div class="container">
-            <?php
-            $sql = "SELECT * FROM users WHERE id='$userId'";
-            $result = mysqli_query($conn, $sql);
-            $row = mysqli_fetch_assoc($result);
-            $username = $row['username'];
-            $firstName = $row['firstName'];
-            $lastName = $row['lastName'];
-            $email = $row['email'];
-            $phone = $row['phone'];
-            $userType = $row['userType'];
-            if ($userType == 0) {
-                $userType = "User";
-            } else {
-                $userType = "Admin";
+    while ($row = mysqli_fetch_assoc($result)) {
+        $user_avatar = $row["user_avatar"];
+        $username = $row["username"];
+        $user_fname = $row["user_fname"];
+        $user_lname = $row["user_lname"];
+        $user_email = $row["user_email"];
+        $user_password = $row["user_password"];
+    }
+
+    if (isset($_POST['submit_image'])) {
+        $user_id = $_POST['user_id'];
+        $user_avatar = $_FILES['user_avatar']['name'];
+        $user_avatar_temp = $_FILES['user_avatar']['tmp_name'];
+
+
+        move_uploaded_file($user_avatar_temp, "images/$user_avatar/");
+
+        $query = "UPDATE public_users SET user_avatar='{$user_avatar}' WHERE user_id={$user_id}; ";
+        $update_image_query = mysqli_query($connection, $query);
+
+        if (!$update_image_query) {
+            echo "QUERY FAILED " . mysqli_error($connection);
+        }
+        if ($update_image_query) {
+            echo "<div class='alert alert-success alert-dismissible fade show text-center' role='alert' id='alerto'>
+    <h5><strong>Image successfully Updated!<i class='fas fa-check'></i></strong></h5>    
+       
+        </div>";
+        }
+    }
+
+    if (isset($_POST['save_change'])) {
+        $user_id = $_POST['user_id'];
+        $user_fname = $_POST['user_fname'];
+        $user_lname = $_POST['user_lname'];
+
+        $user_email = $_POST['user_email'];
+        $user_password = $_POST['user_password'];
+        $username = $_POST['username'];
+
+        if (empty($user_avatar)) {
+            $query = "SELECT * FROM public_users WHERE user_id = $user_id";
+            $select_image = mysqli_query($connection, $query);
+            while ($row = mysqli_fetch_array($select_image)) {
+                $user_avatar = $row['user_avatar'];
             }
+        }
+        $hash = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 12));
 
-            ?>
-            <div class="row">
-                <div class="jumbotron p-3 mb-3" style="display: flex;justify-content: center;width: 28%;border-radius: 50px;margin: 0 auto;">
-                    <div class="user-info">
-                        <img class="rounded-circle mb-3 bg-dark" src="img/person-<?php echo $userId; ?>.jpg" onError="this.src = 'img/profilePic.jpg'" style="width:215px;height:215px;padding:1px;">
-                        <form action="partials/_manageProfile.php" method="POST">
-                            <small>Remove Image: </small><button type="submit" class="btn btn-primary" name="removeProfilePic" style="font-size: 12px;padding: 3px 8px;border-radius: 9px;">remove</button>
-                        </form>
-                        <form action="partials/_manageProfile.php" method="POST" enctype="multipart/form-data" style="margin-top: 7px;">
-                            <div class="upload-btn-wrapper">
-                                <small>Change Image:</small>
-                                <button class="btn upload">choose</button>
-                                <input type="file" name="image" id="image" accept="image/*">
-                            </div>
-                            <button type="submit" name="updateProfilePic" class="btn btn-primary" style="margin-top: -20px;font-size: 15px;padding: 3px 8px;">Update</button>
+
+
+        $query = "UPDATE public_users SET username = '{$username}', user_fname = '{$user_fname}', user_lname='{$user_lname}', user_email='{$user_email}', user_password='{$hash}' WHERE user_id={$user_id}; ";
+        $update_user_query = mysqli_query($connection, $query);
+
+        if (!$update_user_query) {
+            echo "QUERY FAILED " . mysqli_error($connection);
+        }
+        if ($update_user_query) {
+            echo "<div class='alert alert-success alert-dismissible fade show text-center' role='alert' id='alerto'>
+    <h5><strong>Account successfully Updated!<i class='fas fa-check'></i></strong></h5>    
+    
+        </div>";
+        }
+    }
+
+    ?>
+    <div class="container-xl px-4 mt-4">
+        <!-- Account page navigation-->
+        <nav class="nav nav-borders">
+            <a class="btn btn-outline-warning text-dark" href="../index.php"> <i class="fas fa-arrow-left"></i> Back to Home</a>
+
+        </nav>
+        <hr class="mt-0 mb-4">
+        <div class="row">
+            <div class="col-xl-4">
+                <!-- Profile picture card-->
+                <div class="card mb-4 mb-xl-0">
+                    <div class="card-header">Profile Picture</div>
+
+
+                    <div class="card-body text-center">
+                        <!-- Profile picture image-->
+                        <div id="selectedBanner" class="img-account-profile rounded-circle mb-2">
+                            <img class="img-account-profile rounded-circle mb-2" id="selectedBanner" src="images/<?php echo $user_avatar ?>" alt="">
+                        </div>
+                        <form method="post" enctype="multipart/form-data">
+
+
+                            <input type="hidden" name="user_id" value="<?php echo $user_id ?>">
+                            <!-- Profile picture help block-->
+                            <div class="small font-italic text-muted mb-4"><input type="file" id="img" name="user_avatar" class="form-control" value="<?php echo $user_avatar; ?>" required></div>
+                            <!-- Profile picture  upload button-->
+                            <button class="btn btn-primary" type="submit" name="submit_image">Update image</button>
                         </form>
 
-                        <ul class="meta list list-unstyled" style="text-align:center;">
-                            <li class="username my-2"><a href="viewProfile.php">@<?php echo $username ?></a></li>
-                            <li class="name"><?php echo $firstName . " " . $lastName; ?>
-                                <label class="label label-info">(<?php echo $userType ?>)</label>
-                            </li>
-                            <li class="email"><?php echo $email ?></li>
-                            <li class="my-2"><a href="partials/_logout.php"><button class="btn btn-secondary" style="font-size: 15px;padding: 3px 8px;">Logout</button></a></li>
-                        </ul>
                     </div>
                 </div>
-                <div class="content-panel mb-3" style="display: flex;justify-content: center;">
-                    <div class="border p-3" style="border: 2px solid rgba(0, 0, 0, 0.1);border-radius: 1.1rem;background-color: aliceblue;">
-                        <h2 class="title text-center">Profile<span class="pro-label label label-warning"> (<?php echo $userType ?>)</span></h2>
+            </div>
+            <div class="col-xl-8">
+                <!-- Account details card-->
+                <div class="card mb-4">
+                    <div class="card-header">Account Details</div>
+                    <div class="card-body">
+                        <form method="post">
+                            <!-- Form Group (username)-->
+                            <div class="mb-3">
+                                <label class="small mb-1" for="inputUsername">Username (how your name will appear to other users on the site)</label>
+                                <input type="hidden" name="user_id" value="<?php echo $user_id ?>">
+                                <input class="form-control" id="inputUsername" type="text" placeholder="Enter your username" value="<?php echo  $username; ?>" name="username">
+                            </div>
+                            <!-- Form Row-->
+                            <div class="row gx-3 mb-3">
+                                <!-- Form Group (first name)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputFirstName">First name</label>
+                                    <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" value="<?php echo  $user_fname; ?>" name="user_fname">
+                                </div>
+                                <!-- Form Group (last name)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputLastName">Last name</label>
+                                    <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" value="<?php echo  $user_lname; ?>" name="user_lname">
+                                    <input type="hidden" name="user_avatar" value="<?php echo  $user_avatar; ?>">
+                                </div>
+                            </div>
 
-                        <form action="partials/_manageProfile.php" method="post">
-                            <div class="form-group">
-                                <b><label for="username">Username:</label></b>
-                                <input class="form-control" id="username" name="username" type="text" disabled value="<?php echo $username ?>">
+                            <!-- Form Group (email address)-->
+                            <div class="mb-3">
+                                <label class="small mb-1" for="inputEmailAddress">Email address</label>
+                                <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="<?php echo  $user_email; ?>" name="user_email">
                             </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <b><label for="firstName">First Name:</label></b>
-                                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required value="<?php echo $firstName ?>">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <b><label for="lastName">Last Name:</label></b>
-                                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last name" required value="<?php echo $lastName ?>">
-                                </div>
+                            <!-- Form Group (email address)-->
+                            <div class="mb-3 ">
+                                <label class="small mb-1" for="inputEmailAddress">Password</label>
+                                <input class="form-control " id="inputEmailAddress" type="password" onClick="this.setSelectionRange(0, this.value.length)" placeholder="Enter your email address" value="<?php echo  $user_password; ?>" required data-toggle="password" name="user_password">
                             </div>
-                            <div class="form-group">
-                                <b><label for="email">Email:</label></b>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required value="<?php echo $email ?>">
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group  col-md-6">
-                                    <b><label for="phone">Phone No:</label></b>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="basic-addon">+63</span>
-                                        </div>
-                                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter Your Phone Number" required pattern="[0-9]{10}" maxlength="10" value="<?php echo $phone ?>">
-                                    </div>
-                                </div>
-                                <div class="form-group  col-md-6">
-                                    <b><label for="password">Password:</label></b>
-                                    <input class="form-control" id="password" name="password" placeholder="Enter Password" type="password" required minlength="4" maxlength="21" data-toggle="password">
-                                </div>
-                            </div>
-                            <button type="submit" name="updateProfileDetail" class="btn btn-primary">Update</button>
+
+                            <!-- Save changes button-->
+                            <button class="btn btn-primary" type="submit" name="save_change">Save changes</button>
                         </form>
+
                     </div>
                 </div>
             </div>
         </div>
-
-    <?php
-    } else {
-        echo '<div id="notfound">
-                <div class="notfound">
-                    <div class="notfound-404">
-                        <h1>Oops!</h1>
-                    </div>
-                    <h2>404 - Page not found</h2>
-                    <a href="index.php">Go To Homepage</a>
-                </div>
-            </div>';
-    }
-    ?>
-    <?php require 'partials/_footer.php' ?>
+    </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
     <script>
-        $('#image').change(function() {
-            var i = $(this).prev('button').clone();
-            var file = ($('#image')[0].files[0].name).substring(0, 5) + "..";
-            $(this).prev('button').text(file);
+        // ALERT FADE EFFECT
+        $(".alert").delay(4000).slideUp(200, function() {
+            $(this).alert('close');
         });
+    </script>
+
+    <!-- DISPLAY SELECTED IMAGE -->
+    <script>
+        var selDiv = "";
+        var storedFiles = [];
+        $(document).ready(function() {
+            $("#img").on("change", handleFileSelect);
+            selDiv = $("#selectedBanner");
+        });
+
+        function handleFileSelect(e) {
+            var files = e.target.files;
+            var filesArr = Array.prototype.slice.call(files);
+            filesArr.forEach(function(f) {
+                if (!f.type.match("image.*")) {
+                    return;
+                }
+                storedFiles.push(f);
+
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var html =
+                        '<img class="img-account-profile rounded-circle mb-2" src="' +
+                        e.target.result +
+                        "\" data-file='" +
+                        f.name +
+                        "alt='Category Image'  height='10rem'>";
+                    selDiv.html(html);
+                };
+                reader.readAsDataURL(f);
+            });
+        }
     </script>
 </body>
 

@@ -88,7 +88,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 						<li>
 						<a href="#">Welcome ' . $username . '</a>
 						<ul>
-							<li><a href="public_users/viewProfile.php">View Profile</a></li>
+							<li><a href="public_users/viewProfile.php?uid=' . $userId . '">View Profile</a></li>
 							<li><a href="public_users/_logout.php">Logout</a></li>
 						</ul>
 					</li>
