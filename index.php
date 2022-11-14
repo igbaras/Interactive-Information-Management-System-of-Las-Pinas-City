@@ -97,9 +97,9 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 			} else {
 				echo '<nav id="nav">
 				<ul>
-						<li>
+				<a type="submit" class="btn btn-link" data-toggle="modal" data-target="#loginModal">Menu</a>
 						<button class="btn btn-link vt " data-toggle="modal" data-target="#loginModal">Menu</button></li>
-						<li><button class="btn btn-link vt" data-toggle="modal" data-target="#loginModal">Virtual Tour</button></li>
+				<a type="submit" class="btn btn-link " data-toggle="modal" data-target="#loginModal">Virtual Tour</a>
 	<button type="button" class="btn btn-success mx-2"  data-toggle="modal" data-target="#loginModal">Login</button>
 	<button type="button" class="btn btn-success mx-2"  data-toggle="modal" data-target="#signupModal">SignUp</button>
 	</ul>
@@ -221,7 +221,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 					if ($loggedin) {
 						echo '<li><a href="lifestyles/lifestyle.php" class="button">Learn More</a></li>';
 					} else {
-						echo '<li><button class="btn btn-outline-warning" data-toggle="modal" data-target="#loginModal">Learn More</button></li>';
+						echo '<li><a type="submit" class="btn btn-outline-warning text-dark" data-toggle="modal" data-target="#loginModal">Learn More</a></li>';
 					}
 					?>
 
@@ -334,6 +334,11 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 			//	nightm.src = "./Assets/images/icons/night-mode.png";
 			//}
 		}
+
+		// ALERT FADE EFFECT
+		$(".alert").delay(4000).slideUp(200, function() {
+			$(this).alert('close');
+		});
 	</script>
 
 </body>
