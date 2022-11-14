@@ -1,6 +1,7 @@
 <?php include "includes/db.php"; ?>
 <?php
 session_start();
+ob_start();
 
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 	$loggedin = true;
@@ -334,11 +335,6 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 			//	nightm.src = "./Assets/images/icons/night-mode.png";
 			//}
 		}
-
-		// ALERT FADE EFFECT
-		$(".alert").delay(4000).slideUp(200, function() {
-			$(this).alert('close');
-		});
 	</script>
 
 </body>
