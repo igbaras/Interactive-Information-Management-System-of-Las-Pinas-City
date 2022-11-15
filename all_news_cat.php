@@ -42,9 +42,9 @@
 		<nav id="menu">
 			<h2>Menu</h2>
 			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="generic.html">Gallery</a></li>
-				<li><a href="generic.html">Contacts</a></li>
+				<li><a href="news.php">News Home</a></li>
+				<li><a href="all_featured.php">Featured</a></li>
+				<li><a href="index.php">Home</a></li>
 
 			</ul>
 		</nav>
