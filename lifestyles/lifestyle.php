@@ -1,5 +1,5 @@
 <?php include "../includes/db.php"; ?>
-
+<?php session_start(); ?>
 <!DOCTYPE HTML>
 <!--
 	Forty by HTML5 UP
@@ -89,7 +89,7 @@
 							<img src="../login/images/lifestyles/<?php echo $ls_image; ?>" alt="" />
 						</span>
 						<header class="major">
-							<h3><a href="singleLifestyle.php?lsid=<?php echo $ls_id; ?>" class="link"><?php echo $ls_title; ?></a></h3>
+							<h3><a href="singleLifestyles.php?lsid=<?php echo $ls_id; ?>" class="link"><?php echo $ls_title; ?></a></h3>
 							<p><?php echo $ls_description; ?></p>
 						</header>
 					</article>
