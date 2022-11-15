@@ -8,8 +8,8 @@
 <html>
 
 <head>
-	<title>News Categories</title>
 	<link rel="shortcut icon" type="image icon" href="./Assets/images/lplogo.png">
+	<title>News Categories| The City of Las Piñas</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="./Assets/programservicesassets/css/main.css" />

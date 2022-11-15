@@ -27,7 +27,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 <html>
 
 <head>
-	<title>The City of Las Piñas | Home</title>
+	<title>Home | The City of Las Piñas</title>
 	<link rel="shortcut icon" type="image icon" href="./Assets/images/lplogo.png">
 
 	<meta charset="utf-8" />
