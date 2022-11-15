@@ -70,7 +70,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 		
 			<nav id="nav">
 				<ul>
-				<li><a href="#" id="nightm">Night Mode</a></li>
+				<!--<li><a href="#" id="nightm">Night Mode</a></li>-->
 						<li>
 						<a href="#">Menu</a>
 						<ul>
@@ -156,7 +156,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 			</div>
 
 			<a href="#one" class="goto-next scrolly">Next</a>
-			<iframe width="1920" height="500" allowfullscreen src="https://v3d.net/cfn"></iframe>
+			<img src="./Assets/images/lpcityhall.png" alt="" width="1000" height="600">
+			<!--<iframe width="1920" height="500" allowfullscreen src="https://v3d.net/cfn"></iframe>-->
 		</section>
 		<!-- One -->
 		<section id="one" class="spotlight style1 bottom">
