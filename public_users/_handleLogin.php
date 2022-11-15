@@ -4,12 +4,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pusername = $_POST["loginusername"];
     $password = $_POST["loginpassword"];
 
-    $sql = "Select * from public_users where username='$pusername'";
+    $sql = "SELECT * FROM public_users WHERE username='$pusername'";
     $result = mysqli_query($connection, $sql);
     $num = mysqli_num_rows($result);
     if ($num == 1) {
         $row = mysqli_fetch_assoc($result);
         $userId = $row['user_id'];
+        $user_fname = $row['user_fname'];
+        $user_lname = $row['user_lname'];
+
+
         if (password_verify($password, $row['user_password'])) {
             session_start();
             $_SESSION['loggedin'] = true;

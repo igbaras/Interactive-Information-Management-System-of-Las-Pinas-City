@@ -70,7 +70,7 @@
                                         <td> <?php echo $post_title; ?></td>
                                         <td><?php echo $post_category; ?></td>
                                         <td><?php echo $post_status; ?></td>
-                                        <td><?php echo "<img src='../images/posts/$post_image' width='90%' alt='posts_image'>"; ?></td>
+                                        <td><?php echo "<img src='$post_image' width='90%' alt='posts_image'>"; ?></td>
                                         <td><?php echo $post_tags; ?></td>
                                         <td> 'comments'</td>
                                         <td><?php echo $post_date; ?></td>

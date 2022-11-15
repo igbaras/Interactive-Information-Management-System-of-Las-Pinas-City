@@ -2,6 +2,26 @@
 <?php include "./functions.php"; ?>
 <?php ob_start(); ?>
 <?php session_start(); ?>
+<?php
+
+require '../../cloudapi/vendor/autoload.php';
+
+use Cloudinary\Configuration\Configuration;
+use Cloudinary\Api\Upload\UploadApi;
+
+
+Configuration::instance([
+    'cloud' => [
+        'cloud_name' => 'sarabgi',
+        'api_key' => '322979874984547',
+        'api_secret' => 'ZKvsTGjiBUobdPkcgjsq0Ota7hg'
+    ],
+    'url' => [
+        'secure' => true
+    ]
+]);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 

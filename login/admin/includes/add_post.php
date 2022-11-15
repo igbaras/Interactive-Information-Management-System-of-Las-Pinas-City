@@ -1,4 +1,9 @@
 <?php
+
+
+use Cloudinary\Api\Upload\UploadApi;
+
+
 if (isset($_POST['submit'])) {
 
 
@@ -6,22 +11,25 @@ if (isset($_POST['submit'])) {
     $post_category_id = $_POST['post_category_id'];
     $post_title = $_POST['post_title'];
     $post_author = $_POST['post_author'];
+    $image_properties = (new UploadApi())->upload($_FILES["post_image"]["tmp_name"]);
+    $image_url = $image_properties['secure_url'];
 
-    $post_image = $_FILES['post_image']['name'];
-    $post_image_temp = $_FILES['post_image']['tmp_name'];
+    // $post_image = $_FILES['post_image']['name'];
+    // $post_image_temp = $_FILES['post_image']['tmp_name'];
     $post_content = htmlentities($_POST['post_content']);
     $post_tags = $_POST['post_tags'];
     $post_status = $_POST['post_status'];
 
-    move_uploaded_file($post_image_temp, "../images/posts/$post_image/");
+    // move_uploaded_file($post_image_temp, "../images/posts/$post_image/");
 
     $query = "INSERT INTO posts (post_category_id, post_title, post_author, post_date, post_image, post_content, post_tags ,post_comment_count, post_status) ";
-    $query .= "VALUES ({$post_category_id} ,'{$post_title}','{$post_author}',now(), '{$post_image}','{$post_content}','{$post_tags}',2, '{$post_status}')";
+    $query .= "VALUES ({$post_category_id} ,'{$post_title}','{$post_author}',current_timestamp(), '{$image_url}','{$post_content}','{$post_tags}',2, '{$post_status}')";
     $insert_Posts_query = mysqli_query($connection, $query);
     if (!$insert_Posts_query) {
 
         die("QUERY CONNECTION FAILED " . mysqli_error($connection));
     }
+    echo $image_url;
 }
 
 ?>
