@@ -245,10 +245,10 @@
                         <?php
 
                         $query = "SELECT * FROM post_comments WHERE comment_post_id = {$published_post_id} ";
-                        $query .= "AND comment_status = 'pending' ";
+                        $query .= "AND comment_status = 'approved' ";
                         $query .= "ORDER BY comment_id DESC";
                         $select_comment_query = mysqli_query($connection, $query);
-                        $comment_num = mysqli_num_rows($select_comment_query);
+
                         while ($row = mysqli_fetch_assoc($select_comment_query)) {
                             $comment_author = $row['comment_author'];
                             $comment_date = date("F j, Y, g:i a", strtotime($row['comment_date']));

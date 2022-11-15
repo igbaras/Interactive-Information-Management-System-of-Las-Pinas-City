@@ -94,7 +94,7 @@
 
                                 <div class="modal-body">
 
-                                    <input type="hidden" name="user_id" id="delete_id" ">
+                                    <input type="hidden" name="user_id" id="delete_id">
 
                                     <h4> Do you want to Delete this Data ?</h4>
                                 </div>

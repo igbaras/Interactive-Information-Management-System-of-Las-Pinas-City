@@ -90,19 +90,18 @@
 
                     <ul class="nav nav-treeview">
 
-                        <li class="nav-item ">
-                            <a href="./posts.php?source=add_post" class="nav-link ">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Add Post</p>
-                            </a>
-                        </li>
                         <li class="nav-item active">
                             <a href="./posts.php" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>View All Posts</p>
                             </a>
                         </li>
-
+                        <li class="nav-item active">
+                            <a href="./posts.php?source=post_com" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View Post Comments</p>
+                            </a>
+                        </li>
                     </ul>
 
                 </li>
@@ -127,6 +126,12 @@
                             <a href="./lifestyles.php" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>View All Lifestyles</p>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="./lifestyles.php?source=lifestyle_com" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View Lifestyle Comments</p>
                             </a>
                         </li>
 

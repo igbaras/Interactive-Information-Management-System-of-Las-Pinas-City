@@ -31,6 +31,9 @@ switch ($source) {
   case 'edit_post':
     include 'includes/edit_post.php';
     break;
+  case 'post_com':
+    include 'includes/post_comments.php';
+    break;
   default:
     include 'includes/view_all_posts.php';
 }
@@ -112,5 +115,76 @@ switch ($source) {
   // ALERT FADE EFFECT
   $(".alert").delay(4000).slideUp(200, function() {
     $(this).alert('close');
+  });
+
+
+  // TABLE SCRIPT
+  $(document).ready(function() {
+
+    $('#pendingTable').DataTable({
+        autoWidth: false,
+        columns: [{
+            width: '5px'
+          },
+          {
+            width: '50px'
+          },
+          {
+            width: '50px'
+          },
+          {
+            width: '50px'
+          },
+          {
+            width: '50px'
+          }
+        ],
+        order: false,
+        "scrollY": "350px",
+        "scrollCollapse": true,
+        "paging": true,
+        responsive: true,
+        lengthChange: false,
+        autoWidth: false,
+
+        buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
+      })
+      .buttons()
+      .container()
+      .appendTo("#pendingTable_wrapper .col-md-6:eq(0)");
+
+    $('#acceptedTable').DataTable({
+        autoWidth: false,
+        columns: [{
+            width: '5px'
+          },
+          {
+            width: '50px'
+          },
+          {
+            width: '50px'
+          },
+          {
+            width: '50px'
+          },
+          {
+            width: '50px'
+          }
+        ],
+        order: false,
+        "scrollY": "200px",
+        "scrollCollapse": true,
+        "paging": true,
+        responsive: true,
+        lengthChange: false,
+        autoWidth: false,
+
+        buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
+      })
+      .buttons()
+      .container()
+      .appendTo("#acceptedTable_wrapper .col-md-6:eq(0)");
+
+
   });
 </script>

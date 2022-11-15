@@ -183,10 +183,10 @@ if (isset($_GET['lsid'])) {
 							<?php
 
 							$query = "SELECT * FROM lifestyle_comments WHERE lf_comment_post_id = {$ls_id} ";
-							$query .= "AND lf_comment_status = 'pending' ";
+							$query .= "AND lf_comment_status = 'approved' ";
 							$query .= "ORDER BY lf_comment_id  DESC";
 							$select_comment_query = mysqli_query($connection, $query);
-							$comment_num = mysqli_num_rows($select_comment_query);
+
 							while ($row = mysqli_fetch_assoc($select_comment_query)) {
 								$lf_comment_author = $row['lf_comment_author'];
 								$lf_comment_date = date("F j, Y, g:i a", strtotime($row['lf_comment_date']));

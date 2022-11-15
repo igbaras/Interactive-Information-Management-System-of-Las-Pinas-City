@@ -1,18 +1,8 @@
 <?php require_once "../../includes/db.php" ?>
 
 <?php
-global $connection;
-if (isset($_REQUEST['mem_id'])) {
-  $post_id = $_REQUEST['mem_id'];
-  echo $post_id;
 
-  $query = "DELETE FROM posts WHERE post_id = {$post_id}";
-  $delete_post_query = mysqli_query($connection, $query);
-  header("Location: posts.php");
-  if (!$delete_post_query) {
-    die("QUERY CONNECTION FAILED " . mysqli_error($connection));
-  }
-}
+use Cloudinary\Api\Upload\UploadApi;
 
 
 // ===========CATEGORY FUNCTIONS=========
@@ -141,24 +131,6 @@ function verifyQry($result)
   }
 }
 
-
-// ===========Post FUNCTIONS=========
-
-
-function deletePost()
-{
-  global $connection;
-  if (isset($_POST['delete_data'])) {
-    $post_id = $_POST['post_id'];
-
-    $query = "DELETE FROM posts WHERE post_id = {$post_id}";
-    $delete_post_query = mysqli_query($connection, $query);
-    header("Location: posts.php");
-    if (!$delete_post_query) {
-      die("QUERY CONNECTION FAILED " . mysqli_error($connection));
-    }
-  }
-}
 
 
 
@@ -604,6 +576,166 @@ function deleteUsers()
 }
 
 // ===========END OF USERS TOUR FUNCTIONS=========
+
+// =========== START POSTS FUNCTIONS=========
+function insertPost()
+{
+  global $connection;
+  if (isset($_POST['submit_post'])) {
+
+    $post_category_id = $_POST['post_category_id'];
+    $post_title = $_POST['post_title'];
+    $post_author = $_POST['post_author'];
+    $image_properties = (new UploadApi())->upload($_FILES["post_image"]["tmp_name"]);
+    $image_url = $image_properties['secure_url'];
+
+    // $post_image = $_FILES['post_image']['name'];
+    // $post_image_temp = $_FILES['post_image']['tmp_name'];
+    $post_content = htmlentities($_POST['post_content']);
+    $post_tags = $_POST['post_tags'];
+    $post_status = $_POST['post_status'];
+
+    // move_uploaded_file($post_image_temp, "../images/posts/$post_image/");
+
+    $query = "INSERT INTO posts (post_category_id, post_title, post_author, post_date, post_image, post_content, post_tags , post_status) ";
+    $query .= "VALUES ({$post_category_id} ,'{$post_title}','{$post_author}',current_timestamp(), '{$image_url}','{$post_content}','{$post_tags}', '{$post_status}')";
+    $insert_Posts_query = mysqli_query($connection, $query);
+    if (!$insert_Posts_query) {
+
+      die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+    }
+    if ($insert_Posts_query) {
+      echo "<div class='alert alert-success alert-dismissible fade show text-center' role='alert' id='alerto'>
+    <h5><strong>Post successfully added!<i class='fas fa-check'></i></strong></h5>    
+          <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>";
+    }
+  }
+}
+
+
+function deletePost()
+{
+  global $connection;
+  if (isset($_POST['delete_data'])) {
+    $post_id = $_POST['post_id'];
+
+    $query = "DELETE FROM posts WHERE post_id = {$post_id}";
+    $delete_post_query = mysqli_query($connection, $query);
+    header("Location: posts.php");
+    if (!$delete_post_query) {
+      die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+    }
+    if ($delete_post_query) {
+
+      echo "<div class='alert alert-danger alert-dismissible fade show text-center' role='alert' id='alerto'>
+    <h5><strong>Post Deleted successfully! <i class='fas fa-check'></i></strong></h5>    
+          <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>
+        
+        ";
+    }
+  }
+}
+function updatePost()
+{
+  global $connection;
+  if (isset($_POST['update_post'])) {
+    $post_id = $_POST['post_id'];
+    $post_title = $_POST['post_title'];
+    $post_category_id = $_POST['post_category_id'];
+    $post_author = $_POST['post_author'];
+    $post_status = $_POST['post_status'];
+    $image_properties = (new UploadApi())->upload($_FILES["post_image"]["tmp_name"]);
+    $image_url = $image_properties['secure_url'];
+    $post_tags = $_POST['post_tags'];
+    $post_content = htmlentities($_POST['post_content']);
+
+
+
+    $query = "UPDATE posts SET ";
+    $query .= "post_title = '{$post_title}', ";
+    $query .= "post_category_id = '{$post_category_id}', ";
+    $query .= "post_date = now(), ";
+    $query .= "post_author = '{$post_author}', ";
+    $query .= "post_status = '{$post_status}', ";
+    $query .= "post_image = '{$image_url}', ";
+    $query .= "post_tags = '{$post_tags}', ";
+    $query .= "post_content = '{$post_content}' ";
+    $query .= "WHERE post_id = {$post_id}";
+
+    $update_post = mysqli_query($connection, $query);
+
+    if (!$update_post) {
+      die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+    }
+    echo "
+    <div class=' alert alert-success alert-dismissible fade show'>
+    <h3 class=' text-right'><strong>{$post_title}</strong> post successfully updated! <a class='btn btn-success' href='../posts.php?an_id={$post_id}'>View Post</a> or <a class='btn btn-primary' href='./posts.php'>Edit other posts</a></h3> <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+    <span aria-hidden='true'>&times;</span>
+  </button></div>";
+  }
+}
+
+
+// =======Post Comments==========
+function deletePostComment()
+{
+  global $connection;
+  if (isset($_POST['delete_data'])) {
+    $comment_id = $_POST['comment_id'];
+
+    $query = "DELETE FROM post_comments WHERE comment_id = {$comment_id}";
+    $delete_post_query = mysqli_query($connection, $query);
+    if (!$delete_post_query) {
+      die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+    }
+    if ($delete_post_query) {
+
+      echo "<div class='alert alert-danger alert-dismissible fade show text-center' role='alert' id='alerto'>
+    <h5><strong>Post Comment Rejected successfully! <i class='fas fa-check'></i></strong></h5>    
+          <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>
+        
+        ";
+    }
+  }
+}
+// =========== END POSTS FUNCTIONS=========
+
+
+// =========== START Lifestyle FUNCTIONS=========
+function deleteLifestyleComment()
+{
+  global $connection;
+  if (isset($_POST['delete_data'])) {
+    $comment_id = $_POST['comment_id'];
+
+    $query = "DELETE FROM post_comments WHERE comment_id = {$comment_id}";
+    $delete_post_query = mysqli_query($connection, $query);
+    if (!$delete_post_query) {
+      die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+    }
+    if ($delete_post_query) {
+
+      echo "<div class='alert alert-danger alert-dismissible fade show text-center' role='alert' id='alerto'>
+    <h5><strong>Post Comment Rejected successfully! <i class='fas fa-check'></i></strong></h5>    
+          <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>
+        
+        ";
+    }
+  }
+}
+// =========== END Lifestyle FUNCTIONS=========
 ?>
 
 
