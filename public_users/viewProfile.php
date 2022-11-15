@@ -1,4 +1,22 @@
-<?php include "../includes/db.php"; ?>
+<?php include "../includes/db.php";
+require '../cloudapi/vendor/autoload.php';
+
+use Cloudinary\Configuration\Configuration;
+use Cloudinary\Api\Upload\UploadApi;
+
+
+Configuration::instance([
+    'cloud' => [
+        'cloud_name' => 'sarabgi',
+        'api_key' => '322979874984547',
+        'api_secret' => 'ZKvsTGjiBUobdPkcgjsq0Ota7hg'
+    ],
+    'url' => [
+        'secure' => true
+    ]
+]);
+
+?>
 
 
 <!DOCTYPE html>
@@ -8,7 +26,7 @@
     <meta charset="utf-8">
     <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
     <!--  All snippets are MIT license http://bootdey.com/license -->
-    <title>bs5 edit profile account details - Bootdey.com</title>
+    <title>View Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -106,13 +124,12 @@
 
     if (isset($_POST['submit_image'])) {
         $user_id = $_POST['user_id'];
-        $user_avatar = $_FILES['user_avatar']['name'];
-        $user_avatar_temp = $_FILES['user_avatar']['tmp_name'];
+
+        $image_properties = (new UploadApi())->upload($_FILES["user_avatar"]["tmp_name"]);
+        $image_url = $image_properties['secure_url'];
 
 
-        move_uploaded_file($user_avatar_temp, "images/$user_avatar");
-
-        $query = "UPDATE public_users SET user_avatar='{$user_avatar}' WHERE user_id={$user_id}; ";
+        $query = "UPDATE public_users SET user_avatar='{$image_url}' WHERE user_id={$user_id}; ";
         $update_image_query = mysqli_query($connection, $query);
 
         if (!$update_image_query) {
@@ -178,7 +195,7 @@
                     <div class="card-body text-center">
                         <!-- Profile picture image-->
                         <div id="selectedBanner" class="img-account-profile rounded-circle mb-2">
-                            <img class="img-account-profile rounded-circle mb-2" id="selectedBanner" <?php echo "src='images/{$user_avatar}'"; ?> alt="">
+                            <img class="img-account-profile rounded-circle mb-2" id="selectedBanner" src="<?php echo $user_avatar ?>" alt="">
                         </div>
                         <form method="post" enctype="multipart/form-data">
 
