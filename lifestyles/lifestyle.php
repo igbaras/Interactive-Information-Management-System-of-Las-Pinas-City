@@ -9,7 +9,7 @@
 <html>
 
 <head>
-	<title>Lifestyle</title>
+	<title>Lifestyle| The City of Las Piñas</title>
 	<link rel="shortcut icon" type="image icon" href="../Assets/images/lplogo.png">
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />

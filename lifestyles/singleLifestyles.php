@@ -31,12 +31,13 @@ if (isset($_GET['lsid'])) {
 <html>
 
 <head>
-	<title>Generic - Phantom by HTML5 UP</title>
+	<title>Lifestyle | The City of Las Piñas</title>
+	<link rel="shortcut icon" type="image icon" href="../Assets/images/lplogo.png">
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="../Assets/programservicesassets/css/main.css" />
+	<link rel="stylesheet" href="main.css" />
 	<noscript>
-		<link rel="stylesheet" href="../Assets/programservicesassets/css/noscript.css" />
+		<link rel="stylesheet" href="noscript.css" />
 	</noscript>
 
 
