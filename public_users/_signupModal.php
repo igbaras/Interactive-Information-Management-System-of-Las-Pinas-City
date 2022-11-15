@@ -64,7 +64,7 @@ if (isset($_POST['submit_sign'])) {
   } else {
     if ($user_password == $cuser_password) {
       $hash = password_hash($user_password, PASSWORD_DEFAULT);
-      $sql = "INSERT INTO public_users (username, user_fname, user_lname, user_avatar, user_email, user_password, joinDate) VALUES ('$username', '$user_fname', '$user_lname', 'usersholder.png', '$user_email', '$hash', current_timestamp())";
+      $sql = "INSERT INTO public_users (username, user_fname, user_lname, user_avatar, user_email, user_password, joinDate) VALUES ('$username', '$user_fname', '$user_lname', 'https://res.cloudinary.com/sarabgi/image/upload/v1668445863/l2iz3nnqnqacpkdp4scx.png', '$user_email', '$hash', current_timestamp())";
       $result = mysqli_query($connection, $sql);
       if ($result) {
         $showAlert = true;

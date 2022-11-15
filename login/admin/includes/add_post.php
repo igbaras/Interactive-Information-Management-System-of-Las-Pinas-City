@@ -22,8 +22,8 @@ if (isset($_POST['submit'])) {
 
     // move_uploaded_file($post_image_temp, "../images/posts/$post_image/");
 
-    $query = "INSERT INTO posts (post_category_id, post_title, post_author, post_date, post_image, post_content, post_tags ,post_comment_count, post_status) ";
-    $query .= "VALUES ({$post_category_id} ,'{$post_title}','{$post_author}',current_timestamp(), '{$image_url}','{$post_content}','{$post_tags}',2, '{$post_status}')";
+    $query = "INSERT INTO posts (post_category_id, post_title, post_author, post_date, post_image, post_content, post_tags , post_status) ";
+    $query .= "VALUES ({$post_category_id} ,'{$post_title}','{$post_author}',current_timestamp(), '{$image_url}','{$post_content}','{$post_tags}', '{$post_status}')";
     $insert_Posts_query = mysqli_query($connection, $query);
     if (!$insert_Posts_query) {
 

@@ -1,5 +1,6 @@
 <?php include "includes/db.php"; ?>
 <?php ob_start(); ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -147,7 +148,58 @@
                     <!-- News Detail End -->
 
                     <?php
+                    if (isset($_SESSION['userId'])) {
+                        $puserId = $_SESSION['userId'];
+
+                        $query = "SELECT * FROM public_users WHERE user_id = $puserId ";
+                        $all_users_query = mysqli_query($connection, $query);
+
+
+                        while ($row =  mysqli_fetch_assoc($all_users_query)) {
+
+                            $user_id = $row["user_id"];
+                            $user_avatar = $row["user_avatar"];
+                            $username = $row["username"];
+                            $user_fname = $row["user_fname"];
+                            $user_lname = $row["user_lname"];
+                            $user_email = $row["user_email"];
+                        }
+                    } else {
+                        echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+                    <strong>Please login first!.</strong>
+                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                      <span aria-hidden='true'>&times;</span>
+                    </button>
+                  </div>";
+                    }
+
                     if (isset($_POST['leave_comment'])) {
+                        $comment_post_id = $_GET['an_id'];
+                        $comment_author = $_POST['comment_author'];
+                        $comment_email = $_POST['comment_email'];
+                        $comment_content = $_POST['comment_content'];
+                        $comment_user_image = $_POST['comment_user_image'];
+
+                        if (!empty($comment_content)) {
+
+                            $query = "INSERT INTO post_comments (comment_post_id, comment_author, comment_email, comment_content, comment_status, comment_user_image, comment_date) ";
+                            $query .= "VALUES ($comment_post_id, '{$comment_author}','{$comment_email}','{$comment_content}','pending', '{$comment_user_image}', current_timestamp())";
+
+                            $create_comment_query = mysqli_query($connection, $query);
+
+                            $query = "UPDATE posts SET post_comment_count = post_comment_count + 1 ";
+                            $query .= "WHERE post_id = {$published_post_id}";
+                            $update_post_comment_count = mysqli_query($connection, $query);
+
+                            echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
+                    <strong>Your Comment was successfully submitted! It's in the review process before it appears on the comment section.</strong>
+                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                      <span aria-hidden='true'>&times;</span>
+                    </button>
+                  </div>";
+                        } else {
+                            echo "<script>alert('Fields should not be empty')</script>";
+                        }
                     }
 
 
@@ -164,7 +216,10 @@
 
                             <div class="form-group">
                                 <label for="message">Comment *</label>
-                                <textarea id="message" cols="30" rows="5" name="" class="form-control"></textarea>
+                                <input type="hidden" name="comment_author" value="<?php echo $user_fname . " " . $user_lname; ?>">
+                                <input type="hidden" name="comment_email" value="<?php echo $user_email; ?>">
+                                <input type="hidden" name="comment_user_image" value="<?php echo $user_avatar; ?>">
+                                <textarea id="message" cols="30" rows="5" name="comment_content" class="form-control"></textarea>
                             </div>
                             <div class="form-group mb-0">
                                 <input type="submit" value="Leave a comment" name="leave_comment" class="btn btn-primary font-weight-semi-bold py-2 px-3">
@@ -172,35 +227,49 @@
                         </form>
                     </div>
                     <!-- Comment Form End -->
+
+
+
+
+
+
                     <!-- Comment List Start -->
+
+                    <?php $query = "SELECT * FROM post_comments WHERE comment_post_id = {$published_post_id} ";
+                    $query .= "AND comment_status = 'approved' ";
+                    $query .= "ORDER BY comment_id DESC";
+                    $select_comment_query = mysqli_query($connection, $query);
+                    $comment_num = mysqli_num_rows($select_comment_query); ?>
                     <div class="bg-light mb-3" style="padding: 30px;">
-                        <h3 class="mb-4">3 Comments</h3>
-                        <div class="media mb-4">
-                            <img src="./Assets/newsassets/img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                            <div class="media-body">
-                                <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
-                                <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
-                                    accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.
-                                    Gubergren clita aliquyam consetetur sadipscing, at tempor amet ipsum diam tempor
-                                    consetetur at sit.</p>
+                        <h3 class="mb-4"><?php echo $comment_num; ?> Comments</h3>
+                        <?php
 
+                        $query = "SELECT * FROM post_comments WHERE comment_post_id = {$published_post_id} ";
+                        $query .= "AND comment_status = 'pending' ";
+                        $query .= "ORDER BY comment_id DESC";
+                        $select_comment_query = mysqli_query($connection, $query);
+                        $comment_num = mysqli_num_rows($select_comment_query);
+                        while ($row = mysqli_fetch_assoc($select_comment_query)) {
+                            $comment_author = $row['comment_author'];
+                            $comment_date = date("F j, Y, g:i a", strtotime($row['comment_date']));
+
+                            $comment_content = $row['comment_content'];
+                            $comment_user_image = $row['comment_user_image'];
+
+                        ?>
+                            <div class="media mb-4">
+                                <img src="<?php echo $comment_user_image; ?>" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                                <div class="media-body">
+                                    <h6><strong><?php echo $comment_author; ?></strong>&nbsp;&nbsp;<small><i><?php echo $comment_date; ?></i></small></h6>
+                                    <p><?php echo $comment_content; ?></p>
+
+                                </div>
                             </div>
-                        </div>
-                        <hr>
-                        <div class="media">
-                            <img src="./Assets/newsassets/img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                            <div class="media-body">
-                                <h6><a href="">John Doe</a> <small><i>01 Jan 2045 at 12:00pm</i></small></h6>
-                                <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
-                                    accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.
-                                    Gubergren clita aliquyam consetetur sadipscing, at tempor amet ipsum diam tempor
-                                    consetetur at sit.</p>
+                            <hr>
+                        <?php } ?>
 
-
-                            </div>
-                        </div>
-                        <hr>
                     </div>
+
                     <!-- Comment List End -->
 
 

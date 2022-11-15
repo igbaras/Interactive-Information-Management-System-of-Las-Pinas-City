@@ -15,7 +15,7 @@ while ($row  = mysqli_fetch_assoc($select_edit_posts)) {
 
     $post_content = html_entity_decode($row['post_content']);
     $post_tags = $row['post_tags'];
-    $post_comments = $row['post_comment_count'];
+    $post_comment_count = $row['post_comment_count'];
     $post_date = $row['post_date'];
 }
 
