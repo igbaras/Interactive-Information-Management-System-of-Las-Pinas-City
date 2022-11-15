@@ -1,6 +1,6 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,100italic,300italic");
-@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&family=Poppins:wght@400;600;800&display=swap');
 /*
 	Landed by HTML5 UP
 	html5up.net | @ajlkn
@@ -9,10 +9,12 @@
 :root{
 	--primary-color:#DADFD9;
 	--secondary-color:#00180A;
+	--third-color:#B98A3E;
 }
 .darktheme{
 	--primary-color:#00180A;
 	--secondary-color:#DADFD9;
+	--third-color:#F1B24A;
 }
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -166,6 +168,8 @@ font-weight: 600;
 	}
 
 	h4 {
+		color: var(--third-color);
+		font-weight: 800;
 		font-size: 1.1em;
 		line-height: 1.5em;
 	}
@@ -212,7 +216,7 @@ font-weight: 600;
 	code {
 		background: #00180A;
 		border-radius: 4px;
-		font-family: "Courier New", monospace;
+		font-family: 'Poppins', sans-serif;
 		font-size: 0.9em;
 		margin: 0 0.25em;
 		padding: 0.25em 0.65em;
@@ -220,7 +224,7 @@ font-weight: 600;
 
 	pre {
 		-webkit-overflow-scrolling: touch;
-		font-family: "Courier New", monospace;
+		font-family: 'Poppins', sans-serif;
 		font-size: 0.9em;
 		margin: 0 0 2em 0;
 	}
@@ -411,8 +415,8 @@ font-weight: 600;
 		0% {
 			-moz-transform: scale(1) rotate(0deg);
 			-webkit-transform: scale(1) rotate(0deg);
-			-ms-transformut, sele: scale(1) rotate(0deg);
-			transform: scale(1) rotate(0deg);
+			-ms-transform: scale(1) rotate(0deg);
+			transform: scale(1) rotate(90deg);
 		}
 
 		100% {
@@ -572,7 +576,7 @@ font-weight: 600;
 			text-rendering: auto;
 			line-height: 1;
 			text-transform: none !important;
-			font-family: 'Font Awesome 5 Free';
+			font-family: 'Poppins', sans-serif;
 			font-weight: 900;
 		}
 
@@ -2343,11 +2347,11 @@ font-weight: 600;
 				text-rendering: auto;
 				line-height: 1;
 				text-transform: none !important;
-				font-family: 'Font Awesome 5 Free';
+				font-family: 'Poppins', sans-serif;
 				font-weight: 900;
 			}
 
-			input[type="checkbox"] + label:before,
+			input[type="checkbox"] + label:before,color
 			input[type="radio"] + label:before {
 				border-radius: 4px;
 				border: solid 1px rgba(255, 255, 255, 0.3);
@@ -2441,7 +2445,7 @@ font-weight: 600;
 			text-rendering: auto;
 			line-height: 1;
 			text-transform: none !important;
-			font-family: 'Font Awesome 5 Free';
+			font-family: 'Poppins', sans-serif;
 			font-weight: 400;
 		}
 
@@ -2458,7 +2462,7 @@ font-weight: 600;
 		}
 
 		.icon.brands:before {
-			font-family: 'Font Awesome 5 Brands' !important;
+			font-family: 'Poppins', sans-serif' !important;
 		}
 
 		.icon.alt {
@@ -2474,7 +2478,7 @@ font-weight: 600;
 				text-rendering: auto;
 				line-height: 1;
 				text-transform: none !important;
-				font-family: 'Font Awesome 5 Free';
+				font-family:'Poppins', sans-serif;
 				font-weight: 400;
 			}
 
@@ -2512,7 +2516,7 @@ font-weight: 600;
 					text-rendering: auto;
 					line-height: 1;
 					text-transform: none !important;
-					font-family: 'Font Awesome 5 Free';
+					font-family: 'Poppins', sans-serif;
 					font-weight: 400;
 				}
 
@@ -2598,6 +2602,8 @@ font-weight: 600;
 
 		ul li {
 			padding-left: 0.5em;
+			font-family:'Poppins', sans-serif;
+			font-weight: 600;
 		}
 
 		ul.alt {
@@ -3367,7 +3373,7 @@ font-weight: 600;
 				-webkit-transform: rotate(45deg);
 				-ms-transform: rotate(45deg);
 				transform: rotate(45deg);
-				background: var(--primary-color)
+				background: var(--primary-color);
 				content: '';
 				display: block;
 				height: 1em;
@@ -3560,7 +3566,7 @@ font-weight: 600;
 				text-rendering: auto;
 				line-height: 1;
 				text-transform: none !important;
-				font-family: 'Font Awesome 5 Free';
+				font-family: 'Poppins', sans-serif;
 				font-weight: 400;
 			}
 
@@ -3935,7 +3941,7 @@ font-weight: 600;
 						text-rendering: auto;
 						line-height: 1;
 						text-transform: none !important;
-						font-family: 'Font Awesome 5 Free';
+						font-family: 'Poppins', sans-serif;
 						font-weight: 900;
 					}
 
@@ -3975,14 +3981,14 @@ font-weight: 600;
 				top: 0;
 				width: 275px;
 				z-index: 10002;
-				background: #181920;
+				background: #CAD2C9;
 				padding: 0.75em 1.25em;
 			}
 
 				#navPanel .link {
 					border: 0;
-					border-top: solid 1px rgba(255, 255, 255, 0.05);
-					color: rgba(255, 255, 255, 0.75);
+					border-top: solid 1px #9FA89D;
+					color:#00180A;
 					display: block;
 					height: 3em;
 					line-height: 3em;
@@ -4142,7 +4148,6 @@ font-weight: 600;
 		background-position: center center;
 		background-attachment: fixed;
 		background-size: cover;
-		position: fixed;
 		width: 100%;
 		height: 100vh;
 		transform: translateY(100%);
@@ -4153,7 +4158,7 @@ font-weight: 600;
 	  }
 	  .intro-text {
 		color: rgb(233, 233, 233);
-		font-family: 'basement';
+		font-family: 'Poppins', sans-serif;
 		font-size: 3rem;
 	  }
 	  
@@ -4167,7 +4172,9 @@ font-weight: 600;
 		display: inline-block;
 	  }
 iframe {
-	
+	display: block;
+	position:static;
 		max-width: 100%;
 		max-height: 100%;
 	}
+	

@@ -25,6 +25,13 @@
 	<!-- Theme style -->
 	<link rel="stylesheet" href="../login/dist/css/adminlte.min.css">
 	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&family=Poppins:wght@400;600&display=swap');
+
+		body {
+			background: #DADFD9;
+			font-family: 'Poppins', sans-serif
+		}
+
 		iframe {
 			width: 100% !important;
 
@@ -32,14 +39,16 @@
 
 		.vt_title,
 		.vtpage {
-			background-color: #557153;
-			border-radius: 10%;
+			font-family: 'Poppins', sans-serif;
+			background-color: #CAD2C9;
+
 
 		}
 
 		.prev,
 		.next {
-			margin-top: 200px;
+
+			margin-top: 50px;
 			margin-bottom: 400px;
 			z-index: 1000;
 		}
@@ -125,11 +134,12 @@
 		<nav id="menu">
 			<h2>Menu</h2>
 			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="generic.html">Ipsum veroeros</a></li>
-				<li><a href="generic.html">Tempus etiam</a></li>
-				<li><a href="generic.html">Consequat dolor</a></li>
-				<li><a href="elements.html">Elements</a></li>
+				<li><a href="virtualtour.php">Virtual Tour Home</a></li>
+				<li><a href="../index.php">Home</a></li>
+				<li><a href="../lifestyles/lifestyle.php">Lifestyle</a></li>
+
+
+
 			</ul>
 		</nav>
 

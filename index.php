@@ -29,20 +29,20 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 <head>
 	<title>The City of Las Piñas | Home</title>
 	<link rel="shortcut icon" type="image icon" href="./Assets/images/lplogo.png">
+
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 	<link rel="stylesheet" href="./Assets/css/mainn.css" />
 	<noscript>
 		<link rel="stylesheet" href="./Assets/css/noscript.css" />
 	</noscript>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<!-- CSS only -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-
 	<style>
 		a,
 		.vt {
-			text-decoration: none;
+
 			color: #000;
 		}
 	</style>
@@ -70,6 +70,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 		
 			<nav id="nav">
 				<ul>
+				<li><a href="#" id="nightm">Night Mode</a></li>
 						<li>
 						<a href="#">Menu</a>
 						<ul>
@@ -79,7 +80,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 							<li>
 								<a href="#">News and Lifestyle</a>
 								<ul>
-									<li><a href="news.php">News and Annoncements</a></li>
+									<li><a href="news.php">News</a></li>
 									<li><a href="lifestyles/lifestyle.php">Lifestyle</a></li>
 									<li><a href="virtualtour/virtualtour.php">Virtual Tour</a></li>
 								</ul>
@@ -88,7 +89,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 					</li>
 						<li><a href="virtualtour/virtualtour.php">Virtual Tour</a></li>
 						<li>
-						<a href="#">Welcome ' . $pusername . '</a>
+						<h4><a href="#">Welcome ' . $pusername . '!</a></h4>
 						<ul>
 							<li><a href="public_users/viewProfile.php?uid=' . $userId . '">View Profile</a></li>
 							<li><a href="public_users/_logout.php">Logout</a></li>
@@ -103,8 +104,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 				<a type="submit" class="btn btn-link" data-toggle="modal" data-target="#loginModal">Menu</a>
 						
 				<a type="submit" class="btn btn-link " data-toggle="modal" data-target="#loginModal">Virtual Tour</a>
-	<button type="button" class="btn btn-success mx-2"  data-toggle="modal" data-target="#loginModal">Login</button>
-	<button type="button" class="btn btn-success mx-2"  data-toggle="modal" data-target="#signupModal">SignUp</button>
+	<button type="button" class="btn btn-warning mx-2"  data-toggle="modal" data-target="#loginModal">Login</button>
+	<button type="button" class="btn btn-warning mx-2"  data-toggle="modal" data-target="#signupModal">SignUp</button>
 	</ul>
 	</nav>';
 			}
@@ -143,15 +144,20 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
 			<div class="content">
 				<header>
+
 					<h2>The City of Las Piñas</h2>
 					<p>Discover what's in the Philippines</p>
+					<a href="#one">
+						See More
+					</a>
 				</header>
 				<span class="image"><img src="./Assets/images/pic01.jpg" alt="" /></span>
+
 			</div>
 
 			<a href="#one" class="goto-next scrolly">Next</a>
-		</section>-->
-
+			<iframe width="1920" height="500" allowfullscreen src="https://v3d.net/cfn"></iframe>
+		</section>
 		<!-- One -->
 		<section id="one" class="spotlight style1 bottom">
 			<span class="image fit main"><img src="./Assets/images/pic02.jpg" alt="" /></span>
@@ -279,7 +285,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 		</section>
 
 		<!-- Five -->
-		<section id="five" class="wrapper style2 special fade">
+		<section id="five" class="wrapper style2 special fade-up">
 			<div class="container">
 				<header>
 					<h2>Transparency in Government</h2>
@@ -297,12 +303,12 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 		<!-- Footer -->
 		<footer id="footer">
 			<ul class="icons">
-				<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+				<!--<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
 				<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
 				<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
 				<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
 				<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-				<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+				<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>-->
 			</ul>
 			<ul class="copyright">
 				<li>&copy; Untitled. All rights reserved.</li>
