@@ -12,10 +12,10 @@
 
                 <!-- ADD CATEGORY MODAL -->
                 <div class="modal fade" id="form_modal" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h3 class="modal-title">Add Image to Gallery</h3>
+                                <h3 class="modal-title">Add LIFESTYLE</h3>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">
                                         ×
@@ -27,13 +27,13 @@
                             <form method="post" enctype="multipart/form-data">
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="lifestyleTitle">lifestyle Title</label>
+                                        <label for="lifestyleTitle">Title</label>
                                         <input type="text" id="inputName" class="form-control" name="ls_title" required>
                                     </div>
 
 
                                     <div class="form-group">
-                                        <label for="lifestyleCategory">lifestyle Status</label>
+                                        <label for="lifestyleCategory">Status</label>
                                         <select class="custom-select" name="ls_status" required>
                                             <option value="draft" active>Select Status</option>
                                             <option value="published">Publish</option>
@@ -42,7 +42,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="inputClientCompany">lifestyle Image</label>
+                                        <label for="inputClientCompany">Image</label>
                                         <div id="selectedBanner"></div>
 
                                         <input type="file" class="form-control" id="img" name="ls_image" required>
@@ -51,16 +51,16 @@
 
                                     </div>
                                     <div class="form-group">
-                                        <label for="lifestyleTags">lifestyle Tags</label>
+                                        <label for="lifestyleTags">Tags</label>
                                         <input type="text" id="inputName" class="form-control" name="ls_tags" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="lifestyleTags">lifestyle Description</label>
+                                        <label for="lifestyleTags">Description</label>
 
                                         <textarea name="ls_description" class="form-control" style="height: 20%;" required></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="lifestyleCOntent">lifestyle Content</label>
+                                        <label for="lifestyleCOntent">Content</label>
                                         <textarea name="ls_content" id="summernote" class="form-control" required></textarea>
                                     </div>
                                 </div>

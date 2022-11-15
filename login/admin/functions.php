@@ -498,11 +498,10 @@ function updateUserProfile()
 
   if (isset($_POST['update_image'])) {
     $user_id = $_POST['user_id'];
-    $user_image = $_FILES['user_image']['name'];
-    $user_image_tmp = $_FILES['user_image']['tmp_name'];
-    move_uploaded_file($user_image_tmp, "../images/users/$user_image/");
+    $user_image = (new UploadApi())->upload($_FILES["user_image"]["tmp_name"]);
+    $image_url = $user_image['secure_url'];
 
-    $query = "UPDATE users SET user_image='{$user_image}' WHERE user_id ={$user_id}; ";
+    $query = "UPDATE users SET user_image='{$image_url}' WHERE user_id ={$user_id}; ";
     $update_image_query = mysqli_query($connection, $query);
 
     if (!$update_image_query) {
@@ -575,7 +574,98 @@ function deleteUsers()
   }
 }
 
-// ===========END OF USERS TOUR FUNCTIONS=========
+// ===========END OF USERS  FUNCTIONS=========
+// ===========Start OF PUBLIC USERS FUNCTIONS=========
+
+function insertUsersPub()
+{
+  global $connection;
+  if (isset($_POST['submit_puser'])) {
+    $username = $_POST['username'];
+    $user_fname = $_POST['user_fname'];
+    $user_lname = $_POST['user_lname'];
+    $user_email = $_POST['user_email'];
+    $user_password = $_POST['user_password'];
+    $user_avatar = (new UploadApi())->upload($_FILES["user_avatar"]["tmp_name"]);
+    $image_url = $user_avatar['secure_url'];
+
+    $hashed_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 12));
+    $query = "INSERT INTO public_users (username, user_fname, user_lname, user_email, user_password, user_avatar, joindate) ";
+    $query .= "VALUES ('{$username}','{$user_fname}','{$user_lname}','{$user_email}','{$hashed_password}','{$image_url}',current_timestamp())";
+    $insert_user_query = mysqli_query($connection, $query);
+    if (!$insert_user_query) {
+      die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+    }
+
+    echo "<div class='alert alert-success alert-dismissible fade show text-center' role='alert' id='alerto' >
+  <h5><strong>User successfully added!<i class='fas fa-check'></i></strong></h5>
+        
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+          <span aria-hidden='true'>&times;</span>
+        </button>
+      </div>";
+  }
+}
+function updateUsersPub()
+{
+  global $connection;
+  if (isset($_POST['update-pusers'])) {
+    $user_id = $_POST['user_id'];
+    $username = $_POST['username'];
+    $user_fname = $_POST['user_fname'];
+    $user_lname = $_POST['user_lname'];
+    $user_email = $_POST['user_email'];
+    $user_password = $_POST['user_password'];
+    $user_avatar = (new UploadApi())->upload($_FILES["user_avatar"]["tmp_name"]);
+    $image_url = $user_avatar['secure_url'];
+
+    $hashed_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 12));
+
+    $query = "UPDATE public_users SET username = '{$username}', user_fname='{$user_fname}', user_lname='{$user_lname}', user_email='{$user_email}', user_password='{$hashed_password}', user_avatar='{$image_url}' WHERE user_id ={$user_id}; ";
+    $update_user_query = mysqli_query($connection, $query);
+    if ($update_user_query) {
+      echo "<div class='alert alert-success alert-dismissible fade show text-center' role='alert' id='alerto'>
+    <h5><strong>User successfully Updated!<i class='fas fa-check'></i></strong></h5>    
+          <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>";
+    }
+  }
+}
+function deleteUsersPub()
+{
+  global $connection;
+  if (isset($_POST['delete_data'])) {
+    $user_id  = $_POST['user_id'];
+
+
+    $query = "DELETE FROM public_users WHERE user_id = {$user_id}";
+    $delete_user_query = mysqli_query($connection, $query);
+
+    if (!$delete_user_query) {
+      die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+    }
+    if ($delete_user_query) {
+
+      echo "<div class='alert alert-danger alert-dismissible fade show text-center' role='alert' id='alerto'>
+    <h5><strong>User Deleted successfully! <i class='fas fa-check'></i></strong></h5>    
+          <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>
+        
+        ";
+    }
+  }
+}
+
+
+// ===========END OF PUBLIC USERS FUNCTIONS=========
+
+
+
+
 
 // =========== START POSTS FUNCTIONS=========
 function insertPost()

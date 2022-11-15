@@ -30,6 +30,9 @@ switch ($source) {
   case 'manage_users':
     include 'includes/manage_users.php';
     break;
+  case 'public_user':
+    include 'includes/manage_users_pub.php';
+    break;
 }
 ?>
 <!-- /.content-wrapper -->

@@ -156,7 +156,12 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 			</div>
 
 			<a href="#one" class="goto-next scrolly">Next</a>
-			<img src="./Assets/images/lpcityhall.png" alt="" width="1000" height="600">
+			<div class="col">
+
+				<img class="img-fluid" src="./Assets/images/lpcityhall.png" alt="" width="1000" height="600">
+
+			</div>
+
 			<!--<iframe width="1920" height="500" allowfullscreen src="https://v3d.net/cfn"></iframe>-->
 		</section>
 		<!-- One -->

@@ -9,7 +9,15 @@
         }
     }
     ?>
+ <style>
+     .img-account-profile {
+         height: 10rem;
+     }
 
+     .rounded-circle {
+         border-radius: 50% !important;
+     }
+ </style>
  <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
      <!-- Content Header (Page header) -->
@@ -42,17 +50,27 @@
                             $user_date = date("F j, Y, g:i a", strtotime($row["user_date"]));
                         } ?>
                      <!-- Profile Image -->
+
                      <div class="card card-primary card-outline">
+
                          <div class="card-body box-profile">
-                             <div class="text-center">
-                                 <img class="profile-user-img img-fluid img-circle" src="../images/users/<?php echo $user_image; ?>" alt="User profile picture">
+                             <div id="selectedBanner" class="img-account-profile rounded-circle mb-2 text-center">
+                                 <img class="img-account-profile rounded-circle mb-2" id="selectedBanner" src="<?php echo $user_image ?>" alt="">
                              </div>
+
 
                              <h3 class="profile-username text-center"><?php echo $user_firstname . " " . $user_lastname; ?></h3>
 
                              <p class="text-muted text-center"><?php echo $user_role; ?></p>
 
+                             <form method="post" enctype="multipart/form-data">
 
+
+                                 <input type="hidden" name="user_id" value="<?php echo $user_id ?>">
+                                 <!-- Profile picture help block-->
+                                 <input type="file" id="img" name="user_image" class="form-control small font-italic text-muted mb-4" value="<?php echo $user_image; ?>" required>
+                                 <button class="btn btn-warning" type="submit" name="update_image">Update image</button>
+                             </form>
 
 
                          </div>
@@ -130,3 +148,35 @@
      <!-- /.content -->
  </div>
  <!-- /.content-wrapper -->
+ <!-- DISPLAY SELECTED IMAGE -->
+ <script>
+     var selDiv = "";
+     var storedFiles = [];
+     $(document).ready(function() {
+         $("#img").on("change", handleFileSelect);
+         selDiv = $("#selectedBanner");
+     });
+
+     function handleFileSelect(e) {
+         var files = e.target.files;
+         var filesArr = Array.prototype.slice.call(files);
+         filesArr.forEach(function(f) {
+             if (!f.type.match("image.*")) {
+                 return;
+             }
+             storedFiles.push(f);
+
+             var reader = new FileReader();
+             reader.onload = function(e) {
+                 var html =
+                     '<img class="img-account-profile rounded-circle mb-2" src="' +
+                     e.target.result +
+                     "\" data-file='" +
+                     f.name +
+                     "alt='Category Image'  height='10rem'>";
+                 selDiv.html(html);
+             };
+             reader.readAsDataURL(f);
+         });
+     }
+ </script>

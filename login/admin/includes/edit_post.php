@@ -70,7 +70,7 @@ if (isset($_POST['update_post'])) {
 
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Edit post</h3>
+                    <h3 class="card-title"><a class="btn btn-warning" href="./posts.php"><i class="fas fa-arrow-left"></i> BACK</a> Edit post</h3>
 
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
