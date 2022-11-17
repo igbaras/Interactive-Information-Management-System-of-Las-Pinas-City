@@ -49,12 +49,43 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 </head>
 
 <body class="is-preload landing">
+
 	<div id="page-wrapper">
 		<?php include "public_users/_loginModal.php"; ?>
 		<?php include "public_users/_signupModal.php"; ?>
 
 		<!-- Header -->
+		<!-- Messenger Chat Plugin Code -->
+		<div id="fb-root"></div>
 
+		<!-- Your Chat Plugin code -->
+		<div id="fb-customer-chat" class="fb-customerchat">
+		</div>
+
+		<script>
+			var chatbox = document.getElementById('fb-customer-chat');
+			chatbox.setAttribute("page_id", "105339958124324");
+			chatbox.setAttribute("attribution", "biz_inbox");
+		</script>
+
+		<!-- Your SDK code -->
+		<script>
+			window.fbAsyncInit = function() {
+				FB.init({
+					xfbml: true,
+					version: 'v15.0'
+				});
+			};
+
+			(function(d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return;
+				js = d.createElement(s);
+				js.id = id;
+				js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
 		<header id="header">
 
 			<img src="./Assets/images/lplogo.png" alt="">
@@ -320,37 +351,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
 			</ul>
 		</footer>
-		<!-- Messenger Chat Plugin Code -->
-		<div id="fb-root"></div>
 
-		<!-- Your Chat Plugin code -->
-		<div id="fb-customer-chat" class="fb-customerchat">
-		</div>
-
-		<script>
-			var chatbox = document.getElementById('fb-customer-chat');
-			chatbox.setAttribute("page_id", "548726065490815");
-			chatbox.setAttribute("attribution", "biz_inbox");
-		</script>
-
-		<!-- Your SDK code -->
-		<script>
-			window.fbAsyncInit = function() {
-				FB.init({
-					xfbml: true,
-					version: 'v15.0'
-				});
-			};
-
-			(function(d, s, id) {
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) return;
-				js = d.createElement(s);
-				js.id = id;
-				js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-				fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-		</script>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
