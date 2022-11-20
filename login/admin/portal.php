@@ -96,7 +96,7 @@
   $(document).ready(function() {
     $('#exampleA').DataTable({
 
-        "scrollY": "200px",
+        "scrollY": "400px",
         "scrollCollapse": true,
         "paging": false,
         responsive: true,
@@ -108,12 +108,11 @@
       .buttons()
       .container()
       .appendTo("#exampleA_wrapper .col-md-6:eq(0)");
+    $('#exampleB').DataTable({
 
-    $('#example1').DataTable({
-
-        "scrollY": "200px",
+        "scrollY": "400px",
         "scrollCollapse": true,
-        "paging": true,
+        "paging": false,
         responsive: true,
         lengthChange: false,
         autoWidth: false,
@@ -122,7 +121,7 @@
       })
       .buttons()
       .container()
-      .appendTo("#example1_wrapper .col-md-6:eq(0)");
+      .appendTo("#exampleB_wrapper .col-md-6:eq(0)");
 
 
   });

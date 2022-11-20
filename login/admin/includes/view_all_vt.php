@@ -74,9 +74,10 @@
                             <thead>
                                 <tr>
                                     <th><input type="checkbox">ID</th>
+                                    <th>Image</th>
                                     <th>Title</th>
                                     <th>Status</th>
-                                    <th>Image</th>
+
 
                                     <th>Date Created</th>
                                     <th></th>
@@ -107,9 +108,10 @@
 
                                     <tr>
                                         <td><?php echo $vt_id; ?></td>
+                                        <td><?php echo "<img src='../images/virtualtour/$vt_image' width='100px'height='100px' alt='lss_image'>"; ?></td>
                                         <td> <?php echo $vt_title; ?></td>
                                         <td><?php echo $vt_status; ?></td>
-                                        <td><?php echo "<img src='../images/virtualtour/$vt_image' width='150px' alt='lss_image'>"; ?></td>
+
 
                                         <td><?php echo $vt_date; ?></td>
                                         <td>

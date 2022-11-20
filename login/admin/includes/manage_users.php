@@ -157,7 +157,7 @@
                                     ?>
                                         <tr>
                                             <td> <?php echo $user_id; ?> </td>
-                                            <td><?php echo "<img src='../images/users/$user_image' width='50%' alt='user_image'>"; ?></td>
+                                            <td><?php echo "<img src='../images/users/$user_image' width='100px'height='100px' alt='user_image'>"; ?></td>
                                             <td><?php echo $user_firstname . " " . $user_lastname; ?> </td>
                                             <td><?php echo $user_email; ?> </td>
                                             <td><?php echo $user_role; ?> </td>

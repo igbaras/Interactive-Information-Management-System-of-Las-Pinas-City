@@ -137,16 +137,14 @@
                                 <tr>
 
                                     <th><input type="checkbox">ID</th>
-                                    <th>Author</th>
+                                    <th>Image</th>
                                     <th>Title</th>
                                     <th>Category</th>
                                     <th>Status</th>
-                                    <th>Image</th>
-                                    <th>Tags</th>
-                                    <th>Comments</th>
-                                    <th>Date</th>
+
+
                                     <th></th>
-                                    <th></th>
+
 
 
                                 </tr>
@@ -169,6 +167,7 @@
                                     $post_image = $row["post_image"];
                                     $post_tags = $row["post_tags"];
                                     $post_status = $row["post_status"];
+                                    $post_comment_count = $row["post_comment_count"];
 
                                     $query = "SELECT * FROM categories WHERE cat_id =  $post_category_id";
                                     $all_cat_query = mysqli_query($connection, $query);
@@ -181,18 +180,94 @@
                                 ?>
                                         <tr>
                                             <td><?php echo $post_id; ?></td>
-                                            <td><?php echo $post_author; ?></td>
-                                            <td> <?php echo $post_title; ?></td>
+                                            <td><?php echo "<img src='$post_image' height='100px'width='100px' alt='posts_image'>"; ?></td>
+                                            <td><a href='../../singleNews.php?an_id=<?php echo $post_id; ?>' target="_blank"><?php echo $post_title ?></td>
                                             <td><?php echo $post_category; ?></td>
                                             <td><?php echo $post_status; ?></td>
-                                            <td><?php echo "<img src='$post_image' width='90%' alt='posts_image'>"; ?></td>
-                                            <td><?php echo $post_tags; ?></td>
-                                            <td> 'comments'</td>
-                                            <td><?php echo $post_date; ?></td>
 
-                                            <td><a class='btn btn-primary' href="posts.php?source=edit_post&an_edit=<?php echo $post_id; ?>"><i class='fas fa-pen'></i><small class='align-self-end'>Edit</small></a></td>
-                                            <td><button class="btn btn-danger" data-toggle="modal" data-target="#modal<?php echo $post_id; ?>"><i class='fas fa-trash'></i><small class='align-self-end'>Delete</small></button></td>
 
+
+                                            <td><button class='btn btn-sm btn-secondary' data-toggle='modal' data-target="#viewImage<?php echo $post_id ?>"><i class='fas fa-eye'></i></button><a class='btn  btn-sm  btn-primary' href="posts.php?source=edit_post&an_edit=<?php echo $post_id; ?>"><i class='fas fa-pen'></i><small class='align-self-end'>Edit</small></a><button class="btn  btn-sm  btn-danger" data-toggle="modal" data-target="#modal<?php echo $post_id; ?>"><i class='fas fa-trash'></i><small class='align-self-end'>Delete</small></button></td>
+
+
+
+
+                                            <!-- View Image Modal -->
+                                            <div class="modal fade" id="viewImage<?php echo $post_id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg " role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <!-- w-100 class so that header div covers 100% width of parent div -->
+                                                            <h5 class="modal-title w-100" id="exampleModalLabel"><strong>Post Details
+                                                            </h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">
+                                                                    ×
+                                                                </span>
+                                                            </button>
+                                                        </div>
+                                                        <!--Modal body with image-->
+                                                        <div class="modal-body">
+                                                            <div class="red"></div>
+                                                            <div class="row">
+                                                                <div class="col-6 align-items-around justify-content-around d-flex mb-5 mb-lg-0">
+                                                                    <div class="form-group ">
+                                                                        <img src="<?php echo $post_image ?>" height="450" width="400" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-6 align-items-around justify-content-around d-flex mb-5 mb-lg-0">
+                                                                    <div class="blockabout">
+                                                                        <div class="blockabout-inner text-left text-sm-start">
+
+                                                                            <div class="">
+                                                                                <span class="text-small text-muted">Title:</span>
+                                                                                <h3><strong><?php echo $post_title ?></strong></h3>
+                                                                                <hr>
+                                                                            </div>
+                                                                            <div class=" pb-1 mb-1">
+                                                                                <span class="text-small text-muted">Author:</span>
+                                                                                <h4><?php echo $post_author ?></h4>
+                                                                                <hr>
+                                                                            </div>
+                                                                            <div class=" pb-1 mb-1">
+                                                                                <span class="text-small text-muted">Category:</span>
+                                                                                <h4><?php echo $post_category ?></h4>
+                                                                                <hr>
+                                                                            </div>
+                                                                            <div class=" pb-1 mb-1">
+                                                                                <span class="text-small text-muted">Status:</span><br>
+                                                                                <span class="badge badge-success"><?php echo $post_status ?></span>
+                                                                                <hr>
+                                                                            </div>
+                                                                            <div class=" pb-1 mb-1">
+                                                                                <span class="text-small text-muted">Post Tags:</span>
+                                                                                <h4><?php echo $post_tags; ?></h4>
+                                                                                <hr>
+                                                                            </div>
+
+                                                                            <div class=" pb-1 mb-1">
+                                                                                <span class="text-small text-muted">Comment Count:</span>
+                                                                                <h4><?php echo $post_comment_count; ?></h4>
+                                                                                <hr>
+                                                                            </div>
+                                                                            <p> <span class="text-small text-muted">Date:</span>
+                                                                                <span><?php echo $post_date ?></span>
+                                                                            </p>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-danger" data-dismiss="modal">
+                                                                    Close
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </tr>
 
 
@@ -222,16 +297,13 @@
                                 <tr>
 
                                     <th>ID</th>
-                                    <th>Author</th>
+                                    <th>Image</th>
                                     <th>Title</th>
                                     <th>Category</th>
                                     <th>Status</th>
-                                    <th>Image</th>
-                                    <th>Tags</th>
-                                    <th>Comments</th>
-                                    <th>Date</th>
+
                                     <th></th>
-                                    <th></th>
+
 
 
                                 </tr>

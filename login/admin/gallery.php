@@ -126,8 +126,9 @@
                 <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Title</th>
                     <th>Image</th>
+                    <th>Title</th>
+
                     <th>Status</th>
                     <th>Date Created</th>
                     <th></th>
@@ -154,8 +155,9 @@
                   ?>
                     <tr>
                       <td> <?php echo $img_id; ?> </td>
-                      <td><?php echo $img_title; ?> </td>
                       <td><?php echo "<img src='../images/gallery/$img_image' alt='' width='100px'>"; ?> </td>
+                      <td><?php echo $img_title; ?> </td>
+
                       <td><?php echo $img_status; ?> </td>
                       <td><?php echo  $img_date; ?> </td>
 

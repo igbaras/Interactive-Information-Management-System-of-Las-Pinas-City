@@ -144,7 +144,7 @@
                                     ?>
                                         <tr>
                                             <td> <?php echo $user_id; ?> </td>
-                                            <td><img src="<?php echo $user_avatar ?>" width='25%' alt='user_avatar'></td>
+                                            <td><img src="<?php echo $user_avatar ?>" width='100px' height='100px' alt='user_avatar'></td>
                                             <td><?php echo $user_fname . " " . $user_lname; ?> </td>
                                             <td><?php echo $user_email; ?> </td>
 

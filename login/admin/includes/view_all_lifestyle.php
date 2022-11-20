@@ -78,9 +78,10 @@
                         <thead>
                             <tr>
                                 <th><input type="checkbox">ID</th>
+                                <th>Image</th>
                                 <th>Title</th>
                                 <th>Status</th>
-                                <th>Image</th>
+
                                 <th>Tags</th>
                                 <th>Date Created</th>
                                 <th></th>
@@ -110,9 +111,10 @@
 
                                 <tr>
                                     <td><?php echo $ls_id; ?></td>
+                                    <td><?php echo "<img src='../images/lifestyles/$ls_image' height='100px'width='100px' alt='lss_image'>"; ?></td>
                                     <td> <?php echo $ls_title; ?></td>
                                     <td><?php echo $ls_status; ?></td>
-                                    <td><?php echo "<img src='../images/lifestyles/$ls_image' width='200px' alt='lss_image'>"; ?></td>
+
                                     <td><?php echo $ls_tags; ?></td>
                                     <td><?php echo $ls_date; ?></td>
                                     <td><a class='btn btn-primary ' href="./lifestyles.php?source=edit_lifestyle&an_edit=<?php echo $ls_id ?>" data-target="#edit<?php echo $ls_id ?>"><i class='fas fa-edit'></i></a><button class='btn btn-danger deletebtn' data-toggle='modal'><i class='fas fa-trash'></i></button></td>

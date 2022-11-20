@@ -3,7 +3,7 @@
 <?php
 if (isset($_GET['lsid'])) {
 	$ls_id = $_GET['lsid'];
-	echo $ls_id;
+
 	$query = "SELECT * FROM lifestyles WHERE ls_id = $ls_id";
 	$all_ls_query = mysqli_query($connection, $query);
 

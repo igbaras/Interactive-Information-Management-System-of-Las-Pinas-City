@@ -26,7 +26,7 @@
 
 		<!-- Header -->
 		<header id="header" class="alt">
-			<a href="index.html" class="logo"><strong>Life</strong> <span>style</span></a>
+			<a href="#" class="logo"><strong>Life</strong> <span>style</span></a>
 			<nav>
 				<a href="#menu">Menu</a>
 			</nav>
