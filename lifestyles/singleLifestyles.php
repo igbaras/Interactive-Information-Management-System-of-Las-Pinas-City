@@ -152,7 +152,7 @@ if (isset($_GET['lsid'])) {
 
 						?>
 
-						<div class="bg-light mb-3" style="padding-left: 150px;padding-right: 150px; padding-bottom: 100px; ">
+						<div class="bg-light mb-3" style="padding: 30px;">
 							<h3 class="mb-4">Leave a comment</h3>
 							<form method="post">
 
