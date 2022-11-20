@@ -42,7 +42,9 @@ while ($row = mysqli_fetch_assoc($all_gal_query)) {
 			<h1>Gallery</h1>
 			<p>this is the gallery of Las Pinas</p>
 			<ul class="icons">
-				<li><a href="index.php" class="fa fa-home"><span class="label">Home</span></a></li>
+				<li>
+					<h2><a href="index.php" class="fa fa-home"><span class="label">Home</span></a></h2>
+				</li>
 			</ul>
 		</header>
 
@@ -50,7 +52,7 @@ while ($row = mysqli_fetch_assoc($all_gal_query)) {
 		<section id="thumbnails">
 
 			<article>
-				<a class="thumbnail" href="login/images/gallery/<?php echo $img_image; ?>" data-position="left center"><img src="login/images/gallery/<?php echo $img_image; ?>" alt="" /></a>
+				<a class="thumbnail" href="login/images/gallery/<?php echo $img_image; ?>" data-position="left center"><img style="height: 150px;" src="login/images/gallery/<?php echo $img_image; ?>" alt="" /></a>
 				<h2><?php echo $img_title; ?></h2>
 				<p><?php echo $img_desc; ?></p>
 				<span><?php echo $img_date; ?></span>

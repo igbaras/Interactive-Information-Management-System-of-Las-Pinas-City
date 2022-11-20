@@ -95,18 +95,13 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav mr-auto py-0">
-                    <a href="index.php" class="nav-item nav-link active">Home</a>
+                    <a href="index.php" class="nav-item nav-link">Home</a>
                     <a href="all_news_cat.php" class="nav-item nav-link">Categories</a>
                     <a href="all_featured.php" class="nav-item nav-link">Featured</a>
 
                     <a href="#popular" class="nav-item nav-link">Popular</a>
                 </div>
-                <div class="input-group ml-auto" style="width: 100%; max-width: 300px;">
-                    <input type="text" class="form-control" placeholder="Keyword">
-                    <div class="input-group-append">
-                        <button class="input-group-text text-secondary"><i class="fa fa-search"></i></button>
-                    </div>
-                </div>
+
             </div>
         </nav>
     </div>
@@ -121,21 +116,31 @@
             <div class="row">
                 <div class="col-lg-8">
 
+
                     <div class="owl-carousel owl-carousel-2 carousel-item-1 position-relative mb-3 mb-lg-0">
 
                         <?php
-
-                        $query = "SELECT * FROM posts ORDER BY post_id DESC";
-                        $select_all_post_query = mysqli_query($connection, $query);
-                        if (!$select_all_post_query) {
-                            die("CONNECTION FAILED" . " " . mysqli_error($connection));
+                        if (isset($_GET['c_id'])) {
+                            $the_cat_id = $_GET['c_id'];
+                            $query = "SELECT * FROM posts WHERE post_category_id = $the_cat_id ORDER BY post_id DESC";
+                            $select_all_post_query = mysqli_query($connection, $query);
+                            if (!$select_all_post_query) {
+                                die("CONNECTION FAILED" . " " . mysqli_error($connection));
+                            }
+                        } else {
+                            $query = "SELECT * FROM posts ORDER BY post_id DESC";
+                            $select_all_post_query = mysqli_query($connection, $query);
+                            if (!$select_all_post_query) {
+                                die("CONNECTION FAILED" . " " . mysqli_error($connection));
+                            }
                         }
+
                         while ($row = mysqli_fetch_assoc($select_all_post_query)) {
                             $post_id = $row['post_id'];
                             $post_category_id = $row['post_category_id'];
                             $post_title = $row['post_title'];
                             $post_author = $row['post_author'];
-                            $post_date = $row['post_date'];
+                            $post_date = date("F j, Y", strtotime($row['post_date']));
                             // $post_date = strtotime($post_date);
 
 
@@ -153,6 +158,7 @@
                         ?>
 
                                 <div class="position-relative overflow-hidden" style="height: 435px;">
+
 
                                     <img class=" img-fluid h-100" src="login/images/posts/<?php echo $post_image; ?>" style="object-fit: cover;">
 
@@ -173,6 +179,23 @@
 
                 </div>
                 <div class="col-lg-4">
+                    <?php if (!empty($the_cat_id)) {
+                        $query = "SELECT * FROM categories WHERE cat_id = $the_cat_id";
+                        $select_all_cat_query = mysqli_query($connection, $query);
+                        while ($row = mysqli_fetch_assoc($select_all_cat_query)) {
+                            $post_category_id1 = $row['cat_id'];
+                            $post_category_id = $row['cat_title'];
+                        }
+                    ?>
+
+                        <div class="input-group">
+                            <div class="input-group-append">
+                                <h3><span class="badge bg-primary"><?php echo $post_category_id; ?> <a href="news.php" class="btn btn-primary">X</a></span>
+                                </h3>
+                            </div>
+                        </div>
+                    <?php
+                    } ?>
                     <div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
                         <h3 class="m-0">Categories</h3>
                         <a class="text-secondary font-weight-medium text-decoration-none" href="all_news_cat.php">View All</a>
@@ -184,6 +207,7 @@
                         die("CONNECTION FAILED" . " " . mysqli_error($connection));
                     }
                     while ($row = mysqli_fetch_assoc($select_all_cat)) {
+                        $cat_id = $row['cat_id'];
                         $cat_title = $row['cat_title'];
                         $cat_image = $row['cat_image'];
 
@@ -191,7 +215,7 @@
                     ?>
                         <div class="position-relative overflow-hidden mb-3" style="height: 80px;">
                             <img class="img-fluid w-100 h-100" src="login/images/categories/<?php echo $cat_image; ?>" style="object-fit: cover;">
-                            <a href="" class="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">
+                            <a href="news.php?c_id=<?php echo $cat_id; ?>" class="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">
                                 <?php echo $cat_title; ?>
                             </a>
                         </div>
@@ -213,18 +237,27 @@
             <div class="owl-carousel owl-carousel-2 carousel-item-4 position-relative">
 
                 <?php
-
-                $query = "SELECT * FROM posts ORDER BY post_id DESC";
-                $select_all_post_query = mysqli_query($connection, $query);
-                if (!$select_all_post_query) {
-                    die("CONNECTION FAILED" . " " . mysqli_error($connection));
+                if (isset($_GET['c_id'])) {
+                    $the_cat_id = $_GET['c_id'];
+                    $query = "SELECT * FROM posts WHERE post_category_id = $the_cat_id ORDER BY post_id DESC";
+                    $select_all_post_query = mysqli_query($connection, $query);
+                    if (!$select_all_post_query) {
+                        die("CONNECTION FAILED" . " " . mysqli_error($connection));
+                    }
+                } else {
+                    $query = "SELECT * FROM posts ORDER BY post_id DESC";
+                    $select_all_post_query = mysqli_query($connection, $query);
+                    if (!$select_all_post_query) {
+                        die("CONNECTION FAILED" . " " . mysqli_error($connection));
+                    }
                 }
+
                 while ($row = mysqli_fetch_assoc($select_all_post_query)) {
                     $post_id = $row['post_id'];
                     $post_category_id = $row['post_category_id'];
                     $post_title = $row['post_title'];
                     $post_author = $row['post_author'];
-                    $post_date = $row['post_date'];
+                    $post_date = date("F j, Y", strtotime($row['post_date']));
 
 
                     $post_image = $row['post_image'];
@@ -251,8 +284,6 @@
                                 </div>
                                 <a class="h4 m-0 text-white" href="singleNews.php?an_id=<?php echo $post_id ?>"><?php echo $post_title; ?></a>
                             </div>
-
-
                         </div>
                 <?php }
                 } ?>
@@ -279,19 +310,38 @@
                             </div>
                         </div>
                         <?php
-
-                        $query = "SELECT * FROM posts ORDER BY post_views DESC LIMIT 2";
-                        $select_all_post_query = mysqli_query($connection, $query);
-                        if (!$select_all_post_query) {
-                            die("CONNECTION FAILED" . " " . mysqli_error($connection));
+                        if (isset($_GET['c_id'])) {
+                            $the_cat_id = $_GET['c_id'];
+                            $query = "SELECT * FROM posts WHERE post_category_id = $the_cat_id ORDER BY post_id DESC";
+                            $select_all_post_query = mysqli_query($connection, $query);
+                            if (!$select_all_post_query) {
+                                die("CONNECTION FAILED" . " " . mysqli_error($connection));
+                            }
+                            $num_rows = mysqli_num_rows($select_all_post_query);
+                            if ($num_rows == 0) {
+                                echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+                                <strong>Nothing is popular with this category.</strong>
+                                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                                  <span aria-hidden='true'>&times;</span>
+                                </button>
+                              </div>";
+                            }
+                        } else {
+                            $query = "SELECT * FROM posts ORDER BY post_views DESC LIMIT 2";
+                            $select_all_post_query = mysqli_query($connection, $query);
+                            if (!$select_all_post_query) {
+                                die("CONNECTION FAILED" . " " . mysqli_error($connection));
+                            }
                         }
+
+
                         while ($row = mysqli_fetch_assoc($select_all_post_query)) {
                             $post_id = $row['post_id'];
                             $post_category_id = $row['post_category_id'];
                             $post_title = $row['post_title'];
                             $post_author = $row['post_author'];
-                            $post_date = $row['post_date'];
-                            $post_date = strtotime($post_date);
+                            $post_date = date("F j, Y", strtotime($row['post_date']));
+
 
                             $post_image = $row['post_image'];
                             $post_content = $row['post_content'];
@@ -308,14 +358,14 @@
                                 <div class="col-lg-6">
 
                                     <div class="position-relative mb-3">
-                                        <img class="img-fluid w-100" src="login/images/posts/<?php echo $post_image; ?>" style="object-fit: cover;">
+                                        <img class="img-fluid w-100" src="login/images/posts/<?php echo $post_image; ?>" style="object-fit: cover; height: 350px;">
                                         <div class="overlay position-relative bg-light">
                                             <div class="mb-2" style="font-size: 14px;">
-                                                <a href=""><?php echo $post_category_id; ?></a>
+                                                <a href="" class="text-dark"><?php echo $post_category_id; ?></a>
                                                 <span class="px-1">/</span>
                                                 <span><?php echo $post_date; ?></span>
                                             </div>
-                                            <a class="h4" href=""><?php echo $post_title; ?></a>
+                                            <a class="h4" href="singleNews.php?an_id=<?php echo $post_id ?>"><?php echo $post_title; ?></a>
                                             <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
                                         </div>
                                     </div>

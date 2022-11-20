@@ -61,6 +61,7 @@
 					$select_all_cat_query = mysqli_query($connection, $query);
 					while ($row = mysqli_fetch_assoc($select_all_cat_query)) {
 
+						$cat_id = $row['cat_id'];
 						$cat_title = $row['cat_title'];
 						$cat_image = $row['cat_image'];
 					?>
@@ -68,7 +69,7 @@
 							<span class="image">
 								<img src="login/images/categories/<?php echo $cat_image; ?>" height="300px" alt="" />
 							</span>
-							<a href="generic.html">
+							<a href="news.php?c_id=<?php echo $cat_id; ?>">
 								<h2><?php echo $cat_title; ?></h2>
 								<div class="content">
 									<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>

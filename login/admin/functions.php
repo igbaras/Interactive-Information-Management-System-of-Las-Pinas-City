@@ -805,9 +805,9 @@ function deleteLifestyleComment()
 {
   global $connection;
   if (isset($_POST['delete_data'])) {
-    $comment_id = $_POST['comment_id'];
+    $lf_comment_id = $_POST['lf_comment_id'];
 
-    $query = "DELETE FROM post_comments WHERE comment_id = {$comment_id}";
+    $query = "DELETE FROM post_comments WHERE comment_id = {$lf_comment_id}";
     $delete_post_query = mysqli_query($connection, $query);
     if (!$delete_post_query) {
       die("QUERY CONNECTION FAILED " . mysqli_error($connection));

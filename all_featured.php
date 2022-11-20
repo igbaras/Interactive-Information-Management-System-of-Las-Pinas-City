@@ -12,8 +12,15 @@ if (isset($_GET['page'])) {
 
 $start_from = ($page - 1) * 4;
 
-$query = "SELECT * FROM posts LIMIT $start_from,$num_per_page";
-$allFeat_query = mysqli_query($connection, $query);
+if (isset($_POST['submit_key'])) {
+    $search = $_POST['search'];
+    $query = "SELECT * FROM posts WHERE post_tags LIKE '%$search%' OR post_title LIKE '%$search%' LIMIT $start_from,$num_per_page";
+    $allFeat_query = mysqli_query($connection, $query);
+} else {
+    $query = "SELECT * FROM posts LIMIT $start_from,$num_per_page";
+    $allFeat_query = mysqli_query($connection, $query);
+}
+
 
 ?>
 
@@ -64,12 +71,17 @@ $allFeat_query = mysqli_query($connection, $query);
                     <a href="all_news_cat.php" class="nav-item nav-link">Categories</a>
                     <a href="index.php" class="nav-item nav-link">Home</a>
                 </div>
-                <div class="input-group ml-auto" style="width: 100%; max-width: 300px;">
-                    <input type="text" class="form-control" placeholder="Keyword">
-                    <div class="input-group-append">
-                        <button class="input-group-text text-secondary"><i class="fa fa-search"></i></button>
+
+                <form method="post">
+                    <div class="input-group ml-auto" style="width: 100%; max-width: 300px;">
+
+                        <input type="text" name="search" class="form-control" placeholder="Keyword">
+                        <div class="input-group-append">
+                            <button class="input-group-text text-secondary" type="submit" name="submit_key"><i class="fa fa-search"></i></button>
+                        </div>
                     </div>
-                </div>
+                </form>
+
             </div>
         </nav>
     </div>
@@ -94,10 +106,21 @@ $allFeat_query = mysqli_query($connection, $query);
                 <div class="col-lg">
                     <div class="row">
                         <div class="col-12">
-                            <div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
+                            <div class="d-flex align-items-center  bg-light py-2 px-4 mb-3">
                                 <h3 class="m-0">All Featured</h3>
+                                <?php if (!empty($search)) { ?>
 
+                                    <div class="input-group-append ml-3">
+                                        <div class="input-group-append">
+                                            <h3><span class="badge bg-primary"><?php echo $search; ?> <a href="all_featured.php" class="btn btn-primary">X</a></span>
+                                            </h3>
+                                        </div>
+                                    </div>
+
+                                <?php
+                                } ?>
                             </div>
+
                         </div>
                         <?php
                         while ($row = mysqli_fetch_assoc($allFeat_query)) {
@@ -122,7 +145,7 @@ $allFeat_query = mysqli_query($connection, $query);
                         ?>
                                 <div class="col-lg-6">
                                     <div class="position-relative mb-3">
-                                        <a href="singleNews.php?an_id=<?php echo $post_id ?>"><img class="img-fluid w-100" src="login/images/posts/<?php echo $post_image; ?>" style="object-fit: cover;"></a>
+                                        <a href="singleNews.php?an_id=<?php echo $post_id ?>"><img class="img-fluid w-100" src="login/images/posts/<?php echo $post_image; ?>" style="object-fit: cover; height:430px;"></a>
                                         <div class="overlay position-relative bg-light">
                                             <div class="mb-2" style="font-size: 14px;">
                                                 <a href="" class="btn-sm btn-secondary rounded text-white"><?php echo $cat_title; ?></a>
