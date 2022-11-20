@@ -3327,3 +3327,10 @@ input, select, textarea {
 			}
 
 		}
+		.form-control:focus {
+			color: #495057;
+			background-color: #fff;
+			border-color: #f69296;
+			outline: 0;
+			box-shadow: 0 0 0 0.2rem rgb(237 28 36 / 25%);
+		}
