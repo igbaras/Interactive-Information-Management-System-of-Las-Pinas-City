@@ -21,7 +21,7 @@
 <style>
 	iframe {
 		width: 100%;
-		height: 100vh;
+		height: 80vh;
 
 	}
 </style>
@@ -66,7 +66,7 @@
 		</section>
 		<section id="defaultmap">
 			<div class="defmap">
-				<iframe src="https://www.google.com/maps/embed?pb=!4v1668581049247!6m8!1m7!1s0YJqgsJtn4YMKVKC3r3ROQ!2m2!1d14.44917259944221!2d120.9823263846363!3f63.10086383394287!4f-4.419150326086111!5f0.7820865974627469" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+				<iframe src="https://www.google.com/maps/embed?pb=!4v1668581049247!6m8!1m7!1s0YJqgsJtn4YMKVKC3r3ROQ!2m2!1d14.44917259944221!2d120.9823263846363!3f63.10086383394287!4f-4.419150326086111!5f0.7820865974627469" width="600" height="350" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 			</div>
 		</section>
 		<!-- Main -->
