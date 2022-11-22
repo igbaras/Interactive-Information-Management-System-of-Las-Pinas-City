@@ -28,7 +28,7 @@ Configuration::instance([
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image icon" href="../Assets/images/lplogo.png">
+    <link rel="shortcut icon" type="image icon" href="../lplogo.png">
     <title>Admin | The City of Las Piñas</title>
 
 
