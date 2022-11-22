@@ -143,7 +143,10 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
 			<div class="content">
 				<header>
+					<audio controls>
+						<source src="JENIEH. LOPERA ACT 4.mp3" type="audio/mpeg" />
 
+					</audio>
 					<h2>The City of Las Piñas</h2>
 					<p>Discover what's in the Philippines</p>
 					<a href="#one">
