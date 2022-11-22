@@ -108,7 +108,7 @@
 
                                     <tr>
                                         <td><?php echo $vt_id; ?></td>
-                                        <td><?php echo "<img src='../images/virtualtour/$vt_image' width='100px'height='100px' alt='lss_image'>"; ?></td>
+                                        <td><?php echo "<img src='$vt_image' width='100px'height='100px' alt='lss_image'>"; ?></td>
                                         <td> <?php echo $vt_title; ?></td>
                                         <td><?php echo $vt_status; ?></td>
 
@@ -132,7 +132,7 @@
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
                                                                     <h5>Current Photo</h5>
-                                                                    <img src="<?php echo "../images/virtualtour/$vt_image" ?>" height="120" width="150" />
+                                                                    <img src="<?php echo "$vt_image" ?>" height="120" width="150" />
                                                                     <input type="hidden" name="previous" value="<?php echo $vt_image; ?>" />
                                                                     <hr>
                                                                     <h5>New Photo</h5>

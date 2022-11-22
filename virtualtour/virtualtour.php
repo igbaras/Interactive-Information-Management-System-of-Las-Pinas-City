@@ -95,7 +95,7 @@
 				?>
 					<article>
 						<span class="image">
-							<img src="../login/images/virtualtour/<?php echo $vt_image; ?>" alt="" />
+							<img src="<?php echo $vt_image; ?>" alt="" />
 						</span>
 						<header class="major">
 							<h3><a href="singleVirtual.php?vt=<?php echo $vt_id; ?>" class="link"><?php echo $vt_title; ?></a></h3>

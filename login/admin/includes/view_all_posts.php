@@ -55,6 +55,7 @@
                                                 <option value="draft" active>Select Status</option>
                                                 <option value="published">Publish</option>
                                                 <option value="draft">Draft</option>
+                                                <option value="resubmit for approval">resubmit for approval</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -117,6 +118,37 @@
                     </div>
                 </div>
             </div>
+            <!-- DELETE POP UP FORM (Bootstrap MODAL) -->
+            <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"> Delete Category Data </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+
+
+
+                        <form method="POST">
+
+                            <div class="modal-body">
+
+                                <input type="hidden" name="post_id" id="delete_id">
+
+                                <h4> Do you want to Delete this Data ??</h4>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"> NO </button>
+                                <button type="submit" name="delete_data" class="btn btn-primary"> Yes </butron>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
 
             <div class="col">
                 <div class="card">
@@ -167,7 +199,12 @@
                                     $post_image = $row["post_image"];
                                     $post_tags = $row["post_tags"];
                                     $post_status = $row["post_status"];
-                                    $post_comment_count = $row["post_comment_count"];
+
+
+                                    $query1 = "SELECT * FROM post_comments WHERE comment_post_id = {$post_id}";
+                                    $query1 .= "AND comment_status = 'approved' ";
+                                    $select_comment_query = mysqli_query($connection, $query);
+                                    $post_comment_count = mysqli_num_rows($select_comment_query);
 
                                     $query = "SELECT * FROM categories WHERE cat_id =  $post_category_id";
                                     $all_cat_query = mysqli_query($connection, $query);
@@ -316,35 +353,4 @@
         </div>
 </div>
 </section>
-</div>
-<!-- DELETE POP UP FORM (Bootstrap MODAL) -->
-<div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"> Delete Post Data </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-
-
-            <?php ?>
-            <?php deletePost(); ?>
-            <form method="POST">
-
-                <div class="modal-body">
-
-                    <input type="hidden" name="post_id" id="delete_id">
-
-                    <h4> Do you want to Delete this Data ??</h4>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal"> NO </button>
-                    <button type="submit" name="delete_data" class="btn btn-primary"> Yes </butron>
-                </div>
-            </form>
-
-        </div>
-    </div>
 </div>

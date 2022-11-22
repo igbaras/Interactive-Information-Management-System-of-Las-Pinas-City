@@ -67,7 +67,7 @@
 					?>
 						<article class="style1">
 							<span class="image">
-								<img src="login/images/categories/<?php echo $cat_image; ?>" height="300px" alt="" />
+								<img src="<?php echo $cat_image; ?>" height="300px" alt="category img" />
 							</span>
 							<a href="news.php?c_id=<?php echo $cat_id; ?>">
 								<h2><?php echo $cat_title; ?></h2>

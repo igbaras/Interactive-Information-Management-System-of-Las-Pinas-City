@@ -4,6 +4,34 @@
 
 use Cloudinary\Api\Upload\UploadApi;
 
+// ============DELETE POST=============
+if (isset($_GET['mem_id'])) {
+  $post_id = $_GET['mem_id'];
+
+  $query = "DELETE FROM posts WHERE post_id = {$post_id}";
+  $delete_post_query = mysqli_query($connection, $query);
+
+  if (!$delete_post_query) {
+    die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+  }
+  if ($delete_post_query) {
+    header("location: posts.php");
+  }
+}
+
+if (isset($_GET['port_id'])) {
+  $post_id = $_GET['mem_id'];
+
+  $query = "DELETE FROM posts WHERE post_id = {$post_id}";
+  $delete_post_query = mysqli_query($connection, $query);
+
+  if (!$delete_post_query) {
+    die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+  }
+  if ($delete_post_query) {
+    header("location: portal.php");
+  }
+}
 
 // ===========CATEGORY FUNCTIONS=========
 function insert_category()
@@ -24,12 +52,13 @@ function insert_category()
     } else {
       $cat_title = $_POST['cat_title'];
       $cat_desc = $_POST['cat_desc'];
-      $cat_image = $_FILES['cat_image']['name'];
-      $cat_image_temp = $_FILES['cat_image']['tmp_name'];
 
-      move_uploaded_file($cat_image_temp, "../images/categories/$cat_image/");
+
+      $cat_image = (new UploadApi())->upload($_FILES["cat_image"]["tmp_name"]);
+      $image_url = $cat_image['secure_url'];
+
       $query = "INSERT INTO  categories (cat_title , cat_image, cat_date, cat_desc)";
-      $query .= " VALUE ('{$cat_title}', '{$cat_image}', now(), '{$cat_desc}')";
+      $query .= " VALUE ('{$cat_title}', '{$image_url}', now(), '{$cat_desc}')";
       $insert_category_query = mysqli_query($connection, $query);
 
       if (!$insert_category_query) {
@@ -77,11 +106,12 @@ function updateCategory()
     $cat_title = $_POST['cat_title'];
     $cat_id = $_POST['cat_id'];
     $cat_desc = $_POST['cat_desc'];
-    $cat_image = $_FILES['cat_image']['name'];
-    $cat_image_temp = $_FILES['cat_image']['tmp_name'];
 
-    move_uploaded_file($cat_image_temp, "../images/categories/$cat_image/");
-    $query = "UPDATE categories SET cat_title = '{$cat_title}', cat_image='{$cat_image}', cat_desc='{$cat_desc}' WHERE cat_id={$cat_id}; ";
+    $cat_image = (new UploadApi())->upload($_FILES["cat_image"]["tmp_name"]);
+    $image_url = $cat_image['secure_url'];
+
+
+    $query = "UPDATE categories SET cat_title = '{$cat_title}', cat_image='{$image_url}', cat_desc='{$cat_desc}' WHERE cat_id={$cat_id}; ";
     $update_category_query = mysqli_query($connection, $query);
 
     if (!$update_category_query) {
@@ -156,17 +186,17 @@ function insertLifestyle()
   global $connection;
   if (isset($_POST['updateLifestyle'])) {
     $ls_title = $_POST['ls_title'];
-    $ls_image = $_FILES['ls_image']['name'];
-    $ls_image_temp = $_FILES['ls_image']['tmp_name'];
+
+    $ls_image = (new UploadApi())->upload($_FILES["ls_image"]["tmp_name"]);
+    $image_url = $ls_image['secure_url'];
     $ls_description = $_POST['ls_description'];
     $ls_content = htmlentities($_POST['ls_content']);
     $ls_tags = $_POST['ls_tags'];
     $ls_status = $_POST['ls_status'];
 
-    move_uploaded_file($ls_image_temp, "../images/lifestyles/$ls_image/");
 
     $query = "INSERT INTO lifestyles ( ls_title, ls_image, ls_status, ls_date, ls_tags, ls_description, ls_content) ";
-    $query .= "VALUES ('{$ls_title}','{$ls_image}','{$ls_status}',now(), '{$ls_tags}','{$ls_description}','{$ls_content}')";
+    $query .= "VALUES ('{$ls_title}','{$image_url}','{$ls_status}',now(), '{$ls_tags}','{$ls_description}','{$ls_content}')";
     $insert_ls_query = mysqli_query($connection, $query);
     if (!$insert_ls_query) {
 
@@ -200,15 +230,16 @@ function insert_gallery()
   global $connection;
   if (isset($_POST['submit_image'])) {
     $img_title = $_POST['img_title'];
-    $img_image = $_FILES['img_image']['name'];
-    $img_image_temp = $_FILES['img_image']['tmp_name'];
+
+    $img_image = (new UploadApi())->upload($_FILES["img_image"]["tmp_name"]);
+    $image_url = $img_image['secure_url'];
+
     $img_status = $_POST['img_status'];
     $img_desc = $_POST['img_desc'];
 
 
-    move_uploaded_file($img_image_temp, "../images/gallery/$img_image/");
     $query = "INSERT INTO  gallery (img_title , img_image, img_status,img_date, img_desc)";
-    $query .= " VALUE ('{$img_title}', '{$img_image}','{$img_status}', now(), '{$img_desc}')";
+    $query .= " VALUE ('{$img_title}', '{$image_url}','{$img_status}', now(), '{$img_desc}')";
     $insert_gallery_query = mysqli_query($connection, $query);
 
     if (!$insert_gallery_query) {
@@ -233,11 +264,11 @@ function updateGallery()
     $img_id = $_POST['img_id'];
     $img_desc = $_POST['img_desc'];
     $img_status = $_POST['img_status'];
-    $img_image = $_FILES['img_image']['name'];
-    $img_image_temp = $_FILES['img_image']['tmp_name'];
 
-    move_uploaded_file($img_image_temp, "../images/gallery/$img_image/");
-    $query = "UPDATE gallery SET img_title = '{$img_title}', img_image='{$img_image}', img_status='{$img_status}', img_desc='{$img_desc}' WHERE img_id={$img_id}; ";
+    $img_image = (new UploadApi())->upload($_FILES["img_image"]["tmp_name"]);
+    $image_url = $img_image['secure_url'];
+
+    $query = "UPDATE gallery SET img_title = '{$img_title}', img_image='{$image_url}', img_status='{$img_status}', img_desc='{$img_desc}' WHERE img_id={$img_id}; ";
     $update_gallery_query = mysqli_query($connection, $query);
 
     if (!$update_gallery_query) {
@@ -338,16 +369,18 @@ function insert_vt()
   if (isset($_POST['submit_virtual'])) {
 
     $vt_title = $_POST['vt_title'];
-    $vt_image = $_FILES['vt_image']['name'];
-    $vt_image_temp = $_FILES['vt_image']['tmp_name'];
+
+    $vt_image = (new UploadApi())->upload($_FILES["vt_image"]["tmp_name"]);
+    $image_url = $vt_image['secure_url'];
+
     $vt_desc = $_POST['vt_desc'];
     $vt_tags = $_POST['vt_tags'];
     $vt_status = $_POST['vt_status'];
 
-    move_uploaded_file($vt_image_temp, "../images/virtualtour/$vt_image/");
+
 
     $query = "INSERT INTO virtualtour ( vt_title, vt_image, vt_status, vt_date, vt_tags, vt_desc) ";
-    $query .= "VALUES ('{$vt_title}','{$vt_image}','{$vt_status}',now(), '{$vt_tags}','{$vt_desc}') ";
+    $query .= "VALUES ('{$vt_title}','{$image_url}','{$vt_status}',now(), '{$vt_tags}','{$vt_desc}') ";
     $insert_vt_query = mysqli_query($connection, $query);
     if (!$insert_vt_query) {
       die("QUERY CONNECTION FAILED " . mysqli_error($connection));
@@ -397,15 +430,18 @@ function update_vt()
   if (isset($_POST['update-virtualtour'])) {
     $vt_id = $_POST['vt_id'];
     $vt_title = $_POST['vt_title'];
-    $vt_image = $_FILES['vt_image']['name'];
-    $vt_image_temp = $_FILES['vt_image']['tmp_name'];
+
+
+    $vt_image = (new UploadApi())->upload($_FILES["vt_image"]["tmp_name"]);
+    $image_url = $vt_image['secure_url'];
+
+
     $vt_desc = $_POST['vt_desc'];
     $vt_tags = $_POST['vt_tags'];
     $vt_status = $_POST['vt_status'];
 
-    move_uploaded_file($vt_image_temp, "../images/virtualtour/$vt_image/");
 
-    $query = "UPDATE virtualtour SET vt_title = '{$vt_title}', vt_image='{$vt_image}', vt_status='{$vt_status}', vt_tags='{$vt_tags}', vt_desc='{$vt_desc}' WHERE vt_id={$vt_id}; ";
+    $query = "UPDATE virtualtour SET vt_title = '{$vt_title}', vt_image='{$image_url}', vt_status='{$vt_status}', vt_tags='{$vt_tags}', vt_desc='{$vt_desc}' WHERE vt_id={$vt_id}; ";
     $update_vt_query = mysqli_query($connection, $query);
 
     if (!$update_vt_query) {
@@ -436,13 +472,14 @@ function insertUsers()
     $user_email = $_POST['user_email'];
     $user_password = $_POST['user_password'];
     $user_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 12));
-    $user_image = $_FILES['user_image']['name'];
-    $user_image_tmp = $_FILES['user_image']['tmp_name'];
+
+    $user_image = (new UploadApi())->upload($_FILES["user_image"]["tmp_name"]);
+    $image_url = $user_image['secure_url'];
     $user_role = $_POST['user_role'];
-    move_uploaded_file($user_image_tmp, "../images/users/$user_image/");
+
 
     $query = "INSERT INTO users (username, user_firstname, user_lastname, user_email, user_password, user_image, user_role, user_date) ";
-    $query .= "VALUES ('{$username}','{$user_firstname}','{$user_lastname}','{$user_email}','{$user_password}','{$user_image}','{$user_role}',now())";
+    $query .= "VALUES ('{$username}','{$user_firstname}','{$user_lastname}','{$user_email}','{$user_password}','{$image_url}','{$user_role}',now())";
     $insert_user_query = mysqli_query($connection, $query);
     if (!$insert_user_query) {
       die("QUERY CONNECTION FAILED " . mysqli_error($connection));
@@ -468,13 +505,14 @@ function updateUsers()
     $user_role = $_POST['user_role'];
     $user_email = $_POST['user_email'];
     $user_password = $_POST['user_password'];
-    $user_image = $_FILES['user_image']['name'];
-    $user_image_tmp = $_FILES['user_image']['tmp_name'];
 
-    move_uploaded_file($user_image_tmp, "../images/users/$user_image/");
+
+    $user_image = (new UploadApi())->upload($_FILES["user_image"]["tmp_name"]);
+    $image_url = $user_image['secure_url'];
+
     $hashed_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 12));
 
-    $query = "UPDATE users SET username = '{$username}', user_firstname='{$user_firstname}', user_lastname='{$user_lastname}', user_email='{$user_email}', user_password='{$hashed_password}', user_image='{$user_image}', user_role='{$user_role}' WHERE user_id ={$user_id}; ";
+    $query = "UPDATE users SET username = '{$username}', user_firstname='{$user_firstname}', user_lastname='{$user_lastname}', user_email='{$user_email}', user_password='{$hashed_password}', user_image='{$image_url}', user_role='{$user_role}' WHERE user_id ={$user_id}; ";
     $update_user_query = mysqli_query($connection, $query);
     $_SESSION['user_image'] = $user_image;
     if (!$update_user_query) {
@@ -678,14 +716,11 @@ function insertPost()
     $post_author = $_POST['post_author'];
     $image_properties = (new UploadApi())->upload($_FILES["post_image"]["tmp_name"]);
     $image_url = $image_properties['secure_url'];
-
-    // $post_image = $_FILES['post_image']['name'];
-    // $post_image_temp = $_FILES['post_image']['tmp_name'];
     $post_content = htmlentities($_POST['post_content']);
     $post_tags = $_POST['post_tags'];
     $post_status = $_POST['post_status'];
 
-    // move_uploaded_file($post_image_temp, "../images/posts/$post_image/");
+
 
     $query = "INSERT INTO posts (post_category_id, post_title, post_author, post_date, post_image, post_content, post_tags , post_status) ";
     $query .= "VALUES ({$post_category_id} ,'{$post_title}','{$post_author}',current_timestamp(), '{$image_url}','{$post_content}','{$post_tags}', '{$post_status}')";
@@ -706,6 +741,7 @@ function insertPost()
 }
 
 
+
 function deletePost()
 {
   global $connection;
@@ -714,7 +750,7 @@ function deletePost()
 
     $query = "DELETE FROM posts WHERE post_id = {$post_id}";
     $delete_post_query = mysqli_query($connection, $query);
-    header("Location: posts.php");
+
     if (!$delete_post_query) {
       die("QUERY CONNECTION FAILED " . mysqli_error($connection));
     }
@@ -826,6 +862,15 @@ function deleteLifestyleComment()
   }
 }
 // =========== END Lifestyle FUNCTIONS=========
+
+
+
+// =========== START Dashboard FUNCTIONS=========
+
+
+
+
+// =========== END Dashboard FUNCTIONS=========
 ?>
 
 

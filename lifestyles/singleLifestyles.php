@@ -80,7 +80,7 @@ if (isset($_GET['lsid'])) {
 		<div id="main">
 			<div class="inner">
 				<h1><?php echo $ls_title; ?></h1>
-				<span class="image main"><img src="../login/images/lifestyles/<?php echo $ls_image; ?>" alt="" /></span>
+				<span class="image main"><img src="<?php echo $ls_image; ?>" alt="lifestyle img" /></span>
 				<p style="text-align: justify" class="sls-content"><?php echo $ls_content; ?></p>
 
 			</div>
@@ -111,64 +111,69 @@ if (isset($_GET['lsid'])) {
 								$user_lname = $row["user_lname"];
 								$user_email = $row["user_email"];
 							}
-						} else {
-							echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
-                    <strong>Please login first!.</strong>
-                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-                      <span aria-hidden='true'>&times;</span>
-                    </button>
-                  </div>";
-						}
 
-						if (isset($_POST['leave_comment'])) {
-							$lf_comment_post_id = $ls_id;
-							$lf_comment_author = $_POST['lf_comment_author'];
-							$lf_comment_email = $_POST['lf_comment_email'];
-							$lf_comment_content = $_POST['lf_comment_content'];
-							$lf_comment_user_image = $_POST['lf_comment_user_image'];
 
-							if (!empty($lf_comment_content)) {
+							if (isset($_POST['leave_comment'])) {
+								$lf_comment_post_id = $ls_id;
+								$lf_comment_author = $_POST['lf_comment_author'];
+								$lf_comment_email = $_POST['lf_comment_email'];
+								$lf_comment_content = $_POST['lf_comment_content'];
+								$lf_comment_user_image = $_POST['lf_comment_user_image'];
 
-								$query = "INSERT INTO lifestyle_comments (lf_comment_post_id, lf_comment_author, lf_comment_email, lf_comment_content, lf_comment_status, lf_comment_user_image, lf_comment_date) ";
-								$query .= "VALUES ($lf_comment_post_id, '{$lf_comment_author}','{$lf_comment_email}','{$lf_comment_content}','pending', '{$lf_comment_user_image}', current_timestamp())";
+								if (!empty($lf_comment_content)) {
 
-								$create_comment_query = mysqli_query($connection, $query);
+									$query = "INSERT INTO lifestyle_comments (lf_comment_post_id, lf_comment_author, lf_comment_email, lf_comment_content, lf_comment_status, lf_comment_user_image, lf_comment_date) ";
+									$query .= "VALUES ($lf_comment_post_id, '{$lf_comment_author}','{$lf_comment_email}','{$lf_comment_content}','pending', '{$lf_comment_user_image}', current_timestamp())";
 
-								$query = "UPDATE lifestyles SET ls_comment_count = ls_comment_count + 1 ";
-								$query .= "WHERE ls_id = {$ls_id}";
-								$update_post_comment_count = mysqli_query($connection, $query);
+									$create_comment_query = mysqli_query($connection, $query);
 
-								echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
-                    <strong>Your Comment was successfully submitted! It's in the review process before it appears on the comment section.</strong>
-                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-                      <span aria-hidden='true'>&times;</span>
-                    </button>
-                  </div>";
-							} else {
-								echo "<script>alert('Fields should not be empty')</script>";
+									$query = "UPDATE lifestyles SET ls_comment_count = ls_comment_count + 1 ";
+									$query .= "WHERE ls_id = {$ls_id}";
+									$update_post_comment_count = mysqli_query($connection, $query);
+
+									echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
+						<strong>Your Comment was successfully submitted! It's in the review process before it appears on the comment section.</strong>
+						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+						  <span aria-hidden='true'>&times;</span>
+						</button>
+					  </div>";
+								} else {
+									echo "<script>alert('Fields should not be empty')</script>";
+								}
 							}
+						?>
+
+
+
+							<div class="bg-light mb-3" style="padding: 30px;">
+								<h3 class="mb-4">Leave a comment</h3>
+								<form method="post">
+
+									<div class="form-group">
+										<label for="message">Comment *</label>
+										<input type="hidden" name="lf_comment_author" value="<?php echo $user_fname . " " . $user_lname; ?>">
+										<input type="hidden" name="lf_comment_email" value="<?php echo $user_email; ?>">
+										<input type="hidden" name="lf_comment_user_image" value="<?php echo $user_avatar; ?>">
+										<textarea id="message" cols="30" rows="5" name="lf_comment_content" class="form-control"></textarea>
+									</div>
+									<div class="form-group mb-0">
+										<input type="submit" value="Leave a comment" name="leave_comment" class="btn btn-primary font-weight-semi-bold py-2 px-3">
+									</div>
+								</form>
+							</div>
+							<!-- Comment Form End -->
+						<?php
+						} else {
+							echo "<div class='alert alert-danger alert-dismissible fade show' role='alert' style='text-align:center;'>
+                    <strong>Please login first! in order to leave a comment.</strong>
+                   
+                  </div>";
 						}
 
 
 						?>
 
-						<div class="bg-light mb-3" style="padding: 30px;">
-							<h3 class="mb-4">Leave a comment</h3>
-							<form method="post">
 
-								<div class="form-group">
-									<label for="message">Comment *</label>
-									<input type="hidden" name="lf_comment_author" value="<?php echo $user_fname . " " . $user_lname; ?>">
-									<input type="hidden" name="lf_comment_email" value="<?php echo $user_email; ?>">
-									<input type="hidden" name="lf_comment_user_image" value="<?php echo $user_avatar; ?>">
-									<textarea id="message" cols="30" rows="5" name="lf_comment_content" class="form-control"></textarea>
-								</div>
-								<div class="form-group mb-0">
-									<input type="submit" value="Leave a comment" name="leave_comment" class="btn btn-primary font-weight-semi-bold py-2 px-3">
-								</div>
-							</form>
-						</div>
-						<!-- Comment Form End -->
 
 
 

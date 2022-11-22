@@ -1,4 +1,7 @@
 <?php
+
+use Cloudinary\Api\Upload\UploadApi;
+
 if (isset($_GET['an_edit'])) {
     $the_lifestyle_id = $_GET['an_edit'];
 }
@@ -24,13 +27,16 @@ if (isset($_POST['update_ls'])) {
     $ls_title = $_POST['ls_title'];
 
     $ls_status = $_POST['ls_status'];
-    $ls_image = $_FILES['ls_image']['name'];
-    $ls_image_temp = $_FILES['ls_image']['tmp_name'];
+
+
+    $ls_image = (new UploadApi())->upload($_FILES["ls_image"]["tmp_name"]);
+    $image_url = $ls_image['secure_url'];
+
     $ls_tags = $_POST['ls_tags'];
     $ls_description = $_POST['ls_description'];
     $ls_content = htmlentities($_POST['ls_content']);
 
-    move_uploaded_file($ls_image_temp, "../images/lifestyles/$ls_image/");
+
 
     if (empty($ls_image)) {
         $query = "SELECT * FROM lifestyles WHERE ls_id = $the_lifestyle_id";
@@ -43,7 +49,7 @@ if (isset($_POST['update_ls'])) {
     $query = "UPDATE lifestyles SET ";
     $query .= "ls_title = '{$ls_title}', ";
     $query .= "ls_status = '{$ls_status}', ";
-    $query .= "ls_image = '{$ls_image}', ";
+    $query .= "ls_image = '{$image_url}', ";
     $query .= "ls_tags = '{$ls_tags}', ";
     $query .= "ls_description = '{$ls_description}', ";
     $query .= "ls_content = '{$ls_content}' ";
@@ -103,7 +109,7 @@ if (isset($_POST['update_ls'])) {
 
                         <div class="form-group">
                             <label for="inputClientCompany">Image</label>
-                            <div id="selectedBanner"><img id="selectedBanner" src="<?php echo "../images/lifestyles/$ls_image" ?>" width="20%" alt="lifestyle image"></div>
+                            <div id="selectedBanner"><img id="selectedBanner" src="<?php echo $ls_image; ?>" width="20%" alt="lifestyle image"></div>
 
                             <input type="file" class="form-control" id="img" name="ls_image" value="<?php echo $ls_image; ?>">
                         </div>

@@ -163,7 +163,7 @@
                     <tr>
                       <td> <?php echo $cat_id; ?> </td>
                       <td><?php echo $cat_title; ?> </td>
-                      <td><?php echo "<img src='../images/categories/$cat_image' alt='' width='100px'>"; ?> </td>
+                      <td><?php echo "<img src='$cat_image' alt='' width='100px'>"; ?> </td>
 
                       <td><?php echo  $cat_date; ?> </td>
 
@@ -183,7 +183,7 @@
                                 <div class="col-md-12">
                                   <div class="form-group">
                                     <h5>Current Photo</h5>
-                                    <img src="<?php echo "../images/categories/$cat_image" ?>" height="120" width="150" />
+                                    <img src="<?php echo $cat_image; ?>" height="120" width="150" />
                                     <input type="hidden" name="previous" value="<?php echo $cat_image; ?>" />
                                     <hr>
                                     <h5>New Photo</h5>

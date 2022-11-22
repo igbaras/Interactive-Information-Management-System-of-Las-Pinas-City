@@ -160,7 +160,7 @@
                                 <div class="position-relative overflow-hidden" style="height: 435px;">
 
 
-                                    <img class=" img-fluid h-100" src="login/images/posts/<?php echo $post_image; ?>" style="object-fit: cover;">
+                                    <img class=" img-fluid h-100" src="<?php echo $post_image; ?>" style="object-fit: cover;">
 
                                     <div class="overlay">
                                         <div class="mb-1">
@@ -214,7 +214,7 @@
 
                     ?>
                         <div class="position-relative overflow-hidden mb-3" style="height: 80px;">
-                            <img class="img-fluid w-100 h-100" src="login/images/categories/<?php echo $cat_image; ?>" style="object-fit: cover;">
+                            <img class="img-fluid w-100 h-100" src="<?php echo $cat_image; ?>" style="object-fit: cover;">
                             <a href="news.php?c_id=<?php echo $cat_id; ?>" class="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">
                                 <?php echo $cat_title; ?>
                             </a>
@@ -275,7 +275,7 @@
                         <div class="position-relative overflow-hidden" style="height: 300px;">
 
 
-                            <img class="img-fluid w-100 h-100" src="login/images/posts/<?php echo $post_image; ?>" style="object-fit: cover;">
+                            <img class="img-fluid w-100 h-100" src="<?php echo $post_image; ?>" style="object-fit: cover;">
                             <div class="overlay">
                                 <div class="mb-1" style="font-size: 13px;">
                                     <a class="text-white" href=""><?php echo $post_category_id; ?></a>
@@ -358,7 +358,7 @@
                                 <div class="col-lg-6">
 
                                     <div class="position-relative mb-3">
-                                        <img class="img-fluid w-100" src="login/images/posts/<?php echo $post_image; ?>" style="object-fit: cover; height: 350px;">
+                                        <img class="img-fluid w-100" src="<?php echo $post_image; ?>" style="object-fit: cover; height: 350px;">
                                         <div class="overlay position-relative bg-light">
                                             <div class="mb-2" style="font-size: 14px;">
                                                 <a href="" class="text-dark"><?php echo $post_category_id; ?></a>

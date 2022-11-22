@@ -58,7 +58,7 @@ if (isset($_POST["submit"])) {
             $_SESSION['user_image'] = $db_user_image;
             $_SESSION['user_role'] = $db_user_role;
             header("Location:user_access_level.php");
-        } else if ($username === $db_username && password_verify($password, $db_user_password) && 'customer service' === $db_user_role) {
+        } else if ($username === $db_username && password_verify($password, $db_user_password) && 'chat service' === $db_user_role) {
             $_SESSION['user_id'] = $db_user_user_id;
             $_SESSION['user_firstname'] = $db_user_firstname;
             $_SESSION['user_lastname'] = $db_user_lastname;

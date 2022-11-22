@@ -111,7 +111,7 @@
 
                                 <tr>
                                     <td><?php echo $ls_id; ?></td>
-                                    <td><?php echo "<img src='../images/lifestyles/$ls_image' height='100px'width='100px' alt='lss_image'>"; ?></td>
+                                    <td><?php echo "<img src='$ls_image' height='100px'width='100px' alt='lss_image'>"; ?></td>
                                     <td> <?php echo $ls_title; ?></td>
                                     <td><?php echo $ls_status; ?></td>
 
