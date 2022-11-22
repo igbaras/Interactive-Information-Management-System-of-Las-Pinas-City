@@ -145,7 +145,7 @@ if (isset($_POST['submit_key'])) {
                         ?>
                                 <div class="col-lg-6">
                                     <div class="position-relative mb-3">
-                                        <a href="singleNews.php?an_id=<?php echo $post_id ?>"><img class="img-fluid w-100" src="login/images/posts/<?php echo $post_image; ?>" style="object-fit: cover; height:430px;"></a>
+                                        <a href="singleNews.php?an_id=<?php echo $post_id ?>"><img class="img-fluid w-100" src="<?php echo $post_image; ?>" style="object-fit: cover; height:430px;"></a>
                                         <div class="overlay position-relative bg-light">
                                             <div class="mb-2" style="font-size: 14px;">
                                                 <a href="" class="btn-sm btn-secondary rounded text-white"><?php echo $cat_title; ?></a>

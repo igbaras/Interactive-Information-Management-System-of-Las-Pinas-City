@@ -127,7 +127,7 @@
                     ?>
                                 <!-- News Detail Start -->
                                 <div class="position-relative mb-3">
-                                    <img class="img-fluid w-100" src="login/images/posts/<?php echo $post_image; ?>" style="object-fit: cover;">
+                                    <img class="img-fluid w-100" src="<?php echo $post_image; ?>" alt="news img" style="object-fit: cover;">
                                     <div class="overlay position-relative bg-light">
                                         <div class="mb-3">
                                             <a href=""><?php echo $post_category_id; ?></a>
@@ -165,71 +165,71 @@
                             $user_lname = $row["user_lname"];
                             $user_email = $row["user_email"];
                         }
-                    } else {
-                        echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
-                    <strong>Please login first!.</strong>
-                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-                      <span aria-hidden='true'>&times;</span>
-                    </button>
-                  </div>";
-                    }
 
-                    if (isset($_POST['leave_comment'])) {
-                        $comment_post_id = $_GET['an_id'];
-                        $comment_author = $_POST['comment_author'];
-                        $comment_email = $_POST['comment_email'];
-                        $comment_content = $_POST['comment_content'];
-                        $comment_user_image = $_POST['comment_user_image'];
+                        if (isset($_POST['leave_comment'])) {
+                            $comment_post_id = $_GET['an_id'];
+                            $comment_author = $_POST['comment_author'];
+                            $comment_email = $_POST['comment_email'];
+                            $comment_content = $_POST['comment_content'];
+                            $comment_user_image = $_POST['comment_user_image'];
 
-                        if (!empty($comment_content)) {
+                            if (!empty($comment_content)) {
 
-                            $query = "INSERT INTO post_comments (comment_post_id, comment_author, comment_email, comment_content, comment_status, comment_user_image, comment_date) ";
-                            $query .= "VALUES ($comment_post_id, '{$comment_author}','{$comment_email}','{$comment_content}','pending', '{$comment_user_image}', current_timestamp())";
+                                $query = "INSERT INTO post_comments (comment_post_id, comment_author, comment_email, comment_content, comment_status, comment_user_image, comment_date) ";
+                                $query .= "VALUES ($comment_post_id, '{$comment_author}','{$comment_email}','{$comment_content}','pending', '{$comment_user_image}', current_timestamp())";
 
-                            $create_comment_query = mysqli_query($connection, $query);
+                                $create_comment_query = mysqli_query($connection, $query);
 
-                            $query = "UPDATE posts SET post_comment_count = post_comment_count + 1 ";
-                            $query .= "WHERE post_id = {$published_post_id}";
-                            $update_post_comment_count = mysqli_query($connection, $query);
+                                $query = "UPDATE posts SET post_comment_count = post_comment_count + 1 ";
+                                $query .= "WHERE post_id = {$published_post_id}";
+                                $update_post_comment_count = mysqli_query($connection, $query);
 
-                            echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
-                    <strong>Your Comment was successfully submitted! It's in the review process before it appears on the comment section.</strong>
-                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-                      <span aria-hidden='true'>&times;</span>
-                    </button>
-                  </div>";
-                        } else {
-                            echo "<script>alert('Fields should not be empty')</script>";
+                                echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
+                        <strong>Your Comment was successfully submitted! It's in the review process before it appears on the comment section.</strong>
+                        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                          <span aria-hidden='true'>&times;</span>
+                        </button>
+                      </div>";
+                            } else {
+                                echo "<script>alert('Fields should not be empty')</script>";
+                            }
                         }
-                    }
 
 
                     ?>
 
+                        <!-- Comment Form Start -->
+                        <div class="bg-light mb-3" style="padding: 30px;">
+                            <h3 class="mb-4">Leave a comment</h3>
+                            <form method="post">
+
+                                <div class="form-group">
+                                    <label for="message">Comment *</label>
+                                    <input type="hidden" name="comment_author" value="<?php echo $user_fname . " " . $user_lname; ?>">
+                                    <input type="hidden" name="comment_email" value="<?php echo $user_email; ?>">
+                                    <input type="hidden" name="comment_user_image" value="<?php echo $user_avatar; ?>">
+                                    <textarea id="message" cols="30" rows="5" name="comment_content" class="form-control"></textarea>
+                                </div>
+                                <div class="form-group mb-0">
+                                    <input type="submit" value="Leave a comment" name="leave_comment" class="btn btn-primary font-weight-semi-bold py-2 px-3">
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Comment Form End -->
 
 
 
 
-                    <!-- Comment Form Start -->
-                    <div class="bg-light mb-3" style="padding: 30px;">
-                        <h3 class="mb-4">Leave a comment</h3>
-                        <form method="post">
-
-                            <div class="form-group">
-                                <label for="message">Comment *</label>
-                                <input type="hidden" name="comment_author" value="<?php echo $user_fname . " " . $user_lname; ?>">
-                                <input type="hidden" name="comment_email" value="<?php echo $user_email; ?>">
-                                <input type="hidden" name="comment_user_image" value="<?php echo $user_avatar; ?>">
-                                <textarea id="message" cols="30" rows="5" name="comment_content" class="form-control"></textarea>
-                            </div>
-                            <div class="form-group mb-0">
-                                <input type="submit" value="Leave a comment" name="leave_comment" class="btn btn-primary font-weight-semi-bold py-2 px-3">
-                            </div>
-                        </form>
-                    </div>
-                    <!-- Comment Form End -->
-
-
+                    <?php
+                    } else {
+                        echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+                    <strong>Please login first! in order to leave a comment.</strong>
+                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                      <span aria-hidden='true'>&times;</span>
+                    </button>
+                  </div>";
+                    }
+                    ?>
 
 
 

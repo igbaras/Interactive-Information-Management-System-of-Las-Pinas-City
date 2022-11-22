@@ -1,4 +1,7 @@
 <?php
+
+use Cloudinary\Api\Upload\UploadApi;
+
 if (isset($_GET['an_edit']) && isset($_GET['virt'])) {
     $the_vs_id = $_GET['an_edit'];
     $vs_vt_id = $_GET['virt'];
@@ -24,13 +27,14 @@ if (isset($_POST['submit_virtual'])) {
     $vt_title = $_POST['vt_title'];
 
     $vt_status = $_POST['vt_status'];
-    $vt_image = $_FILES['vt_image']['name'];
-    $vt_image_temp = $_FILES['vt_image']['tmp_name'];
+
+    $vt_image = (new UploadApi())->upload($_FILES["vt_image"]["tmp_name"]);
+    $image_url = $vt_image['secure_url'];
+
+
     $vt_tags = $_POST['vt_tags'];
     $vt_desc = $_POST['vt_desc'];
 
-
-    move_uploaded_file($vt_image_temp, "../images/virtualtour/$vt_image/");
 
     if (empty($vt_image)) {
         $query = "SELECT * FROM virtualtour WHERE vt_id = $the_vs_id";
@@ -43,7 +47,7 @@ if (isset($_POST['submit_virtual'])) {
     $query = "UPDATE virtualtour SET ";
     $query .= "vt_title = '{$vt_title}', ";
     $query .= "vt_status = '{$vt_status}', ";
-    $query .= "vt_image = '{$vt_image}', ";
+    $query .= "vt_image = '{$image_url}', ";
     $query .= "vt_tags = '{$vt_tags}', ";
     $query .= "vt_desc = '{$vt_desc}', ";
 
@@ -97,7 +101,7 @@ if (isset($_POST['submit_virtual'])) {
 
                         <div class="form-group">
                             <label for="inputClientCompany">Image</label>
-                            <div id="selectedBanner"><img id="selectedBanner" src="<?php echo "../images/virtualtour/$vt_image" ?>" width="20%" alt="Virtualtour image"></div>
+                            <div id="selectedBanner"><img id="selectedBanner" src="<?php echo $vt_image; ?>" width="20%" alt="Virtualtour image"></div>
 
                             <input type="file" class="form-control" id="img" name="vt_image" value="<?php echo $vt_image; ?>">
                         </div>

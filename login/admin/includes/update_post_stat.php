@@ -16,6 +16,8 @@ while ($row  = mysqli_fetch_assoc($select_edit_posts)) {
     $post_category_id = $row['post_category_id'];
     $post_status = $row['post_status'];
     $post_image = $row['post_image'];
+    $post_desc = $row['post_desc'];
+    $post_notes = $row['post_notes'];
 
     $post_content = html_entity_decode($row['post_content']);
     $post_tags = $row['post_tags'];
@@ -116,9 +118,12 @@ if (isset($_POST['update_image'])) {
                                 echo "<option value = '$post_status'>{$post_status}</option>";
                                 if ($post_status == "published") {
                                     echo "<option value='draft'>Draft</option>";
-                                    echo "<option value='res    ubmit for approval'>Resubmit for approval</option>";
+                                    echo "<option value='resubmit for approval'>Resubmit for approval</option>";
                                     echo "<option value='declined'>Decline</option>";
                                 } else {
+                                    echo "<option value='draft'>Draft</option>";
+                                    echo "<option value='resubmit for approval'>Resubmit for approval</option>";
+                                    echo "<option value='declined'>Decline</option>";
                                     echo "<option value ='published'>Publish</option>";
                                 }
                                 ?>
@@ -126,7 +131,7 @@ if (isset($_POST['update_image'])) {
                         </div>
                         <div class="form-group">
                             <label for="inputStatus">Admin Notes</label>
-                            <textarea name="post_notes" id="post_note" class="form-control" cols="30" rows="5"></textarea>
+                            <textarea name="post_notes" id="post_note" class="form-control" cols="30" rows="5"><?php echo $post_notes; ?></textarea>
 
                         </div>
                         <hr>
@@ -183,7 +188,7 @@ if (isset($_POST['update_image'])) {
                         </div>
                         <div class="form-group">
                             <label for="PostTags">Description</label>
-                            <input type="text" id="inputName" class="form-control" name="post_desc" value="<?php echo $post_tags; ?>">
+                            <textarea name="post_desc" id="" cols="30" class="form-control" rows="4"><?php echo $post_desc; ?></textarea>
                         </div>
                         <div class="form-group">
                             <label for="PostCOntent">Content</label>

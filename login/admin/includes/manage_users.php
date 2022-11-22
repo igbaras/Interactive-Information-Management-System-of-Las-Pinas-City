@@ -157,7 +157,7 @@
                                     ?>
                                         <tr>
                                             <td> <?php echo $user_id; ?> </td>
-                                            <td><?php echo "<img src='../images/users/$user_image' width='100px'height='100px' alt='user_image'>"; ?></td>
+                                            <td><?php echo "<img src='$user_image' width='100px'height='100px' alt='user_image'>"; ?></td>
                                             <td><?php echo $user_firstname . " " . $user_lastname; ?> </td>
                                             <td><?php echo $user_email; ?> </td>
                                             <td><?php echo $user_role; ?> </td>
@@ -180,7 +180,7 @@
                                                                     <div class="form-group">
                                                                         <h5>Current Photo</h5>
 
-                                                                        <img src="<?php echo "../images/users/$user_image" ?>" height="120" width="150" />
+                                                                        <img src="<?php echo "$user_image" ?>" height="120" width="150" />
                                                                         <hr>
                                                                         <h5 class="text-left">New Photo</h5>
                                                                         <input type="file" class="form-control" name="user_image" value="<?php echo $user_image; ?>" required="required" />
@@ -207,12 +207,24 @@
                                                                         </div>
                                                                         <label for="editCategory">User Password:</label>
                                                                         <div class="input-group">
-                                                                            <input type="password" class="form-control mb-3" name="user_password" id="user_password" value="<?php echo $user_password; ?>">
+                                                                            <input type="password" class="form-control mb-3" name="user_password" id="user_password" required>
                                                                         </div>
                                                                         <label for="editCategory">User Role:</label>
-                                                                        <div class="input-group">
-                                                                            <input type="text" class="form-control mb-3" name="user_role" id="user_role" value="<?php echo $user_role; ?>">
-                                                                        </div>
+                                                                        <select class="custom-select col-3" name="user_role" required>
+                                                                            <?php
+                                                                            echo "<option value = '$user_role'>{$user_role}</option>";
+                                                                            if ($user_role == "admin") {
+                                                                                echo "<option value='writer'>writer</option>";
+                                                                                echo "<option value='chat service'>chat service</option>";
+                                                                            } else   if ($user_role == "writer") {
+                                                                                echo "<option value='admin'>admin</option>";
+                                                                                echo "<option value='chat service'>chat service</option>";
+                                                                            } else {
+                                                                                echo "<option value='admin'>writer</option>";
+                                                                                echo "<option value='writer'>chat service</option>";
+                                                                            }
+                                                                            ?>
+                                                                        </select>
                                                                     </div>
 
                                                                 </div>

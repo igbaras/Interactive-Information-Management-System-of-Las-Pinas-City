@@ -28,7 +28,7 @@
                with font-awesome or any other icon font library -->
                 <li class="nav-item ">
 
-                    <a href="writer_portal.php" class="nav-link <?= ($activePage == 'writer_portal.php') ? 'active' : ''; ?>">
+                    <a href="cs_portal.php" class="nav-link <?= ($activePage == 'cs_portal.php') ? 'active' : ''; ?>">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -42,16 +42,17 @@
                         <i class="nav-icon fas fa-globe"></i>
                         <p>
                             View Site
+
                         </p>
                     </a>
 
                 </li>
 
                 <li class="nav-item <?= ($activePage == 'posts.php') ? 'menu-open' : ''; ?><?= ($activePage == 'news.php') ? 'menu-open' : ''; ?>">
-                    <a href="./posts.php" class="nav-link">
-                        <i class="nav-icon fas fa-book"></i>
+                    <a href="https://business.facebook.com/latest/inbox/all?asset_id=548726065490815&nav_ref=profile_plus_profile_left_nav_button&mailbox_id=&selected_item_id=100004438692391" target="_blank" class="nav-link">
+                        <i class="nav-icon fas fa-comments"></i>
                         <p>
-                            Manage Posts
+                            Chat Portal
 
                         </p>
                     </a>

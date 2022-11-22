@@ -1,29 +1,29 @@
-<!-- Admin Header -->
-<?php include "includes/admin_header.php"; ?>
+<!-- cs Header -->
+<?php include "includes/cs_header.php"; ?>
 
 
 <!-- Preloader -->
 <!-- <div class="preloader flex-column justify-content-center align-items-center">
-  <img class="animation__shake" src="../dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+  <img class="animation__shake" src="../dist/img/csLTELogo.png" alt="csLTELogo" height="60" width="60">
 </div> -->
 
 <!-- Navbar -->
-<?php include "includes/admin_navbar.php"; ?>
+<?php include "includes/cs_navbar.php"; ?>
 <!-- /.navbar -->
 
 <!-- Main Sidebar Container -->
-<?php include "includes/admin_sidebar_menu.php"; ?>
+<?php include "includes/cs_sidebar_menu.php"; ?>
 
 
 <!-- CONTENT WRAPPER. CONTAINS PAGE CONTENT -->
-<?php include "includes/admin_dashboard.php" ?>
+<?php include "includes/cs_dashboard.php" ?>
 <!-- /.content-wrapper -->
 
 
 
 
-<!-- Admin Footer -->
-<?php include "includes/admin_footer.php" ?>
+<!-- cs Footer -->
+<?php include "includes/cs_footer.php" ?>
 
 
 <!-- DISPLAY SELECTED IMAGE -->

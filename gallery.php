@@ -52,7 +52,7 @@ while ($row = mysqli_fetch_assoc($all_gal_query)) {
 		<section id="thumbnails">
 
 			<article>
-				<a class="thumbnail" href="login/images/gallery/<?php echo $img_image; ?>" data-position="left center"><img style="height: 150px;" src="login/images/gallery/<?php echo $img_image; ?>" alt="" /></a>
+				<a class="thumbnail" href="<?php echo $img_image; ?>" data-position="left center"><img style="height: 150px;" src="<?php echo $img_image; ?>" alt="gallery img" /></a>
 				<h2><?php echo $img_title; ?></h2>
 				<p><?php echo $img_desc; ?></p>
 				<span><?php echo $img_date; ?></span>

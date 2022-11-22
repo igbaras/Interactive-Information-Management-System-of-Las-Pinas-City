@@ -198,7 +198,7 @@ Configuration::instance([
                 <!-- Profile picture card-->
                 <div class="card mb-4 mb-xl-0">
                     <div class="card-header">
-                        <h3>Profile Picture</h3>
+                        <h3>Profile Picture</h3> <a class="btn btn-small btn-outline-info text-dark" href="viewProfile.php?uid=<?php echo $user_id ?>"> <i class="fas fa-refresh"></i> Refresh</a>
                     </div>
 
 
@@ -231,7 +231,7 @@ Configuration::instance([
                             <div class="mb-3">
                                 <label class="small mb-1" for="inputUsername">Username (how your name will appear to other users on the site)</label>
                                 <input type="hidden" name="user_id" value="<?php echo $user_id ?>">
-                                <input class="form-control" id="inputUsername" type="text" placeholder="Enter your username" value="<?php echo  $username; ?>" name="username">
+                                <input class="form-control" id="inputUsername" type="text" disabled placeholder="Enter your username" value="<?php echo  $username; ?>" name="username">
                             </div>
                             <!-- Form Row-->
                             <div class="row gx-3 mb-3">
@@ -256,7 +256,7 @@ Configuration::instance([
                             <!-- Form Group (email address)-->
                             <div class="mb-3 ">
                                 <label class="small mb-1" for="inputEmailAddress">Password</label>
-                                <input class="form-control " id="inputEmailAddress" type="password" onClick="this.setSelectionRange(0, this.value.length)" placeholder="Enter your email address" value="<?php echo  $user_password; ?>" required data-toggle="password" name="user_password">
+                                <input class="form-control " id="inputEmailAddress" type="password" onClick="this.setSelectionRange(0, this.value.length)" placeholder="Enter your email address" required data-toggle="password" name="user_password">
                             </div>
 
                             <!-- Save changes button-->

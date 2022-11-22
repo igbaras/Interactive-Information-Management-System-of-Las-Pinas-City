@@ -1,4 +1,7 @@
 <?php
+
+use Cloudinary\Api\Upload\UploadApi;
+
 if (isset($_GET['an_edit'])) {
     $the_post_id = $_GET['an_edit'];
 }
@@ -24,12 +27,15 @@ if (isset($_POST['update_post'])) {
     $post_category_id = $_POST['post_category_id'];
     $post_author = $_POST['post_author'];
     $post_status = $_POST['post_status'];
-    $post_image = $_FILES['post_image']['name'];
-    $post_image_temp = $_FILES['post_image']['tmp_name'];
+
+
+    $post_image = (new UploadApi())->upload($_FILES["post_image"]["tmp_name"]);
+    $image_url = $post_image['secure_url'];
+
     $post_tags = $_POST['post_tags'];
     $post_content = htmlentities($_POST['post_content']);
 
-    move_uploaded_file($post_image_temp, "../images/posts/$post_image/");
+
 
     if (empty($post_image)) {
         $query = "SELECT * FROM posts WHERE post_id = $the_post_id";
@@ -45,7 +51,7 @@ if (isset($_POST['update_post'])) {
     $query .= "post_date = now(), ";
     $query .= "post_author = '{$post_author}', ";
     $query .= "post_status = '{$post_status}', ";
-    $query .= "post_image = '{$post_image}', ";
+    $query .= "post_image = '{$image_url}', ";
     $query .= "post_tags = '{$post_tags}', ";
     $query .= "post_content = '{$post_content}' ";
     $query .= "WHERE post_id = {$the_post_id}";
@@ -130,7 +136,7 @@ if (isset($_POST['update_post'])) {
                         </div>
                         <div class="form-group">
                             <label for="inputClientCompany">Post Image</label>
-                            <div id="selectedBanner"><img id="selectedBanner" src="<?php echo "../images/posts/$post_image" ?>" width="20%" alt="post image"></div>
+                            <div id="selectedBanner"><img id="selectedBanner" src="<?php echo $post_image; ?>" width="20%" alt="post image"></div>
 
                             <input type="file" class="form-control" id="img" name="post_image" value="<?php echo $post_image; ?>">
                         </div>

@@ -89,7 +89,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 						<li>
 						<h4><a href="#">Welcome ' . $pusername . '!</a></h4>
 						<ul>
-						<li><a href="#">Chat Service</a></li>
+				
 							<li><a href="public_users/viewProfile.php?uid=' . $userId . '">View Profile</a></li>
 							<li><a href="public_users/_logout.php">Logout</a></li>
 						</ul>

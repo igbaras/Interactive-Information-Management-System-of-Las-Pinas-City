@@ -155,7 +155,7 @@
                   ?>
                     <tr>
                       <td> <?php echo $img_id; ?> </td>
-                      <td><?php echo "<img src='../images/gallery/$img_image' alt='' width='100px'>"; ?> </td>
+                      <td><?php echo "<img src='$img_image' alt='' width='100px'>"; ?> </td>
                       <td><?php echo $img_title; ?> </td>
 
                       <td><?php echo $img_status; ?> </td>
@@ -181,7 +181,7 @@
                             </div>
                             <!--Modal body with image-->
                             <div class="modal-body">
-                              <img src="../images/gallery/<?php echo $img_image; ?>" width="50%" />
+                              <img src="<?php echo $img_image; ?>" width="50%" />
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-danger" data-dismiss="modal">
@@ -206,7 +206,7 @@
                                 <div class="col-md-12">
                                   <div class="form-group">
                                     <h5 class="text-left">Current Photo</h5>
-                                    <img src="<?php echo "../images/gallery/$img_image" ?>" height="120" width="150" />
+                                    <img src="<?php echo $img_image; ?>" height="120" width="150" />
                                     <input type="hidden" name="previous" value="<?php echo $img_image; ?>" />
                                     <hr>
                                     <h5 class="text-left">New Photo</h5>

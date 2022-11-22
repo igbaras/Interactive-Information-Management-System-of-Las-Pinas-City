@@ -28,8 +28,8 @@
             header("Location: admin/portal.php");
         } else if ($_SESSION['user_role'] == 'writer') {
             header("Location: writer_editor/writer_portal.php");
-        } else if ($_SESSION['user_role'] == 'customer service') {
-            header("Location: customer_service/cs_portal.php");
+        } else if ($_SESSION['user_role'] == 'chat service') {
+            header("Location: chat_service/cs_portal.php");
         }
     }
 

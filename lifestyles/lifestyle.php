@@ -86,7 +86,7 @@
 				?>
 					<article>
 						<span class="image">
-							<img src="../login/images/lifestyles/<?php echo $ls_image; ?>" alt="" />
+							<img src="<?php echo $ls_image; ?>" alt="lifestyle image" />
 						</span>
 						<header class="major">
 							<h3><a href="singleLifestyles.php?lsid=<?php echo $ls_id; ?>" class="link"><?php echo $ls_title; ?></a></h3>
