@@ -120,6 +120,8 @@ if (isset($_POST['update_post'])) {
                                 echo "<option value = '$post_status'>{$post_status}</option>";
                                 if ($post_status == "published") {
                                     echo "<option value='draft'>Draft</option>";
+                                    echo "<option value='resubmit for approval'>Resubmit for approval</option>";
+                                    echo "<option value='declined'>Decline</option>";
                                 } else {
                                     echo "<option value ='published'>Publish</option>";
                                 }

@@ -202,7 +202,7 @@
                                 <h4 class="modal-title">Edit Image</h4>
                               </div>
                               <div class="modal-body">
-                                <div class="col-md-2"></div>
+
                                 <div class="col-md-12">
                                   <div class="form-group">
                                     <h5 class="text-left">Current Photo</h5>

@@ -47,7 +47,7 @@ if (isset($_SESSION['cryptedpass'])) {
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
       <div class="card-header text-center">
-        <a href="index.html" class="h1"><b>Login</b></a>
+        <a href="#" class="h1"><b>Login</b></a>
       </div>
 
       <div class="card-body">
@@ -98,10 +98,6 @@ if (isset($_SESSION['cryptedpass'])) {
         </form>
 
         <!-- /.social-auth-links -->
-
-        <p class="mb-1">
-          <a href="forgot-password.html">I forgot my password</a>
-        </p>
 
       </div>
       <!-- /.card-body -->

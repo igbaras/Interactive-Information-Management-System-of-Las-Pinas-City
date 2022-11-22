@@ -1,18 +1,18 @@
-<!-- Admin Header -->
-<?php include "includes/admin_header.php"; ?>
+<!-- writer Header -->
+<?php include "includes/writer_header.php"; ?>
 
 
 <!-- Preloader -->
 <!-- <div class="preloader flex-column justify-content-center align-items-center">
-  <img class="animation__shake" src="../dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+  <img class="animation__shake" src="../dist/img/writerLTELogo.png" alt="writerLTELogo" height="60" width="60">
 </div> -->
 
 <!-- Navbar -->
-<?php include "includes/admin_navbar.php"; ?>
+<?php include "includes/writer_navbar.php"; ?>
 <!-- /.navbar -->
 
 <!-- Main Sidebar Container -->
-<?php include "includes/admin_sidebar_menu.php"; ?>
+<?php include "includes/writer_sidebar_menu.php"; ?>
 
 
 <!-- CONTENT WRAPPER. CONTAINS PAGE CONTENT -->
@@ -45,8 +45,8 @@ switch ($source) {
 
 
 
-<!-- Admin Footer -->
-<?php include "includes/admin_footer.php" ?>
+<!-- writer Footer -->
+<?php include "includes/writer_footer.php" ?>
 
 
 <!-- DISPLAY SELECTED IMAGE -->
@@ -91,6 +91,7 @@ switch ($source) {
   var selDiv = "";
   var storedFiles = [];
 
+
   $(document).ready(function() {
 
     // DELETE FUNCTION
@@ -113,28 +114,12 @@ switch ($source) {
   });
 
 
-
   // TABLE SCRIPT
   $(document).ready(function() {
 
     $('#pendingTable').DataTable({
         autoWidth: false,
-        columns: [{
-            width: '5px'
-          },
-          {
-            width: '50px'
-          },
-          {
-            width: '50px'
-          },
-          {
-            width: '50px'
-          },
-          {
-            width: '50px'
-          }
-        ],
+
         order: false,
         "scrollY": "350px",
         "scrollCollapse": true,
@@ -149,26 +134,11 @@ switch ($source) {
       .container()
       .appendTo("#pendingTable_wrapper .col-md-6:eq(0)");
 
-    $('#acceptedTable').DataTable({
+    $('#publishedTable').DataTable({
         autoWidth: false,
-        columns: [{
-            width: '5px'
-          },
-          {
-            width: '50px'
-          },
-          {
-            width: '50px'
-          },
-          {
-            width: '50px'
-          },
-          {
-            width: '50px'
-          }
-        ],
+
         order: false,
-        "scrollY": "200px",
+        "scrollY": "350px",
         "scrollCollapse": true,
         "paging": true,
         responsive: true,
@@ -179,7 +149,7 @@ switch ($source) {
       })
       .buttons()
       .container()
-      .appendTo("#acceptedTable_wrapper .col-md-6:eq(0)");
+      .appendTo("#publishedTable_wrapper .col-md-6:eq(0)");
 
 
   });

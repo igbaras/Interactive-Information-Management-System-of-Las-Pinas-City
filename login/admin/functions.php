@@ -4,6 +4,34 @@
 
 use Cloudinary\Api\Upload\UploadApi;
 
+// ============DELETE POST=============
+if (isset($_GET['mem_id'])) {
+  $post_id = $_GET['mem_id'];
+
+  $query = "DELETE FROM posts WHERE post_id = {$post_id}";
+  $delete_post_query = mysqli_query($connection, $query);
+
+  if (!$delete_post_query) {
+    die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+  }
+  if ($delete_post_query) {
+    header("location: posts.php");
+  }
+}
+
+if (isset($_GET['port_id'])) {
+  $post_id = $_GET['mem_id'];
+
+  $query = "DELETE FROM posts WHERE post_id = {$post_id}";
+  $delete_post_query = mysqli_query($connection, $query);
+
+  if (!$delete_post_query) {
+    die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+  }
+  if ($delete_post_query) {
+    header("location: portal.php");
+  }
+}
 
 // ===========CATEGORY FUNCTIONS=========
 function insert_category()
@@ -706,6 +734,7 @@ function insertPost()
 }
 
 
+
 function deletePost()
 {
   global $connection;
@@ -714,7 +743,7 @@ function deletePost()
 
     $query = "DELETE FROM posts WHERE post_id = {$post_id}";
     $delete_post_query = mysqli_query($connection, $query);
-    header("Location: posts.php");
+
     if (!$delete_post_query) {
       die("QUERY CONNECTION FAILED " . mysqli_error($connection));
     }
@@ -826,6 +855,15 @@ function deleteLifestyleComment()
   }
 }
 // =========== END Lifestyle FUNCTIONS=========
+
+
+
+// =========== START Dashboard FUNCTIONS=========
+
+
+
+
+// =========== END Dashboard FUNCTIONS=========
 ?>
 
 
