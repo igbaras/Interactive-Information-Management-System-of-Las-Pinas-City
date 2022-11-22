@@ -2110,7 +2110,7 @@
 		input[type="email"]:focus,
 		select:focus,
 		textarea:focus {
-			border-color: #e89980;
+			border-color: #00180A;
 			box-shadow: 0 0 0 2px #e89980;
 		}
 
@@ -2216,7 +2216,7 @@
 
 		input[type="checkbox"]:focus + label:before,
 		input[type="radio"]:focus + label:before {
-			border-color: #e89980;
+			border-color: #00180A;
 			box-shadow: 0 0 0 1px #e89980;
 		}
 
@@ -2418,27 +2418,27 @@
 			}
 
 			.icon.major.accent1 {
-				background: #666;
+				background: #00180A;
 				color: #ffffff;
 			}
 
 			.icon.major.accent2 {
-				background: #e89980;
+				background: #00180A;
 				color: #ffffff;
 			}
 
 			.icon.major.accent3 {
-				background: #7fcdb8;
+				background: #00180A;
 				color: #ffffff;
 			}
 
 			.icon.major.accent4 {
-				background: #90b0ba;
+				background: #00180A;
 				color: #ffffff;
 			}
 
 			.icon.major.accent5 {
-				background: #e5cb95;
+				background: #00180A;
 				color: #ffffff;
 			}
 
@@ -3164,7 +3164,7 @@
 	#banner {
 		background-attachment: scroll,							fixed;
 		background-color: #666;
-		background-image: url("images/overlay.png"), url("../../images/banner.jpg");
+		background-image: url("images/overlay.png"), url("../images/banner.jpg");
 		background-position: top left,						center center;
 		background-repeat: repeat,							no-repeat;
 		background-size: auto,							cover;
