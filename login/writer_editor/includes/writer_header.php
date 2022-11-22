@@ -28,7 +28,8 @@ Configuration::instance([
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Writer | Portal</title>
+    <link rel="shortcut icon" type="image icon" href="../Assets/images/lplogo.png">
+    <title>Chat Service | The City of Las Piñas</title>
 
 
 
