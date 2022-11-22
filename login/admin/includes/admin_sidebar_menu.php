@@ -144,7 +144,7 @@
                     </a>
 
                 </li>
-                <li class="nav-item <?= ($activePage == 'virtualtour.php') ? 'menu-open' : ''; ?>">
+                <li class="nav-item <?= ($activePage == 'virtualTour.php') ? 'menu-open' : ''; ?>">
                     <a href="virtualtour.php" class="nav-link">
                         <i class="nav-icon fas fa-vr-cardboard"></i>
                         <p>

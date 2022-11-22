@@ -217,7 +217,7 @@
                                 ?>
                                         <tr>
                                             <td><?php echo $post_id; ?></td>
-                                            <td><?php echo "<img src='$post_image' height='100px'width='100px' alt='posts_image'>"; ?></td>
+                                            <td><?php echo "<img src='$post_image' height='100px' width='100px' alt='posts_image'>"; ?></td>
                                             <td><a href='../../singleNews.php?an_id=<?php echo $post_id; ?>' target="_blank"><?php echo $post_title ?></td>
                                             <td><?php echo $post_category; ?></td>
                                             <td><?php echo $post_status; ?></td>
