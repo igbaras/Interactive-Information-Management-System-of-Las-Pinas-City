@@ -161,7 +161,7 @@
 
                     <div class="card-body">
 
-                        <table id="example1" class="table table-head-fixed table-bordered table-striped">
+                        <table id="postTable" class="table table-head-fixed table-bordered table-striped">
 
                             <thead>
 
@@ -185,7 +185,7 @@
 
                                 <?php
 
-                                $query = "SELECT * FROM posts";
+                                $query = "SELECT * FROM posts ORDER BY post_id DESC";
                                 $all_post_query = mysqli_query($connection, $query);
                                 if (!$all_post_query) {
                                     die("CONNECTION FAILED" . " " . mysqli_error($connection));

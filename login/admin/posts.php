@@ -116,7 +116,22 @@ switch ($source) {
 
   // TABLE SCRIPT
   $(document).ready(function() {
+    $('#postTable').DataTable({
+        autoWidth: false,
 
+        order: false,
+        "scrollY": "350px",
+        "scrollCollapse": true,
+        "paging": true,
+        responsive: true,
+        lengthChange: false,
+        autoWidth: false,
+
+        buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
+      })
+      .buttons()
+      .container()
+      .appendTo("#postTable_wrapper .col-md-6:eq(0)");
     $('#pendingTable').DataTable({
         autoWidth: false,
         columns: [{

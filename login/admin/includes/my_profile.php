@@ -122,7 +122,8 @@
                                          <div class="form-group row">
                                              <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
                                              <div class="col-sm-10">
-                                                 <input type="password" class="form-control" name="user_password" id="inputName2" placeholder="New Password" value="<?php echo $user_password; ?>" onClick="this.setSelectionRange(0, this.value.length)">
+                                                 <input type="password" class="form-control" name="user_password" id="inputName2" placeholder="New Password" onClick="this.setSelectionRange(0, this.value.length)" required>
+
                                                  <input type="hidden" class="form-control" id="inputEmail" placeholder="Username" name="user_role" value="<?php echo $user_role; ?>">
                                              </div>
                                          </div>
