@@ -2210,7 +2210,7 @@
 		input[type="radio"]:checked + label:before {
 			background: #666;
 			border-color: #666;
-			color: #ffffff;
+			color: #CAD2C9;
 			content: '\f00c';
 		}
 
@@ -2404,7 +2404,7 @@
 		.icon.major {
 			background: #666;
 			border-radius: 100%;
-			color: #ffffff;
+			color: #CAD2C9;
 			cursor: default;
 			display: inline-block;
 			height: 5.5em;
@@ -2419,27 +2419,27 @@
 
 			.icon.major.accent1 {
 				background: #00180A;
-				color: #ffffff;
+				color: #CAD2C9;
 			}
 
 			.icon.major.accent2 {
 				background: #00180A;
-				color: #ffffff;
+				color: #CAD2C9;
 			}
 
 			.icon.major.accent3 {
 				background: #00180A;
-				color: #ffffff;
+				color: #CAD2C9;
 			}
 
 			.icon.major.accent4 {
 				background: #00180A;
-				color: #ffffff;
+				color: #CAD2C9;
 			}
 
 			.icon.major.accent5 {
 				background: #00180A;
-				color: #ffffff;
+				color: #CAD2C9;
 			}
 
 /* Image */
@@ -2750,7 +2750,7 @@
 		background-color: #666;
 		border-radius: 6px;
 		border: 0;
-		color: #ffffff;
+		color: #CAD2C9;
 		cursor: pointer;
 		display: inline-block;
 		font-weight: 400;
@@ -2850,7 +2850,7 @@
 		input[type="button"].primary,
 		.button.primary {
 			background-color: #e89980;
-			color: #ffffff !important;
+			color: #CAD2C9 !important;
 		}
 
 			input[type="submit"].primary:hover,
@@ -3131,7 +3131,7 @@
 
 			.dropotron li.active > a, .dropotron li.active > span, .dropotron li:hover > a, .dropotron li:hover > span {
 				background: #e89980;
-				color: #ffffff;
+				color: #CAD2C9;
 			}
 
 		.dropotron.level-0 {
@@ -3334,7 +3334,7 @@
 		#cta input[type="email"],
 		#cta select,
 		#cta textarea {
-			color: #ffffff;
+			color: #CAD2C9;
 			background: rgba(255, 255, 255, 0.15);
 			border: 0;
 		}
