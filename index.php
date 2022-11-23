@@ -365,6 +365,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 	<script src="./Assets/JS/breakpoints.min.js"></script>
 	<script src="./Assets/JS/util.js"></script>
 	<script src="./Assets/JS/mainn.js"></script>
+	<script src="./Assets/JS/app.js"></script>
+	<script src="./Assets/JS/particles.js"></script>
 	<script>
 		var nightm = document.getElementById("nightm");
 		nightm.onclick = function() {
