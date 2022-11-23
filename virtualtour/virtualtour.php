@@ -33,7 +33,7 @@
 
 		<!-- Header -->
 		<header id="header" class="alt">
-			<a href="index.html" class="logo"><strong>Virtual</strong> <span>Tour</span></a>
+			<a href="#" class="logo"><strong>Virtual</strong> <span>Tour</span></a>
 			<nav>
 				<a href="#menu">Menu</a>
 			</nav>

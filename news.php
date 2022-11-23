@@ -346,6 +346,7 @@
                             $post_image = $row['post_image'];
                             $post_content = $row['post_content'];
                             $post_tags = $row['post_tags'];
+                            $post_desc = $row['post_desc'];
                             $post_status = $row['post_status'];
 
 
@@ -366,7 +367,7 @@
                                                 <span><?php echo $post_date; ?></span>
                                             </div>
                                             <a class="h4" href="singleNews.php?an_id=<?php echo $post_id ?>"><?php echo $post_title; ?></a>
-                                            <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
+                                            <p class="m-0"><?php echo $post_desc; ?></p>
                                         </div>
                                     </div>
 
@@ -406,7 +407,7 @@
     <div class="container-fluid bg-light pt-5 px-sm-3 px-md-5">
         <div class="row">
             <div class="col-lg-3 col-md-6 mb-5">
-                <a href="index.html" class="navbar-brand">
+                <a href="#" class="navbar-brand">
                     <h1 class="mb-2 mt-n2 display-5 text-uppercase"><span class="text-primary"> </span>News<span class="text-primary">Room</span></h1>
                 </a>
 

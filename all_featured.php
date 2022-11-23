@@ -2,7 +2,7 @@
 <?php include "includes/functions.php"; ?>
 <?php
 
-$num_per_page = 04;
+$num_per_page = 6;
 
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
@@ -10,14 +10,14 @@ if (isset($_GET['page'])) {
     $page = 1;
 }
 
-$start_from = ($page - 1) * 4;
+$start_from = ($page - 1) * 6;
 
 if (isset($_POST['submit_key'])) {
     $search = $_POST['search'];
     $query = "SELECT * FROM posts WHERE post_tags LIKE '%$search%' OR post_title LIKE '%$search%' LIMIT $start_from,$num_per_page";
     $allFeat_query = mysqli_query($connection, $query);
 } else {
-    $query = "SELECT * FROM posts LIMIT $start_from,$num_per_page";
+    $query = "SELECT * FROM posts LIMIT $start_from, $num_per_page ";
     $allFeat_query = mysqli_query($connection, $query);
 }
 
@@ -128,13 +128,14 @@ if (isset($_POST['submit_key'])) {
                             $post_category_id = $row['post_category_id'];
                             $post_title = $row['post_title'];
                             $post_author = $row['post_author'];
-                            $post_date = $row['post_date'];
+                            $post_date = date("F j, Y", strtotime($row['post_date']));
 
 
                             $post_image = $row['post_image'];
                             $post_content = $row['post_content'];
                             $post_tags = $row['post_tags'];
                             $post_status = $row['post_status'];
+                            $post_desc = $row['post_desc'];
 
 
                             $query = "SELECT * FROM categories WHERE cat_id = $post_category_id";
@@ -153,7 +154,7 @@ if (isset($_POST['submit_key'])) {
                                                 <span><?php echo $post_date; ?></span>
                                             </div>
                                             <a class="h4" href="singleNews.php?an_id=<?php echo $post_id ?>"><?php echo $post_title; ?></a>
-                                            <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
+                                            <p class="m-0"><?php echo $post_desc; ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -213,7 +214,7 @@ if (isset($_POST['submit_key'])) {
                 <div class="container-fluid bg-light pt-2 px-sm-1 px-md-5">
                     <div class="row">
                         <div class="col-lg-3 col-md-6 mb-5">
-                            <a href="index.html" class="navbar-brand">
+                            <a href="#" class="navbar-brand">
                                 <h1 class="mb-2 mt-n2 display-5 text-uppercase"><span class="text-primary">News</span>Room</h1>
                             </a>
 
