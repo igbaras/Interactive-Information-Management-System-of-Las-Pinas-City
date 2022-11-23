@@ -115,7 +115,7 @@
 
                                         <td><?php echo $vt_date; ?></td>
                                         <td>
-                                            <a class='btn btn-success ' href="./virtualtour.php?source=add_vt&virt=<?php echo $vt_id ?>"><i class='fas fa-plus'></i></a>
+                                            <a class='btn btn-success ' href="./vt.php?source=add_vt&virt=<?php echo $vt_id ?>"><i class='fas fa-plus'></i></a>
                                             <a class='btn btn-primary ' data-toggle="modal" data-target="#edit<?php echo $vt_id ?>"><i class='fas fa-edit'></i></a><button class='btn btn-danger deletebtn' data-toggle='modal'><i class='fas fa-trash'></i></button>
                                         </td>
 

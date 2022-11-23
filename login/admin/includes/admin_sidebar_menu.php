@@ -135,7 +135,7 @@
 
                 </li>
                 <li class="nav-item <?= ($activePage == 'gallery.php') ? 'menu-open' : ''; ?>">
-                    <a href="gallery.php" class="nav-link">
+                    <a href="./gallery.php" class="nav-link">
                         <i class="nav-icon fas fa-image"></i>
                         <p>
                             Gallery
@@ -144,8 +144,8 @@
                     </a>
 
                 </li>
-                <li class="nav-item <?= ($activePage == 'virtualtour.php') ? 'menu-open' : ''; ?>">
-                    <a href="virtualtour.php" class="nav-link">
+                <li class="nav-item <?= ($activePage == 'vt.php') ? 'menu-open' : ''; ?>">
+                    <a href="./vt.php" class="nav-link">
                         <i class="nav-icon fas fa-vr-cardboard"></i>
                         <p>
                             Virtual Tour </p>

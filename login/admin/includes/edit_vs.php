@@ -60,7 +60,7 @@ if (isset($_POST['submit_virtual'])) {
     }
     echo "
     <div class=' alert alert-success alert-dismissible fade show'>
-    <h3 class=' text-right'><strong>{$vt_title}</strong> Virtualtour successfully updated! <a class='btn btn-success' href='../virtualtour.php?an_id={$the_vs_id}'>View Virtualtour</a> or <a class='btn btn-primary' href='./virtualtour.php'>Edit other virtualtour</a></h3> <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+    <h3 class=' text-right'><strong>{$vt_title}</strong> Virtualtour successfully updated! <a class='btn btn-success' href='../virtualtour.php?an_id={$the_vs_id}'>View Virtualtour</a> or <a class='btn btn-primary' href='./vt.php'>Edit other virtualtour</a></h3> <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
     <span aria-hidden='true'>&times;</span>
   </button></div>";
 }
@@ -73,7 +73,7 @@ if (isset($_POST['submit_virtual'])) {
 
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title"><a class="btn btn-warning" href="./virtualtour.php?source=add_vt&virt=<?php echo $vs_vt_id; ?>"><i class="fas fa-arrow-left"></i> BACK</a> Edit VirtualSpot <?php echo "ID: " . $the_vs_id; ?></h3>
+                    <h3 class="card-title"><a class="btn btn-warning" href="./vt.php?source=add_vt&virt=<?php echo $vs_vt_id; ?>"><i class="fas fa-arrow-left"></i> BACK</a> Edit VirtualSpot <?php echo "ID: " . $the_vs_id; ?></h3>
 
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
