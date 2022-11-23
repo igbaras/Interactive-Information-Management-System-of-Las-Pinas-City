@@ -34,7 +34,7 @@
             <div class="card">
 
                 <div class="card-header bg-info">
-                    <h2 class="card-title"> <a class="btn btn-sm btn-warning" href="./virtualTour.php"><i class="fas fa-arrow-left"></i> BACK</a> Add Virtual Spots to <strong><?php echo $vt_title; ?></strong></h2>
+                    <h2 class="card-title"> <a class="btn btn-sm btn-warning" href="./virtualtour.php"><i class="fas fa-arrow-left"></i> BACK</a> Add Virtual Spots to <strong><?php echo $vt_title; ?></strong></h2>
                 </div>
                 <!-- /.card-header -->
                 <!-- ADD ITEM BUTTON -->

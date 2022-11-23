@@ -73,7 +73,7 @@ if (isset($_POST['submit_virtual'])) {
 
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title"><a class="btn btn-warning" href="./virtualTour.php?source=add_vt&virt=<?php echo $vs_vt_id; ?>"><i class="fas fa-arrow-left"></i> BACK</a> Edit VirtualSpot <?php echo "ID: " . $the_vs_id; ?></h3>
+                    <h3 class="card-title"><a class="btn btn-warning" href="./virtualtour.php?source=add_vt&virt=<?php echo $vs_vt_id; ?>"><i class="fas fa-arrow-left"></i> BACK</a> Edit VirtualSpot <?php echo "ID: " . $the_vs_id; ?></h3>
 
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
