@@ -256,7 +256,7 @@ Configuration::instance([
                             <!-- Form Group (email address)-->
                             <div class="mb-3 ">
                                 <label class="small mb-1" for="inputEmailAddress">Password</label>
-                                <input class="form-control " id="inputEmailAddress" type="password" onClick="this.setSelectionRange(0, this.value.length)" placeholder="Enter your email address" required data-toggle="password" name="user_password">
+                                <input class="form-control " id="inputEmailAddress" type="password" onClick="this.setSelectionRange(0, this.value.length)" placeholder="Enter your password" required data-toggle="password" name="user_password">
                             </div>
 
                             <!-- Save changes button-->
