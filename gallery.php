@@ -1,17 +1,5 @@
 <?php include "includes/db.php"; ?>
-<?php
-$query = "SELECT * FROM gallery";
-$all_gal_query = mysqli_query($connection, $query);
 
-while ($row = mysqli_fetch_assoc($all_gal_query)) {
-
-	$img_title = $row['img_title'];
-	$img_image = $row['img_image'];
-	$img_status = $row['img_status'];
-
-	$img_desc = $row['img_desc'];
-	$img_date = date("F j, Y, g:i a", strtotime($row["img_date"]));
-} ?>
 
 <!DOCTYPE HTML>
 <!--
@@ -50,13 +38,27 @@ while ($row = mysqli_fetch_assoc($all_gal_query)) {
 
 		<!-- Thumbnail -->
 		<section id="thumbnails">
+			<?php
+			$query = "SELECT * FROM gallery";
+			$all_gal_query = mysqli_query($connection, $query);
 
-			<article>
-				<a class="thumbnail" href="<?php echo $img_image; ?>" data-position="left center"><img style="height: 150px;" src="<?php echo $img_image; ?>" alt="gallery img" /></a>
-				<h2><?php echo $img_title; ?></h2>
-				<p><?php echo $img_desc; ?></p>
-				<span><?php echo $img_date; ?></span>
-			</article>
+			while ($row = mysqli_fetch_assoc($all_gal_query)) {
+
+				$img_title = $row['img_title'];
+				$img_image = $row['img_image'];
+				$img_status = $row['img_status'];
+
+				$img_desc = $row['img_desc'];
+				$img_date = date("F j, Y, g:i a", strtotime($row["img_date"]));
+			?>
+				<article>
+					<a class="thumbnail" href="<?php echo $img_image; ?>" data-position="left center"><img style="height: 150px;" src="<?php echo $img_image; ?>" alt="gallery img" /></a>
+					<h2><?php echo $img_title; ?></h2>
+					<p><?php echo $img_desc; ?></p>
+					<span><?php echo $img_date; ?></span>
+				</article>
+			<?php
+			} ?>
 
 		</section>
 
