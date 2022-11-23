@@ -30,7 +30,7 @@ Configuration::instance([
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Admin | The City of Las Piñas</title>
-    <link rel="shortcut icon" type="image icon" href="../lplogo.png">
+    <link rel="shortcut icon" type="image icon" href="../../../Assets/images/lplogo.png">
 
 
     <!-- Google Font: Source Sans Pro -->

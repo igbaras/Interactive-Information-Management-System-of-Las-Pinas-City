@@ -201,9 +201,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 					<h2>Announcements, News, Articles and Comments</h2>
 					<p>In this area, anything that occurs in Las Piñas will be reported.</p>
 				</header>
-				<p>Feugiat accumsan lorem eu ac lorem amet ac arcu phasellus tortor enim mi mi nisi praesent adipiscing.
-					Integer mi sed nascetur cep aliquet augue varius tempus lobortis porttitor lorem et accumsan
-					consequat adipiscing lorem.</p>
+				<p>Here you can find recent news and articles regarding events in Las Piñas. Please feel free to check Las piñas activities, programs, developments, calamities, and incidents.</p>
 				<ul class="actions">
 					<?php
 					if ($loggedin) {
@@ -224,11 +222,10 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 			<div class="content">
 				<header>
 					<h2>Lifestyle and Virtual Tour</h2>
-					<p>Accumsan integer ultricies aliquam vel massa sapien phasellus</p>
+					<p>See all lifestyle in the city of Las Piñas</p>
 				</header>
-				<p>Feugiat accumsan lorem eu ac lorem amet ac arcu phasellus tortor enim mi mi nisi praesent adipiscing.
-					Integer mi sed nascetur cep aliquet augue varius tempus lobortis porttitor lorem et accumsan
-					consequat adipiscing lorem.</p>
+				<p>
+					Here you can visit well-known locations in Las Piñas. Feel free to visit and enjoy the lovely and distinctive locations that Las Piñas can provide with this fantastic 360-degree perspective..</p>
 				<ul class="actions">
 					<?php
 					if ($loggedin) {
@@ -283,6 +280,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 				<footer class="major">
 					<ul class="actions special">
 						<li><a href="singleFAQ.html" class="button">FAQ</a></li>
+						<li><a href="singlePublications.html" class="button">Publications</a></li>
 					</ul>
 				</footer>
 			</div>
