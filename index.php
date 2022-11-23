@@ -154,7 +154,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
 			<a href="#one" class="goto-next scrolly">Next</a>
 			<div class="col">
-				<img class="img-fluid" src="./Assets/images/cityhallgiff.gif" alt="" width="1920" height="1080">
+				<img class="img-fluid" src="https://res.cloudinary.com/sarabgi/image/upload/v1669227960/index/cityhallgiff_eul5n6.gif" alt="" width="1920" height="1080">
 
 
 			</div>
