@@ -79,6 +79,7 @@ switch ($source) {
 <script>
   $(function() {
     $("#example1").DataTable({
+      order: false,
       "responsive": true,
       "lengthChange": false,
       "autoWidth": false,
@@ -118,7 +119,7 @@ switch ($source) {
       console.log(data);
 
       $('#delete_id').val(data[0]);
-      $('#del_postTitle').val(data[1]);
+
 
     });
 

@@ -27,11 +27,10 @@ if (isset($_POST['update_post'])) {
     $post_category_id = $_POST['post_category_id'];
     $post_author = $_POST['post_author'];
     $post_status = $_POST['post_status'];
-
-
-    $post_image = (new UploadApi())->upload($_FILES["post_image"]["tmp_name"]);
-    $image_url = $post_image['secure_url'];
-
+    if (!empty($_FILES["post_image"]["tmp_name"])) {
+        $post_image = (new UploadApi())->upload($_FILES["post_image"]["tmp_name"]);
+        $image_url = $post_image['secure_url'];
+    }
     $post_tags = $_POST['post_tags'];
     $post_content = htmlentities($_POST['post_content']);
 
@@ -51,7 +50,10 @@ if (isset($_POST['update_post'])) {
     $query .= "post_date = now(), ";
     $query .= "post_author = '{$post_author}', ";
     $query .= "post_status = '{$post_status}', ";
-    $query .= "post_image = '{$image_url}', ";
+
+    if (!empty($image_url)) {
+        $query .= "post_image = '{$image_url}', ";
+    }
     $query .= "post_tags = '{$post_tags}', ";
     $query .= "post_content = '{$post_content}' ";
     $query .= "WHERE post_id = {$the_post_id}";
@@ -63,7 +65,7 @@ if (isset($_POST['update_post'])) {
     }
     echo "
     <div class=' alert alert-success alert-dismissible fade show'>
-    <h3 class=' text-right'><strong>{$post_title}</strong> post successfully updated! <a class='btn btn-success' href='../posts.php?an_id={$the_post_id}'>View Post</a> or <a class='btn btn-primary' href='./posts.php'>Edit other posts</a></h3> <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+    <h3 class=' text-right'><strong>{$post_title}</strong> post successfully updated! <a class='btn btn-success' href='../../singleNews.php?an_id={$the_post_id}' target= '_blank'>View Post</a> or <a class='btn btn-primary' href='./posts.php'>Edit other posts</a></h3> <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
     <span aria-hidden='true'>&times;</span>
   </button></div>";
 }

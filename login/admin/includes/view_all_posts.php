@@ -19,7 +19,7 @@
                     <div class="modal-content">
                         <form method="POST" enctype="multipart/form-data">
                             <div class="modal-header">
-                                <h3 class="modal-title">Add Image to Gallery</h3>
+                                <h3 class="modal-title">Add Post to News</h3>
                             </div>
                             <div class="modal-body">
                                 <div class="col-md-2"></div>

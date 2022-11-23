@@ -70,6 +70,7 @@
                                  <!-- Profile picture help block-->
                                  <input type="file" id="img" name="user_image" class="form-control small font-italic text-muted mb-4" value="<?php echo $user_image; ?>" required>
                                  <button class="btn btn-warning" type="submit" name="update_image">Update image</button>
+                                 <a class=" btn btn-small btn-outline-secondary" href=""> <i class="fas fa-undo"></i> Refresh</a>
                              </form>
 
 
@@ -85,6 +86,7 @@
                              <ul class="nav nav-pills">
 
                                  <li class="nav-item"><a class="nav-link active" href="#settings" data-toggle="tab">Settings</a></li>
+                                 <li class="nav-item"></li>
                              </ul>
                          </div><!-- /.card-header -->
                          <div class="card-body">

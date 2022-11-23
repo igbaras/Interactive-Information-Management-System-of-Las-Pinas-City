@@ -89,7 +89,7 @@
 
                                 <?php
 
-                                $query = "SELECT * FROM virtualtour";
+                                $query = "SELECT * FROM virtualtour ORDER BY vt_id DESC";
                                 $all_vt_query = mysqli_query($connection, $query);
                                 if (!$all_vt_query) {
                                     die("CONNECTION FAILED" . " " . mysqli_error($connection));

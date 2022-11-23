@@ -64,7 +64,7 @@
                     </div>
                     <div class="form-group text-left">
                       <label>Description</label>
-                      <textarea name="img_desc" id="" class="form-control" cols="30" rows="3"></textarea>
+                      <textarea name="img_desc" id="" class="form-control" cols="30" rows="3" maxlength="256"></textarea>
                     </div>
 
                   </div>
@@ -210,7 +210,7 @@
                                     <input type="hidden" name="previous" value="<?php echo $img_image; ?>" />
                                     <hr>
                                     <h5 class="text-left">New Photo</h5>
-                                    <input type="file" class="form-control" name="img_image" value="<?php echo $img_image; ?>" required="required" />
+                                    <input type="file" class="form-control" name="img_image" value="<?php echo $img_image; ?>" />
                                   </div>
                                   <div class="form-group text-left">
                                     <label for="editCategory">Title:</label>

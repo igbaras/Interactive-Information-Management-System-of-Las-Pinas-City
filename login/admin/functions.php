@@ -106,12 +106,23 @@ function updateCategory()
     $cat_title = $_POST['cat_title'];
     $cat_id = $_POST['cat_id'];
     $cat_desc = $_POST['cat_desc'];
+    if (!empty($_FILES["cat_image"]["tmp_name"])) {
+      $cat_image = (new UploadApi())->upload($_FILES["cat_image"]["tmp_name"]);
+      $image_url = $cat_image['secure_url'];
+    }
 
-    $cat_image = (new UploadApi())->upload($_FILES["cat_image"]["tmp_name"]);
-    $image_url = $cat_image['secure_url'];
 
 
-    $query = "UPDATE categories SET cat_title = '{$cat_title}', cat_image='{$image_url}', cat_desc='{$cat_desc}' WHERE cat_id={$cat_id}; ";
+    $query = "UPDATE categories SET cat_title = '{$cat_title}', cat_desc='{$cat_desc}' ";
+
+    if (!empty($image_url)) {
+      $query .= ",cat_image='{$image_url}' ";
+    }
+
+
+    $query .= "WHERE cat_id={$cat_id}";
+
+
     $update_category_query = mysqli_query($connection, $query);
 
     if (!$update_category_query) {
@@ -264,11 +275,22 @@ function updateGallery()
     $img_id = $_POST['img_id'];
     $img_desc = $_POST['img_desc'];
     $img_status = $_POST['img_status'];
+    if (!empty($_FILES["img_image"]["tmp_name"])) {
 
-    $img_image = (new UploadApi())->upload($_FILES["img_image"]["tmp_name"]);
-    $image_url = $img_image['secure_url'];
+      $img_image = (new UploadApi())->upload($_FILES["img_image"]["tmp_name"]);
+      $image_url = $img_image['secure_url'];
+    }
 
-    $query = "UPDATE gallery SET img_title = '{$img_title}', img_image='{$image_url}', img_status='{$img_status}', img_desc='{$img_desc}' WHERE img_id={$img_id}; ";
+
+    $query = "UPDATE gallery SET img_title = '{$img_title}', img_status='{$img_status}', img_desc='{$img_desc}'";
+
+    if (!empty($image_url)) {
+      $query .= ",img_image = '{$image_url}'";
+    }
+    $query .= " WHERE img_id={$img_id}";
+
+
+
     $update_gallery_query = mysqli_query($connection, $query);
 
     if (!$update_gallery_query) {
@@ -506,15 +528,23 @@ function updateUsers()
     $user_email = $_POST['user_email'];
     $user_password = $_POST['user_password'];
 
+    if (!empty($_FILES["user_image"]["tmp_name"])) {
+      $user_image = (new UploadApi())->upload($_FILES["user_image"]["tmp_name"]);
+      $image_url = $user_image['secure_url'];
+      $_SESSION['user_image'] = $image_url;
+    }
 
-    $user_image = (new UploadApi())->upload($_FILES["user_image"]["tmp_name"]);
-    $image_url = $user_image['secure_url'];
 
     $hashed_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 12));
 
-    $query = "UPDATE users SET username = '{$username}', user_firstname='{$user_firstname}', user_lastname='{$user_lastname}', user_email='{$user_email}', user_password='{$hashed_password}', user_image='{$image_url}', user_role='{$user_role}' WHERE user_id ={$user_id}; ";
+    $query = "UPDATE users SET username = '{$username}', user_firstname='{$user_firstname}', user_lastname='{$user_lastname}', user_email='{$user_email}', user_password='{$hashed_password}', user_role='{$user_role}'";
+
+    if (!empty($image_url)) {
+      $query .= ", user_image='{$image_url}'";
+    }
+    $query .= " WHERE user_id ={$user_id}";
     $update_user_query = mysqli_query($connection, $query);
-    $_SESSION['user_image'] = $user_image;
+
     if (!$update_user_query) {
       echo "QUERY FAILED " . mysqli_error($connection);
     }
@@ -654,12 +684,21 @@ function updateUsersPub()
     $user_lname = $_POST['user_lname'];
     $user_email = $_POST['user_email'];
     $user_password = $_POST['user_password'];
-    $user_avatar = (new UploadApi())->upload($_FILES["user_avatar"]["tmp_name"]);
-    $image_url = $user_avatar['secure_url'];
+
+    if (!empty($_FILES["user_avatar"]["tmp_name"])) {
+      $user_avatar = (new UploadApi())->upload($_FILES["user_avatar"]["tmp_name"]);
+      $image_url = $user_avatar['secure_url'];
+    }
+
 
     $hashed_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 12));
 
-    $query = "UPDATE public_users SET username = '{$username}', user_fname='{$user_fname}', user_lname='{$user_lname}', user_email='{$user_email}', user_password='{$hashed_password}', user_avatar='{$image_url}' WHERE user_id ={$user_id}; ";
+    $query = "UPDATE public_users SET username = '{$username}', user_fname='{$user_fname}', user_lname='{$user_lname}', user_email='{$user_email}', user_password='{$hashed_password}' ";
+    if (!empty($image_url)) {
+      $query .= ", user_avatar='{$image_url}'";
+    }
+    $query .= " WHERE user_id ={$user_id}";
+
     $update_user_query = mysqli_query($connection, $query);
     if ($update_user_query) {
       echo "<div class='alert alert-success alert-dismissible fade show text-center' role='alert' id='alerto'>
@@ -843,7 +882,7 @@ function deleteLifestyleComment()
   if (isset($_POST['delete_data'])) {
     $lf_comment_id = $_POST['lf_comment_id'];
 
-    $query = "DELETE FROM post_comments WHERE comment_id = {$lf_comment_id}";
+    $query = "DELETE FROM lifestyle_comments WHERE lf_comment_id = {$lf_comment_id}";
     $delete_post_query = mysqli_query($connection, $query);
     if (!$delete_post_query) {
       die("QUERY CONNECTION FAILED " . mysqli_error($connection));
@@ -851,7 +890,7 @@ function deleteLifestyleComment()
     if ($delete_post_query) {
 
       echo "<div class='alert alert-danger alert-dismissible fade show text-center' role='alert' id='alerto'>
-    <h5><strong>Post Comment Rejected successfully! <i class='fas fa-check'></i></strong></h5>    
+    <h5><strong>Lifestyle Comment Rejected successfully! <i class='fas fa-check'></i></strong></h5>    
           <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
             <span aria-hidden='true'>&times;</span>
           </button>

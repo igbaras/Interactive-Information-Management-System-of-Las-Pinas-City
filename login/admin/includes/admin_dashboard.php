@@ -24,7 +24,7 @@
 
                             <?php
 
-                            $query = "SELECT * FROM posts WHERE post_status = 'pending'";
+                            $query = "SELECT * FROM posts ";
                             $select_all_posts = mysqli_query($connection, $query);
                             $posts_count = mysqli_num_rows($select_all_posts);
                             echo "<h3 class = 'huge'>{$posts_count}</h3>";

@@ -27,10 +27,13 @@ if (isset($_POST['update_ls'])) {
     $ls_title = $_POST['ls_title'];
 
     $ls_status = $_POST['ls_status'];
+    if (!empty($_FILES["ls_image"]["tmp_name"])) {
+
+        $ls_image = (new UploadApi())->upload($_FILES["ls_image"]["tmp_name"]);
+        $image_url = $ls_image['secure_url'];
+    }
 
 
-    $ls_image = (new UploadApi())->upload($_FILES["ls_image"]["tmp_name"]);
-    $image_url = $ls_image['secure_url'];
 
     $ls_tags = $_POST['ls_tags'];
     $ls_description = $_POST['ls_description'];
@@ -49,7 +52,9 @@ if (isset($_POST['update_ls'])) {
     $query = "UPDATE lifestyles SET ";
     $query .= "ls_title = '{$ls_title}', ";
     $query .= "ls_status = '{$ls_status}', ";
-    $query .= "ls_image = '{$image_url}', ";
+    if (!empty($image_url)) {
+        $query .= "ls_image = '{$image_url}', ";
+    }
     $query .= "ls_tags = '{$ls_tags}', ";
     $query .= "ls_description = '{$ls_description}', ";
     $query .= "ls_content = '{$ls_content}' ";
@@ -62,7 +67,7 @@ if (isset($_POST['update_ls'])) {
     }
     echo "
     <div class=' alert alert-success alert-dismissible fade show'>
-    <h3 class=' text-right'><strong>{$ls_title}</strong> Lifestyle successfully updated! <a class='btn btn-success' href='../lifestyles.php?an_id={$the_lifestyle_id}'>View Lifestyle</a> or <a class='btn btn-primary' href='./lifestyles.php'>Edit other lifestyles</a></h3> <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+    <h3 class=' text-right'><strong>{$ls_title}</strong> Lifestyle successfully updated! <a class='btn btn-success' href='../../lifestyles/singleLifestyles.php?lsid={$the_lifestyle_id}'>View Lifestyle</a> or <a class='btn btn-primary' href='./lifestyles.php'>Edit other lifestyles</a></h3> <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
     <span aria-hidden='true'>&times;</span>
   </button></div>";
 }

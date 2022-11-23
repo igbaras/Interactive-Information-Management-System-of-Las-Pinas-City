@@ -12,7 +12,7 @@
 
                 <!-- ADD CATEGORY MODAL -->
                 <div class="modal fade" id="form_modal" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
+                    <div class="modal-dialog modal-xl">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h3 class="modal-title">Add LIFESTYLE</h3>
@@ -93,7 +93,7 @@
 
                             <?php
 
-                            $query = "SELECT * FROM lifestyles";
+                            $query = "SELECT * FROM lifestyles ORDER BY ls_id DESC";
                             $all_ls_query = mysqli_query($connection, $query);
                             if (!$all_ls_query) {
                                 die("CONNECTION FAILED" . " " . mysqli_error($connection));

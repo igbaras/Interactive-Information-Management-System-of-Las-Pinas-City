@@ -6,7 +6,7 @@
                 <!-- CATEGORY FORM -->
                 <div class="card card-primary col-12">
                     <div class="card-header">
-                        <h3 class="card-title">Public Users Account</h3>
+                        <h3 class="card-title"><strong>PUBLIC USERS ACCOUNT</strong></h3>
                     </div>
 
                     <!-- ADD ITEM BUTTON -->
@@ -126,7 +126,7 @@
                                     <?php
                                     $user_ses_id = $_SESSION['user_id'];
 
-                                    $query = "SELECT * FROM public_users WHERE user_ID NOT IN($user_ses_id)";
+                                    $query = "SELECT * FROM public_users WHERE user_ID NOT IN($user_ses_id) ORDER BY user_id DESC ";
                                     $all_user_query = mysqli_query($connection, $query);
                                     if (!$all_user_query) {
                                         die("CONNECTION FAILED" . " " . mysqli_error($connection));
@@ -170,7 +170,7 @@
                                                                         <img src="<?php echo $user_avatar ?>" height="120" width="150" />
                                                                         <hr>
                                                                         <h5 class="text-left">New Photo</h5>
-                                                                        <input type="file" class="form-control" name="user_avatar" value="<?php echo $user_avatar; ?>" required="required" />
+                                                                        <input type="file" class="form-control" name="user_avatar" value="<?php echo $user_avatar; ?>" />
                                                                     </div>
                                                                     <div class="form-group text-left">
                                                                         <label for="editCategory">First Name:</label>
@@ -194,7 +194,7 @@
                                                                         </div>
                                                                         <label for="editCategory">User Password:</label>
                                                                         <div class="input-group">
-                                                                            <input type="password" class="form-control mb-3" name="user_password" id="user_password" value="<?php echo $user_password; ?>">
+                                                                            <input type="password" class="form-control mb-3" name="user_password" id="user_password" required>
                                                                         </div>
 
                                                                     </div>

@@ -6,7 +6,7 @@
                 <!-- CATEGORY FORM -->
                 <div class="card card-primary col-12">
                     <div class="card-header">
-                        <h3 class="card-title">Manage Users </h3>
+                        <h3 class="card-title"><strong>PRIVATE USERS ACCOUNT</strong></h3>
                     </div>
 
                     <!-- ADD ITEM BUTTON -->
@@ -112,7 +112,7 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">List of Users</h3>
+                            <h3 class="card-title">List of PRIVATE USERS ACCOUNT</h3>
                         </div>
                         <!-- /.card-header -->
                         <?php insertUsers(); ?>
@@ -138,7 +138,7 @@
                                     <?php
                                     $user_ses_id = $_SESSION['user_id'];
 
-                                    $query = "SELECT * FROM users WHERE user_ID NOT IN($user_ses_id)";
+                                    $query = "SELECT * FROM users WHERE user_ID NOT IN($user_ses_id) ORDER BY user_id DESC";
                                     $all_user_query = mysqli_query($connection, $query);
                                     if (!$all_user_query) {
                                         die("CONNECTION FAILED" . " " . mysqli_error($connection));
@@ -183,7 +183,7 @@
                                                                         <img src="<?php echo "$user_image" ?>" height="120" width="150" />
                                                                         <hr>
                                                                         <h5 class="text-left">New Photo</h5>
-                                                                        <input type="file" class="form-control" name="user_image" value="<?php echo $user_image; ?>" required="required" />
+                                                                        <input type="file" class="form-control" name="user_image" value="<?php echo $user_image; ?>" />
                                                                     </div>
                                                                     <div class="form-group text-left">
                                                                         <label for="editCategory">First Name:</label>

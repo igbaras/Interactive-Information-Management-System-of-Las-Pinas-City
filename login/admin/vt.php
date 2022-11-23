@@ -85,6 +85,7 @@ switch ($source) {
 <script>
   $(function() {
     $("#example1").DataTable({
+      order: false,
       "responsive": true,
       "lengthChange": false,
       "autoWidth": false,

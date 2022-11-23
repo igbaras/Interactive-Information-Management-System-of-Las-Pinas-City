@@ -120,7 +120,7 @@ switch ($source) {
         autoWidth: false,
 
         order: false,
-        "scrollY": "350px",
+        "scrollY": "500px",
         "scrollCollapse": true,
         "paging": true,
         responsive: true,
