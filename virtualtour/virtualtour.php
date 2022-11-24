@@ -66,7 +66,7 @@
 		</section>
 		<section id="defaultmap">
 			<div class="defmap">
-				<iframe src="https://www.google.com/maps/embed?pb=!4v1668581049247!6m8!1m7!1s0YJqgsJtn4YMKVKC3r3ROQ!2m2!1d14.44917259944221!2d120.9823263846363!3f63.10086383394287!4f-4.419150326086111!5f0.7820865974627469" width="600" height="350" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52990.58593912077!2d120.99980167663232!3d14.44348286017008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ce0835972b6f%3A0xff33295d281774b!2sLas%20Pi%C3%B1as%2C%20Metro%20Manila!5e1!3m2!1sen!2sph!4v1669269302427!5m2!1sen!2sph" width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 			</div>
 		</section>
 		<!-- Main -->
