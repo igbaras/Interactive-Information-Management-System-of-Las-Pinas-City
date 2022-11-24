@@ -28,13 +28,14 @@ if (isset($_POST['update_post'])) {
     $post_category_id = $_POST['post_category_id'];
     $post_author = $_POST['post_author'];
     $post_status = $_POST['post_status'];
+    $post_desc = $_POST['post_desc'];
     if (!empty($_FILES["post_image"]["tmp_name"])) {
         $post_image = (new UploadApi())->upload($_FILES["post_image"]["tmp_name"]);
         $image_url = $post_image['secure_url'];
     }
     $post_tags = $_POST['post_tags'];
     $post_content = htmlentities($_POST['post_content']);
-    $post_desc = $row['post_desc'];
+
 
 
     if (empty($post_image)) {
@@ -150,7 +151,7 @@ if (isset($_POST['update_post'])) {
                         </div>
                         <div class="form-group">
                             <label for="PostTags">Post Desc</label>
-                            <textarea name="" id="" cols="30" rows="5" class="form-control" name="post_desc" required value="<?php echo $post_desc; ?>"></textarea>
+                            <textarea id="" cols="30" rows="5" class="form-control" name="post_desc" value="<?php echo $post_desc; ?>" required></textarea>
 
                         </div>
                         <div class="form-group">

@@ -418,41 +418,37 @@
 
                         <?php } ?>
                     </div>
+
                     <div class="owl-carousel owl-carousel-2 carousel-item-1 position-relative mb-3 mb-lg-0">
+                        <?php
+                        $query = "SELECT * FROM ads ORDER BY ads_id DESC";
+                        $select_all_ads = mysqli_query($connection, $query);
+                        if (!$connection) {
+                            die("CONNECTION FAILED" . " " . mysqli_error($connection));
+                        }
+                        while ($row = mysqli_fetch_assoc($select_all_ads)) {
+                            $ads_id = $row['ads_id'];
+                            $ads_title = $row['ads_title'];
+                            $ads_image = $row['ads_image'];
+                            $ads_link = $row['ads_link'];
 
 
-                        <div class="owl-carousel owl-carousel-2 carousel-item-1 position-relative mb-3 mb-lg-0">
-                            <?php
-                            $query = "SELECT * FROM ads ORDER BY ads_id DESC ";
-                            $select_all_ads = mysqli_query($connection, $query);
-                            if (!$connection) {
-                                die("CONNECTION FAILED" . " " . mysqli_error($connection));
-                            }
-                            while ($row = mysqli_fetch_assoc($select_all_ads)) {
-                                $ads_id = $row['ads_id'];
-                                $ads_title = $row['ads_title'];
-                                $ads_image = $row['ads_image'];
-                                $ads_link = $row['ads_link'];
+                        ?>
+
+                            <div class="position-relative overflow-hidden" style="height: 335px;">
 
 
-                            ?>
+                                <img class=" img-fluid h-100" src="<?php echo $ads_image; ?>" style="object-fit: cover;">
 
-                                <div class="position-relative overflow-hidden" style="height: 335px;">
+                                <div class="overlay">
 
-
-                                    <img class=" img-fluid h-100" src="<?php echo $ads_image; ?>" style="object-fit: cover;">
-
-                                    <div class="overlay">
-
-                                        <a class="h2 m-0 text-white font-weight-bold" href="<?php echo $ads_link ?>" target="_blank"><?php echo $ads_title; ?></a>
-                                    </div>
-
+                                    <a class="h2 m-0 text-white font-weight-bold" href="<?php echo $ads_link ?>" target="_blank"><?php echo $ads_title; ?></a>
                                 </div>
 
-                            <?php } ?>
-                        </div>
-                    </div>
+                            </div>
 
+                        <?php } ?>
+                    </div>
 
 
                     <!-- Ads End -->

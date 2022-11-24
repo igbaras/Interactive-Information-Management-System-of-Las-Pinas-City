@@ -324,7 +324,7 @@
                                                                         <div id="selectedBanner"><img id="selectedBanner" src="<?php echo $post_image; ?>" width='200px' height='200px' alt="post image"></div>
                                                                         <div class="input-group col-5   ">
                                                                             <input type="hidden" value="<?php echo $post_id; ?>" name="post_id">
-                                                                            <input type="file" class="form-control" id="img" name="post_image" required>
+                                                                            <input type="file" class="form-control" id="img" name="post_image">
 
                                                                             <div class=" input-group-append">
 
@@ -614,7 +614,7 @@
                                                                         <div id="selectedBanner"><img id="selectedBanner" src="<?php echo $post_image; ?>" width='200px' height='200px' alt="post image"></div>
                                                                         <div class="input-group col-5   ">
                                                                             <input type="hidden" value="<?php echo $post_id; ?>" name="post_id">
-                                                                            <input type="file" class="form-control" id="img" name="post_image" required>
+                                                                            <input type="file" class="form-control" id="img" name="post_image">
 
                                                                             <div class=" input-group-append">
 
