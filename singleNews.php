@@ -73,7 +73,6 @@
 
                 </div>
                 <div class="input-group ml-auto" style="width: 100%; max-width: 300px;">
-                    <input type="text" class="form-control" placeholder="Keyword">
                     <div class="input-group-append">
                         <button class="input-group-text text-secondary"><i class="fa fa-search"></i></button>
                     </div>
