@@ -152,6 +152,15 @@
                     </a>
 
                 </li>
+                <li class="nav-item <?= ($activePage == 'ads.php') ? 'menu-open' : ''; ?>">
+                    <a href="./ads.php" class="nav-link">
+                        <i class="nav-icon fas fa-ad"></i>
+                        <p>
+                            Advertisements </p>
+                    </a>
+
+                </li>
+
 
                 <li class="nav-header">OTHER CONFIGURATIONS</li>
 
