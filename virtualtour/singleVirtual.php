@@ -35,6 +35,8 @@
 
 		iframe {
 			width: 100% !important;
+			height: 45em !important;
+
 
 		}
 
@@ -211,7 +213,7 @@
 
 			</div>
 
-			<div class="inner">
+			<div class="inner" style=" width: 100%;  max-width: 100%; margin: 0 auto;padding: 0;">
 
 				<div style="text-align:center;margin:0px;padding:0px;overflow:hidden">
 					<div class="vt_title">
@@ -295,11 +297,15 @@
 						
 					</div> -->
 					<br>
-					<p style="text-align:justify;"><?php echo $vt_desc; ?></p>
+
 				</div>
 
 
 			</div>
+			<div class="container">
+				<p style="text-align:justify;"><?php echo $vt_desc; ?></p>
+			</div>
+
 		</div>
 
 		<!-- Footer -->
