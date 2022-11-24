@@ -33,6 +33,10 @@
 			font-family: 'Poppins', sans-serif
 		}
 
+		body p {
+			font-size: x-large;
+		}
+
 		iframe {
 			width: 100% !important;
 			height: 45em !important;
