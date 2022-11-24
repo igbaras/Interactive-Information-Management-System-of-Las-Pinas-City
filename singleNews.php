@@ -251,7 +251,7 @@
 
                         while ($row = mysqli_fetch_assoc($select_comment_query)) {
                             $comment_author = $row['comment_author'];
-                            $comment_date = date("F j, Y, g:i a", strtotime($row['comment_date']));
+                            $comment_date = date("F j, Y", strtotime($row['comment_date']));
 
                             $comment_content = $row['comment_content'];
                             $comment_user_image = $row['comment_user_image'];

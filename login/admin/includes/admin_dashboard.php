@@ -80,6 +80,26 @@
                         <a href="./gallery.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                            <?php
+
+                            $query = "SELECT * FROM virtualtour ";
+                            $select_all_vt = mysqli_query($connection, $query);
+                            $posts_count = mysqli_num_rows($select_all_vt);
+                            echo "<h3 class = 'huge'>{$posts_count}</h3>";
+                            ?>
+
+                            <p>Total Virtual Tours</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-vr-cardboard"></i>
+                        </div>
+                        <a href="./vt.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
             </div>
             <!-- /.row -->
             <!-- Main row -->

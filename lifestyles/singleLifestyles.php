@@ -195,7 +195,7 @@ if (isset($_GET['lsid'])) {
 
 							while ($row = mysqli_fetch_assoc($select_comment_query)) {
 								$lf_comment_author = $row['lf_comment_author'];
-								$lf_comment_date = date("F j, Y, g:i a", strtotime($row['lf_comment_date']));
+								$lf_comment_date = date("F j, Y", strtotime($row['lf_comment_date']));
 
 								$lf_comment_content = $row['lf_comment_content'];
 								$lf_comment_user_image = $row['lf_comment_user_image'];

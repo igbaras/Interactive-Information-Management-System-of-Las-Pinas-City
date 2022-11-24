@@ -78,7 +78,7 @@ function updatePost()
         }
         echo "
         <div class=' alert alert-success alert-dismissible fade show'>
-        <h3 class=' text-right'><strong>{$post_title}</strong> status successfully updated! <a class='btn btn-warning' href='../posts.php?an_id={$post_id}'>View Post</a> or <a class='btn btn-primary' href='./portal.php'>Review other posts</a></h3> <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+        <h3 class=' text-right'><strong>{$post_title}</strong> status successfully updated! <a class='btn btn-warning' href='../../singleNews.php?an_id={$post_id} ' target='_blank'>View Post</a> </h3> <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
         <span aria-hidden='true'>&times;</span>
       </button></div>";
     }

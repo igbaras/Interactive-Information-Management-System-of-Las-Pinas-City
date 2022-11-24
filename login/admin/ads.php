@@ -125,10 +125,7 @@
                     <th>Image</th>
                     <th>Title</th>
                     <th>Link</th>
-
                     <th></th>
-
-
                   </tr>
                 </thead>
                 <tbody>
@@ -263,6 +260,9 @@
         autoWidth: false,
         columns: [{
             width: '5px'
+          },
+          {
+            width: '50px'
           },
           {
             width: '50px'

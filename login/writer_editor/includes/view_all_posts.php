@@ -423,8 +423,7 @@
                         <h3 class="card-title">List of Images</h3>
                     </div>
                     <!-- /.card-header -->
-                    <?php insertPost(); ?>
-                    <?php updatePost(); ?>
+
 
 
                     <div class="card-body">
