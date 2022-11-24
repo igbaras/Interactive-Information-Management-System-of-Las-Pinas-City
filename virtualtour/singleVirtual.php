@@ -59,7 +59,6 @@
 
 		body .vertical-centered-box {
 			position: absolute;
-			height: 100%;
 			text-align: center;
 			z-index: -1;
 		}
@@ -67,9 +66,8 @@
 		body .vertical-centered-box:after {
 			content: "";
 			display: inline-block;
-			height: 100%;
 			vertical-align: middle;
-			margin-right: -0.25em;
+
 		}
 
 		body .vertical-centered-box .content {
@@ -94,7 +92,7 @@
 		#particles-foreground {
 			left: -51%;
 			top: -51%;
-			width: 202%;
+			width: 200%;
 			height: 202%;
 			-webkit-transform: scale3d(0.5, 0.5, 1);
 			-moz-transform: scale3d(0.5, 0.5, 1);
