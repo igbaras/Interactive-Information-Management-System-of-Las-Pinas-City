@@ -149,16 +149,13 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 						See More
 					</a>
 				</header>
-				<div class="panel-body">
 
-					<script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5eznm6yqt2r&amp;m=6&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=0" async="async"></script>
-				</div>
-				<span class="image"><img src="./Assets/images/pic01.jpg" alt="" /></span>
+				<span class="image"><img src="https://res.cloudinary.com/sarabgi/image/upload/v1669228246/index/pic01_n3zmhj.jpg" alt="" /></span>
 			</div>
 
 			<a href="#one" class="goto-next scrolly">Next</a>
 			<div class="col">
-				<img class="img-fluid" src="./Assets/images/cityhallgiff.gif" alt="" width="1920" height="1080">
+				<img class="img-fluid" src="https://res.cloudinary.com/sarabgi/image/upload/v1669227960/index/cityhallgiff_eul5n6.gif" alt="" width="1920" height="1080">
 
 
 			</div>
@@ -167,7 +164,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 		</section>
 		<!-- One -->
 		<section id="one" class="spotlight style1 bottom">
-			<span class="image fit main"><img src="./Assets/images/pic02.jpg" alt="" /></span>
+			<span class="image fit main"><img src="https://res.cloudinary.com/sarabgi/image/upload/v1669228246/index/pic02_sidchn.jpg" alt="" /></span>
 			<div class="content">
 				<div class="container">
 					<div class="row">
@@ -198,7 +195,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
 		<!-- Two -->
 		<section id="two" class="spotlight style2 right">
-			<span class="image fit main"><img src="./Assets/images/pic03.jpg" alt="" /></span>
+			<span class="image fit main"><img src="https://res.cloudinary.com/sarabgi/image/upload/v1669228245/index/pic03_gtu3fl.jpg" alt="" /></span>
 			<div class="content">
 				<header>
 					<h2>Announcements, News, Articles and Comments</h2>
@@ -221,7 +218,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
 		<!-- Three -->
 		<section id="three" class="spotlight style3 left">
-			<span class="image fit main bottom"><img src="./Assets/images/pic04.jpg" alt="" /></span>
+			<span class="image fit main bottom"><img src="https://res.cloudinary.com/sarabgi/image/upload/v1669228246/index/pic04_suni6w.jpg" alt="" /></span>
 			<div class="content">
 				<header>
 					<h2>Lifestyle and Virtual Tour</h2>

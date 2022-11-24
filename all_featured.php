@@ -221,14 +221,7 @@ if (isset($_POST['submit_key'])) {
                         </div>
 
                     </div>
-                    <div class="container-fluid py-4 px-sm-2 px-md-5">
-                        <p class="m-0 text-center">
-                            &copy; <a class="font-weight-bold" href="#">Your Site Name</a>. All Rights Reserved.
 
-
-                            Designed by <a class="font-weight-bold" href="https://freewebsitecode.com">Free Website Code</a>
-                        </p>
-                    </div>
                     <!-- Footer End -->
 
 
