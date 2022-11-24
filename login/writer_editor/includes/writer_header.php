@@ -29,7 +29,7 @@ Configuration::instance([
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image icon" href="https://res.cloudinary.com/sarabgi/image/upload/v1669190604/index/lplogo_rjgtai.png">
-    <title>Chat Service | The City of Las Piñas</title>
+    <title>Writer | The City of Las Piñas</title>
 
 
 
