@@ -28,7 +28,8 @@
 		@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&family=Poppins:wght@400;600&display=swap');
 
 		body {
-			background: #DADFD9;
+			background: #00180A;
+			color: #EFF4ED;
 			font-family: 'Poppins', sans-serif
 		}
 
@@ -40,7 +41,8 @@
 		.vt_title,
 		.vtpage {
 			font-family: 'Poppins', sans-serif;
-			background-color: #CAD2C9;
+			background-color: #164A41;
+			color: #F1B24A;
 
 
 		}
