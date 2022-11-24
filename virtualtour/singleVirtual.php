@@ -55,12 +55,62 @@
 			z-index: 1000;
 		}
 
-		@media screen and(min-width:1024px) {}
+		/* =======PARTICLES BACKGROUND========= */
 
-		@media screen and(min-width:768px)and(max-width:1023px) {}
+		body .vertical-centered-box {
+			position: absolute;
+			height: 100%;
+			text-align: center;
+			z-index: -1;
+		}
 
+		body .vertical-centered-box:after {
+			content: "";
+			display: inline-block;
+			height: 100%;
+			vertical-align: middle;
+			margin-right: -0.25em;
+		}
 
-		@media screen and(max-width:767px) {}
+		body .vertical-centered-box .content {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			vertical-align: middle;
+			text-align: left;
+			font-size: 0;
+			display: -webkit-inline-box;
+			display: -ms-inline-flexbox;
+			display: inline-flex;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			justify-content: center;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			align-items: center;
+		}
+
+		#particles-background,
+		#particles-foreground {
+			left: -51%;
+			top: -51%;
+			width: 202%;
+			height: 202%;
+			-webkit-transform: scale3d(0.5, 0.5, 1);
+			-moz-transform: scale3d(0.5, 0.5, 1);
+			-ms-transform: scale3d(0.5, 0.5, 1);
+			-o-transform: scale3d(0.5, 0.5, 1);
+			transform: scale3d(0.5, 0.5, 1);
+			z-index: -1;
+		}
+
+		#particles-background {
+			background: url(https://res.cloudinary.com/sarabgi/image/upload/v1669228481/index/banner_voxu3d.jpg);
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+			opacity: 0.1;
+		}
 	</style>
 </head>
 
@@ -147,6 +197,22 @@
 
 		<!-- Main -->
 		<div id="main">
+
+			<div class="loader-container">
+
+
+				<div id="particles-background" class="vertical-centered-box"></div>
+				<div id="particles-foreground" class="vertical-centered-box"></div>
+				<div class="vertical-centered-box">
+
+
+					<div class="content">
+					</div>
+
+				</div>
+
+			</div>
+
 			<div class="inner">
 
 				<div style="text-align:center;margin:0px;padding:0px;overflow:hidden">
@@ -242,6 +308,7 @@
 
 
 	</div>
+	<script src="particles.js"></script>
 	<script>
 		$('.carousel').carousel({
 			interval: false,
