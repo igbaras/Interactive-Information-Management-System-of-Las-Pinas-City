@@ -10,7 +10,7 @@
 
 <head>
 	<title>Lifestyle| The City of Las Piñas</title>
-	<link rel="shortcut icon" type="image icon" href="../Assets/images/lplogo.png">
+	<link rel="shortcut icon" type="image icon" href="https://res.cloudinary.com/sarabgi/image/upload/v1669190604/index/lplogo_rjgtai.png">
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="../Assets/lifestyleassets/assets/css/main.css" />
