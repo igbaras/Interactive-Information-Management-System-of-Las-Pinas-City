@@ -38,8 +38,8 @@
 		}
 
 		iframe {
-			width: 100% !important;
-			height: 45em !important;
+			width: 85% !important;
+			height: 33em !important;
 
 
 		}
