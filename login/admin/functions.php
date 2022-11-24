@@ -757,12 +757,13 @@ function insertPost()
     $image_url = $image_properties['secure_url'];
     $post_content = htmlentities($_POST['post_content']);
     $post_tags = $_POST['post_tags'];
+    $post_desc = $_POST['post_desc'];
     $post_status = $_POST['post_status'];
 
 
 
-    $query = "INSERT INTO posts (post_category_id, post_title, post_author, post_date, post_image, post_content, post_tags , post_status) ";
-    $query .= "VALUES ({$post_category_id} ,'{$post_title}','{$post_author}',current_timestamp(), '{$image_url}','{$post_content}','{$post_tags}', '{$post_status}')";
+    $query = "INSERT INTO posts (post_category_id, post_title, post_author, post_date, post_image, post_content, post_tags , post_desc , post_status) ";
+    $query .= "VALUES ({$post_category_id} ,'{$post_title}','{$post_author}',current_timestamp(), '{$image_url}','{$post_content}','{$post_tags}', '{$post_desc}', '{$post_status}')";
     $insert_Posts_query = mysqli_query($connection, $query);
     if (!$insert_Posts_query) {
 

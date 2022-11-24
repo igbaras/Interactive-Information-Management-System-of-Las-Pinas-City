@@ -20,6 +20,7 @@ while ($row  = mysqli_fetch_assoc($select_edit_posts)) {
     $post_tags = $row['post_tags'];
     $post_comment_count = $row['post_comment_count'];
     $post_date = $row['post_date'];
+    $post_desc = $row['post_desc'];
 }
 
 if (isset($_POST['update_post'])) {
@@ -33,7 +34,7 @@ if (isset($_POST['update_post'])) {
     }
     $post_tags = $_POST['post_tags'];
     $post_content = htmlentities($_POST['post_content']);
-
+    $post_desc = $row['post_desc'];
 
 
     if (empty($post_image)) {
@@ -55,6 +56,7 @@ if (isset($_POST['update_post'])) {
         $query .= "post_image = '{$image_url}', ";
     }
     $query .= "post_tags = '{$post_tags}', ";
+    $query .= "post_desc = '{$post_desc}', ";
     $query .= "post_content = '{$post_content}' ";
     $query .= "WHERE post_id = {$the_post_id}";
 
@@ -145,6 +147,11 @@ if (isset($_POST['update_post'])) {
                         <div class="form-group">
                             <label for="PostTags">Post Tags</label>
                             <input type="text" id="inputName" class="form-control" name="post_tags" value="<?php echo $post_tags; ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="PostTags">Post Desc</label>
+                            <textarea name="" id="" cols="30" rows="5" class="form-control" name="post_desc" required value="<?php echo $post_desc; ?>"></textarea>
+
                         </div>
                         <div class="form-group">
                             <label for="PostCOntent">Post Content</label>

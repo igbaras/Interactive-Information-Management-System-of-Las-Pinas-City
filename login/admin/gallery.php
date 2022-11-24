@@ -122,13 +122,12 @@
             <?php updateGallery(); ?>
             <?php deleteGallery(); ?>
             <div class="card-body">
-              <table id="example1" class="table table-head-fixed text-nowrap">
+              <table id="galleryTable" class="table table-head-fixed ">
                 <thead>
                   <tr>
                     <th>ID</th>
                     <th>Image</th>
                     <th>Title</th>
-
                     <th>Status</th>
                     <th>Date Created</th>
                     <th></th>
@@ -268,6 +267,46 @@
 
 <!-- Admin Footer -->
 <?php include "includes/admin_footer.php" ?>
+
+
+<script>
+  $(document).ready(function() {
+    $('#galleryTable').DataTable({
+        autoWidth: false,
+        columns: [{
+            width: '5px'
+          },
+          {
+            width: '50px'
+          },
+          {
+            width: '50px'
+          },
+          {
+            width: '50px'
+          },
+          {
+            width: '50px'
+          }
+        ],
+        order: false,
+        "scrollY": "700px",
+        "scrollCollapse": true,
+        "paging": true,
+        responsive: true,
+        lengthChange: false,
+        autoWidth: false,
+
+        buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
+      })
+      .buttons()
+      .container()
+      .appendTo("#galleryTable_wrapper .col-md-6:eq(0)");
+
+
+  });
+</script>
+
 
 <!-- DISPLAY SELECTED IMAGE -->
 <script>

@@ -118,7 +118,25 @@ switch ($source) {
   $(document).ready(function() {
     $('#postTable').DataTable({
         autoWidth: false,
-
+        columns: [{
+            width: '5px'
+          },
+          {
+            width: '40px'
+          },
+          {
+            width: '70px'
+          },
+          {
+            width: '50px'
+          },
+          {
+            width: '50px'
+          },
+          {
+            width: '60px'
+          }
+        ],
         order: false,
         "scrollY": "500px",
         "scrollCollapse": true,

@@ -70,6 +70,11 @@
                                             <input type="text" id="inputName" class="form-control" name="post_tags" required>
                                         </div>
                                         <div class="form-group">
+                                            <label for="PostTags">Post Desc</label>
+                                            <textarea name="" id="" cols="30" rows="5" class="form-control" name="post_desc" required></textarea>
+
+                                        </div>
+                                        <div class="form-group">
                                             <label for="PostCOntent">Post Content</label>
                                             <textarea name="post_content" id="summernote" class="form-control" required></textarea>
                                         </div>

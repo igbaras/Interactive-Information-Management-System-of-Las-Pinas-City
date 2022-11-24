@@ -149,6 +149,10 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 						See More
 					</a>
 				</header>
+				<div class="panel-body">
+
+					<script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5eznm6yqt2r&amp;m=6&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=0" async="async"></script>
+				</div>
 				<span class="image"><img src="./Assets/images/pic01.jpg" alt="" /></span>
 			</div>
 
