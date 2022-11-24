@@ -99,7 +99,7 @@
 			left: -51%;
 			top: -51%;
 			width: 200%;
-			height: 202%;
+			height: 195%;
 			-webkit-transform: scale3d(0.5, 0.5, 1);
 			-moz-transform: scale3d(0.5, 0.5, 1);
 			-ms-transform: scale3d(0.5, 0.5, 1);
@@ -168,7 +168,7 @@
 	<div id="wrapper">
 
 		<!-- Header -->
-		<header id="header">
+		<header id="header" style="padding: 0 !important;">
 			<div class="inner">
 
 				<!-- Logo -->
