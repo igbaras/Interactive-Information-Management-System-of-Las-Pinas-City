@@ -24,7 +24,7 @@
 
                             <?php
 
-                            $query = "SELECT * FROM posts WHERE post_status = 'pending'";
+                            $query = "SELECT * FROM posts";
                             $select_all_posts = mysqli_query($connection, $query);
                             $posts_count = mysqli_num_rows($select_all_posts);
                             echo "<h3 class = 'huge'>{$posts_count}</h3>";
@@ -35,7 +35,7 @@
                         <div class="icon">
                             <i class="ion ion-android-clipboard"></i>
                         </div>
-                        <a href=" #" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href=" ./posts.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -46,7 +46,7 @@
 
                             <?php
 
-                            $query = "SELECT * FROM posts ";
+                            $query = "SELECT * FROM lifestyles ";
                             $select_all_posts = mysqli_query($connection, $query);
                             $posts_count = mysqli_num_rows($select_all_posts);
                             echo "<h3 class = 'huge'>{$posts_count}</h3>";
@@ -66,7 +66,7 @@
                         <div class="inner">
                             <?php
 
-                            $query = "SELECT * FROM categories ";
+                            $query = "SELECT * FROM gallery ";
                             $select_all_cat = mysqli_query($connection, $query);
                             $posts_count = mysqli_num_rows($select_all_cat);
                             echo "<h3 class = 'huge'>{$posts_count}</h3>";
@@ -180,8 +180,8 @@
 
 
                                             <td>
-                                                <button class='btn btn-sm btn-secondary' data-toggle='modal' data-target="#editPost<?php echo $post_id ?>"><i class='fas fa-eye'></i></button>
-                                                <a class='btn  btn-sm  btn-primary' href="posts.php?source=update_stat&an_edit=<?php echo $post_id; ?>"><small class='align-self-end'><i class='fas fa-eye'></i></small></a><button class="btn  btn-sm  btn-danger" data-toggle="modal" data-target="#modal<?php echo $post_id; ?>"><i class='fas fa-trash'></i></button>
+                                                <button class='btn btn-sm btn-info' data-toggle='modal' data-target="#editPost<?php echo $post_id ?>"><i class='fas fa-edit'></i> EDIT POST</button>
+
                                             </td>
 
 

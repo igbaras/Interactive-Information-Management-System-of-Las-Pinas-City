@@ -24,7 +24,7 @@
 
                             <?php
 
-                            $query = "SELECT * FROM posts WHERE post_status = 'pending'";
+                            $query = "SELECT * FROM posts";
                             $select_all_posts = mysqli_query($connection, $query);
                             $posts_count = mysqli_num_rows($select_all_posts);
                             echo "<h3 class = 'huge'>{$posts_count}</h3>";
@@ -35,7 +35,7 @@
                         <div class="icon">
                             <i class="ion ion-android-clipboard"></i>
                         </div>
-                        <a href=" #" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -46,7 +46,7 @@
 
                             <?php
 
-                            $query = "SELECT * FROM posts ";
+                            $query = "SELECT * FROM lifestyles ";
                             $select_all_posts = mysqli_query($connection, $query);
                             $posts_count = mysqli_num_rows($select_all_posts);
                             echo "<h3 class = 'huge'>{$posts_count}</h3>";
@@ -66,7 +66,7 @@
                         <div class="inner">
                             <?php
 
-                            $query = "SELECT * FROM categories ";
+                            $query = "SELECT * FROM gallery ";
                             $select_all_cat = mysqli_query($connection, $query);
                             $posts_count = mysqli_num_rows($select_all_cat);
                             echo "<h3 class = 'huge'>{$posts_count}</h3>";
@@ -80,35 +80,12 @@
                         <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <!-- ./col -->
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                            <?php
-
-                            $query = "SELECT * FROM virtualtour ";
-                            $select_all_vt = mysqli_query($connection, $query);
-                            $posts_count = mysqli_num_rows($select_all_vt);
-                            echo "<h3 class = 'huge'>{$posts_count}</h3>";
-                            ?>
-
-                            <p>Total Virtual Tours</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-vr-cardboard"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
-            </div>
-            <!-- /.row -->
-            <!-- Main row -->
+                <!-- /.row -->
+                <!-- Main row -->
 
 
-            <!-- /.row (main row) -->
-        </div><!-- /.container-fluid -->
+                <!-- /.row (main row) -->
+            </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
 </div>

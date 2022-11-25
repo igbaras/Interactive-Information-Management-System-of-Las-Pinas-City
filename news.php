@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="shortcut icon" type="image icon" href="./Assets/images/lplogo.png">
+    <link rel="shortcut icon" type="image icon" href="https://res.cloudinary.com/sarabgi/image/upload/v1669190604/index/lplogo_rjgtai.png">
     <title>News | The City of Las Piñas</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
@@ -382,15 +382,75 @@
 
 
                 </div>
-
+                <!-- Ads Start -->
                 <div class="col-lg-4 pt-3 pt-lg-0">
+                    <div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
+                        <h3 class="m-0">Advertisements</h3>
 
-
-
-                    <!-- Ads Start -->
-                    <div class="mb-3 pb-3">
-                        <a href=""><img class="img-fluid w-100" src="./Assets/programservicesassets/images/pic15.jpg" alt=""></a>
                     </div>
+                    <div class="owl-carousel owl-carousel-2 carousel-item-1 position-relative mb-3 mb-lg-0">
+                        <?php
+                        $query = "SELECT * FROM ads ";
+                        $select_all_ads = mysqli_query($connection, $query);
+                        if (!$connection) {
+                            die("CONNECTION FAILED" . " " . mysqli_error($connection));
+                        }
+                        while ($row = mysqli_fetch_assoc($select_all_ads)) {
+                            $ads_id = $row['ads_id'];
+                            $ads_title = $row['ads_title'];
+                            $ads_image = $row['ads_image'];
+                            $ads_link = $row['ads_link'];
+
+
+                        ?>
+
+                            <div class="position-relative overflow-hidden" style="height: 335px;">
+
+
+                                <img class=" img-fluid h-100" src="<?php echo $ads_image; ?>" style="object-fit: cover;">
+
+                                <div class="overlay">
+
+                                    <a class="h2 m-0 text-white font-weight-bold" href="<?php echo $ads_link ?>" target="_blank"><?php echo $ads_title; ?></a>
+                                </div>
+
+                            </div>
+
+                        <?php } ?>
+                    </div>
+
+                    <div class="owl-carousel owl-carousel-2 carousel-item-1 position-relative mb-3 mb-lg-0">
+                        <?php
+                        $query = "SELECT * FROM ads ORDER BY ads_id DESC";
+                        $select_all_ads = mysqli_query($connection, $query);
+                        if (!$connection) {
+                            die("CONNECTION FAILED" . " " . mysqli_error($connection));
+                        }
+                        while ($row = mysqli_fetch_assoc($select_all_ads)) {
+                            $ads_id = $row['ads_id'];
+                            $ads_title = $row['ads_title'];
+                            $ads_image = $row['ads_image'];
+                            $ads_link = $row['ads_link'];
+
+
+                        ?>
+
+                            <div class="position-relative overflow-hidden" style="height: 335px;">
+
+
+                                <img class=" img-fluid h-100" src="<?php echo $ads_image; ?>" style="object-fit: cover;">
+
+                                <div class="overlay">
+
+                                    <a class="h2 m-0 text-white font-weight-bold" href="<?php echo $ads_link ?>" target="_blank"><?php echo $ads_title; ?></a>
+                                </div>
+
+                            </div>
+
+                        <?php } ?>
+                    </div>
+
+
                     <!-- Ads End -->
 
 

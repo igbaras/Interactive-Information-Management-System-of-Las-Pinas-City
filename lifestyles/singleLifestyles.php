@@ -32,7 +32,7 @@ if (isset($_GET['lsid'])) {
 
 <head>
 	<title>Lifestyle | The City of Las Piñas</title>
-	<link rel="shortcut icon" type="image icon" href="../Assets/images/lplogo.png">
+	<link rel="shortcut icon" type="image icon" href="https://res.cloudinary.com/sarabgi/image/upload/v1669190604/index/lplogo_rjgtai.png">
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="main.css" />
@@ -195,7 +195,7 @@ if (isset($_GET['lsid'])) {
 
 							while ($row = mysqli_fetch_assoc($select_comment_query)) {
 								$lf_comment_author = $row['lf_comment_author'];
-								$lf_comment_date = date("F j, Y, g:i a", strtotime($row['lf_comment_date']));
+								$lf_comment_date = date("F j, Y", strtotime($row['lf_comment_date']));
 
 								$lf_comment_content = $row['lf_comment_content'];
 								$lf_comment_user_image = $row['lf_comment_user_image'];

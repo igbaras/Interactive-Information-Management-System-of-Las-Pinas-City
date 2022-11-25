@@ -29,7 +29,7 @@
         <!-- CATEGORY FORM -->
         <div class="card card-primary col-12">
           <div class="card-header">
-            <h3 class="card-title">Manage Gallery</h3>
+            <h3 class="card-title">Manage ADS</h3>
           </div>
 
           <!-- ADD ITEM BUTTON -->
@@ -43,7 +43,7 @@
             <div class="modal-content">
               <form method="POST" enctype="multipart/form-data">
                 <div class="modal-header">
-                  <h3 class="modal-title">Add Image to Gallery</h3>
+                  <h3 class="modal-title">Add Advertisement</h3>
                 </div>
                 <div class="modal-body">
                   <div class="col-md-2"></div>
@@ -52,19 +52,15 @@
                     <div class="form-group text-left">
                       <label>Image:</label>
                       <div id="selectedBanner"></div>
-                      <input type="file" class="form-control" name="img_image" id="img_image" required="required" />
+                      <input type="file" class="form-control" name="ads_image" id="ads_image" required="required" />
                     </div>
                     <div class="form-group text-left">
                       <label>Title</label>
-                      <input type="text" class="form-control" name="img_title" required="required" />
+                      <input type="text" class="form-control" name="ads_title" required="required" />
                     </div>
                     <div class="form-group text-left">
-                      <label>Status</label>
-                      <input type="text" class="form-control" name="img_status" required="required" />
-                    </div>
-                    <div class="form-group text-left">
-                      <label>Description</label>
-                      <textarea name="img_desc" id="" class="form-control" cols="30" rows="3" maxlength="256"></textarea>
+                      <label>Product or Service Link</label>
+                      <input type="text" class="form-control" name="ads_link" required="required" />
                     </div>
 
                   </div>
@@ -72,7 +68,7 @@
                 <br style="clear:both;" />
                 <div class="modal-footer">
                   <button class="btn btn-danger" type="button" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Close</button>
-                  <button class="btn btn-primary" name="submit_image"><span class="glyphicon glyphicon-save"></span> Submit</button>
+                  <button class="btn btn-primary" name="submit_ads"><span class="glyphicon glyphicon-save"></span> Submit</button>
                 </div>
               </form>
             </div>
@@ -97,7 +93,7 @@
 
                 <div class="modal-body">
 
-                  <input type="hidden" name="img_id" id="delete_id">
+                  <input type="hidden" name="ads_id" id="delete_id">
 
                   <h4> Do you want to Delete this Data ??</h4>
                 </div>
@@ -115,61 +111,55 @@
         <div class="col">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">List of Images</h3>
+              <h3 class="card-title">List of Ads</h3>
             </div>
             <!-- /.card-header -->
-            <?php insert_gallery(); ?>
-            <?php updateGallery(); ?>
-            <?php deleteGallery(); ?>
+            <?php insertAds(); ?>
+            <?php updateAds(); ?>
+            <?php deleteAds(); ?>
             <div class="card-body">
-              <table id="galleryTable" class="table table-head-fixed ">
+              <table id="adsTable" class="table table-head-fixed ">
                 <thead>
                   <tr>
                     <th>ID</th>
                     <th>Image</th>
                     <th>Title</th>
-                    <th>Status</th>
-                    <th>Date Created</th>
+                    <th>Link</th>
                     <th></th>
-
-
                   </tr>
                 </thead>
                 <tbody>
 
                   <?php
-                  $query = "SELECT * FROM gallery ORDER BY img_id DESC ";
-                  $all_img_query = mysqli_query($connection, $query);
-                  if (!$all_img_query) {
+                  $query = "SELECT * FROM ads ORDER BY ads_id DESC ";
+                  $all_ads_query = mysqli_query($connection, $query);
+                  if (!$all_ads_query) {
                     die("CONNECTION FAILED" . " " . mysqli_error($connection));
                   }
-                  while ($row = mysqli_fetch_assoc($all_img_query)) {
-                    $img_id = $row['img_id'];
-                    $img_title = $row['img_title'];
-                    $img_image = $row['img_image'];
-                    $img_status = $row['img_status'];
-                    $img_date = date("F j, Y, g:i a", strtotime($row["img_date"]));
-                    $img_desc = $row['img_desc'];
+                  while ($row = mysqli_fetch_assoc($all_ads_query)) {
+                    $ads_id = $row['ads_id'];
+                    $ads_title = $row['ads_title'];
+                    $ads_image = $row['ads_image'];
+                    $ads_link = $row['ads_link'];
+
 
                   ?>
                     <tr>
-                      <td> <?php echo $img_id; ?> </td>
-                      <td><?php echo "<img src='$img_image' alt='' width='100px'>"; ?> </td>
-                      <td><?php echo $img_title; ?> </td>
+                      <td> <?php echo $ads_id; ?> </td>
+                      <td><?php echo "<img src='$ads_image' alt=''height='100px' width='100px'>"; ?> </td>
+                      <td><?php echo $ads_title; ?> </td>
+                      <td><a href="<?php echo $ads_link; ?>" target="_blank"><?php echo $ads_link; ?></a> </td>
 
-                      <td><?php echo $img_status; ?> </td>
-                      <td><?php echo  $img_date; ?> </td>
-
-                      <td><button class='btn btn-secondary' data-toggle='modal' data-target="#viewImage<?php echo $img_id ?>"><i class='fas fa-eye'></i></button><button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit<?php echo $img_id ?>"><i class='fas fa-pen'></i></button><button class='btn btn-danger deletebtn' data-toggle='modal'><i class='fas fa-trash'></i></button></td>
+                      <td><button class='btn btn-secondary' data-toggle='modal' data-target="#viewImage<?php echo $ads_id ?>"><i class='fas fa-eye'></i></button><button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit<?php echo $ads_id ?>"><i class='fas fa-pen'></i></button><button class='btn btn-danger deletebtn' data-toggle='modal'><i class='fas fa-trash'></i></button></td>
 
                       <!-- View Image Modal -->
-                      <div class="modal fade" id="viewImage<?php echo $img_id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal fade" id="viewImage<?php echo $ads_id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-xl" role="document">
                           <div class="modal-content">
                             <div class="modal-header">
                               <!-- w-100 class so that header
                 div covers 100% width of parent div -->
-                              <h5 class="modal-title w-100" id="exampleModalLabel"><strong> <?php echo $img_title; ?></strong>
+                              <h5 class="modal-title w-100" id="exampleModalLabel"><strong> <?php echo $ads_title; ?></strong>
 
                               </h5>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -180,7 +170,7 @@
                             </div>
                             <!--Modal body with image-->
                             <div class="modal-body">
-                              <img src="<?php echo $img_image; ?>" width="50%" />
+                              <img src="<?php echo $ads_image; ?>" width="50%" />
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-danger" data-dismiss="modal">
@@ -193,40 +183,35 @@
 
 
                       <!-- ========EDIT MODAL=========== -->
-                      <div class="modal fade" id="edit<?php echo $img_id ?>" aria-hidden="true">
+                      <div class="modal fade" id="edit<?php echo $ads_id ?>" aria-hidden="true">
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <form method="POST" enctype="multipart/form-data" action="">
                               <div class="modal-header bg-info">
-                                <h4 class="modal-title">Edit Image</h4>
+                                <h4 class="modal-title">Edit Advertisement</h4>
                               </div>
                               <div class="modal-body">
 
                                 <div class="col-md-12">
                                   <div class="form-group">
                                     <h5 class="text-left">Current Photo</h5>
-                                    <img src="<?php echo $img_image; ?>" height="120" width="150" />
-                                    <input type="hidden" name="previous" value="<?php echo $img_image; ?>" />
+                                    <img src="<?php echo $ads_image; ?>" height="120" width="150" />
+                                    <input type="hidden" name="previous" value="<?php echo $ads_image; ?>" />
                                     <hr>
                                     <h5 class="text-left">New Photo</h5>
-                                    <input type="file" class="form-control" name="img_image" value="<?php echo $img_image; ?>" />
+                                    <input type="file" class="form-control" name="ads_image" value="<?php echo $ads_image; ?>" />
                                   </div>
                                   <div class="form-group text-left">
                                     <label for="editCategory">Title:</label>
                                     <div class="input-group">
-                                      <input type="hidden" value="<?php echo $img_id; ?>" name="img_id" />
-                                      <input type="text" class="form-control mb-3" name="img_title" id="img_title" value="<?php echo $img_title; ?>">
+                                      <input type="hidden" value="<?php echo $ads_id; ?>" name="ads_id" />
+                                      <input type="text" class="form-control mb-3" name="ads_title" id="ads_title" value="<?php echo $ads_title; ?>">
                                     </div>
-                                    <label for="editCategory">Status:</label>
+                                    <label for="editCategory">Link:</label>
                                     <div class="input-group">
-                                      <input type="text" class="form-control mb-3" name="img_status" id="img_status" value="<?php echo $img_status; ?>">
+                                      <input type="text" class="form-control mb-3" name="ads_link" id="ads_link" value="<?php echo $ads_link; ?>">
                                     </div>
 
-                                    <label for="editCategory">Description:</label>
-                                    <div class="input-group">
-                                      <textarea name="img_desc" class="form-control" id="" cols="30" rows="3"><?php echo $img_desc; ?></textarea>
-
-                                    </div>
                                   </div>
 
                                 </div>
@@ -234,7 +219,7 @@
                               <br style="clear:both;" />
                               <div class="modal-footer">
                                 <button class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Close</button>
-                                <button type="submit" class="btn btn-primary" name="update-gallery"><span class="glyphicon glyphicon-save"></span> Update</button>
+                                <button type="submit" class="btn btn-primary" name="update-ads"><span class="glyphicon glyphicon-save"></span> Update</button>
                               </div>
                             </form>
                           </div>
@@ -271,7 +256,7 @@
 
 <script>
   $(document).ready(function() {
-    $('#galleryTable').DataTable({
+    $('#adsTable').DataTable({
         autoWidth: false,
         columns: [{
             width: '5px'
@@ -304,7 +289,7 @@
       })
       .buttons()
       .container()
-      .appendTo("#galleryTable_wrapper .col-md-6:eq(0)");
+      .appendTo("#adsTable_wrapper .col-md-6:eq(0)");
 
 
   });
@@ -371,7 +356,7 @@
   var selDiv = "";
   var storedFiles = [];
   $(document).ready(function() {
-    $("#img_image").on("change", handleFileSelect);
+    $("#ads_image").on("change", handleFileSelect);
     selDiv = $("#selectedBanner");
   });
 
@@ -391,7 +376,7 @@
           e.target.result +
           "\" data-file='" +
           f.name +
-          "alt='Category Image' width='40%'>";
+          "alt='Category Image' width='40%' height='200px'>";
         selDiv.html(html);
       };
       reader.readAsDataURL(f);

@@ -20,7 +20,7 @@ if (isset($_GET['mem_id'])) {
 }
 
 if (isset($_GET['port_id'])) {
-  $post_id = $_GET['mem_id'];
+  $post_id = $_GET['port_id'];
 
   $query = "DELETE FROM posts WHERE post_id = {$post_id}";
   $delete_post_query = mysqli_query($connection, $query);
@@ -841,7 +841,7 @@ function updatePost()
     }
     echo "
     <div class=' alert alert-success alert-dismissible fade show'>
-    <h3 class=' text-right'><strong>{$post_title}</strong> post successfully updated! <a class='btn btn-success' href='../posts.php?an_id={$post_id}'>View Post</a> or <a class='btn btn-primary' href='./posts.php'>Edit other posts</a></h3> <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+    <h3 class=' text-right'><strong>{$post_title}</strong> post successfully updated! <a class='btn btn-success' href='../../singleNews.php?an_id={$post_id}'>View Post</a> or <a class='btn btn-primary' href='./posts.php'>Edit other posts</a></h3> <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
     <span aria-hidden='true'>&times;</span>
   </button></div>";
   }
@@ -905,12 +905,100 @@ function deleteLifestyleComment()
 
 
 
-// =========== START Dashboard FUNCTIONS=========
+
+// ===========ADS FUNCTIONS=========
+function insertAds()
+{
+  global $connection;
+  if (isset($_POST['submit_ads'])) {
+    $ads_title = $_POST['ads_title'];
+    $ads_link = $_POST['ads_link'];
+    $ads_image = (new UploadApi())->upload($_FILES["ads_image"]["tmp_name"]);
+    $image_url = $ads_image['secure_url'];
+
+
+    $query = "INSERT INTO  ads (ads_title , ads_image, ads_link)";
+    $query .= " VALUE ('{$ads_title}', '{$image_url}','{$ads_link}')";
+    $insert_ads_query = mysqli_query($connection, $query);
+
+    if (!$insert_ads_query) {
+      die("CONNECTION FAILED" . " " . mysqli_error($connection));
+    }
+    echo "<div class='alert alert-success alert-dismissible fade show text-center' role='alert' >
+    <h5><strong>Image successfully added to Advertisements!<i class='fas fa-check'></i></strong></h5>
+          
+          <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>";
+  }
+}
+
+function updateAds()
+{
+
+  global $connection;
+  if (isset($_POST['update-ads'])) {
+
+    $ads_id = $_POST['ads_id'];
+    $ads_title = $_POST['ads_title'];
+    $ads_link = $_POST['ads_link'];
+    if (!empty($_FILES["img_image"]["tmp_name"])) {
+
+      $ads_image = (new UploadApi())->upload($_FILES["ads_image"]["tmp_name"]);
+      $image_url = $ads_image['secure_url'];
+    }
+
+
+    $query = "UPDATE ads SET ads_title = '{$ads_title}', ads_link='{$ads_link}'";
+
+    if (!empty($image_url)) {
+      $query .= ",ads_image = '{$image_url}'";
+    }
+    $query .= " WHERE ads_id={$ads_id}";
 
 
 
+    $update_ads_query = mysqli_query($connection, $query);
 
-// =========== END Dashboard FUNCTIONS=========
+    if (!$update_ads_query) {
+      echo "QUERY FAILED " . mysqli_error($connection);
+    }
+    if ($update_ads_query) {
+
+      echo "<div class='alert alert-success alert-dismissible fade show text-center' role='alert'>
+    <h5><strong>Advertisement successfully Updated! <i class='fas fa-check'></i></strong></h5>    
+          <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>";
+    }
+  }
+}
+function deleteAds()
+{
+
+  global $connection;
+  if (isset($_POST['delete_data'])) {
+    $ads_id = $_POST['ads_id'];
+
+    $query = "DELETE FROM ads WHERE ads_id = {$ads_id}";
+    $delete_ads_query = mysqli_query($connection, $query);
+
+    if (!$delete_ads_query) {
+      die("QUERY CONNECTION FAILED " . mysqli_error($connection));
+    }
+    if ($delete_ads_query) {
+
+      echo "<div class='alert alert-danger alert-dismissible fade show text-center' role='alert'>
+    <h5><strong>Advertisement Deleted successfully! <i class='fas fa-check'></i></strong></h5>    
+          <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>";
+    }
+  }
+}
 ?>
 
 

@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="shortcut icon" type="image icon" href="./Assets/images/lplogo.png">
+    <link rel="shortcut icon" type="image icon" href="https://res.cloudinary.com/sarabgi/image/upload/v1669190604/index/lplogo_rjgtai.png">
     <title>News Room | The City of Las Piñas</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
@@ -251,7 +251,7 @@
 
                         while ($row = mysqli_fetch_assoc($select_comment_query)) {
                             $comment_author = $row['comment_author'];
-                            $comment_date = date("F j, Y, g:i a", strtotime($row['comment_date']));
+                            $comment_date = date("F j, Y", strtotime($row['comment_date']));
 
                             $comment_content = $row['comment_content'];
                             $comment_user_image = $row['comment_user_image'];

@@ -9,7 +9,7 @@
 
 <head>
 	<title>Virtual Tour | The City of Las Piñas</title>
-	<link rel="shortcut icon" type="image icon" href="../Assets/images/lplogo.png">
+	<link rel="shortcut icon" type="image icon" href="https://res.cloudinary.com/sarabgi/image/upload/v1669190604/index/lplogo_rjgtai.png">
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
@@ -38,8 +38,8 @@
 		}
 
 		iframe {
-			width: 100% !important;
-			height: 45em !important;
+			width: 85% !important;
+			height: 33em !important;
 
 
 		}
