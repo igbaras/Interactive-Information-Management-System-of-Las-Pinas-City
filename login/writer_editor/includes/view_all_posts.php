@@ -120,10 +120,9 @@
 
             <div class="col">
                 <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">List of Images</h3>
+                    <div class="card-header bg-info">
+                        <h3 class="card-title">List of Submitted Pending Posts</h3>
                     </div>
-                    <!-- /.card-header -->
                     <?php insertPost(); ?>
                     <?php updatePost(); ?>
 
@@ -419,8 +418,8 @@
             </div>
             <div class="col">
                 <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">List of Images</h3>
+                    <div class="card-header  bg-success">
+                        <h3 class="card-title">List of Published Posts </h3>
                     </div>
                     <!-- /.card-header -->
                     <?php insertPost(); ?>
