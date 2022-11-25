@@ -311,12 +311,7 @@
                                                                         <h2 class="badge badge-info">Pending</h2>
                                                                         <input type="hidden" name="post_status" value="pending">
                                                                     </div>
-                                                                    <div class="alert alert-warning" role="alert">
-                                                                        <h5 class="alert-heading">Admin Notes</h5>
-                                                                        <p><?php echo $post_notes; ?></p>
-                                                                        <hr>
 
-                                                                    </div>
 
                                                                     <div class="form-group">
                                                                         <label for="inputClientCompany">Image</label>
@@ -602,7 +597,7 @@
                                                                         <label for="PostCategory">Post Status</label>
                                                                         <br>
                                                                         <input type="hidden" name="post_id">
-                                                                        <h2 class="badge badge-info">Pending</h2>
+                                                                        <h2 class="badge badge-success">Published</h2>
                                                                         <input type="hidden" name="post_status" value="pending">
                                                                     </div>
 

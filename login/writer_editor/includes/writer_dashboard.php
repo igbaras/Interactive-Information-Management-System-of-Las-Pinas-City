@@ -206,7 +206,7 @@
                                                                 <div class="card-body">
 
                                                                     <div class="form-group">
-                                                                        <label for="PostCategory">Post Status</label>
+
                                                                         <br>
                                                                         <input type="hidden" name="post_id">
                                                                         <input type="hidden" name="post_status" value="pending">
