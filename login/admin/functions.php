@@ -249,7 +249,7 @@ function insert_gallery()
     $img_desc = $_POST['img_desc'];
 
 
-    $query = "INSERT INTO  gallery (img_title , img_image, img_status,img_date, img_desc)";
+    $query = "INSERT INTO  gallery (img_title , img_image, img_status, img_date, img_desc)";
     $query .= " VALUE ('{$img_title}', '{$image_url}','{$img_status}', now(), '{$img_desc}')";
     $insert_gallery_query = mysqli_query($connection, $query);
 

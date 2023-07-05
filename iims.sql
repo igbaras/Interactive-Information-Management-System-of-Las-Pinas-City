@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 21, 2022 at 01:38 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.0.23
+-- Generation Time: Jul 05, 2023 at 02:39 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `ads` (
   `ads_title` varchar(255) NOT NULL,
   `ads_image` text NOT NULL,
   `ads_link` longtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -46,7 +46,7 @@ CREATE TABLE `categories` (
   `cat_image` text NOT NULL,
   `cat_date` datetime NOT NULL,
   `cat_desc` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -60,8 +60,8 @@ CREATE TABLE `gallery` (
   `img_image` text NOT NULL,
   `img_status` varchar(255) NOT NULL,
   `img_date` datetime NOT NULL,
-  `img_desc` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `img_desc` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -79,7 +79,7 @@ CREATE TABLE `lifestyles` (
   `ls_comment_count` int(11) NOT NULL DEFAULT 0,
   `ls_description` longtext DEFAULT NULL,
   `ls_content` longtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -96,7 +96,7 @@ CREATE TABLE `lifestyle_comments` (
   `lf_comment_status` varchar(255) NOT NULL,
   `lf_comment_date` datetime NOT NULL DEFAULT current_timestamp(),
   `lf_comment_user_image` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -118,7 +118,7 @@ CREATE TABLE `posts` (
   `post_desc` varchar(255) DEFAULT NULL,
   `post_notes` varchar(255) DEFAULT NULL,
   `post_views` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -135,7 +135,7 @@ CREATE TABLE `post_comments` (
   `comment_status` varchar(255) NOT NULL,
   `comment_user_image` text NOT NULL,
   `comment_date` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -145,14 +145,14 @@ CREATE TABLE `post_comments` (
 
 CREATE TABLE `public_users` (
   `user_id` int(11) NOT NULL,
-  `username` varchar(100) CHARACTER SET utf8 NOT NULL,
-  `user_fname` varchar(50) CHARACTER SET utf8 NOT NULL,
-  `user_lname` varchar(50) CHARACTER SET utf8 NOT NULL,
-  `user_avatar` text CHARACTER SET utf8 NOT NULL,
-  `user_email` varchar(100) CHARACTER SET utf8 NOT NULL,
-  `user_password` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `username` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `user_fname` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `user_lname` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `user_avatar` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `user_email` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `user_password` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `joindate` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `public_users`
@@ -177,7 +177,7 @@ CREATE TABLE `users` (
   `user_image` text NOT NULL,
   `user_role` varchar(255) NOT NULL,
   `user_date` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
@@ -206,7 +206,7 @@ CREATE TABLE `virtualspots` (
   `vs_vt_id` int(11) NOT NULL,
   `vs_spot` longtext NOT NULL,
   `vs_date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -222,7 +222,7 @@ CREATE TABLE `virtualtour` (
   `vt_date` datetime NOT NULL,
   `vt_tags` varchar(255) NOT NULL,
   `vt_desc` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
