@@ -71,7 +71,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="PostTags">Post Desc</label>
-                                            <textarea name="" id="" cols="30" rows="5" class="form-control" name="post_desc" required></textarea>
+                                            <textarea id="" cols="30" rows="5" class="form-control" name="post_descrp" required></textarea>
 
                                         </div>
                                         <div class="form-group">

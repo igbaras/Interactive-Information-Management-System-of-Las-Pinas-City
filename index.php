@@ -14,7 +14,11 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 	$userId = 0;
 }
 
+header('Access-Control-Allow-Origin: *');
 
+header('Access-Control-Allow-Methods: GET, POST');
+
+header("Access-Control-Allow-Headers: X-Requested-With");
 ?>
 
 
@@ -317,6 +321,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
 			</ul>
 		</footer>
+
+
 		<!-- Messenger Chat Plugin Code -->
 		<div id="fb-root"></div>
 
@@ -326,7 +332,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
 		<script>
 			var chatbox = document.getElementById('fb-customer-chat');
-			chatbox.setAttribute("page_id", "548726065490815");
+			chatbox.setAttribute("page_id", "1753071578305319");
 			chatbox.setAttribute("attribution", "biz_inbox");
 		</script>
 
