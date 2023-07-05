@@ -49,7 +49,7 @@
                 </li>
 
                 <li class="nav-item <?= ($activePage == 'posts.php') ? 'menu-open' : ''; ?><?= ($activePage == 'news.php') ? 'menu-open' : ''; ?>">
-                    <a href="https://business.facebook.com/latest/inbox/all?asset_id=548726065490815&nav_ref=profile_plus_profile_left_nav_button&mailbox_id=&selected_item_id=100004438692391" target="_blank" class="nav-link">
+                    <a href="https://business.facebook.com/latest/inbox/all?asset_id=109053242246987" target="_blank" class="nav-link">
                         <i class="nav-icon fas fa-comments"></i>
                         <p>
                             Chat Portal
