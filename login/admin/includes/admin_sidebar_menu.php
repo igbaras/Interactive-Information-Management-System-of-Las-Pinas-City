@@ -1,8 +1,9 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="settings.php?source=my_profile&uidd=<?php echo $_SESSION['user_id']; ?>" class="brand-link">
-        <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light"><?php echo $_SESSION['user_role']; ?></span>
+        <!-- <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
+        <span>Role: </span>
+        <span class="brand-text font-weight-strong"><?php echo $_SESSION['user_role']; ?></span>
     </a>
 
     <!-- Sidebar -->

@@ -27,6 +27,7 @@ Configuration::instance([
     <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
     <!--  All snippets are MIT license http://bootdey.com/license -->
     <title>View Profile</title>
+    <link rel="shortcut icon" type="image icon" href="https://res.cloudinary.com/sarabgi/image/upload/v1669190604/index/lplogo_rjgtai.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -255,8 +256,8 @@ Configuration::instance([
                             </div>
                             <!-- Form Group (email address)-->
                             <div class="mb-3 ">
-                                <label class="small mb-1" for="inputEmailAddress">Password</label>
-                                <input class="form-control " id="inputEmailAddress" type="password" onClick="this.setSelectionRange(0, this.value.length)" placeholder="Enter your password" required data-toggle="password" name="user_password">
+                                <label class="small mb-1" for="inputEmailAddress">Change Password</label>
+                                <input class="form-control " id="inputEmailAddress" type="password" onClick="this.setSelectionRange(0, this.value.length)" placeholder="Enter your new password" required data-toggle="password" name="user_password">
                             </div>
 
                             <!-- Save changes button-->

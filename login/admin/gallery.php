@@ -59,9 +59,17 @@
                       <input type="text" class="form-control" name="img_title" required="required" />
                     </div>
                     <div class="form-group text-left">
+                      <label for="Gallery">Status</label>
+                      <select class="custom-select" name="img_status" required>
+                        <option value="draft" active>Select Status</option>
+                        <option value="published">Publish</option>
+                        <option value="draft">Draft</option>
+                      </select>
+                    </div>
+                    <!-- <div class="form-group text-left">
                       <label>Status</label>
                       <input type="text" class="form-control" name="img_status" required="required" />
-                    </div>
+                    </div> -->
                     <div class="form-group text-left">
                       <label>Description</label>
                       <textarea name="img_desc" id="" class="form-control" cols="30" rows="3" maxlength="256"></textarea>

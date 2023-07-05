@@ -112,7 +112,7 @@
                                     <td><?php echo $vs_date; ?></td>
                                     <td>
 
-                                        <a class='btn btn-primary ' href="./virtualtour.php?source=edit_vs&an_edit=<?php echo $vs_id ?>&virt=<?php echo $vs_vt_id ?>"><i class='fas fa-edit'></i></a><button class='btn btn-danger deletebtn' data-toggle='modal'><i class='fas fa-trash'></i></button>
+                                        <a class='btn btn-primary ' href="./vt.php?source=edit_vs&an_edit=<?php echo $vs_id ?>&virt=<?php echo $vs_vt_id ?>"><i class='fas fa-edit'></i></a><button class='btn btn-danger deletebtn' data-toggle='modal'><i class='fas fa-trash'></i></button>
                                     </td>
 
 

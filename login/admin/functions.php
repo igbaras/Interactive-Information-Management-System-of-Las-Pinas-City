@@ -363,9 +363,9 @@ function delete_vs()
 
   global $connection;
   if (isset($_POST['delete_data'])) {
-    $vt_id = $_POST['vt_id'];
+    $vs_id = $_POST['vs_id'];
 
-    $query = "DELETE FROM virtualtour WHERE vt_id = {$vt_id}";
+    $query = "DELETE FROM virtualspots WHERE vs_id = {$vs_id}";
     $delete_vt_query = mysqli_query($connection, $query);
 
     if (!$delete_vt_query) {
@@ -374,7 +374,7 @@ function delete_vs()
     if ($delete_vt_query) {
 
       echo "<div class='alert alert-danger alert-dismissible fade show text-center' role='alert' id='alerto'>
-    <h5><strong>Image Deleted successfully! <i class='fas fa-check'></i></strong></h5>    
+    <h5><strong>VirtualSpot Deleted successfully! <i class='fas fa-check'></i></strong></h5>    
           <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
             <span aria-hidden='true'>&times;</span>
           </button>
@@ -435,7 +435,7 @@ function delete_vt()
     if ($delete_vt_query) {
 
       echo "<div class='alert alert-danger alert-dismissible fade show text-center' role='alert' id='alerto'>
-    <h5><strong>Image Deleted successfully! <i class='fas fa-check'></i></strong></h5>    
+    <h5><strong>VirtualTour Category Deleted successfully! <i class='fas fa-check'></i></strong></h5>    
           <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
             <span aria-hidden='true'>&times;</span>
           </button>
