@@ -239,7 +239,7 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 						});
 					});
 				</script>
-				<a href="#" id="playLink" style="text-decoration: undecor;"><span class="image"><img src="https://res.cloudinary.com/sarabgi/image/upload/v1669228246/index/pic01_n3zmhj.jpg" alt="" /></span></a>
+				<a href="#" id="playLink" style="text-decoration: undecor;"><span class="image"><img src="https://res.cloudinary.com/sarabgi/image/upload/v1688669178/Assets/pic01_1_xytisw.jpg" alt="" /></span></a>
 			</div>
 
 			<a href="#one" class="goto-next scrolly">Next</a>
@@ -253,7 +253,7 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 		</section>
 		<!-- One -->
 		<section id="one" class="spotlight style1 bottom">
-			<span class="image fit main"><img src="https://res.cloudinary.com/sarabgi/image/upload/v1669228246/index/pic02_sidchn.jpg" alt="" /></span>
+			<span class="image fit main"><img src="https://res.cloudinary.com/sarabgi/image/upload/v1688669188/Assets/pic02_1_qpaeva.jpg" alt="" /></span>
 			<div class="content">
 				<div class="container">
 					<div class="row">
@@ -284,7 +284,7 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 
 		<!-- Two -->
 		<section id="two" class="spotlight style2 right">
-			<span class="image fit main"><img src="https://res.cloudinary.com/sarabgi/image/upload/v1669228245/index/pic03_gtu3fl.jpg" alt="" /></span>
+			<span class="image fit main"><img src="https://res.cloudinary.com/sarabgi/image/upload/v1688669181/Assets/pic03_ykqoxz.jpg" alt="" /></span>
 			<div class="content">
 				<header>
 					<h2>Announcements, News, Articles and Comments</h2>
@@ -307,7 +307,7 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 
 		<!-- Three -->
 		<section id="three" class="spotlight style3 left">
-			<span class="image fit main bottom"><img src="https://res.cloudinary.com/sarabgi/image/upload/v1669228246/index/pic04_suni6w.jpg" alt="" /></span>
+			<span class="image fit main bottom"><img src="https://res.cloudinary.com/sarabgi/image/upload/v1688669185/Assets/pic04_jaqwbn.jpg" alt="" /></span>
 			<div class="content">
 				<header>
 					<h2>Lifestyle and Virtual Tour</h2>
@@ -417,7 +417,7 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 
 		<script>
 			var chatbox = document.getElementById('fb-customer-chat');
-			chatbox.setAttribute("page_id", "1753071578305319");
+			chatbox.setAttribute("page_id", "109053242246987");
 			chatbox.setAttribute("attribution", "biz_inbox");
 		</script>
 
@@ -460,7 +460,7 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 	<script src="./Assets/JS/particles.js"></script>
 
 	<script src="particles.js"></script>
-	<script src="script.js"></script>
+
 </body>
 
 </html>

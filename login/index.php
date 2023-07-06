@@ -46,7 +46,7 @@ if (isset($_SESSION['cryptedpass'])) {
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
 
-      <img class="animation__shake" src="https://res.cloudinary.com/sarabgi/image/upload/v1669190604/index/lplogo_rjgtai.png" alt="AdminLTELogo" width="200" style="background-color: #DADFD9;">
+      <img class="animation__shake" src="https://res.cloudinary.com/sarabgi/image/upload/v1688669789/Assets/lplogo_bje93b.png" alt="AdminLTELogo" width="200" style="background-color: #DADFD9;">
     </div>
 
 
