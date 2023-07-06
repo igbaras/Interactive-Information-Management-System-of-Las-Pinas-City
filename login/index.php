@@ -36,7 +36,12 @@ if (isset($_SESSION['cryptedpass'])) {
 
 </head>
 
-<body class="hold-transition login-page" style="background-image: url('https://res.cloudinary.com/sarabgi/image/upload/v1669194065/index/lpchall_ro2yft.jpg'); background-repeat:no-repeat;  background-size: 100% 100%;">
+<body class="hold-transition login-page" style="background-image: url('https://res.cloudinary.com/sarabgi/image/upload/v1688664262/Assets/270784355_699889750981465_9170872178964725670_n_jd5xlt.jpg'); background-repeat:no-repeat;  background-size: 100% 100%; ">
+  <div class="overlay" style=" background-color: rgba(4, 70, 48, 0.7); position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;"></div>
   <div class="login-box">
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
