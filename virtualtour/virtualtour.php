@@ -59,15 +59,14 @@
 					<h1>Virtual Tour</h1>
 				</header>
 				<div class="content">
+					
 					<p>Welcome to Virtual Tour</p>
 					<ul class="actions">
 
 					</ul>
 				</div>
 
-				<audio id="virtualspeech">
-					<source src="virtualtour.mp3">
-				</audio>
+			
 
 
 			</div>
