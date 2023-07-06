@@ -27,7 +27,9 @@
 </style>
 
 <body class="is-preload">
-
+	<audio id="virtualspeech">
+		<source src="virtualtour.mp3">
+	</audio>
 	<!-- Wrapper -->
 	<div id="wrapper">
 
@@ -62,6 +64,12 @@
 
 					</ul>
 				</div>
+
+				<audio id="virtualspeech">
+					<source src="virtualtour.mp3">
+				</audio>
+
+
 			</div>
 		</section>
 		<section id="defaultmap">
@@ -116,3 +124,4 @@
 		<script src="../Assets/lifestyleassets/assets/js/breakpoints.min.js"></script>
 		<script src="../Assets/lifestyleassets/assets/js/util.js"></script>
 		<script src="../Assets/lifestyleassets/assets/js/main.js"></script>
+		<script src="script.js"></script>

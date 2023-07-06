@@ -49,14 +49,70 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 
 			color: #000;
 		}
+
+		/* =======PARTICLES BACKGROUND========= */
+
+		body .vertical-centered-box {
+			position: absolute;
+			text-align: center;
+			z-index: -1;
+		}
+
+		body .vertical-centered-box:after {
+			content: "";
+			display: inline-block;
+			vertical-align: middle;
+
+		}
+
+		body .vertical-centered-box .content {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			vertical-align: middle;
+			text-align: left;
+			font-size: 0;
+			display: -webkit-inline-box;
+			display: -ms-inline-flexbox;
+			display: inline-flex;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			justify-content: center;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			align-items: center;
+		}
+
+		#particles-background,
+		#particles-foreground {
+			left: -51%;
+			top: -51%;
+			width: 200%;
+			height: 195%;
+			-webkit-transform: scale3d(0.5, 0.5, 1);
+			-moz-transform: scale3d(0.5, 0.5, 1);
+			-ms-transform: scale3d(0.5, 0.5, 1);
+			-o-transform: scale3d(0.5, 0.5, 1);
+			transform: scale3d(0.5, 0.5, 1);
+			z-index: -1;
+		}
+
+		#particles-background {
+			background: url(https://res.cloudinary.com/sarabgi/image/upload/v1669228481/index/banner_voxu3d.jpg);
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+			opacity: 0.1;
+		}
 	</style>
 </head>
 
+
 <body class="is-preload landing">
+
 	<div id="page-wrapper">
 		<?php include "public_users/_loginModal.php"; ?>
 		<?php include "public_users/_signupModal.php"; ?>
-
 
 		<header id="header">
 
@@ -106,7 +162,7 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 				<ul>
 				<a type="submit" class="btn btn-link" data-toggle="modal" data-target="#loginModal">Menu</a>
 						
-				<a type="submit" class="btn btn-link " data-toggle="modal" data-target="#loginModal">Virtual Tour</a>
+				<a type="submit" class="btn btn-link " data-toggle="modal" data-target="#loginModal" >Virtual Tour</a>
 	<button type="button" class="btn btn-warning mx-2"  data-toggle="modal" data-target="#loginModal">Login</button>
 	<button type="button" class="btn btn-warning mx-2"  data-toggle="modal" data-target="#signupModal">SignUp</button>
 	</ul>
@@ -146,6 +202,20 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 		<section id="banner">
 
 			<div class="content">
+				<div class="loader-container">
+
+
+					<div id="particles-background" class="vertical-centered-box"></div>
+					<div id="particles-foreground" class="vertical-centered-box"></div>
+					<div class="vertical-centered-box">
+
+
+						<div class="content">
+						</div>
+
+					</div>
+
+				</div>
 				<header>
 					<h2>The City of Las Piñas</h2>
 					<p>Discover what's in the Philippines</p>
@@ -153,13 +223,28 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 						See More
 					</a>
 				</header>
+				<audio id="speech">
+					<source src="homepage.mp3">
+				</audio>
 
-				<span class="image"><img src="https://res.cloudinary.com/sarabgi/image/upload/v1669228246/index/pic01_n3zmhj.jpg" alt="" /></span>
+
+				<script>
+					window.addEventListener('DOMContentLoaded', function() {
+						var audio = document.getElementById("speech");
+						var playLink = document.getElementById("playLink");
+
+						playLink.addEventListener('click', function(event) {
+							event.preventDefault();
+							audio.play();
+						});
+					});
+				</script>
+				<a href="#" id="playLink" style="text-decoration: undecor;"><span class="image"><img src="https://res.cloudinary.com/sarabgi/image/upload/v1669228246/index/pic01_n3zmhj.jpg" alt="" /></span></a>
 			</div>
 
 			<a href="#one" class="goto-next scrolly">Next</a>
 			<div class="col">
-				<img class="img-fluid" src="https://res.cloudinary.com/sarabgi/image/upload/v1669227960/index/cityhallgiff_eul5n6.gif" alt="" width="1920" height="1080">
+				<img class="img-fluid" src="https://res.cloudinary.com/sarabgi/image/upload/c_crop,h_983,w_1920,x_0,y_279/v1688645782/mayoragifff_jnbjik.gif" alt="" width="1920" height="1080">
 
 
 			</div>
@@ -317,7 +402,7 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 				<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>-->
 			</ul>
 			<ul class="copyright">
-				<li>&copy; Untitled. All rights reserved.</li>
+				<li>&copy; BSIS 06 GROUP 4. All rights reserved.</li>
 
 			</ul>
 		</footer>
@@ -373,18 +458,9 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 	<script src="./Assets/JS/mainn.js"></script>
 	<script src="./Assets/JS/app.js"></script>
 	<script src="./Assets/JS/particles.js"></script>
-	<script>
-		var nightm = document.getElementById("nightm");
-		nightm.onclick = function() {
-			document.body.classList.toggle("darktheme");
-			//if (document.body.classList.contains("darktheme")) {
-			//	nightm.src = "./Assets/images/icons/sun.png";
-			//} else {
-			//	nightm.src = "./Assets/images/icons/night-mode.png";
-			//}
-		}
-	</script>
 
+	<script src="particles.js"></script>
+	<script src="script.js"></script>
 </body>
 
 </html>

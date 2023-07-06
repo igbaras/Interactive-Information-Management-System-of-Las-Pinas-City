@@ -39,7 +39,9 @@
                 </div>
             </div>
             <div class="col-md-4 text-right d-none d-md-block">
-                Monday, January 01, 2045
+                <?php
+                echo date('F d, Y');
+                ?>
             </div>
         </div>
         <div class="row align-items-center py-2 px-lg-5">
