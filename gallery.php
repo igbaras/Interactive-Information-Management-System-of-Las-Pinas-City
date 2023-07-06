@@ -21,13 +21,30 @@
 </head>
 
 <body class="is-preload-0 is-preload-1 is-preload-2">
+	<audio id="galleryspeech">
+		<source src="gaellry.mp3">
+	</audio>
 
+
+	<script>
+		window.addEventListener('DOMContentLoaded', function() {
+			var audio = document.getElementById("galleryspeech");
+			var playLink = document.getElementById("playLinkG");
+
+			playLink.addEventListener('click', function(event) {
+				event.preventDefault();
+				audio.play();
+			});
+		});
+	</script>
 	<!-- Main -->
 	<div id="main">
 
 		<!-- Header -->
 		<header id="header">
-			<h1>Gallery</h1>
+			<a href="#" id="playLinkG">
+				<h1>Gallery</h1>
+			</a>
 			<p>this is the gallery of Las Pinas</p>
 			<ul class="icons">
 				<li>

@@ -70,9 +70,26 @@
                 </div>
             </div>
         </div>
+
+        <audio id="newsspeech">
+            <source src="newsroom.mp3">
+        </audio>
+
+
+        <script>
+            window.addEventListener('DOMContentLoaded', function() {
+                var audio = document.getElementById("newsspeech");
+                var playLink = document.getElementById("playLinkN");
+
+                playLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    audio.play();
+                });
+            });
+        </script>
         <div class="row align-items-center py-2 px-lg-5">
             <div class="col-lg-4">
-                <a href="" class="navbar-brand d-none d-lg-block">
+                <a href="#" id="playLinkN" class="navbar-brand d-none d-lg-block">
                     <h1 class="m-0 display-5 text-uppercase"><span class="text-primary"> </span>News<span class="text-primary">Room</span></h1>
                 </a>
             </div>

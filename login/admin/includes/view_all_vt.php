@@ -8,14 +8,14 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- ADD ITEM BUTTON -->
-                <buttton class="btn btn-lg btn-success" data-toggle="modal" data-target="#form_modal"><span class="fas fa-plus"></span> ADD virtualtour</buttton>
+                <buttton class="btn btn-lg btn-success" data-toggle="modal" data-target="#form_modal"><span class="fas fa-plus"></span> ADD Virtualtour Place</buttton>
 
                 <!-- ADD virtualtour MODAL -->
                 <div class="modal fade" id="form_modal" aria-hidden="true">
                     <div class="modal-dialog modal-md">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h3 class="modal-title">Add VirtualTour Category</h3>
+                                <h3 class="modal-title">Add VirtualTour Place</h3>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">
                                         ×
@@ -61,7 +61,7 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">List of VirtualTour Category</h3>
+                        <h3 class="card-title">List of VirtualTour Place</h3>
 
 
                     </div>
