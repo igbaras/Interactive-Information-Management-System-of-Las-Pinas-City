@@ -27,7 +27,7 @@ Configuration::instance([
     <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
     <!--  All snippets are MIT license http://bootdey.com/license -->
     <title>View Profile</title>
-    <link rel="shortcut icon" type="image icon" href="https://res.cloudinary.com/sarabgi/image/upload/v1669190604/index/lplogo_rjgtai.png">
+    <link rel="shortcut icon" type="image icon" href="https://res.cloudinary.com/sarabgi/image/upload/v1688669789/Assets/lplogo_bje93b.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
