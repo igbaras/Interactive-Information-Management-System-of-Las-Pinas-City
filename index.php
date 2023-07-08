@@ -218,7 +218,7 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 				</div>
 				<header>
 					<h2>The City of Las Piñas</h2>
-					<p>Discover what's in the Philippines</p>
+					<p>Discover the Culture and Heritage</p>
 					<a href="#one">
 						See More
 					</a>
