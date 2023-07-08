@@ -10,7 +10,7 @@
 <html>
 
 <head>
-	<link rel="shortcut icon" type="image icon" href="https://res.cloudinary.com/sarabgi/image/upload/v1669190604/index/lplogo_rjgtai.png">
+	<link rel="shortcut icon" type="image icon" href="https://res.cloudinary.com/sarabgi/image/upload/v1688669789/Assets/lplogo_bje93b.png">
 	<title>Gallery | The City of Las Piñas</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -21,13 +21,30 @@
 </head>
 
 <body class="is-preload-0 is-preload-1 is-preload-2">
+	<audio id="galleryspeech">
+		<source src="gaellry.mp3">
+	</audio>
 
+
+	<script>
+		window.addEventListener('DOMContentLoaded', function() {
+			var audio = document.getElementById("galleryspeech");
+			var playLink = document.getElementById("playLinkG");
+
+			playLink.addEventListener('click', function(event) {
+				event.preventDefault();
+				audio.play();
+			});
+		});
+	</script>
 	<!-- Main -->
 	<div id="main">
 
 		<!-- Header -->
 		<header id="header">
-			<h1>Gallery</h1>
+			<a href="#" id="playLinkG">
+				<h1>Gallery</h1>
+			</a>
 			<p>this is the gallery of Las Pinas</p>
 			<ul class="icons">
 				<li>

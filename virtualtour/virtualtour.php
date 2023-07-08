@@ -9,7 +9,7 @@
 
 <head>
 	<title>Virtual Tour | The City of Las Piñas</title>
-	<link rel="shortcut icon" type="image icon" href="https://res.cloudinary.com/sarabgi/image/upload/v1669190604/index/lplogo_rjgtai.png">
+	<link rel="shortcut icon" type="image icon" href="https://res.cloudinary.com/sarabgi/image/upload/v1688669789/Assets/lplogo_bje93b.png">
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="../Assets/lifestyleassets/assets/css/main.css" />
@@ -30,6 +30,19 @@
 	<audio id="virtualspeech">
 		<source src="virtualtour.mp3">
 	</audio>
+
+
+	<script>
+		window.addEventListener('DOMContentLoaded', function() {
+			var audio = document.getElementById("virtualspeech");
+			var playLink = document.getElementById("playLinkV");
+
+			playLink.addEventListener('click', function(event) {
+				event.preventDefault();
+				audio.play();
+			});
+		});
+	</script>
 	<!-- Wrapper -->
 	<div id="wrapper">
 
@@ -56,17 +69,19 @@
 		<section id="banner" class="major">
 			<div class="inner">
 				<header class="major">
-					<h1>Virtual Tour</h1>
+					<a href="#" id="playLinkV" style="text-decoration: none;">
+						<h1>Virtual Tour</h1>
+					</a>
 				</header>
 				<div class="content">
-					
+
 					<p>Welcome to Virtual Tour</p>
 					<ul class="actions">
 
 					</ul>
 				</div>
 
-			
+
 
 
 			</div>

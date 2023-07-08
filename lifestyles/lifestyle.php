@@ -10,7 +10,7 @@
 
 <head>
 	<title>Lifestyle| The City of Las Piñas</title>
-	<link rel="shortcut icon" type="image icon" href="https://res.cloudinary.com/sarabgi/image/upload/v1669190604/index/lplogo_rjgtai.png">
+	<link rel="shortcut icon" type="image icon" href="https://res.cloudinary.com/sarabgi/image/upload/v1688669789/Assets/lplogo_bje93b.png">
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="../Assets/lifestyleassets/assets/css/main.css" />
@@ -23,6 +23,22 @@
 
 	<!-- Wrapper -->
 	<div id="wrapper">
+		<audio id="lifestylespeech">
+			<source src="lifestyle.mp3">
+		</audio>
+
+
+		<script>
+			window.addEventListener('DOMContentLoaded', function() {
+				var audio = document.getElementById("lifestylespeech");
+				var playLink = document.getElementById("playLinkL");
+
+				playLink.addEventListener('click', function(event) {
+					event.preventDefault();
+					audio.play();
+				});
+			});
+		</script>
 
 		<!-- Header -->
 		<header id="header" class="alt">
@@ -46,7 +62,9 @@
 		<section id="banner" class="major">
 			<div class="inner">
 				<header class="major">
-					<h1>Lifestyle</h1>
+					<a href="#" id="playLinkL">
+						<h1>Lifestyle</h1>
+					</a>
 				</header>
 				<div class="content">
 					<p>If you want to see the virtual tour just click the button</p>
