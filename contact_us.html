@@ -1,226 +1,330 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<!--
+	Alpha by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
 
 <head>
-    <title>Contacts | The City of Las Piñas</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--===============================================================================================-->
-    <link rel="shortcut icon" type="image icon" href="./Assets/images/lplogo.png">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="Assets/vendor/bootstrap/css/bootstrap.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="Assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="Assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="Assets/vendor/animate/animate.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="Assets/vendor/css-hamburgers/hamburgers.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="Assets/vendor/animsition/css/animsition.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="Assets/vendor/select2/select2.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="Assets/vendor/daterangepicker/daterangepicker.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="Assets/css/util.css">
-    <link rel="stylesheet" type="text/css" href="Assets/css/main.css">
-    <link rel="stylesheet" type="text/css" href="Assets/css/style.css">
-    <!--===============================================================================================-->
+	<title>Contacts | The City of Las Piñas</title>
+	<link rel="shortcut icon" type="image icon"
+		href="https://res.cloudinary.com/sarabgi/image/upload/v1688669789/Assets/lplogo_bje93b.png">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="./Assets/contactassets/css/main.css" />
 </head>
 
-<body>
-
-    <div class="intro">
-        <div class="intro-text">
-          <h1 class="hide">
-            <span class="text">Welcome to Contact</span>
-          </h1>
-          <h2 class="hide">
-            <span class="text">You can contact us anytime.</span>
-          </h2>
-        </div>
-      </div>
-   <div class="slider"></div>
+<body class="landing is-preload">
+	<audio id="contactspeech">
+		<source src="contact.mp3">
+	</audio>
 
 
-   <div class="navigation">
-    <div class="ham-btn" onclick="showNav()">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <div class="links">
-        <div class="link1">
-            <a href="./index.html">About Las Piñas</a>
-        </div>
-        <div class="link2">
-            <a href="./programservice.html">Programs and Services</a>
-        </div>
-        <div class="link3">
-            <a href="./gallery.html">Gallery</a>
-        </div>
-        <div class="link4">
-            <a href="contact_us.html">Contact</a>
-        </div>
-    </div>
-</div>
+	<script>
+		window.addEventListener('DOMContentLoaded', function () {
+			var audio = document.getElementById("contactspeech");
+			var playLink = document.getElementById("playLinkC");
 
-    <div class="container-contact100">
-        <div class="wrap-contact100">
-            <form class="contact100-form validate-form">
-                <span class="contact100-form-title">
-                    Contact Us
-                </span>
+			playLink.addEventListener('click', function (event) {
+				event.preventDefault();
+				audio.play();
+			});
+		});
+	</script>
+	<div id="page-wrapper">
 
-                <label class="label-input100" for="first-name">Tell us your name *</label>
-                <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Type first name">
-                    <input id="first-name" class="input100" type="text" name="first-name" placeholder="First name">
-                    <span class="focus-input100"></span>
-                </div>
-                <div class="wrap-input100 rs2-wrap-input100 validate-input" data-validate="Type last name">
-                    <input class="input100" type="text" name="last-name" placeholder="Last name">
-                    <span class="focus-input100"></span>
-                </div>
+		<!-- Header -->
+		<header id="header" class="alt">
+			<nav id="nav">
+				<ul>
+					<li><a href="index.php">Home</a></li>
+				</ul>
+			</nav>
+		</header>
 
-                <label class="label-input100" for="email">Enter your email *</label>
-                <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                    <input id="email" class="input100" type="text" name="email" placeholder="Eg. example@email.com">
-                    <span class="focus-input100"></span>
-                </div>
+		<!-- Banner -->
+		<section id="banner">
+			<a href="#" id="playLinkC">
+				<h2>Key Officials Contact Information <br> and Directory</h2>
+			</a>
+		</section>
 
-                <label class="label-input100" for="phone">Enter phone number</label>
-                <div class="wrap-input100">
-                    <input id="phone" class="input100" type="text" name="phone" placeholder="Eg. +63 975 0015 182">
-                    <span class="focus-input100"></span>
-                </div>
+		<!-- Main -->
+		<section id="main" class="container">
 
-                <label class="label-input100" for="message">Message *</label>
-                <div class="wrap-input100 validate-input" data-validate="Message is required">
-                    <textarea id="message" class="input100" name="message" placeholder="Write us a message"></textarea>
-                    <span class="focus-input100"></span>
-                </div>
+			<section class="box special">
+				<header class="major">
+					<h2>LOCAL</h2>
 
-                <div class="container-contact100-form-btn">
-                    <button class="contact100-form-btn">
-                        Send Message
-                    </button>
-                </div>
-            </form>
+				</header>
+				<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+			</section>
 
-            <div class="contact100-more flex-col-c-m" style="background-image: url('Assets/images/lpchall.jpg   ');">
-                <div class="flex-w size1 p-b-47">
-                    <div class="txt1 p-r-25">
-                        <span class="lnr lnr-map-marker"></span>
-                    </div>
+			<section class="box special features">
+				<div class="features-row">
+					<section>
+						<span class="icon solid major fa-user accent2"></span>
+						<h3>ACCOUNTING</h3>
+						<p>Ms. April C. Lim-Torres
+							<br>
+							City Accountant
+							<br>
+							873-05-33
+						</p>
+					</section>
+					<section>
+						<span class="icon solid major fa-user accent3"></span>
+						<h3>AGRICULTURE</h3>
+						<p>Ms. Leticia Dela Cruz
+							<br>
+							City Agriculture Officer
+							<br>
+							519-56-87
+						</p>
+					</section>
+				</div>
+				<div class="features-row">
+					<section>
+						<span class="icon solid major fa-user accent4"></span>
+						<h3>ASSESSOR</h3>
+						<p>Engr. Ramon San Pedro
+							<br>
+							City Assessor
+							<br>
+							874-67-81
+						</p>
+					</section>
+					<section>
+						<span class="icon solid major fa-user accent5"></span>
+						<h3>BOC</h3>
+						<p>Hon. Roberto Cristobal
+							<br>
+							ABC President
+							<br>
+							779-80-17
+						</p>
+					</section>
+				</div>
+				<div class="features-row">
+					<section>
+						<span class="icon solid major fa-user accent4"></span>
+						<h3>BPLO</h3>
+						<p>Mr. Jesus Wilfredo D. Gaerlan
+							<br>
+							Acting Chief
+							<br>
+							817-44-60
+						</p>
+					</section>
+					<section>
+						<span class="icon solid major fa-user accent5"></span>
+						<h3>BUDGET</h3>
+						<p>Ms. Jessie I. Dela Cruz
+							<br>
+							City Budget Officer
+							<br>
+							511-07-79
+						</p>
+					</section>
+				</div>
+				<div class="features-row">
+					<section>
+						<span class="icon solid major fa-user accent4"></span>
+						<h3>CIVIL REGISTRY</h3>
+						<p>Atty. Billy James G. Ramos
+							<br>
+							City Local Civil Registrar
+							<br>
+							253-4370
+						</p>
+					</section>
+					<section>
+						<span class="icon solid major fa-user accent5"></span>
+						<h3>CSWD</h3>
+						<p>Ms. Junet M. Barilla
+							<br>
+							City Social Welfare & Dev. Officer
+							<br>
+							403-70-45
+						</p>
+					</section>
+				</div>
+				<div class="features-row">
+					<section>
+						<span class="icon solid major fa-user accent4"></span>
+						<h3>DFCAMCLP - IT</h3>
+						<p>Dr. Eugenia V, Guerra
+							<br>
+							Officer-in-Charge
+							<br>
+							511-84-02 / 831-3681
+						</p>
+					</section>
+					<section>
+						<span class="icon solid major fa-user accent5"></span>
+						<h3>DFCAMCLP</h3>
+						<p>Dr. Eugenia V. Guerra
+							<br>
+							Officer-In-Charge
+							<br>
+							403-19-85
+							<br>
 
-                    <div class="flex-col size2">
-                        <span class="txt1 p-b-20">
-                            Address
-                        </span>
 
-                        <span class="txt2">
-                            Alabang-Zapote Rd.,
-                            Las Piñas NCR Philippines
-                        </span>
-                    </div>
-                </div>
+							Mr.Ramoncito C. Jimenez
+							<br>
+							College Registrar
+						</p>
+					</section>
+				</div>
+				<div class="features-row">
+					<section>
+						<span class="icon solid major fa-user accent4"></span>
+						<h3>EMDO</h3>
+						<p>Mr. Walsur S. Espinosa
+							<br>
+							Officer-In-Charge
+							<br>
+							776-32-14
+						</p>
+					</section>
+					<section>
+						<span class="icon solid major fa-user accent5"></span>
+						<h3>CENRO</h3>
+						<p>Engr. Cezar R. Perillo
+							<br>
+							CENR Officer
+							<br>
+							880-03191 /824-40598
+						</p>
+					</section>
+				</div>
+			</section>
+			<section class="box special">
+				<header class="major">
+					<h2>NATIONAL</h2>
 
-                <div class="dis-flex size1 p-b-47">
-                    <div class="txt1 p-r-25">
-                        <span class="lnr lnr-phone-handset"></span>
-                    </div>
+				</header>
+				<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+			</section>
 
-                    <div class="flex-col size2">
-                        <span class="txt1 p-b-20">
-                            Lets Talk
-                        </span>
+			<section class="box special features">
+				<div class="features-row">
+					<section>
+						<span class="icon solid major fa-user accent2"></span>
+						<h3>COA</h3>
+						<p>Mr. Joseph L. Perez
+							<br>
+							City Auditor
+							<br>
+							873-85-45
+						</p>
+					</section>
+					<section>
+						<span class="icon solid major fa-user accent3"></span>
+						<h3>COMELEC</h3>
+						<p>Atty. Jehan B. Lidasan-Marohombsar
+							<br>
+							Election Officer IV
+							<br>
+							802-29-60
+						</p>
+					</section>
+				</div>
+				<div class="features-row">
+					<section>
+						<span class="icon solid major fa-user accent4"></span>
+						<h3>DEPED</h3>
+						<p>Ms. Loreta B. Torrecampo
+							<br>
 
-                        <span class="txt3">
-                            +1 800 1236879
-                        </span>
-                    </div>
-                </div>
+							Schools Division Superintendent
+							<br>
+							822-38-40
+						</p>
+					</section>
+					<section>
+						<span class="icon solid major fa-user accent5"></span>
+						<h3>DILG LAS PIÑAS</h3>
+						<p>Ms. Mary Anne B. Planas, CESE
+							<br>
+							City Director
+							<br>
+							551-59-85
+						</p>
+					</section>
+				</div>
+				<div class="features-row">
+					<section>
+						<span class="icon solid major fa-user accent4"></span>
+						<h3>FIRE</h3>
+						<p>F/Supt. Arthur L. Sawate, Ph. D., DSC
+							<br>
+							City Fire Marshall
+							<br>
+							874-61-77 / 871-22-81
+						</p>
+					</section>
+					<section>
+						<span class="icon solid major fa-user accent5"></span>
+						<h3>JAIL</h3>
+						<p>JC/Insp. Castle H. Masip
+							<br>
+							Warden (Male Ward)
+							<br>
+							779-87-28/p>
+					</section>
+				</div>
+				<div class="features-row">
+					<section>
+						<span class="icon solid major fa-user accent4"></span>
+						<h3>NBI</h3>
+						<p>Ms. Evelyn B. Virrey
+							<br>
+							OIC
+							<br>
+							872-49-92
+						</p>
+					</section>
+					<section>
+						<span class="icon solid major fa-user accent5"></span>
+						<h3>POLICE</h3>
+						<p>PCol. Simnar S. Gran
+							<br>
+							Chief
+							<br>
+							551-46-01 / 808-73-95
+						</p>
+					</section>
+				</div>
 
-                <div class="dis-flex size1 p-b-47">
-                    <div class="txt1 p-r-25">
-                        <span class="lnr lnr-envelope"></span>
-                    </div>
-
-                    <div class="flex-col size2">
-                        <span class="txt1 p-b-20">
-                            General Support
-                        </span>
-
-                        <span class="txt3">
-                            laspinascitygov@yahoo.com
-                        </span>
-                    </div>
-                </div>
-                <hr>
-                <ul class="social-media-list">
-                    <li><a href="#" target="_blank" class="contact-icon">
-                            <i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a>
-                    </li>
-
-                    <li><a href="#" target="_blank" class="contact-icon">
-                            <i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
-                    </li>
-                    <li><a href="#" target="_blank" class="contact-icon">
-                            <i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
-                    </li>
-                </ul>
-                <hr>
-
-            </div>
-        </div>
-    </div>
+			</section>
+		</section>
 
 
+		<!-- CTA -->
 
-    <div id="dropDownSelect1"></div>
-    <script src="Assets/JS/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/animsition/js/animsition.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/bootstrap/js/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/select2/select2.min.js"></script>
-    <script>
-        $(".selection-2").select2({
-            minimumResultsForSearch: 20,
-            dropdownParent: $('#dropDownSelect1')
-        });
-    </script>
-    <!--===============================================================================================-->
-    <script src="Assets/vendor/daterangepicker/moment.min.js"></script>
-    <script src="Assets/vendor/daterangepicker/daterangepicker.js"></script>
-    <!--===============================================================================================-->
-    <script src="Assets/vendor/countdowntime/countdowntime.js"></script>
-    <!--===============================================================================================-->
-    <script src="Assets/JS/main.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+		<!-- Footer -->
+		<footer id="footer">
 
-        gtag('config', 'UA-23581568-13');
-    </script>
-      <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"
-      integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ=="
-      crossorigin="anonymous"
-    ></script>
-    <script src="./transition.js"></script>
+			<ul class="copyright">
+				<li>&copy; Untitled. All rights reserved.</li>
+			</ul>
+		</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="./Assets/contactassets/js/jquery.min.js"></script>
+	<script src="./Assets/contactassets/js/jquery.dropotron.min.js"></script>
+	<script src="./Assets/contactassets/js/jquery.scrollex.min.js"></script>
+	<script src="./Assets/contactassets/js/browser.min.js"></script>
+	<script src="./Assets/contactassets/js/breakpoints.min.js"></script>
+	<script src="./Assets/contactassets/js/util.js"></script>
+	<script src="./Assets/contactassets/js/main.js"></script>
+
+
 </body>
 
 </html>

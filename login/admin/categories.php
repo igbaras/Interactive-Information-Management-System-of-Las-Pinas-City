@@ -25,83 +25,61 @@
         <div class="card card-primary col">
           <div class="card-header">
             <h3 class="card-title">Manage Category</h3>
+
+
+
           </div>
-          <!-- /.card-header -->
-          <!-- category form start -->
-
-          <form action="" method="post" enctype="multipart/form-data">
-            <div class="card-body">
-              <?php insert_category(); ?>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Category Title</label>
-                <div class="input-group">
-                  <input type="text" class="form-control" name="cat_title">
-
-                </div>
-
-                <div class="form-group mt-3">
-                  <label for="inputClientCompany">Category Image</label>
-                  <div id="selectedBanner"></div>
-
-                  <input type="file" class="form-control" name="cat_image" id="cat_image">
-
-
-                </div>
-                <div class="input-group">
-                  <input type="submit" name="submit" class="btn btn-lg btn-block btn-outline-primary" value="Add Category">
-                </div>
-              </div>
-              <!-- /.card-body -->
-          </form>
-        </div>
-
-        <?php
-
-        updateCategory(); ?>
-
-        <!-- Edit Category Modal -->
-        <form action="" method="post" enctype="multipart/form-data">
-
-          <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
+          <!-- ADD ITEM BUTTON -->
+          <buttton class="btn btn-lg btn-success" data-toggle="modal" data-target="#form_modal"><span class="fas fa-plus"></span> ADD CATEGORY</buttton>
+          <!-- ADD CATEGORY MODAL -->
+          <div class="modal fade" id="form_modal" aria-hidden="true">
+            <div class="modal-dialog">
               <div class="modal-content">
-                <div class="modal-header  bg-info">
-                  <h5 class="modal-title" id="editCatedory">Edit Category</h5>
+                <div class="modal-header">
+                  <h3 class="modal-title">Add Image to Gallery</h3>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">
+                      ×
+                    </span>
                   </button>
                 </div>
-                <div class="modal-body">
-                  <div class="form-group">
-                    <label for="editCategory">Category:</label>
-                    <div class="input-group">
-                      <input type="hidden" name="cat_id" id="cat_id">
-                      <input type="text" class="form-control mb-3" name="cat_title" id="cat_title">
+                <form action="" method="post" enctype="multipart/form-data">
+                  <div class="card-body">
 
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Category Title</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control" name="cat_title" required>
+
+                      </div>
+                      <label for="exampleInputEmail1">Category Description</label>
+                      <div class="input-group">
+                        <textarea name="cat_desc" class="form-control" id="" cols="30" rows="3" required></textarea>
+                      </div>
+
+                      <div class="form-group mt-3">
+                        <label for="inputClientCompany">Category Image</label>
+                        <div id="selectedBanner"></div>
+
+                        <input type="file" class="form-control" name="cat_image" id="cat_image" required>
+
+
+                      </div>
+                      <div class="input-group">
+                        <input type="submit" name="submit" class="btn btn-lg btn-block btn-outline-primary" value="Add Category">
+                      </div>
                     </div>
-
-                    <label for="editCategory">Image:</label>
-                    <div class="input-group">
-                      <div id="selectedBanner"></div>
-                      <input type="file" class="form-control" id="cat_image" name="cat_image">
-                    </div>
-
-
-                    <!-- <label for="editCategory">Created:</label>
-                    <div class="input-group">
-                      <input type="text" id="cat_date" class=" form-control" readonly>
-                    </div> -->
-
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-primary" name="update-categories" value="Update Category">
-                  </div>
-                </div>
+                    <!-- /.card-body -->
+                </form>
               </div>
             </div>
           </div>
-        </form>
+
+          <!-- category form start -->
+
+
+        </div>
+
 
         <!-- DELETE POP UP FORM (Bootstrap MODAL) -->
         <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -115,7 +93,7 @@
               </div>
 
 
-              <?php deleteCategory(); ?>
+
 
               <form method="POST">
 
@@ -138,33 +116,30 @@
         <!-- List  of Category Table -->
 
 
+        <!-- List  of Category Table -->
+
+
         <div class="col">
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">List of Categories</h3>
 
-              <div class="card-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
-                  <div class="input-group-append">
-                    <button type="submit" class="btn btn-default">
-                      <i class="fas fa-search"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
             </div>
             <!-- /.card-header -->
-
-            <div class="card-body table-responsive p-0" style="height: 330px;">
-              <table class="table table-head-fixed text-nowrap">
+            <?php insert_category(); ?>
+            <?php deleteCategory(); ?>
+            <?php updateCategory(); ?>
+            <div class="card-body">
+              <table id="exampleB" class="table table-head-fixed text-nowrap">
                 <thead>
                   <tr>
                     <th>ID</th>
                     <th>Category Title</th>
                     <th>Image</th>
+
                     <th>Date Created</th>
+                    <th></th>
 
 
                   </tr>
@@ -172,7 +147,6 @@
                 <tbody>
 
                   <?php
-
                   $query = "SELECT * FROM categories ORDER BY cat_id  DESC ";
                   $all_categories_query = mysqli_query($connection, $query);
                   if (!$all_categories_query) {
@@ -183,18 +157,63 @@
                     $cat_title = $row['cat_title'];
                     $cat_image = $row['cat_image'];
                     $cat_date = date("F j, Y, g:i a", strtotime($row["cat_date"]));
-
-
-
+                    $cat_desc = $row['cat_desc'];
 
                   ?>
                     <tr>
                       <td> <?php echo $cat_id; ?> </td>
                       <td><?php echo $cat_title; ?> </td>
-                      <td><?php echo "<img src='../images/categories/$cat_image' alt='' width='20%'>"; ?> </td>
+                      <td><?php echo "<img src='$cat_image' alt='' width='100px'>"; ?> </td>
+
                       <td><?php echo  $cat_date; ?> </td>
 
-                      <td> <button class='btn btn-primary edit_btn' data-toggle='modal'><i class='fas fa-edit'></i></button> <button class='btn btn-danger deletebtn' data-toggle='modal'><i class='fas fa-trash'></i></button></td>
+                      <td> <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit<?php echo $cat_id ?>"><i class='fas fa-edit'></i></button><button class='btn btn-danger deletebtn' data-toggle='modal'><i class='fas fa-trash'></i></button></td>
+
+
+                      <!-- ========EDIT MODAL=========== -->
+                      <div class="modal fade" id="edit<?php echo $cat_id ?>" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <form method="POST" enctype="multipart/form-data" action="">
+                              <div class="modal-header bg-info">
+                                <h4 class="modal-title">Edit Category</h4>
+                              </div>
+                              <div class="modal-body">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-12">
+                                  <div class="form-group">
+                                    <h5>Current Photo</h5>
+                                    <img src="<?php echo $cat_image; ?>" height="120" width="150" />
+                                    <input type="hidden" name="previous" value="<?php echo $cat_image; ?>" />
+                                    <hr>
+                                    <h5>New Photo</h5>
+                                    <input type="file" class="form-control" name="cat_image" />
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="editCategory">Category:</label>
+                                    <div class="input-group">
+                                      <input type="hidden" value="<?php echo $cat_id; ?>" name="cat_id" />
+                                      <input type="text" class="form-control mb-3" name="cat_title" id="cat_title" value="<?php echo $cat_title; ?>">
+                                    </div>
+
+                                    <label for="editCategory">Description:</label>
+                                    <div class="input-group">
+                                      <textarea name="cat_desc" class="form-control" id="" cols="30" rows="3"><?php echo $cat_desc; ?></textarea>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                              <br style="clear:both;" />
+                              <div class="modal-footer">
+                                <button class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Close</button>
+                                <button type="submit" class="btn btn-primary" name="update-categories"><span class="glyphicon glyphicon-save"></span> Update</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
                     </tr>
 
                   <?php
@@ -262,6 +281,23 @@
 
     });
 
+    // ALERT FADE EFFECT
+    $(".alert").delay(4000).slideUp(200, function() {
+      $(this).alert('close');
+    });
+
+    $("#exampleB")
+      .DataTable({
+        order: false,
+        responsive: true,
+        lengthChange: false,
+        autoWidth: false,
+
+        buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
+      })
+      .buttons()
+      .container()
+      .appendTo("#exampleB_wrapper .col-md-6:eq(0)");
   });
 </script>
 
@@ -290,10 +326,11 @@
           e.target.result +
           "\" data-file='" +
           f.name +
-          "alt='Category Image' width='20%'>";
+          "alt='Category Image' width='40%'>";
         selDiv.html(html);
       };
       reader.readAsDataURL(f);
     });
   }
 </script>
+<script src="../dist/js/script.js"></script>

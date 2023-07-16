@@ -1,14 +1,36 @@
 <?php include "../../includes/db.php"; ?>
 <?php include "./functions.php"; ?>
 <?php ob_start(); ?>
+<?php session_start(); ?>
+<?php
+
+require '../../cloudapi/vendor/autoload.php';
+
+use Cloudinary\Configuration\Configuration;
+use Cloudinary\Api\Upload\UploadApi;
+
+
+Configuration::instance([
+    'cloud' => [
+        'cloud_name' => 'sarabgi',
+        'api_key' => '322979874984547',
+        'api_secret' => 'ZKvsTGjiBUobdPkcgjsq0Ota7hg'
+    ],
+    'url' => [
+        'secure' => true
+    ]
+]);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin | Dashboard</title>
 
+    <title>Admin | The City of Las Piñas</title>
+    <link rel="shortcut icon" type="image icon" href="https://res.cloudinary.com/sarabgi/image/upload/v1688669789/Assets/lplogo_bje93b.png">
 
 
     <!-- Google Font: Source Sans Pro -->

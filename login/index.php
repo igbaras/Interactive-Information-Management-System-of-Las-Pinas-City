@@ -3,14 +3,14 @@
 
 <?php
 
-if (isset($_SESSION['user_role'])) {
+if (isset($_SESSION['cryptedpass'])) {
 
   if ($_SESSION['user_role'] == 'admin') {
     header("Location: admin/portal.php");
   } else if ($_SESSION['user_role'] == 'writer') {
     header("Location: writer_editor/writer_portal.php");
-  } else if ($_SESSION['user_role'] == 'customer service') {
-    header("Location: customer_service/cs_portal.php");
+  } else if ($_SESSION['user_role'] == 'chat service') {
+    header("Location: chat_service/cs_portal.php");
   }
 }
 
@@ -21,7 +21,8 @@ if (isset($_SESSION['user_role'])) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Log in </title>
+  <link rel="shortcut icon" type="image icon" href="https://res.cloudinary.com/sarabgi/image/upload/v1688669789/Assets/lplogo_bje93b.png">
+  <title>Login | The City of Las Piñas</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -35,19 +36,24 @@ if (isset($_SESSION['user_role'])) {
 
 </head>
 
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background-image: url('https://res.cloudinary.com/sarabgi/image/upload/v1688664262/Assets/270784355_699889750981465_9170872178964725670_n_jd5xlt.jpg'); background-repeat:no-repeat;  background-size: 100% 100%; ">
+  <div class="overlay" style=" background-color: rgba(4, 70, 48, 0.7); position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;"></div>
   <div class="login-box">
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
 
-      <img class="animation__shake" src="https://res.cloudinary.com/sarabgi/image/upload/v1662100389/lpc_mbzrbe.png" alt="AdminLTELogo" width="200">
+      <img class="animation__shake" src="https://res.cloudinary.com/sarabgi/image/upload/v1688669789/Assets/lplogo_bje93b.png" alt="AdminLTELogo" width="200" style="background-color: #DADFD9;">
     </div>
 
 
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
       <div class="card-header text-center">
-        <a href="index.html" class="h1"><b>Login</b></a>
+        <a href="#" class="h1"><b>Login</b></a>
       </div>
 
       <div class="card-body">
@@ -98,10 +104,6 @@ if (isset($_SESSION['user_role'])) {
         </form>
 
         <!-- /.social-auth-links -->
-
-        <p class="mb-1">
-          <a href="forgot-password.html">I forgot my password</a>
-        </p>
 
       </div>
       <!-- /.card-body -->

@@ -1,8 +1,9 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-        <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Admin</span>
+    <a href="settings.php?source=my_profile&uidd=<?php echo $_SESSION['user_id']; ?>" class="brand-link">
+        <!-- <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
+        <span>Role: </span>
+        <span class="brand-text font-weight-strong"><?php echo $_SESSION['user_role']; ?></span>
     </a>
 
     <!-- Sidebar -->
@@ -10,10 +11,12 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+
+                <img src="<?php echo $_SESSION['user_image']; ?>" class="img-circle elevation-2" alt="User Image">
+
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="settings.php?source=my_profile&uidd=<?php echo $_SESSION['user_id']; ?>" class="d-block"><?php echo $_SESSION['user_firstname'] . " " . $_SESSION['user_lastname']; ?></a>
             </div>
         </div>
 
@@ -56,13 +59,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/layout/top-nav.html" class="nav-link">
+                            <a href="https://business.facebook.com/latest/inbox/all?asset_id=109053242246987" target="_blank" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Messages</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                            <a href="../../index.php" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Website Home</p>
                             </a>
@@ -79,7 +82,7 @@
                     </a>
 
                 </li>
-                <li class="nav-item <?= ($activePage == 'articles.php') ? 'menu-open' : ''; ?><?= ($activePage == 'news.php') ? 'menu-open' : ''; ?>">
+                <li class="nav-item <?= ($activePage == 'posts.php') ? 'menu-open' : ''; ?><?= ($activePage == 'news.php') ? 'menu-open' : ''; ?>">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-book"></i>
                         <p>
@@ -89,104 +92,101 @@
                     </a>
 
                     <ul class="nav nav-treeview">
-                        <li class="nav-header ">ARTICLES</li>
-                        <li class="nav-item ">
-                            <a href="./articles.php?source=add_article" class="nav-link ">
+
+                        <li class="nav-item active">
+                            <a href="./posts.php" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Add Article</p>
+                                <p>View All Posts</p>
                             </a>
                         </li>
                         <li class="nav-item active">
-                            <a href="./articles.php" class="nav-link ">
+                            <a href="./posts.php?source=post_com" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>View All Articles</p>
+                                <p>View Post Comments</p>
                             </a>
                         </li>
-
                     </ul>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-header">NEWS</li>
-                        <li class="nav-item">
-                            <a href="./news.php?source=add_news" class="nav-link ">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Add News</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="./news.php" class="nav-link ">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>View All News</p>
-                            </a>
-                        </li>
 
-                    </ul>
                 </li>
-
-                <li class="nav-item <?= ($activePage == 'gallery.php') ? 'menu-open' : ''; ?>">
+                <li class="nav-item <?= ($activePage == 'lifestyles.php') ? 'menu-open' : ''; ?>">
                     <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-heartbeat"></i>
+                        <p>
+                            Manage Lifestyles
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+
+                        <li class="nav-item active">
+                            <a href="./lifestyles.php" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View All Lifestyles</p>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="./lifestyles.php?source=lifestyle_com" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View Lifestyle Comments</p>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </li>
+                <li class="nav-item <?= ($activePage == 'gallery.php') ? 'menu-open' : ''; ?>">
+                    <a href="./gallery.php" class="nav-link">
                         <i class="nav-icon fas fa-image"></i>
                         <p>
                             Gallery
-                            <i class="fas fa-angle-left right"></i>
+
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="gallery.php?source=add_image" class="nav-link <?= ($activePage == 'gallery.php?source=add_image') ? 'active' : ''; ?>">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Add picture</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="gallery.php" class="nav-link <?= ($activePage == 'gallery.php?source=view_all_images') ? 'active' : ''; ?>">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>View all pictures</p>
-                            </a>
-                        </li>
 
-                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="pages/forms/general.html" class="nav-link">
+                <li class="nav-item <?= ($activePage == 'vt.php') ? 'menu-open' : ''; ?>">
+                    <a href="./vt.php" class="nav-link">
                         <i class="nav-icon fas fa-vr-cardboard"></i>
-                        <p>Virtual Tour</p>
-                        <i class="fas fa-angle-left right"></i>
+                        <p>
+                            Virtual Tour </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item"><a href="" class="nav-link"><i class="far fa-circle nav-icon"></i>Add Virtual
-                                tour </a></li>
-                        <li class="nav-item"><a href="" class="nav-link"><i class="far fa-circle nav-icon"></i>View all
-                                virtual tour </a></li>
-                    </ul>
+
                 </li>
+                <li class="nav-item <?= ($activePage == 'ads.php') ? 'menu-open' : ''; ?>">
+                    <a href="./ads.php" class="nav-link">
+                        <i class="nav-icon fas fa-ad"></i>
+                        <p>
+                            Advertisements </p>
+                    </a>
+
+                </li>
+
 
                 <li class="nav-header">OTHER CONFIGURATIONS</li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-cogs"></i>
-                        <p>Dev Tools</p>
-                        <i class="fas fa-angle-left right"></i>
-                    </a>
 
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>Item1</a></li>
-                        <li class="nav-item"><a href="" class="nav-link"><i class="far fa-circle nav-icon"></i>Item2</a></li>
-                    </ul>
-
-                </li>
-                <li class="nav-item">
+                <li class="nav-item  <?= ($activePage == 'settings.php') ? 'menu-open' : ''; ?>">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-cog"></i>
                         <p>Settings</p>
                         <i class="fas fa-angle-left right"></i>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>Manage Users</a></li>
-                        <li class="nav-item"><a href="" class="nav-link"><i class="far fa-circle nav-icon"></i>My Profile</a>
+
+                        <li class="nav-item">
+                            <a href="./settings.php?source=manage_users&uid=<?php echo $_SESSION['user_id']; ?>" class="nav-link"><i class="far fa-circle nav-icon"></i>Private Accounts</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="./settings.php?source=public_user" class="nav-link"><i class="far fa-circle nav-icon"></i>Public Accounts</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="./settings.php?source=my_profile&uidd=<?php echo $_SESSION['user_id']; ?>" class="nav-link"><i class="far fa-circle nav-icon"></i>My Profile</a>
                         </li>
                     </ul>
-
                 </li>
+
                 <li class="nav-item">
                     <a href="../user_logout.php" class="nav-link">
                         <i class=" nav-icon fa fa-power-off"></i>
